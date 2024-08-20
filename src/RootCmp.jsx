@@ -13,7 +13,7 @@ export function RootCmp() {
 
 			<main>
 				<Routes>
-					<Route path='' element={<HomePage />} />
+					<Route path='/' element={<HomePage />} />
 					<Route path='car/:carId' element={<GigDetails />} />
 				</Routes>
 			</main>
