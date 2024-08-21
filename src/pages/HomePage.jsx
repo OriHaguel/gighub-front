@@ -5,7 +5,7 @@ import { AdvertArea } from "../cmps/AdvertArea"
 
 export function HomePage() {
 
-    console.log('hi')
+    // console.log('hi test')
     return (
 
         <div className="main-page">
