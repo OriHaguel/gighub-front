@@ -8,7 +8,7 @@ import { AdvertArea } from "../cmps/AdvertArea"
 
 export function HomePage() {
 
-    console.log('hi')
+
     return (
 
         <div className="main-page">
@@ -17,11 +17,11 @@ export function HomePage() {
 
             <section>
                 <h1>Home sweet Home</h1>
-                <CategoryList />
                 <h1>GigHub</h1>
                 <p>Welcome to our platform GigHub! Find everything you need, just like on Fiverr.</p>
             </section>
 
+            <CategoryList />
             <section className="home-page-carrousel">
                 <h1>Popular Services</h1>
                 <PopularServicesCarrousel />
