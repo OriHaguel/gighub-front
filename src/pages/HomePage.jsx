@@ -1,5 +1,3 @@
-import { AppFooter } from '../cmps/AppFooter'
-
 export function HomePage() {
 	return (
 		<section>
