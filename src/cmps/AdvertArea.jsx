@@ -12,7 +12,7 @@ export function AdvertArea() {
                 <p>Filter to find the right freelancers quickly and get great work delivered in no time, every time.</p>
                 <p>Chat with our team to get your questions answered or resolve any issues with your orders.</p>
             </div>
-            <div className="advert-area">
+            {/* <div className="advert-area">
                 <iframe
                     style={{ width: '100%', maxWidth: '1200px', height: '600px' }}
                     src="https://streamable.com/e/jsc39n"
@@ -21,7 +21,7 @@ export function AdvertArea() {
                     allowFullScreen
                     title="Advert Video"
                 ></iframe>
-            </div>
+            </div> */}
             <div>Pro Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, ducimus architecto? Quae mollitia laborum, quia delectus illum libero nostrum ea.</div>
         </div>
     )
