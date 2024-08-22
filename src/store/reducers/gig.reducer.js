@@ -1,39 +1,39 @@
-export const SET_CARS = 'SET_CARS'
-export const SET_CAR = 'SET_CAR'
-export const REMOVE_CAR = 'REMOVE_CAR'
-export const ADD_CAR = 'ADD_CAR'
-export const UPDATE_CAR = 'UPDATE_CAR'
-export const ADD_CAR_MSG = 'ADD_CAR_MSG'
+export const SET_GIGS = 'SET_GIGS'
+export const SET_GIG = 'SET_GIG'
+export const REMOVE_GIG = 'REMOVE_GIG'
+export const ADD_GIG = 'ADD_GIG'
+export const UPDATE_GIG = 'UPDATE_GIG'
+export const ADD_GIG_MSG = 'ADD_GIG_MSG'
 
 const initialState = {
-    cars: [],
-    car: null
+    gigs: [],
+    gig: null
 }
 
-export function carReducer(state = initialState, action) {
+export function gigReducer(state = initialState, action) {
     var newState = state
-    var cars
+    var gigs
     switch (action.type) {
-        case SET_CARS:
-            newState = { ...state, cars: action.cars }
+        case SET_GIGS:
+            newState = { ...state, gigs: action.gigs }
             break
-        case SET_CAR:
-            newState = { ...state, car: action.car }
+        case SET_GIG:
+            newState = { ...state, gig: action.gig }
             break
-        case REMOVE_CAR:
-            const lastRemovedCar = state.cars.find(car => car._id === action.carId)
-            cars = state.cars.filter(car => car._id !== action.carId)
-            newState = { ...state, cars, lastRemovedCar }
+        case REMOVE_GIG:
+            const lastRemovedGig = state.gigs.find(gig => gig._id === action.gigId)
+            gigs = state.gigs.filter(gig => gig._id !== action.gigId)
+            newState = { ...state, gigs, lastRemovedGig }
             break
-        case ADD_CAR:
-            newState = { ...state, cars: [...state.cars, action.car] }
+        case ADD_GIG:
+            newState = { ...state, gigs: [...state.gigs, action.gig] }
             break
-        case UPDATE_CAR:
-            cars = state.cars.map(car => (car._id === action.car._id) ? action.car : car)
-            newState = { ...state, cars }
+        case UPDATE_GIG:
+            gigs = state.gigs.map(gig => (gig._id === action.gig._id) ? action.gig : gig)
+            newState = { ...state, gigs }
             break
-        case ADD_CAR_MSG:
-            newState = { ...state, car: { ...state.car, msgs: [...state.car.msgs || [], action.msg] } }
+        case ADD_GIG_MSG:
+            newState = { ...state, gig: { ...state.gig, msgs: [...state.gig.msgs || [], action.msg] } }
             break
         default:
     }
@@ -42,28 +42,28 @@ export function carReducer(state = initialState, action) {
 
 // unitTestReducer()
 
-function unitTestReducer() {
-    var state = initialState
-    const car1 = { _id: 'b101', vendor: 'Car ' + parseInt(Math.random() * 10), msgs: [] }
-    const car2 = { _id: 'b102', vendor: 'Car ' + parseInt(Math.random() * 10), msgs: [] }
+// function unitTestReducer() {
+//     var state = initialState
+//     const gig1 = { _id: 'b101', vendor: 'Gig ' + parseInt(Math.random() * 10), msgs: [] }
+//     const gig2 = { _id: 'b102', vendor: 'Gig ' + parseInt(Math.random() * 10), msgs: [] }
 
-    state = carReducer(state, { type: SET_CARS, cars: [car1] })
-    console.log('After SET_CARS:', state)
+//     state = gigReducer(state, { type: SET_GIGS, gigs: [gig1] })
+//     console.log('After SET_GIGS:', state)
 
-    state = carReducer(state, { type: ADD_CAR, car: car2 })
-    console.log('After ADD_CAR:', state)
+//     state = gigReducer(state, { type: ADD_GIG, gig: gig2 })
+//     console.log('After ADD_GIG:', state)
 
-    state = carReducer(state, { type: UPDATE_CAR, car: { ...car2, vendor: 'Good' } })
-    console.log('After UPDATE_CAR:', state)
+//     state = gigReducer(state, { type: UPDATE_GIG, gig: { ...gig2, vendor: 'Good' } })
+//     console.log('After UPDATE_GIG:', state)
 
-    state = carReducer(state, { type: REMOVE_CAR, carId: car2._id })
-    console.log('After REMOVE_CAR:', state)
+//     state = gigReducer(state, { type: REMOVE_GIG, gigId: gig2._id })
+//     console.log('After REMOVE_GIG:', state)
 
-    const msg = { id: 'm' + parseInt(Math.random() * 100), txt: 'Some msg' }
-    state = carReducer(state, { type: ADD_CAR_MSG, carId: car1._id, msg })
-    console.log('After ADD_CAR_MSG:', state)
+//     const msg = { id: 'm' + parseInt(Math.random() * 100), txt: 'Some msg' }
+//     state = gigReducer(state, { type: ADD_GIG_MSG, gigId: gig1._id, msg })
+//     console.log('After ADD_GIG_MSG:', state)
 
-    state = carReducer(state, { type: REMOVE_CAR, carId: car1._id })
-    console.log('After REMOVE_CAR:', state)
-}
+//     state = gigReducer(state, { type: REMOVE_GIG, gigId: gig1._id })
+//     console.log('After REMOVE_GIG:', state)
+// }
 
