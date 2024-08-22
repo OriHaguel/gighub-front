@@ -65,7 +65,7 @@ export function CategoryList() {
     return <section className="category-list-container">
         {categories && categories.map(category => (
             <div className="category-list" key={category.categoryTxt}>
-                <Link className="category-list-link" to={`/gig/${category.categoryTxt.split(' ')[0].toLowerCase()}`}>
+                <Link className="category-list-link" to={`category/${category.categoryTxt.split(' ')[0].toLowerCase()}`}>
                     <div className="category-list-logo">{category.logo}</div>
                     <p className="category-list-text">{category.categoryTxt}</p>
                 </Link>

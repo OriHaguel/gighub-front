@@ -12,7 +12,7 @@ export function HomePage() {
 
         <div className="main-page">
 
-            <AppHeader />
+            {/* <AppHeader /> */}
 
             <section>
                 <h1>Home sweet Home</h1>
