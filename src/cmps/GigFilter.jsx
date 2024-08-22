@@ -26,7 +26,7 @@ export function GigFilter({ filterBy, setFilterBy }) {
     }
 
     function clearFilter() {
-        setFilterToEdit({ ...filterToEdit, txt: '', minSpeed: '', maxPrice: '' })
+        setFilterToEdit({ ...filterToEdit, txt: '', minSpeed: '', price: '' })
     }
 
     function clearSort() {

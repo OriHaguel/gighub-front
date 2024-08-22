@@ -1,117 +1,117 @@
-import { carService } from '../../services/car'
+import { gigService } from '../../services/gig'
 import { store } from '../store'
-import { ADD_CAR, REMOVE_CAR, SET_CARS, SET_CAR, UPDATE_CAR, ADD_CAR_MSG } from '../reducers/car.reducer'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG } from '../reducers/gig.reducer'
 
-export async function loadCars(filterBy) {
+export async function loadGigs(filterBy) {
     try {
-        const cars = await carService.query(filterBy)
-        store.dispatch(getCmdSetCars(cars))
+        const gigs = await gigService.query(filterBy)
+        store.dispatch(getCmdSetGigs(gigs))
     } catch (err) {
-        console.log('Cannot load cars', err)
+        console.log('Cannot load gigs', err)
         throw err
     }
 }
 
-export async function loadCar(carId) {
+export async function loadGig(gigId) {
     try {
-        const car = await carService.getById(carId)
-        store.dispatch(getCmdSetCar(car))
+        const gig = await gigService.getById(gigId)
+        store.dispatch(getCmdSetGig(gig))
     } catch (err) {
-        console.log('Cannot load car', err)
+        console.log('Cannot load gig', err)
         throw err
     }
 }
 
 
-export async function removeCar(carId) {
+export async function removeGig(gigId) {
     try {
-        await carService.remove(carId)
-        store.dispatch(getCmdRemoveCar(carId))
+        await gigService.remove(gigId)
+        store.dispatch(getCmdRemoveGig(gigId))
     } catch (err) {
-        console.log('Cannot remove car', err)
+        console.log('Cannot remove gig', err)
         throw err
     }
 }
 
-export async function addCar(car) {
+export async function addGig(gig) {
     try {
-        const savedCar = await carService.save(car)
-        store.dispatch(getCmdAddCar(savedCar))
-        return savedCar
+        const savedGig = await gigService.save(gig)
+        store.dispatch(getCmdAddGig(savedGig))
+        return savedGig
     } catch (err) {
-        console.log('Cannot add car', err)
+        console.log('Cannot add gig', err)
         throw err
     }
 }
 
-export async function updateCar(car) {
+export async function updateGig(gig) {
     try {
-        const savedCar = await carService.save(car)
-        store.dispatch(getCmdUpdateCar(savedCar))
-        return savedCar
+        const savedGig = await gigService.save(gig)
+        store.dispatch(getCmdUpdateGig(savedGig))
+        return savedGig
     } catch (err) {
-        console.log('Cannot save car', err)
+        console.log('Cannot save gig', err)
         throw err
     }
 }
 
-export async function addCarMsg(carId, txt) {
+export async function addGigMsg(gigId, txt) {
     try {
-        const msg = await carService.addCarMsg(carId, txt)
-        store.dispatch(getCmdAddCarMsg(msg))
+        const msg = await gigService.addGigMsg(gigId, txt)
+        store.dispatch(getCmdAddGigMsg(msg))
         return msg
     } catch (err) {
-        console.log('Cannot add car msg', err)
+        console.log('Cannot add gig msg', err)
         throw err
     }
 }
 
 // Command Creators:
-function getCmdSetCars(cars) {
+function getCmdSetGigs(gigs) {
     return {
-        type: SET_CARS,
-        cars
+        type: SET_GIGS,
+        gigs
     }
 }
-function getCmdSetCar(car) {
+function getCmdSetGig(gig) {
     return {
-        type: SET_CAR,
-        car
+        type: SET_GIG,
+        gig
     }
 }
-function getCmdRemoveCar(carId) {
+function getCmdRemoveGig(gigId) {
     return {
-        type: REMOVE_CAR,
-        carId
+        type: REMOVE_GIG,
+        gigId
     }
 }
-function getCmdAddCar(car) {
+function getCmdAddGig(gig) {
     return {
-        type: ADD_CAR,
-        car
+        type: ADD_GIG,
+        gig
     }
 }
-function getCmdUpdateCar(car) {
+function getCmdUpdateGig(gig) {
     return {
-        type: UPDATE_CAR,
-        car
+        type: UPDATE_GIG,
+        gig
     }
 }
-function getCmdAddCarMsg(msg) {
+function getCmdAddGigMsg(msg) {
     return {
-        type: ADD_CAR_MSG,
+        type: ADD_GIG_MSG,
         msg
     }
 }
 
 // unitTestActions()
-async function unitTestActions() {
-    await loadCars()
-    await addCar(carService.getEmptyCar())
-    await updateCar({
-        _id: 'm1oC7',
-        title: 'Car-Good',
-    })
-    await removeCar('m1oC7')
-    // TODO unit test addCarMsg
-}
+// async function unitTestActions() {
+//     await loadGigs()
+//     await addGig(gigService.getEmptyGig())
+//     await updateGig({
+//         _id: 'm1oC7',
+//         title: 'Gig-Good',
+//     })
+//     await removeGig('m1oC7')
+//     // TODO unit test addGigMsg
+// }
