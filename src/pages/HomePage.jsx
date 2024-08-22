@@ -1,10 +1,9 @@
 import { CategoryList } from "../cmps/CategoryList.jsx"
-
-
 import React from "react"
 import { AppHeader } from "../cmps/AppHeader"
 import { PopularServicesCarrousel } from "../cmps/PopularServicesCarrousel"
 import { AdvertArea } from "../cmps/AdvertArea"
+import { gigService } from "../services/gig/gig.service.local.js"
 
 export function HomePage() {
 

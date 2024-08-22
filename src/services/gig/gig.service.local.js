@@ -1,87 +1,112 @@
 
 import { storageService } from '../async-storage.service'
-import { makeId } from '../util.service'
+import { makeId, makeLorem, getRandomIntInclusive, loadFromStorage, saveToStorage } from '../util.service'
 import { userService } from '../user'
 
-const STORAGE_KEY = 'car'
-
-export const carService = {
+const STORAGE_KEY = 'gig'
+_createGigs()
+export const gigService = {
     query,
     getById,
     save,
     remove,
-    addCarMsg
+
+
 }
-window.cs = carService
+window.cs = gigService
 
 
 async function query(filterBy = { txt: '', price: 0 }) {
-    var cars = await storageService.query(STORAGE_KEY)
-    const { txt, minSpeed, maxPrice, sortField, sortDir } = filterBy
+    var gigs = await storageService.query(STORAGE_KEY)
+    const { txt, daysToMake, price, sortField, sortDir } = filterBy
 
     if (txt) {
         const regex = new RegExp(filterBy.txt, 'i')
-        cars = cars.filter(car => regex.test(car.vendor) || regex.test(car.description))
+        gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
     }
-    if (minSpeed) {
-        cars = cars.filter(car => car.speed >= minSpeed)
+    if (daysToMake) {
+        gigs = gigs.filter(gig => gig.daysToMake >= daysToMake)
     }
-    if(sortField === 'vendor' || sortField === 'owner'){
-        cars.sort((car1, car2) => 
-            car1[sortField].localeCompare(car2[sortField]) * +sortDir)
+    if (price) {
+        gigs = gigs.filter(gig => gig.price >= price)
     }
-    if(sortField === 'price' || sortField === 'speed'){
-        cars.sort((car1, car2) => 
-            (car1[sortField] - car2[sortField]) * +sortDir)
+    if (sortField === 'title' || sortField === 'owner') {
+        gigs.sort((gig1, gig2) =>
+            gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
     }
-    
-    cars = cars.map(({ _id, vendor, price, speed, owner }) => ({ _id, vendor, price, speed, owner }))
-    return cars
+    if (sortField === 'price' || sortField === 'daystomake') {
+        gigs.sort((gig1, gig2) =>
+            (gig1[sortField] - gig2[sortField]) * +sortDir)
+    }
+
+    gigs = gigs.map(({ _id, title, price, daystomake, owner }) => ({ _id, title, price, daystomake, owner }))
+    return gigs
 }
 
-function getById(carId) {
-    return storageService.get(STORAGE_KEY, carId)
+function getById(gigId) {
+    return storageService.get(STORAGE_KEY, gigId)
 }
 
-async function remove(carId) {
+async function remove(gigId) {
     // throw new Error('Nope')
-    await storageService.remove(STORAGE_KEY, carId)
+    await storageService.remove(STORAGE_KEY, gigId)
 }
 
-async function save(car) {
-    var savedCar
-    if (car._id) {
-        const carToSave = {
-            _id: car._id,
-            price: car.price,
-            speed: car.speed,
+async function save(gig) {
+    var savedGig
+    if (gig._id) {
+        const gigToSave = {
+            _id: gig._id,
+            price: gig.price,
+            daystomake: gig.daystomake,
         }
-        savedCar = await storageService.put(STORAGE_KEY, carToSave)
+        savedGig = await storageService.put(STORAGE_KEY, gigToSave)
     } else {
-        const carToSave = {
-            vendor: car.vendor,
-            price: car.price,
-            speed: car.speed,
+        const gigToSave = {
+            title: gig.title,
+            price: gig.price,
+            daystomake: gig.daystomake,
             // Later, owner is set by the backend
             owner: userService.getLoggedinUser(),
             msgs: []
         }
-        savedCar = await storageService.post(STORAGE_KEY, carToSave)
+        savedGig = await storageService.post(STORAGE_KEY, gigToSave)
     }
-    return savedCar
+    return savedGig
 }
 
-async function addCarMsg(carId, txt) {
-    // Later, this is all done by the backend
-    const car = await getById(carId)
-
-    const msg = {
-        id: makeId(),
-        by: userService.getLoggedinUser(),
-        txt
-    }
-    car.msgs.push(msg)
-    await storageService.put(STORAGE_KEY, car)
-
-    return msg
+function _createGig() {
+    const gig = { txt: '', price: 0 }
+    gig.txt = makeLorem()
+    gig.price = getRandomIntInclusive(15, 1000)
+    gig._id = makeId('g')
+    gig.daysToMake = getRandomIntInclusive(1, 14)
+    return gig
 }
+
+function _createGigs() {
+    let gigs = loadFromStorage(STORAGE_KEY)
+    if (!gigs || !gigs.length) {
+        gigs = []
+        for (var i = 0; i < 20; i++) {
+            gigs.push(_createGig())
+        }
+        saveToStorage(STORAGE_KEY, gigs)
+    }
+}
+
+// async function addGigMsg(gigId, txt) {
+//     // Later, this is all done by the backend
+//     const gig = await getById(gigId)
+
+//     const msg = {
+//         id: makeId(),
+//         by: userService.getLoggedinUser(),
+//         txt
+//     }
+//     gig.msgs.push(msg)
+//     await storageService.put(STORAGE_KEY, gig)
+
+//     return msg
+// }
+
