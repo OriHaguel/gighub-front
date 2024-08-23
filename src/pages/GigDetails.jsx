@@ -3,78 +3,17 @@ import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
+import StarIcon from '../assets/svg/StarIcon.svg?react'
+
 // import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service'
+
+// TODO: handle external data
+// TODO: dynamic star icons
 
 export function GigDetails() {
 	return (
 		<div id='root'>
 			<div className='main-layout base-layout'>
-				<header className='app-header main-layout full   filter-visible '>
-					<div className='header-content'>
-						<div className='logo'>
-							<a href='/'>
-								flai<span className='rr'>rr</span>
-								<span className='dot'>.</span>
-							</a>
-						</div>
-						<div className='search-bar'>
-							<input type='search' placeholder='What service are you looking for today?' name='txt' id='header-search-text' autocomplete='off' />
-							<button className='search-btn' type='submit'>
-								<svg width='16' height='16' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg' fill='currentFill'>
-									<path d='m15.89 14.653-3.793-3.794a.37.37 0 0 0-.266-.109h-.412A6.499 6.499 0 0 0 6.5 0C2.91 0 0 2.91 0 6.5a6.499 6.499 0 0 0 10.75 4.919v.412c0 .1.04.194.11.266l3.793 3.794a.375.375 0 0 0 .531 0l.707-.707a.375.375 0 0 0 0-.53ZM6.5 11.5c-2.763 0-5-2.238-5-5 0-2.763 2.237-5 5-5 2.762 0 5 2.237 5 5 0 2.762-2.238 5-5 5Z'></path>
-								</svg>
-							</button>
-						</div>
-						<nav>
-							<a className='explore-btn active' href='/gig' aria-current='page'>
-								{' '}
-								Explore
-							</a>
-							<a className='become-seller-btn' href='/become-seller'>
-								Become a Seller
-							</a>
-							<div className='flex'>
-								<button className='orders-btn'>Orders</button>
-							</div>
-							<a className='' href='/'>
-								Sign in
-							</a>
-							<button className='join-btn'>Join</button>
-						</nav>
-					</div>
-					<div className='categoty-btns-container main-layout full'>
-						{' '}
-						<ul className='category-btns'>
-							<li>
-								<button>Graphics &amp; Design</button>
-							</li>
-							<li>
-								<button>Digital Marketing</button>
-							</li>
-							<li>
-								<button>Writing &amp; Translation</button>
-							</li>
-							<li>
-								<button>Video &amp; Animation</button>
-							</li>
-							<li>
-								<button>Music &amp; Audio</button>
-							</li>
-							<li>
-								<button>Programming &amp; Tech</button>
-							</li>
-							<li>
-								<button>Photography</button>
-							</li>
-							<li>
-								<button>Business</button>
-							</li>
-							<li>
-								<button>AI Services</button>
-							</li>
-						</ul>
-					</div>
-				</header>
 				<main className='main-layout full'>
 					<main className='gig-details-main full main-layout '>
 						<section className='top-nav-container full'>
@@ -100,21 +39,12 @@ export function GigDetails() {
 										</p>
 										<div className='gig-starRate'>
 											<div className='stars-container'>
-												<svg width='17' height='17' viewBox='173.637 309.882 16.391 16.472' xmlns='http://www.w3.org/2000/svg'>
-													<path fill-rule='evenodd' fill='#ffb33e' clip-rule='evenodd' d='M 189.735 316.246 C 189.735 316.416 189.61 316.577 189.485 316.7 L 185.995 320.046 L 186.822 324.772 C 186.832 324.838 186.832 324.895 186.832 324.961 C 186.832 325.207 186.716 325.433 186.437 325.433 C 186.303 325.433 186.168 325.386 186.053 325.32 L 181.735 323.089 L 177.418 325.32 C 177.293 325.386 177.168 325.433 177.033 325.433 C 176.755 325.433 176.63 325.207 176.63 324.961 C 176.63 324.895 176.639 324.838 176.649 324.772 L 177.476 320.046 L 173.976 316.7 C 173.86 316.577 173.735 316.416 173.735 316.246 C 173.735 315.963 174.033 315.849 174.274 315.811 L 179.101 315.122 L 181.264 310.821 C 181.351 310.641 181.514 310.433 181.735 310.433 C 181.957 310.433 182.12 310.641 182.207 310.821 L 184.37 315.122 L 189.197 315.811 C 189.428 315.849 189.735 315.963 189.735 316.246 Z' style='--darkreader-inline-fill: #ffb645;' data-darkreader-inline-fill=''></path>
-												</svg>
-												<svg width='17' height='17' viewBox='173.637 309.882 16.391 16.472' xmlns='http://www.w3.org/2000/svg'>
-													<path fill-rule='evenodd' fill='#ffb33e' clip-rule='evenodd' d='M 189.735 316.246 C 189.735 316.416 189.61 316.577 189.485 316.7 L 185.995 320.046 L 186.822 324.772 C 186.832 324.838 186.832 324.895 186.832 324.961 C 186.832 325.207 186.716 325.433 186.437 325.433 C 186.303 325.433 186.168 325.386 186.053 325.32 L 181.735 323.089 L 177.418 325.32 C 177.293 325.386 177.168 325.433 177.033 325.433 C 176.755 325.433 176.63 325.207 176.63 324.961 C 176.63 324.895 176.639 324.838 176.649 324.772 L 177.476 320.046 L 173.976 316.7 C 173.86 316.577 173.735 316.416 173.735 316.246 C 173.735 315.963 174.033 315.849 174.274 315.811 L 179.101 315.122 L 181.264 310.821 C 181.351 310.641 181.514 310.433 181.735 310.433 C 181.957 310.433 182.12 310.641 182.207 310.821 L 184.37 315.122 L 189.197 315.811 C 189.428 315.849 189.735 315.963 189.735 316.246 Z' style='--darkreader-inline-fill: #ffb645;' data-darkreader-inline-fill=''></path>
-												</svg>
-												<svg width='17' height='17' viewBox='173.637 309.882 16.391 16.472' xmlns='http://www.w3.org/2000/svg'>
-													<path fill-rule='evenodd' fill='#ffb33e' clip-rule='evenodd' d='M 189.735 316.246 C 189.735 316.416 189.61 316.577 189.485 316.7 L 185.995 320.046 L 186.822 324.772 C 186.832 324.838 186.832 324.895 186.832 324.961 C 186.832 325.207 186.716 325.433 186.437 325.433 C 186.303 325.433 186.168 325.386 186.053 325.32 L 181.735 323.089 L 177.418 325.32 C 177.293 325.386 177.168 325.433 177.033 325.433 C 176.755 325.433 176.63 325.207 176.63 324.961 C 176.63 324.895 176.639 324.838 176.649 324.772 L 177.476 320.046 L 173.976 316.7 C 173.86 316.577 173.735 316.416 173.735 316.246 C 173.735 315.963 174.033 315.849 174.274 315.811 L 179.101 315.122 L 181.264 310.821 C 181.351 310.641 181.514 310.433 181.735 310.433 C 181.957 310.433 182.12 310.641 182.207 310.821 L 184.37 315.122 L 189.197 315.811 C 189.428 315.849 189.735 315.963 189.735 316.246 Z' style='--darkreader-inline-fill: #ffb645;' data-darkreader-inline-fill=''></path>
-												</svg>
-												<svg width='17' height='17' viewBox='173.637 309.882 16.391 16.472' xmlns='http://www.w3.org/2000/svg'>
-													<path fill-rule='evenodd' fill='#ffb33e' clip-rule='evenodd' d='M 189.735 316.246 C 189.735 316.416 189.61 316.577 189.485 316.7 L 185.995 320.046 L 186.822 324.772 C 186.832 324.838 186.832 324.895 186.832 324.961 C 186.832 325.207 186.716 325.433 186.437 325.433 C 186.303 325.433 186.168 325.386 186.053 325.32 L 181.735 323.089 L 177.418 325.32 C 177.293 325.386 177.168 325.433 177.033 325.433 C 176.755 325.433 176.63 325.207 176.63 324.961 C 176.63 324.895 176.639 324.838 176.649 324.772 L 177.476 320.046 L 173.976 316.7 C 173.86 316.577 173.735 316.416 173.735 316.246 C 173.735 315.963 174.033 315.849 174.274 315.811 L 179.101 315.122 L 181.264 310.821 C 181.351 310.641 181.514 310.433 181.735 310.433 C 181.957 310.433 182.12 310.641 182.207 310.821 L 184.37 315.122 L 189.197 315.811 C 189.428 315.849 189.735 315.963 189.735 316.246 Z' style='--darkreader-inline-fill: #ffb645;' data-darkreader-inline-fill=''></path>
-												</svg>
-												<svg width='17' height='17' viewBox='173.637 309.882 16.391 16.472' xmlns='http://www.w3.org/2000/svg'>
-													<path fill-rule='evenodd' fill='#ffb33e' clip-rule='evenodd' d='M 189.735 316.246 C 189.735 316.416 189.61 316.577 189.485 316.7 L 185.995 320.046 L 186.822 324.772 C 186.832 324.838 186.832 324.895 186.832 324.961 C 186.832 325.207 186.716 325.433 186.437 325.433 C 186.303 325.433 186.168 325.386 186.053 325.32 L 181.735 323.089 L 177.418 325.32 C 177.293 325.386 177.168 325.433 177.033 325.433 C 176.755 325.433 176.63 325.207 176.63 324.961 C 176.63 324.895 176.639 324.838 176.649 324.772 L 177.476 320.046 L 173.976 316.7 C 173.86 316.577 173.735 316.416 173.735 316.246 C 173.735 315.963 174.033 315.849 174.274 315.811 L 179.101 315.122 L 181.264 310.821 C 181.351 310.641 181.514 310.433 181.735 310.433 C 181.957 310.433 182.12 310.641 182.207 310.821 L 184.37 315.122 L 189.197 315.811 C 189.428 315.849 189.735 315.963 189.735 316.246 Z' style='--darkreader-inline-fill: #ffb645;' data-darkreader-inline-fill=''></path>
-												</svg>
+												{/* TODO: create new comp to display stars */}
+												<StarIcon />
+												<StarIcon />
+												<StarIcon />
+												<StarIcon />
+												<StarIcon />
 											</div>
 											<div className='owner-rate'>
 												5 <span>(116)</span>
@@ -435,14 +365,6 @@ export function GigDetails() {
 						</section>
 					</main>
 				</main>
-				<footer className='app-footer main-layout full'>
-					<section>
-						<div className='logo'>
-							flai<span className='rr'>rr</span>.
-						</div>
-						<p>© Flairr International Ltd. 2023</p>
-					</section>
-				</footer>
 			</div>
 		</div>
 	)
