@@ -39,7 +39,9 @@ export function AppFooter() {
 					<LanguageIcon />
 					<p>English</p>
 				</div>
-				<div className='footer-currency'></div>
+				<div className='footer-currency'>
+					<p>$ USD</p>
+				</div>
 				<div className='footer-accessibility'>
 					<AccessIcon />
 				</div>
