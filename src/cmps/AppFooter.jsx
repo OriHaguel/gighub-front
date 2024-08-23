@@ -7,11 +7,13 @@ import TiktokIcon from '../assets/svg/TiktokIcon.svg?react'
 import LanguageIcon from '../assets/svg/LanguageIcon.svg?react'
 import AccessIcon from '../assets/svg/AccessIcon.svg?react'
 
+import GighubLogo from '../assets/svg/Gighub_logo.svg?react'
+
 export function AppFooter() {
 	return (
 		<footer className='main-container flex space-between align-center'>
-			<div className='logo'>
-				<h3 className='logo'>GigHub</h3>
+			<div className='logo flex space-between'>
+				<GighubLogo />
 				<p className='copy-rights'>© GigHub International Ltd. 2024</p>
 			</div>
 			<div className='footer-socials flex space-between'>
