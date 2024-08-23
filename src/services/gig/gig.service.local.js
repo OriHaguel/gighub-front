@@ -76,8 +76,8 @@ async function save(gig) {
 }
 
 function _createGig() {
-    const gig = { txt: '', price: 0 }
-    gig.txt = makeLorem()
+    const gig = { title: '', price: 0 }
+    gig.title = makeLorem()
     gig.price = getRandomIntInclusive(15, 1000)
     gig._id = makeId('g')
     gig.daysToMake = getRandomIntInclusive(1, 14)
