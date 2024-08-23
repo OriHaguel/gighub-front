@@ -1,6 +1,6 @@
 import { httpService } from '../http.service'
 
-export const carService = {
+export const gigService = {
     query,
     getById,
     save,
@@ -30,6 +30,6 @@ async function save(car) {
 }
 
 async function addCarMsg(carId, txt) {
-    const savedMsg = await httpService.post(`car/${carId}/msg`, {txt})
+    const savedMsg = await httpService.post(`car/${carId}/msg`, { txt })
     return savedMsg
 }

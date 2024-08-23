@@ -8,7 +8,7 @@ import { gigService } from '../services/gig/gig.service.local.js'
 export function HomePage() {
 	return (
 		<div className='main-page'>
-			<AppHeader />
+			{/* <AppHeader /> */}
 
 			<section>
 				<h1>Home sweet Home</h1>
