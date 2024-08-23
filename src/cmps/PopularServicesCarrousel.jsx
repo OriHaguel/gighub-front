@@ -80,31 +80,34 @@ export function PopularServicesCarrousel() {
 
     ]
     return (
-        <div className="popular-services-carrousel">
-            <Carousel
-                showThumbs={false}
-                infiniteLoop={true}
-                showStatus={false}
-                showIndicators={false}
-                emulateTouch={true}
-                centerMode={true}
-                centerSlidePercentage={30}
-                swipeable={true}
-            >
-                {tempImages.map(image => (
-                    <NavLink to={`/services/${image.service}`} key={image.id} className="card-link">
-                        <div className="card">
-                            <img
-                                src={image.download_url || image.url}
-                                alt={image.service}
-                            />
-                            <div className="card-content">
-                                <p>{image.service}</p>
+        <div className="popular-carrousel-grid">
+            <div className="popular-services-carrousel">
+                <Carousel
+                    showThumbs={false}
+                    infiniteLoop={false}
+                    showStatus={false}
+                    showIndicators={false}
+                    emulateTouch={true}
+                    centerMode={true}
+                    centerSlidePercentage={11}
+                    swipeable={true}
+                >
+                    {tempImages.map(image => (
+                        <NavLink to={`/services/${image.service}`} key={image.id} className="card-link">
+                            <div className="card">
+                                <img
+                                    src={image.download_url || image.url}
+                                    alt={image.service}
+                                />
+                                <div className="card-content">
+                                    <p>{image.service}</p>
+                                </div>
                             </div>
-                        </div>
-                    </NavLink>
-                ))}
-            </Carousel>
+                        </NavLink>
+                    ))}
+                </Carousel>
+            </div>
+
         </div>
     )
 }
