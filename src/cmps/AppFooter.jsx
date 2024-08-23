@@ -4,6 +4,8 @@ import LinkedinIcon from '../assets/svg/LinkedinIcon.svg?react'
 import PinterestIcon from '../assets/svg/PinterestIcon.svg?react'
 import InstagramIcon from '../assets/svg/InstagramIcon.svg?react'
 import TiktokIcon from '../assets/svg/TiktokIcon.svg?react'
+import LanguageIcon from '../assets/svg/LanguageIcon.svg?react'
+import AccessIcon from '../assets/svg/AccessIcon.svg?react'
 
 export function AppFooter() {
 	return (
@@ -31,6 +33,16 @@ export function AppFooter() {
 				<a href='https://twitter.com/fiverr' aria-label='Twitter'>
 					<TwitterIcon />
 				</a>
+			</div>
+			<div className='footer-misc'>
+				<div className='footer-lang'>
+					<LanguageIcon />
+					<p>English</p>
+				</div>
+				<div className='footer-currency'></div>
+				<div className='footer-accessibility'>
+					<AccessIcon />
+				</div>
 			</div>
 		</footer>
 	)
