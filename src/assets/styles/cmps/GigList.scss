@@ -5,7 +5,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-column-gap: 24px;
     width: 100%;
-    padding: 0 32px;
+
 
     .gig-list {
         position: relative;
@@ -61,6 +61,11 @@
             &:hover {
                 text-decoration: none;
             }
+        }
+
+        .gig-list-owner-rating {
+            margin-top: 8px;
+            min-height: 24px;
         }
     }
 }
