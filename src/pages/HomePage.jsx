@@ -19,11 +19,6 @@ export function HomePage() {
                 {/* <AppHeader /> */}
             </section>
 
-            <section>
-                <h1>GigHub</h1>
-                <p>Welcome to our platform GigHub! Find everything you need, just like on Fiverr.</p>
-            </section>
-
             <section className="main-search-area">
                 <MainSearchArea />
             </section>

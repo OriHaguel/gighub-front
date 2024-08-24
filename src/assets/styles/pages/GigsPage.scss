@@ -1,17 +1,18 @@
 // .gig-prev-container {
 //     background-color: rgb(216, 240, 216);
+// display: grid;
+    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    // gap: 20px;
+    // width: 100%;
 // }
 
 .gig-prev-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    width: 100%;
-
-    .gig-card {
-        border: solid;
-        background-color: rgb(216, 240, 216);
-    }
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1400px;
+    padding: 0 32px;
+    flex-wrap: wrap;
 }
 
 .gig-page {
@@ -57,12 +58,4 @@
             }
         }
     }
-}
-.gig-prev-container {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1400px;
-    padding: 0 32px;
-    flex-wrap: wrap;
 }

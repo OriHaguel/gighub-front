@@ -122,21 +122,7 @@ export function GigPage() {
             </section>
 
             <section className="gig-prev-container">
-                {/* <GigList gigs={gigs} /> */}
-                {/* {gigs.map(gig => (
-                    <div className="gig-card" key={gig.id}>
-                        <img
-                            src={GigImage}
-                            alt={'Gig Image'}
-                        />
-                        <div className="gig-card-content">
-                            <div>Nice Gig</div>
-                            <div>Gig description</div>
-                            <div>By puki</div>
-                            <GigList gigs={[gig]} />
-                        </div>
-                    </div>
-                ))} */}
+                <GigList gigs={gigs} />
             </section>
 
             <section className="pagination">
