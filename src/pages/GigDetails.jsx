@@ -16,17 +16,9 @@ export function GigDetails() {
 			<div className='main-layout base-layout'>
 				<main className='main-layout full'>
 					<main className='gig-details-main full main-layout '>
-						<section className='top-nav-container full'>
-							<nav>
-								<a href='/gig/64834818525333284e0d17b9'>Overview</a>
-								<a href='/gig/64834818525333284e0d17b9'>Description</a>
-								<a href='/gig/64834818525333284e0d17b9'>About the seller</a>
-								<a href='/gig/64834818525333284e0d17b9'>Reviews</a>
-							</nav>
-						</section>
 						<section className='gig-details-content'>
 							<article className='gig-details-container'>
-								<h1>I will build professional wordpress website design and ecommerce website</h1>
+								<h1></h1>
 								<div className='main-details-container'>
 									<div className='user-round-img'>
 										<img src='https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685815583/gigs/p0m9qj1qvh0zoou6lmhk.png' alt='' className='details-owner-img' />
@@ -102,7 +94,7 @@ export function GigDetails() {
 										<p>We charge just after the seller finished the project</p>
 										<div className='brand-fundamental-container'>
 											<p>
-												Brand Fundamentals: <span> I will build professional wordpress website design and ecommerce website</span>
+												Brand Fundamentals: <span> I will build professional wordpress website design and e-commerce website</span>
 											</p>
 										</div>
 										<div className='delivery-info-container'>
@@ -171,7 +163,7 @@ export function GigDetails() {
 							<article className='about-gig-container'>
 								<h3>About this gig</h3>
 								<p>
-									About this gig Do you feel that more than 80% of big busines proprietors like to induce WordPress website design fo their enterprises. This is due to WordPress simplicity through a simple admin panel and managing thousands of new accounts effortlessly.I've been delivering web services to multiple businesses across the globe for the last 5 years and I'll deliver a complete one window result to your online presence. Why should you choose us? We've accomplished crew who are capable to deliver 100% satisfaction with solitary WordPress website designs for your old or new sites. We do Customized WordPress website that represent your company Fully Responsiveness Speed-optimized Simple to handle Eye Catching Layout Full Ecommerce capabilities After Sale Services SSL Installation Payment GatewayGoogle Map We Design: E-Commerce website Personal site Portfolio Business Education Health News IT Industry Public Sectors And Many More What Do We Need From You? Log in for your
+									About this gig Do you feel that more than 80% of big business proprietors like to induce WordPress website design fo their enterprises. This is due to WordPress simplicity through a simple admin panel and managing thousands of new accounts effortlessly.I've been delivering web services to multiple businesses across the globe for the last 5 years and I'll deliver a complete one window result to your online presence. Why should you choose us? We've accomplished crew who are capable to deliver 100% satisfaction with solitary WordPress website designs for your old or new sites. We do Customized WordPress website that represent your company Fully Responsiveness Speed-optimized Simple to handle Eye Catching Layout Full e-commerce capabilities After Sale Services SSL Installation Payment GatewayGoogle Map We Design: E-Commerce website Personal site Portfolio Business Education Health News IT Industry Public Sectors And Many More What Do We Need From You? Log in for your
 									WordPress admin panel Complete Content/Logo Web Design Reference/Inspiration Site *Note: We will be very happy to assist you, please feel free to contact.
 								</p>
 							</article>
@@ -179,7 +171,7 @@ export function GigDetails() {
 								<section className='about-the-seller'>
 									<h1 className='about-seller-header'>About the seller</h1>
 									<section>
-										<div className='seller-profesional-info-wrapper'>
+										<div className='seller-professional-info-wrapper'>
 											<div className='about-seller-img'>
 												<img src='https://res.cloudinary.com/dlhjvt9b4/image/upload/v1685815583/gigs/p0m9qj1qvh0zoou6lmhk.png' alt='owner-img' classNameName='details-owner-img' />
 											</div>
@@ -229,7 +221,7 @@ export function GigDetails() {
 												</div>
 											</div>
 											<div className='seller-about'>
-												<p>I've been delivering web services to multiple businesses across the globe for the last 5 years and I'll deliver a complete one window result to your online presence. Why should you choose us? We've accomplished crew who are capable to deliver 100% satisfaction with solitary WordPress website designs for your old or new sites. We do Customized WordPress website that represent your company Fully Responsiveness Speed-optimized Simple to handle Eye Catching Layout Full Ecommerce capabilities After Sale Services SSL Installation Payment GatewayGoogle Map We Design: E-Commerce website Personal site Portfolio Business Education Health News IT Industry Public Sectors And Many More What Do We Need from You? Log in for your WordPress admin panel Complete Content/Logo Web Design Reference/Inspiration Site *Note: We will be very happy to assist you, please feel free to contact.</p>
+												<p>I've been delivering web services to multiple businesses across the globe for the last 5 years and I'll deliver a complete one window result to your online presence. Why should you choose us? We've accomplished crew who are capable to deliver 100% satisfaction with solitary WordPress website designs for your old or new sites. We do Customized WordPress website that represent your company Fully Responsiveness Speed-optimized Simple to handle Eye Catching Layout Full e-commerece capabilities After Sale Services SSL Installation Payment GatewayGoogle Map We Design: E-Commerce website Personal site Portfolio Business Education Health News IT Industry Public Sectors And Many More What Do We Need from You? Log in for your WordPress admin panel Complete Content/Logo Web Design Reference/Inspiration Site *Note: We will be very happy to assist you, please feel free to contact.</p>
 											</div>
 										</div>
 									</section>
@@ -325,7 +317,7 @@ export function GigDetails() {
 									<div className='basic-information'>
 										<h1>Basic information</h1>
 										<p>
-											<span>Description:</span> I will build professional wordpress website design and ecommerce website
+											<span>Description:</span> I will build professional wordpress website design and e-commerece website
 										</p>
 										<p>
 											<span>Price for single order</span> $80
