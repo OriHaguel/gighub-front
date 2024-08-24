@@ -99,3 +99,25 @@ export function makeLorem(size = 1) {
     }
     return txt
 }
+
+export function makeUserNameLorem() {
+    const firstNames = [
+        "Alice", "Bob", "Charlie", "Diana", "Edward",
+        "Fiona", "George", "Hannah", "Ian", "Jasmine"
+    ];
+
+    const lastNames = [
+        "Smith", "Johnson", "Williams", "Brown", "Jones",
+        "Garcia", "Miller", "Davis", "Martinez", "Wilson"
+    ];
+
+    const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)];
+    const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)];
+
+    return `${randomFirstName} ${randomLastName}`;
+}
+
+export function getPlan() {
+    const randomValue = Math.random(); // Generates a number between 0 and 1
+    return randomValue < 0.8 ? 'basic' : 'premium';
+}

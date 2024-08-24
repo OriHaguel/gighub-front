@@ -1,6 +1,6 @@
 import { gigService } from '../../services/gig'
 import { store } from '../store'
-import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG } from '../reducers/gig.reducer'
+import { ADD_GIG, REMOVE_GIG, SET_GIGS, SET_GIG, UPDATE_GIG, ADD_GIG_MSG, SET_FILTER_BY } from '../reducers/gig.reducer'
 
 export async function loadGigs(filterBy) {
     try {
@@ -66,6 +66,9 @@ export async function addGigMsg(gigId, txt) {
     }
 }
 
+export function setFilterBy(filterBy) {
+    store.dispatch({ type: SET_FILTER_BY, filterBy })
+}
 // Command Creators:
 function getCmdSetGigs(gigs) {
     return {

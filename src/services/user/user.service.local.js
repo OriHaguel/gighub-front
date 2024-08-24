@@ -1,4 +1,5 @@
 import { storageService } from '../async-storage.service'
+import { getPlan, loadFromStorage, makeUserNameLorem, saveToStorage } from '../util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -13,7 +14,7 @@ export const userService = {
     getLoggedinUser,
     saveLoggedinUser,
 }
-
+_createUsers()
 async function getUsers() {
     const users = await storageService.query('user')
     return users.map(user => {
@@ -35,7 +36,7 @@ async function update({ _id, score }) {
     user.score = score
     await storageService.put('user', user)
 
-	// When admin updates other user's details, do not update loggedinUser
+    // When admin updates other user's details, do not update loggedinUser
     const loggedinUser = getLoggedinUser()
     if (loggedinUser._id === user._id) saveLoggedinUser(user)
 
@@ -66,15 +67,14 @@ function getLoggedinUser() {
 }
 
 function saveLoggedinUser(user) {
-	user = { 
-        _id: user._id, 
-        fullname: user.fullname, 
-        imgUrl: user.imgUrl, 
-        score: user.score, 
-        isAdmin: user.isAdmin 
+    user = {
+        _id: user._id,
+        fullname: user.fullname,
+        imgUrl: user.imgUrl,
+
     }
-	sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
-	return user
+    sessionStorage.setItem(STORAGE_KEY_LOGGEDIN_USER, JSON.stringify(user))
+    return user
 }
 
 // To quickly create an admin user, uncomment the next line
@@ -90,4 +90,29 @@ async function _createAdmin() {
 
     const newUser = await storageService.post('user', userCred)
     console.log('newUser: ', newUser)
+}
+
+function _createUser() {
+    const user = {
+        username: 'whatever',
+        password: 'pass',
+        fullname: makeUserNameLorem(),
+        imgUrl: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',
+        level: getPlan()
+    }
+
+
+    return user
+}
+
+function _createUsers() {
+    let users = loadFromStorage('user')
+    if (!users || !users.length) {
+        users = []
+        console.log("🚀 ~ _createUsers ~ users:", users)
+        for (var i = 0; i < 5; i++) {
+            users.push(_createUser())
+        }
+        saveToStorage('user', users)
+    }
 }
