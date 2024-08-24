@@ -19,11 +19,10 @@ export function HomePage() {
                 {/* <AppHeader /> */}
             </section>
 
-			<section>
-				<h1>Home sweet Home</h1>
-				<h1>GigHub</h1>
-				<p>Welcome to our platform GigHub! Find everything you need, just like on Fiverr.</p>
-			</section>
+            <section>
+                <h1>GigHub</h1>
+                <p>Welcome to our platform GigHub! Find everything you need, just like on Fiverr.</p>
+            </section>
 
             <section className="main-search-area">
                 <MainSearchArea />
@@ -38,10 +37,10 @@ export function HomePage() {
                 <PopularServicesCarrousel />
             </section>
 
-			<section className='advert-area'>
-				<h1>Advert Area</h1>
-				<AdvertArea />
-			</section>
-		</div>
-	)
+            <section className='advert-area'>
+                <h1>Advert Area</h1>
+                <AdvertArea />
+            </section>
+        </div>
+    )
 }
