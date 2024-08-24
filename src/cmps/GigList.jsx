@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux"
+
 import { useParams } from "react-router"
 import { loadGigs, setFilterBy } from "../store/actions/gig.actions"
 import { useEffect } from "react"
@@ -6,14 +6,7 @@ import { Link } from "react-router-dom"
 import Star from '../assets/svg/star.svg?react'
 
 export function GigList({ gigs }) {
-    const param = useParams()
 
-    useEffect(() => {
-
-        setFilterBy({ category: param.gigs })
-
-
-    }, []);
 
     return <section className="gig-list-container">
         {gigs.map(gig =>

@@ -2,7 +2,7 @@ import { useParams } from "react-router";
 import { GigList } from "../cmps/GigList";
 import { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux"
-import { loadGigs } from "../store/actions/gig.actions";
+import { loadGigs, setFilterBy } from "../store/actions/gig.actions";
 import { MostPopularCarrousel } from "../cmps/MostPopularCarrousel";
 import GigImage from '../assets/img/gig-image.png'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
@@ -14,16 +14,20 @@ export function GigPage() {
     const filterBy = useSelector(state => state.gigModule.filterBy)
     const [activeDropdown, setActiveDropdown] = useState(null)
 
-
     useEffect(() => {
-        try {
-            loadGigs(filterBy)
-        } catch (error) {
-            console.log("🚀 ~ useEffect ~ error:", error)
 
-        }
+        setFilterBy({ category: param.gigs })
 
     }, [])
+
+    useEffect(() => {
+
+        loadGigs(filterBy)
+
+
+    }, [filterBy])
+
+
 
     const toggleDropdown = (dropdownName) => {
         if (activeDropdown === dropdownName) {

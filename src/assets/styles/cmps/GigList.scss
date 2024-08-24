@@ -40,8 +40,9 @@
                 overflow: hidden;
                 color: #404145;
                 font-weight: 400;
-                font-style: rem(16px);
+                font-size: rem(16px);
                 line-height: 24px;
+                text-overflow: ellipsis;
             }
         }
 

@@ -1,6 +1,7 @@
 
 import { storageService } from '../async-storage.service'
-import { makeId, makeLorem, getRandomIntInclusive, loadFromStorage, saveToStorage } from '../util.service'
+import { makeId, makeLorem, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories } from '../util.service'
+
 import { userService } from '../user'
 
 const STORAGE_KEY = 'gig'
@@ -16,7 +17,11 @@ export const gigService = {
 window.cs = gigService
 
 
+
+
 async function query(filterBy = { txt: '', price: 0 }) {
+
+
     var gigs = await storageService.query(STORAGE_KEY)
     const { txt, daysToMake, price, sortField, sortDir, category } = filterBy
 
@@ -39,12 +44,19 @@ async function query(filterBy = { txt: '', price: 0 }) {
             (gig1[sortField] - gig2[sortField]) * +sortDir)
     }
 
-    if (category) {
-
+    if (category && category !== 'ai' && category !== 'consulting') {
+        // console.log("🚀 ~ query ~ category:", category.toString())
+        // const sen = 'hello there buddy'
+        // const yo = ['hererllo', 'hrewrwerewr', 'fgfdgdfgd', 'rewrwerwr', 'buddy']
+        // const what = yo.filter(bro => sen.includes(bro))
+        gigs = gigs.filter(gig => categories[category].some(word => gig.title.includes(word)))
+        // console.log("🚀 ~ query ~ gigs:", gigs)
+        // console.log("🚀 ~ categories:", categories[category])
     }
     gigs = gigs.map(({ _id, title, price, daystomake, owner }) => ({ _id, title, price, daystomake, owner }))
     return gigs
 }
+
 
 function getById(gigId) {
     return storageService.get(STORAGE_KEY, gigId)
@@ -79,8 +91,9 @@ async function save(gig) {
 }
 
 function _createGig() {
+
     const gig = { title: '', price: 0 }
-    gig.title = makeLorem()
+    gig.title = getRandomSentence()
     gig.price = getRandomIntInclusive(15, 1000)
     gig._id = makeId('g')
     gig.daysToMake = getRandomIntInclusive(1, 14)
