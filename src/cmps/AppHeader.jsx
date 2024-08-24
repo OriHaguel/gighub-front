@@ -2,24 +2,22 @@ import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import React from "react"
-import HeaderLogo from '../assets/svg/headerLogo.svg?react'
+import React from 'react'
+import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
 import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
 
-
 export function AppHeader() {
-
 	const navigate = useNavigate()
 
 	return (
-		<div id="Header">
-			<header className="header-package fiverr-header logged-out-homepage-header">
-				<div className="header-row-wrapper">
-					<div className="header-row max-width-container equal-padding row-main">
-						<button className="btn-navicon js-side-nav-trigger">
+		<div id='Header'>
+			<header className='header-package fiverr-header logged-out-homepage-header'>
+				<div className='header-row-wrapper'>
+					<div className='header-row max-width-container equal-padding row-main'>
+						<button className='btn-navicon js-side-nav-trigger'>
 							<HeaderNavicon />
 						</button>
-						<Link to="/" className="site-logo">
+						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
 						{/* <div className="fiverr-header-search-animated">
@@ -34,25 +32,37 @@ export function AppHeader() {
 					</button>
 				  </form>
 				</div> */}
-						<nav className="fiverr-nav">
+						<nav className='fiverr-nav'>
 							<ul>
 								<li>
-									<NavLink to="/fiverr-pro" className="pro">Fiverr Pro</NavLink>
+									<NavLink to='/fiverr-pro' className='pro'>
+										Fiverr Pro
+									</NavLink>
 								</li>
 								<li>
-									<NavLink to="/explore" className="explore">Explore</NavLink>
+									<NavLink to='/explore' className='explore'>
+										Explore
+									</NavLink>
 								</li>
 								<li>
-									<NavLink to="/language" className="language">Language</NavLink>
+									<NavLink to='/language' className='language'>
+										Language
+									</NavLink>
 								</li>
 								<li>
-									<NavLink to="/become-seller" className="seller">Become a Seller</NavLink>
+									<NavLink to='/become-seller' className='seller'>
+										Become a Seller
+									</NavLink>
 								</li>
 								<li>
-									<NavLink to="/sign-in" className="sign">Sign In</NavLink>
+									<NavLink to='/sign-in' className='sign'>
+										Sign In
+									</NavLink>
 								</li>
 								<li>
-									<NavLink to="/join" className="join-button">Join</NavLink>
+									<NavLink to='/join' className='join-button'>
+										Join
+									</NavLink>
 								</li>
 							</ul>
 						</nav>
