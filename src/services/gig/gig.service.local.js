@@ -18,7 +18,7 @@ window.cs = gigService
 
 async function query(filterBy = { txt: '', price: 0 }) {
     var gigs = await storageService.query(STORAGE_KEY)
-    const { txt, daysToMake, price, sortField, sortDir } = filterBy
+    const { txt, daysToMake, price, sortField, sortDir, category } = filterBy
 
     if (txt) {
         const regex = new RegExp(filterBy.txt, 'i')
@@ -39,6 +39,9 @@ async function query(filterBy = { txt: '', price: 0 }) {
             (gig1[sortField] - gig2[sortField]) * +sortDir)
     }
 
+    if (category) {
+
+    }
     gigs = gigs.map(({ _id, title, price, daystomake, owner }) => ({ _id, title, price, daystomake, owner }))
     return gigs
 }

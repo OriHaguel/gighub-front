@@ -121,3 +121,118 @@ export function getPlan() {
     const randomValue = Math.random(); // Generates a number between 0 and 1
     return randomValue < 0.8 ? 'basic' : 'premium';
 }
+
+const categories = {
+    programming: ['web', 'app', 'software', 'coding', 'algorithms', 'JavaScript', 'Python', 'backend', 'frontend', 'database'],
+    graphics: ['logo', 'UI', 'graphic', 'illustration', 'branding', 'typography', 'color', 'layout', 'icons', 'photoshop'],
+    digital: ['SEO', 'content', 'social', 'email', 'PPC', 'analytics', 'ads', 'keywords', 'campaign', 'influencers'],
+    writing: ['copywriting', 'creative', 'technical', 'translation', 'proofreading', 'editing', 'blogging', 'articles', 'scripts', 'localization'],
+    video: ['video', 'motion', '2D', '3D', 'production', 'animation', 'editing', 'storyboard', 'vfx', 'rendering'],
+    music: ['music', 'sound', 'voiceover', 'mixing', 'podcasting', 'recording', 'composition', 'audio', 'beats', 'synth'],
+    business: ['strategy', 'management', 'entrepreneurship', 'finance', 'consulting', 'startup', 'operations', 'leadership', 'marketing', 'investment']
+};
+
+function getRandomSentence(category) {
+    const sentences = {
+        programming: [
+            `We specialize in developing scalable ${getRandomWord(categories.programming)} solutions tailored to your needs.`,
+            `Our ${getRandomWord(categories.programming)} expertise ensures high-performance applications and systems.`,
+            `We offer comprehensive ${getRandomWord(categories.programming)} services to help you stay ahead of the competition.`,
+            `From ${getRandomWord(categories.programming)} development to full-stack solutions, we have you covered.`,
+            `Transform your digital presence with our ${getRandomWord(categories.programming)} and technology solutions.`,
+            `Our team excels in ${getRandomWord(categories.programming)} to deliver robust and innovative solutions.`,
+            `We provide end-to-end ${getRandomWord(categories.programming)} services to build your next big project.`,
+            `Leverage our ${getRandomWord(categories.programming)} skills to enhance your software capabilities.`,
+            `We design and develop ${getRandomWord(categories.programming)} solutions that drive business growth.`,
+            `Our ${getRandomWord(categories.programming)} experts work closely with you to bring your vision to life.`
+        ],
+        graphics: [
+            `We craft visually appealing ${getRandomWord(categories.graphics)} that resonate with your audience.`,
+            `Our ${getRandomWord(categories.graphics)} design services create a memorable and impactful brand identity.`,
+            `Transform your ideas into stunning ${getRandomWord(categories.graphics)} with our expert design team.`,
+            `We offer innovative ${getRandomWord(categories.graphics)} solutions to make your brand stand out.`,
+            `From ${getRandomWord(categories.graphics)} to ${getRandomWord(categories.graphics)}, we ensure your visuals are top-notch.`,
+            `Our ${getRandomWord(categories.graphics)} experts will bring your creative vision to life.`,
+            `Enhance your brand’s image with our custom ${getRandomWord(categories.graphics)} services.`,
+            `We design ${getRandomWord(categories.graphics)} that effectively communicate your brand’s message.`,
+            `Our ${getRandomWord(categories.graphics)} solutions are tailored to fit your unique style and needs.`,
+            `Create a lasting impression with our professional ${getRandomWord(categories.graphics)} design.`
+        ],
+        digital: [
+            `Boost your online presence with our ${getRandomWord(categories.digital)} strategies.`,
+            `We offer comprehensive ${getRandomWord(categories.digital)} services to drive traffic and engagement.`,
+            `Our ${getRandomWord(categories.digital)} expertise ensures your brand reaches the right audience.`,
+            `Enhance your marketing efforts with our ${getRandomWord(categories.digital)} solutions.`,
+            `We specialize in ${getRandomWord(categories.digital)} to increase your brand’s visibility.`,
+            `Our ${getRandomWord(categories.digital)} services are designed to maximize your ROI.`,
+            `From ${getRandomWord(categories.digital)} to ${getRandomWord(categories.digital)}, we cover all your marketing needs.`,
+            `We create targeted ${getRandomWord(categories.digital)} campaigns to boost your online success.`,
+            `Our ${getRandomWord(categories.digital)} strategies help you stay ahead in a competitive market.`,
+            `Transform your digital marketing with our expert ${getRandomWord(categories.digital)} services.`
+        ],
+        writing: [
+            `Get high-quality ${getRandomWord(categories.writing)} for all your content needs.`,
+            `We provide ${getRandomWord(categories.writing)} services to communicate your message effectively.`,
+            `From ${getRandomWord(categories.writing)} to ${getRandomWord(categories.writing)}, we cover all your writing needs.`,
+            `Our ${getRandomWord(categories.writing)} experts craft content that engages and informs.`,
+            `We offer professional ${getRandomWord(categories.writing)} for a wide range of applications.`,
+            `Enhance your content with our ${getRandomWord(categories.writing)} and editing services.`,
+            `Our ${getRandomWord(categories.writing)} solutions ensure clarity and precision in your documents.`,
+            `We specialize in ${getRandomWord(categories.writing)} to bring your ideas to life.`,
+            `Get reliable ${getRandomWord(categories.writing)} services tailored to your needs.`,
+            `Our ${getRandomWord(categories.writing)} services are designed to meet high-quality standards.`
+        ],
+        video: [
+            `Enhance your brand with our ${getRandomWord(categories.video)} and animation services.`,
+            `We create engaging ${getRandomWord(categories.video)} that tell your story beautifully.`,
+            `Our ${getRandomWord(categories.video)} solutions bring your ideas to life with stunning visuals.`,
+            `From ${getRandomWord(categories.video)} to ${getRandomWord(categories.video)}, we handle all aspects of video production.`,
+            `We offer expert ${getRandomWord(categories.video)} to make your project stand out.`,
+            `Transform your concepts into dynamic ${getRandomWord(categories.video)} with our services.`,
+            `Our ${getRandomWord(categories.video)} professionals create high-quality content to captivate your audience.`,
+            `We provide innovative ${getRandomWord(categories.video)} solutions for all your visual needs.`,
+            `Enhance your storytelling with our ${getRandomWord(categories.video)} and motion graphics.`,
+            `Our ${getRandomWord(categories.video)} services ensure that your message is delivered with impact.`
+        ],
+        music: [
+            `Our ${getRandomWord(categories.music)} services deliver exceptional sound and music experiences.`,
+            `From ${getRandomWord(categories.music)} production to editing, we handle all your audio needs.`,
+            `We offer professional ${getRandomWord(categories.music)} to make your project sound great.`,
+            `Enhance your content with our ${getRandomWord(categories.music)} and sound design expertise.`,
+            `We create high-quality ${getRandomWord(categories.music)} for a range of applications.`,
+            `Our ${getRandomWord(categories.music)} solutions bring a polished sound to your media.`,
+            `Get top-notch ${getRandomWord(categories.music)} services to elevate your project.`,
+            `Our ${getRandomWord(categories.music)} experts provide creative solutions to meet your needs.`,
+            `We specialize in ${getRandomWord(categories.music)} to deliver clear and impactful audio.`,
+            `Transform your audio experience with our professional ${getRandomWord(categories.music)} services.`
+        ],
+        business: [
+            `We provide ${getRandomWord(categories.business)} solutions to help your company thrive.`,
+            `Our ${getRandomWord(categories.business)} expertise ensures strategic growth and operational excellence.`,
+            `From ${getRandomWord(categories.business)} to ${getRandomWord(categories.business)}, we support your business success.`,
+            `We offer comprehensive ${getRandomWord(categories.business)} services to enhance your business operations.`,
+            `Our ${getRandomWord(categories.business)} solutions are designed to drive innovation and efficiency.`,
+            `Leverage our ${getRandomWord(categories.business)} expertise to achieve your strategic goals.`,
+            `We specialize in ${getRandomWord(categories.business)} to streamline your business processes.`,
+            `Our ${getRandomWord(categories.business)} services are tailored to meet the unique needs of your business.`,
+            `Enhance your company's performance with our ${getRandomWord(categories.business)} strategies.`,
+            `We offer expert ${getRandomWord(categories.business)} to support your business growth and development.`
+        ]
+    };
+
+    // Ensure the category exists and has sentences
+    if (sentences[category]) {
+        const randomIndex = Math.floor(Math.random() * sentences[category].length);
+        return sentences[category][randomIndex];
+    } else {
+        return 'Category not found.';
+    }
+}
+
+function getRandomWord(wordList) {
+    return wordList[Math.floor(Math.random() * wordList.length)];
+}
+
+// Example usage:
+console.log(getRandomSentence('design')); // Random design-related sentence
+

@@ -67,6 +67,7 @@ export async function addGigMsg(gigId, txt) {
 }
 
 export function setFilterBy(filterBy) {
+    console.log("🚀 ~ setFilterBy ~ filterBy:", filterBy)
     store.dispatch({ type: SET_FILTER_BY, filterBy })
 }
 // Command Creators:
