@@ -13,14 +13,14 @@ export function GigList({ gigs }) {
             <section key={gig._id} className="gig-list">
 
 
-                <Link className="gig-list-img">
+                <Link to={`/username/${gig._id}`} className="gig-list-img">
                     <div className="gig-list-img-container">
                         <img src={GigImage} />
                     </div></Link>
-                <Link className="gig-list-owner-name"><span >walla lo yode'a</span></Link>
-                <Link className="gig-list-title"><p>{gig.title}</p></Link>
+                <Link to={`/username/${gig._id}`} className="gig-list-owner-name"><span >walla lo yode'a</span></Link>
+                <Link to={`/username/${gig._id}`} className="gig-list-title"><p>{gig.title}</p></Link>
                 <div className="gig-list-owner-rating"><strong><Star />4</strong></div>
-                <Link className="gig-list-price"><span >From ${gig.price}</span></Link>
+                <Link to={`/username/${gig._id}`} className="gig-list-price"><span >From ${gig.price}</span></Link>
 
             </section>
         )}
