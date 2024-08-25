@@ -28,7 +28,6 @@ export function GigPage() {
     }, [filterBy])
 
 
-
     const toggleDropdown = (dropdownName) => {
         if (activeDropdown === dropdownName) {
             setActiveDropdown(null)
@@ -125,10 +124,11 @@ export function GigPage() {
                 </div>
             </section>
 
-            <section className="gig-prev-container">
-                <GigList gigs={gigs} />
-            </section>
-
+            {param.gigs !== 'ai' && param.gigs !== 'consulting' &&
+                <section className="gig-prev-container">
+                    <GigList gigs={gigs} />
+                </section>
+            }
             <section className="pagination">
                 <div>pages....</div>
             </section>
