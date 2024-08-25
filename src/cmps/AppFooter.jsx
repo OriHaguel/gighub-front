@@ -12,40 +12,42 @@ import GighubLogo from '../assets/svg/Gighub_logo.svg?react'
 export function AppFooter() {
 	return (
 		<footer className='main-container flex space-between align-center'>
-			<div className='logo flex space-between'>
+			<div className='logo footer-left-container space-between'>
 				<GighubLogo />
 				<p className='copy-rights'>© GigHub International Ltd. 2024</p>
 			</div>
-			<div className='footer-socials flex space-between'>
-				<a href='https://www.tiktok.com/@fiverr' aria-label='Tiktok'>
-					<TiktokIcon />
-				</a>
-				<a href='https://www.pinterest.com/fiverr/' aria-label='Pinterest'>
-					<PinterestIcon />
-				</a>
-				<a href='https://www.linkedin.com/company/fiverr-com' aria-label='LinkedIn'>
-					<LinkedinIcon />
-				</a>
-				<a href='https://www.facebook.com/Fiverr/' aria-label='Facebook'>
-					<FacebookIcon />
-				</a>
-				<a href='https://www.instagram.com/fiverr/' aria-label='Instagram'>
-					<InstagramIcon />
-				</a>
-				<a href='https://twitter.com/fiverr' aria-label='Twitter'>
-					<TwitterIcon />
-				</a>
-			</div>
-			<div className='footer-misc'>
-				<div className='footer-lang'>
-					<LanguageIcon />
-					<p>English</p>
+			<div className='footer-right-container'>
+				<div className='footer-socials flex space-between'>
+					<a href='https://www.tiktok.com/@fiverr' aria-label='Tiktok'>
+						<TiktokIcon />
+					</a>
+					<a href='https://www.pinterest.com/fiverr/' aria-label='Pinterest'>
+						<PinterestIcon />
+					</a>
+					<a href='https://www.linkedin.com/company/fiverr-com' aria-label='LinkedIn'>
+						<LinkedinIcon />
+					</a>
+					<a href='https://www.facebook.com/Fiverr/' aria-label='Facebook'>
+						<FacebookIcon />
+					</a>
+					<a href='https://www.instagram.com/fiverr/' aria-label='Instagram'>
+						<InstagramIcon />
+					</a>
+					<a href='https://twitter.com/fiverr' aria-label='Twitter'>
+						<TwitterIcon />
+					</a>
 				</div>
-				<div className='footer-currency'>
-					<p>$ USD</p>
-				</div>
-				<div className='footer-accessibility'>
-					<AccessIcon />
+				<div className='footer-misc'>
+					<div className='footer-lang'>
+						<LanguageIcon />
+						<p>English</p>
+					</div>
+					<div className='footer-currency'>
+						<p>$ USD</p>
+					</div>
+					<div className='footer-accessibility'>
+						<AccessIcon />
+					</div>
 				</div>
 			</div>
 		</footer>

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import React from 'react'
-import HeaderLogo from '../assets/svg/headerLogo.svg?react'
+import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
 import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
 
 export function AppHeader() {
