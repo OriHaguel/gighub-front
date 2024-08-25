@@ -38,6 +38,11 @@
 .card-link {
     color: white;
     gap: 0px;
+    text-decoration: none;
+}
+
+.card-link:hover {
+    text-decoration: none;
 }
 
 .home-page-carrousel {
