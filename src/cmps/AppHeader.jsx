@@ -5,6 +5,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import React from 'react'
 import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
 import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
+import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 
 export function AppHeader() {
 	const navigate = useNavigate()
@@ -36,12 +37,12 @@ export function AppHeader() {
 							<ul>
 								<li>
 									<NavLink to='/fiverr-pro' className='pro'>
-										Fiverr Pro
+										Fiverr Pro <ChevronIcon />
 									</NavLink>
 								</li>
 								<li>
 									<NavLink to='/explore' className='explore'>
-										Explore
+										Explore <ChevronIcon />{' '}
 									</NavLink>
 								</li>
 								<li>
