@@ -89,7 +89,7 @@ export function PopularServicesCarrousel() {
                     showIndicators={false}
                     emulateTouch={true}
                     centerMode={true}
-                    centerSlidePercentage={11}
+                    centerSlidePercentage={17}
                     swipeable={true}
                 >
                     {tempImages.map(image => (
