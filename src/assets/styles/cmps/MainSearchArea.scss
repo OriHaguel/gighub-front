@@ -1,9 +1,9 @@
-.main-search-area {
-    background-color: rgb(216, 240, 216);
-}
+// .main-search-area {
+//     background-color: rgb(216, 240, 216);
+// }
 
 .hero-container {
-
+    margin-top: 50px;
     position: relative;
     overflow: hidden;
 }
@@ -27,7 +27,13 @@
 
 .promotion-txt {
     font-size: 40px;
+    font-family: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin-left: 140px;
+
     // background-color: #98b2a0;
+    .freelancers-txt {
+        font-family: "italic";
+    }
 }
 
 button {
@@ -82,8 +88,11 @@ button {
             background-color: #003912;
             color: #fff;
             border: none;
-            border-radius: 0 5px 5px 0;
-            padding: 0.75rem 1.5rem;
+            border-radius: 5px 5px 5px 5px;
+            // padding: 0.75rem 1.5rem;
+            padding: 15px;
+            margin-right: 10px;
+
             display: flex;
             align-items: center;
             justify-content: center;

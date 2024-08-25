@@ -5,6 +5,7 @@ import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import React from "react"
 import HeaderLogo from '../assets/svg/headerLogo.svg?react'
 import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
+import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 
 
 export function AppHeader() {
@@ -37,10 +38,10 @@ export function AppHeader() {
 						<nav className="fiverr-nav">
 							<ul>
 								<li>
-									<NavLink to="/fiverr-pro" className="pro">Fiverr Pro</NavLink>
+									<NavLink to="/fiverr-pro" className="pro">Fiverr Pro <ChevronIcon /></NavLink>
 								</li>
 								<li>
-									<NavLink to="/explore" className="explore">Explore</NavLink>
+									<NavLink to="/explore" className="explore">Explore <ChevronIcon /> </NavLink>
 								</li>
 								<li>
 									<NavLink to="/language" className="language">Language</NavLink>

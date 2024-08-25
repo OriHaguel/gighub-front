@@ -1,113 +1,94 @@
 import React from "react"
-import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { useState, useRef, useEffect } from 'react'
+import { Carousel } from "react-responsive-carousel"
+import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { NavLink } from 'react-router-dom'
+import architectureDesignPic from '../assets/img/architecture-design.webp'
+import dataSciencePic from '../assets/img/data-science.webp'
+import eCommercePic from '../assets/img/e-commerce.webp'
+import logoDesignPic from '../assets/img/logo-design.webp'
+import productPhotographyPic from '../assets/img/product-photography.webp'
+import seoPic from '../assets/img/seo.webp'
+import socialMediaMarketingPic from '../assets/img/social-media-marketing.webp'
+import softwareDevelopmentPic from '../assets/img/software-development.webp'
+import videoEditingPic from '../assets/img/video-editing.webp'
+import voiceOverPic from '../assets/img/voice-over.webp'
+import websiteDevelopmentPic from '../assets/img/website-development.webp'
+import CarrouselControlNext from '../assets/svg/CarrouselControlNext.svg?react'
+import CarrouselControlPrev from '../assets/svg/CarrouselControlPrev.svg?react'
+
+
 
 export function PopularServicesCarrousel() {
 
-    const tempImages = [
-        {
-            "id": "146",
-            "service": "Website Development",
-            "width": 5000,
-            "height": 3333,
-            "url": "https://unsplash.com/photos/GG0jOrmwqtw",
-            "download_url": "https://picsum.photos/id/146/5000/3333"
-        },
-        {
-            "id": "147",
-            "service": "Logo Design",
-            "width": 2448,
-            "height": 2448,
-            "url": "https://unsplash.com/photos/OODWPtfXAF0",
-            "download_url": "https://picsum.photos/id/147/2448/2448"
-        },
-        {
-            "id": "149",
-            "service": "SEO",
-            "width": 3454,
-            "height": 2288,
-            "url": "https://unsplash.com/photos/revxuIor0nY",
-            "download_url": "https://picsum.photos/id/149/3454/2288"
-        },
-        {
-            "id": "151",
-            "service": "Architecture & Interior Design",
-            "width": 4288,
-            "height": 3216,
-            "url": "https://unsplash.com/photos/xPfj_Kdcal4",
-            "download_url": "https://picsum.photos/id/151/4288/3216"
-        },
-        {
-            "id": "152",
-            "service": "God",
-            "width": 4000,
-            "height": 4000,
-            "url": "http://i0.kym-cdn.com/photos/images/newsfeed/000/600/293/a38.gif "
-        },
-        {
-            "id": "155",
-            "service": "Social Media Marketing",
-            "width": 3264,
-            "height": 2176,
-            "url": "https://unsplash.com/photos/4f7r1LuPYj8",
-            "download_url": "https://picsum.photos/id/155/3264/2176"
-        },
-        {
-            "id": "156",
-            "service": "Voice Over",
-            "width": 2177,
-            "height": 3264,
-            "url": "https://unsplash.com/photos/iRyGmA_no2Q",
-            "download_url": "https://picsum.photos/id/156/2177/3264"
-        },
-        {
-            "id": "157",
-            "service": "Software Development",
-            "width": 5000,
-            "height": 3914,
-            "url": "https://unsplash.com/photos/HFbRnCjWHsk",
-            "download_url": "https://picsum.photos/id/157/5000/3914"
-        },
-        {
-            "id": "158",
-            "service": "Data Science & ML",
-            "width": 4836,
-            "height": 3224,
-            "url": "https://unsplash.com/photos/MRxD-J9-4ps",
-            "download_url": "https://picsum.photos/id/158/4836/3224"
-        }
-
+    const popularServices = [
+        { _id: 101, serviceDescription: "Website Development", picSrc: websiteDevelopmentPic, color: "#00732e" },
+        { _id: 102, serviceDescription: "Logo Design", picSrc: logoDesignPic, color: "#ff7640" },
+        { _id: 103, serviceDescription: "SEO", picSrc: seoPic, color: "#003912" },
+        { _id: 104, serviceDescription: "Architecture & Interior Design", picSrc: architectureDesignPic, color: "#4d1727" },
+        { _id: 105, serviceDescription: "Social Media Marketing", picSrc: socialMediaMarketingPic, color: "#687200" },
+        { _id: 106, serviceDescription: "Voice Over", picSrc: voiceOverPic, color: "#421300" },
+        { _id: 107, serviceDescription: "Software Development", picSrc: softwareDevelopmentPic, color: "#254200" },
+        { _id: 108, serviceDescription: "Data Science & ML", picSrc: dataSciencePic, color: "#8f2900" },
+        { _id: 109, serviceDescription: "Product Photography", picSrc: productPhotographyPic, color: "#687200" },
+        { _id: 110, serviceDescription: "E-Commerce Marketing", picSrc: eCommercePic, color: "#00732e" },
+        { _id: 111, serviceDescription: "Video Editing", picSrc: videoEditingPic, color: "#be5272" }
     ]
+
+    const slidesToShow = 10
+    const [currentIndex, setCurrentIndex] = useState(0)
+    const totalSlides = popularServices.length
+
+    const handleNext = () => {
+        setCurrentIndex((prev) => (prev + slidesToShow) % totalSlides)
+    }
+
+    const handlePrev = () => {
+        setCurrentIndex((prev) => (prev - slidesToShow + totalSlides) % totalSlides)
+    }
+
     return (
         <div className="popular-carrousel-grid">
             <div className="popular-services-carrousel">
                 <Carousel
                     showThumbs={false}
-                    infiniteLoop={false}
                     showStatus={false}
                     showIndicators={false}
-                    emulateTouch={true}
+                    showArrows={true}
                     centerMode={true}
-                    centerSlidePercentage={11}
-                    swipeable={true}
+                    centerSlidePercentage={17}
+                    selectedItem={currentIndex}
+                    onChange={(index) => setCurrentIndex(index)}
                 >
-                    {tempImages.map(image => (
-                        <NavLink to={`/services/${image.service}`} key={image.id} className="card-link">
-                            <div className="card">
-                                <img
-                                    src={image.download_url || image.url}
-                                    alt={image.service}
-                                />
+                    {popularServices.map(service => (
+                        <NavLink to={`/services/${service.serviceDescription}`} key={service._id} className="card-link">
+                            <div className="card" style={{ backgroundColor: service.color }}>
+
                                 <div className="card-content">
-                                    <p>{image.service}</p>
+                                    <p>{service.serviceDescription}</p>
                                 </div>
+                                <img
+                                    src={service.picSrc}
+                                    alt={service.serviceDescription}
+                                />
                             </div>
+
                         </NavLink>
                     ))}
-                </Carousel>
-            </div>
 
+                </Carousel>
+                <button onClick={handlePrev} className="carousel-control-prev"><CarrouselControlPrev /></button>
+                <button onClick={handleNext} className="carousel-control-next"><CarrouselControlNext /></button>
+            </div>
         </div>
     )
 }
+
+
+// {
+//     "id": "152",
+//     "service": "God",
+//     "width": 4000,
+//     "height": 4000,
+//     "url": "http://i0.kym-cdn.com/photos/images/newsfeed/000/600/293/a38.gif "
+// }

@@ -1,9 +1,9 @@
 // .gig-prev-container {
 //     background-color: rgb(216, 240, 216);
 // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    // gap: 20px;
-    // width: 100%;
+// grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+// gap: 20px;
+// width: 100%;
 // }
 
 .gig-prev-container {
@@ -16,6 +16,10 @@
 }
 
 .gig-page {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1400px;
+
     .gig-sorting {
         .top-filters {
             display: flex;

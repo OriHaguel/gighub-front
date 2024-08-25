@@ -1,6 +1,6 @@
 
 import hero from '../assets/img/hero-section.jpeg'
-import  SearchLogo  from '../assets/svg/searchLogo.svg?react'
+import SearchLogo from '../assets/svg/searchLogo.svg?react'
 
 export function MainSearchArea() {
 
@@ -9,8 +9,7 @@ export function MainSearchArea() {
             <img src={hero} alt="Green-Hero" className="hero-image" />
             <div className="hero-content">
                 <div className='promotion-txt'>
-                    <h1>Scale your professional</h1>
-                    <h1>workforce with freelancers</h1>
+                    <h1>Scale your professional workforce with <i className='freelancers-txt'>freelancers</i></h1>
                 </div>
                 <div className="search-bar-package">
                     <form className="search-form">
