@@ -6,22 +6,27 @@ import { loadGigs, setFilterBy } from "../store/actions/gig.actions";
 import { MostPopularCarrousel } from "../cmps/MostPopularCarrousel";
 import GigImage from '../assets/img/gig-image.png'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
+import { useSearchParams } from "react-router-dom";
+import { gigService } from "../services/gig";
 
 
 export function GigPage() {
     const param = useParams()
     const gigs = useSelector(state => state.gigModule.gigs)
     const filterBy = useSelector(state => state.gigModule.filterBy)
+    console.log("🚀 ~ GigPage ~ filterBy:", filterBy)
     const [activeDropdown, setActiveDropdown] = useState(null)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
 
     useEffect(() => {
 
-        setFilterBy({ category: param.gigs })
+        // setFilterBy(defaultFilter)
 
     }, [])
 
     useEffect(() => {
-
+        setSearchParams(filterBy)
         loadGigs(filterBy)
 
 

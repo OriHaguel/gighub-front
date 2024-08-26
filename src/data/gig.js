@@ -35,7 +35,7 @@ const orders = [
 		_id: 'o1225',
 		buyer: 'mini-user',
 		seller: 'mini-user',
-        
+
 		gig: {              // mini-gig
 			_id: 'i101',
 			name: 'Design Logo',
@@ -54,6 +54,8 @@ const users = [
 		username: 'user1',
 		password: 'secret',
 		level: 'basic/premium',
+		isSeller: false,
+
 	},
 ]
 

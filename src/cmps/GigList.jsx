@@ -1,7 +1,4 @@
 
-import { useParams } from "react-router"
-import { loadGigs, setFilterBy } from "../store/actions/gig.actions"
-import { useEffect } from "react"
 import { Link } from "react-router-dom"
 import Star from '../assets/svg/star.svg?react'
 import GigImage from '../assets/img/gig-image.png'

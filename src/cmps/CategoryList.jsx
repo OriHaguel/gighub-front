@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { setFilterBy } from "../store/actions/gig.actions";
 import ProgrammingLogo from '../assets/svg/programmingLogo.svg?react'
 import DesignLogo from '../assets/svg/designLogo.svg?react'
 import DigitalLogo from '../assets/svg/digitalLogo.svg?react'
@@ -9,8 +10,9 @@ import AiLogo from '../assets/svg/aiLogo.svg?react'
 import MusicLogo from '../assets/svg/musicLogo.svg?react'
 import BusinessLogo from '../assets/svg/businessLogo.svg?react'
 import ConsultingLogo from '../assets/svg/consultingLogo.svg?react'
+
 export function CategoryList() {
-	const what = [
+	const categoriesList = [
 		{
 			categoryTxt: 'Programming & Tech',
 			logo: <ProgrammingLogo />,
@@ -49,14 +51,19 @@ export function CategoryList() {
 		},
 	]
 
-	const [categories, setCategories] = useState(what)
+	const [categories, setCategories] = useState(categoriesList)
+
+	function onCategory(categoryToSave) {
+		setFilterBy({ category: categoryToSave.categoryTxt.split(' ')[0].toLowerCase() })
+	}
 
 	return (
 		<section className='category-list-container'>
 			{categories &&
 				categories.map(category => (
 					<div className='category-list' key={category.categoryTxt}>
-						<Link className='category-list-link' to={`category/${category.categoryTxt.split(' ')[0].toLowerCase()}`}>
+						{/* <Link className='category-list-link' to={`category/${category.categoryTxt.split(' ')[0].toLowerCase()}`}> */}
+						<Link className='category-list-link' to={`gigs`} onClick={() => onCategory(category)}>
 							<div className='category-list-logo'>{category.logo}</div>
 							<p className='category-list-text'>{category.categoryTxt}</p>
 						</Link>

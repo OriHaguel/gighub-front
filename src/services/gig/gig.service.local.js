@@ -11,7 +11,7 @@ export const gigService = {
     getById,
     save,
     remove,
-
+    getFilterFromSearchParams,
 
 }
 window.cs = gigService
@@ -89,6 +89,29 @@ async function save(gig) {
     }
     return savedGig
 }
+
+
+function _diffFilter() {
+    return {
+        title: '',
+        price: 0,
+        sortField: '',
+        sortDir: '',
+        category: '',
+    }
+}
+
+function getFilterFromSearchParams(searchParams) {
+    const defaultFilter = _diffFilter()
+    const filterBy = {}
+    for (const field in defaultFilter) {
+        filterBy[field] = searchParams.get(field) || ''
+    }
+    return filterBy
+}
+
+
+
 
 function _createGig() {
 
