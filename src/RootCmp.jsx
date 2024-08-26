@@ -15,8 +15,10 @@ export function RootCmp() {
 			<main>
 				<Routes>
 					<Route path='/' element={<HomePage />} />
-					<Route path='/category/:gigs' element={<GigPage />} />
+					<Route path='/gigs' element={<GigPage />} />
+					{/* <Route path='/category/:gigs' element={<GigPage />} /> */}
 					<Route path='/username/:gigId' element={<GigDetailsPage />} />
+					{/* <Route path='/gigs/:gigId' element={<GigPreview />} /> */}
 				</Routes>
 			</main>
 			<AppFooter />

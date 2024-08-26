@@ -45,9 +45,9 @@ export function AppFooter() {
 					<div className='footer-currency'>
 						<p>$ USD</p>
 					</div>
-					<div className='footer-accessibility'>
+					{/* <div className='footer-accessibility'>
 						<AccessIcon />
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</footer>
