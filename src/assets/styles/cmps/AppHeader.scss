@@ -14,7 +14,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
+      padding: 20px;
 
       .header-row {
         display: flex;
@@ -66,20 +66,39 @@
               button {
                 background: none;
                 border: none;
-                font-size: 17px;
+                font-size: 16px;
                 color: #615c5c;
                 cursor: pointer;
                 padding: 10px;
                 text-decoration: none;
-                transition: color 0.3s;
+                transition: 0.3s;
 
                 &:hover {
                   color: #1dbf73;
+
+                  svg {
+                    fill: #1dbf73;
+                    transition: 0.3s;
+
+                  }
                 }
 
                 &.active {
                   color: #1dbf73;
                 }
+              }
+
+              .join-button {
+                color: #25b471;
+                border: 1px solid #25b471;
+                border-radius: 15%;
+                background-color: none;
+
+              }
+
+              .join-button:hover {
+                color: white;
+                background-color: #25b471;
               }
             }
           }

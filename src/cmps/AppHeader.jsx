@@ -6,6 +6,7 @@ import React from 'react'
 import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
 import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
+import Globe from '../assets/svg/Globe.svg?react'
 
 export function AppHeader() {
 	const navigate = useNavigate()
@@ -15,9 +16,9 @@ export function AppHeader() {
 			<header className='header-package fiverr-header logged-out-homepage-header'>
 				<div className='header-row-wrapper'>
 					<div className='header-row max-width-container equal-padding row-main'>
-						<button className='btn-navicon js-side-nav-trigger'>
+						{/* <button className='btn-navicon js-side-nav-trigger'>
 							<HeaderNavicon />
-						</button>
+						</button> */}
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
@@ -42,12 +43,12 @@ export function AppHeader() {
 								</li>
 								<li>
 									<NavLink to='/explore' className='explore'>
-										Explore <ChevronIcon />{' '}
+										Explore <ChevronIcon />
 									</NavLink>
 								</li>
 								<li>
 									<NavLink to='/language' className='language'>
-										Language
+										<Globe /> English
 									</NavLink>
 								</li>
 								<li>
