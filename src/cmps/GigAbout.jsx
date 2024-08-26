@@ -4,6 +4,6 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.local.js'
 
-export function GigPricing() {
-	return <h1>pricing</h1>
+export function GigAbout() {
+	return <h1>about</h1>
 }
