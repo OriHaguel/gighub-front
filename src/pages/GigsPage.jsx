@@ -14,22 +14,44 @@ export function GigPage() {
     const param = useParams()
     const gigs = useSelector(state => state.gigModule.gigs)
     const filterBy = useSelector(state => state.gigModule.filterBy)
-    console.log("🚀 ~ GigPage ~ filterBy:", filterBy)
     const [activeDropdown, setActiveDropdown] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
+    // const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
+    const [num, setNum] = useState(3);
     const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
 
+    // const g = {
+    //     txt: ''
+    // }
+    // const y = {
+    //     txt: 'hello'
+    // }
+    // setFilterBy({ ...defaultFilter, ...filterBy })
+    // console.log({ ...g, ...y })
     useEffect(() => {
 
-        // setFilterBy(defaultFilter)
 
+        // if (num < 1) {
+        //     setFilterBy(defaultFilter)
+        //     console.log('yoooo')
+        // }
+        // setNum(prevNum => prevNum - 1)
     }, [])
 
+
     useEffect(() => {
-        setSearchParams(filterBy)
-        loadGigs(filterBy)
 
 
+        if (filterBy.category) {
+            setSearchParams(filterBy)
+        }
+        if (!filterBy.category) {
+            console.log({ ...filterBy, category: searchParams.get('category') })
+            loadGigs({ ...filterBy, category: searchParams.get('category') })
+        } else {
+
+            loadGigs(filterBy)
+        }
     }, [filterBy])
 
 

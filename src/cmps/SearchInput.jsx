@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux'
 import SearchLogo from '../assets/svg/searchLogo.svg?react'
 import { setFilterBy } from '../store/actions/gig.actions'
-import { Link } from 'react-router-dom'
-
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 export function SearchInput() {
     // const filterBy = useSelector(state => state.gigModule.filterBy)
     // console.log("🚀 ~ GigPage ~ filterBy:", filterBy)
 
-
+    const navigate = useNavigate()
     function handleChange(ev) {
         const type = ev.target.type
         const field = ev.target.name
@@ -24,18 +24,21 @@ export function SearchInput() {
                 break
         }
         setFilterBy({ txt: value })
-    }
 
+    }
+    function onSubmit(ev) {
+        ev.preventDefault()
+        navigate('gigs')
+    }
 
     return (
         <div className="search-bar-package" >
-            <form className="search-form" onChange={handleChange}>
-                <input type="search" className="search-input" placeholder="Search for any service..." />
-                <Link to={'gigs'}>
-                    <button className="search-button">
-                        <SearchLogo />
-                    </button>
-                </Link>
+            <form className="search-form" onSubmit={onSubmit}>
+                <input type="search" className="search-input" placeholder="Search for any service..." onChange={handleChange} />
+
+                <button className="search-button" type='submit'>
+                    <SearchLogo />
+                </button>
             </form>
         </div>
     )

@@ -20,6 +20,7 @@ function getDefaultFilter() {
         price: 0,
         sortField: '',
         sortDir: '',
+        category: ''
     }
 }
 

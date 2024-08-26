@@ -28,7 +28,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
         // const regex = new RegExp(filterBy.txt, 'i')
         const regex = new RegExp(filterBy.txt.split(' ').join('|'), 'i')
         gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-        console.log("🚀 ~ query ~ gigs:", gigs)
+
     }
     if (daysToMake) {
         gigs = gigs.filter(gig => gig.daysToMake >= daysToMake)
@@ -108,6 +108,8 @@ function getFilterFromSearchParams(searchParams) {
     const filterBy = {}
     for (const field in defaultFilter) {
         filterBy[field] = searchParams.get(field) || ''
+
+
     }
     return filterBy
 }

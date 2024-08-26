@@ -48,34 +48,34 @@
               border: solid rgb(184, 184, 184) 1px;
             }
 
-            .submit-button-link {
+            // .submit-button-link {
+            //   height: inherit;
+
+            .submit-button {
+              background-color: #222325;
+              color: #fff;
+              border-radius: 0 4px 4px 0;
+              display: block;
+              font-size: 14px;
+              text-shadow: none;
+              flex-shrink: 0;
+              padding: 8px 16px;
+              z-index: 3;
+              font-weight: 700;
               height: inherit;
 
-              .submit-button {
-                margin: 0;
-                background-color: #222325;
-                color: #fff;
-                border-radius: 0 4px 4px 0;
-                display: block;
-                font-size: 14px;
-                text-shadow: none;
-                flex-shrink: 0;
-                padding: 8px 16px;
-                z-index: 3;
-                font-weight: 700;
-                height: inherit;
-
-                .submit-button-icon {
-                  svg {
-                    height: rem(16px);
-                    width: rem(16px);
-                    overflow-clip-margin: content-box;
-                    overflow: hidden;
-                    color: white;
-                  }
+              .submit-button-icon {
+                svg {
+                  height: rem(16px);
+                  width: rem(16px);
+                  overflow-clip-margin: content-box;
+                  overflow: hidden;
+                  color: white;
                 }
               }
             }
+
+            // }
           }
         }
 

@@ -18,14 +18,7 @@ export function MainSearchArea() {
                 <div className='promotion-txt'>
                     <h1 className='txt-content'>Scale your professional workforce with <i className='freelancers-txt'>freelancers</i></h1>
                 </div>
-                {/* <div className="search-bar-package">
-                    <form className="search-form">
-                        <input type="search" className="search-input" placeholder="Search for any service..." />
-                        <button className="search-button">
-                            <SearchLogo />
-                        </button>
-                    </form>
-                </div> */}
+
                 <SearchInput />
                 <div className="logo-section">
                     <ul className="logo-list">
