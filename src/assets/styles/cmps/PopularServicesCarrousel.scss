@@ -1,62 +1,89 @@
-.popular-services-carrousel {
-    padding: 30px;
-    max-width: 100%;
-    overflow: hidden;
-    // background-color: rgb(216, 240, 216);
+.popular-carrousel-grid {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .popular-services-carrousel {
+        padding: 30px;
+        max-width: 100%;
+        overflow: hidden;
+        flex: 1;
+        // background-color: rgb(216, 240, 216);
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        padding: 15px 20px;
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid rgb(231, 218, 218);
+        border-radius: 100%;
+        position: absolute;
+        cursor: pointer;
+        z-index: 10;
+
+        &.carousel-control-prev {
+            left: 0;
+        }
+
+        &.carousel-control-next {
+            right: 0;
+        }
+    }
 }
 
 .card {
-    width: 210px;
-    height: 300px;
+    width: 200px;
+    height: 270px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 25px;
+    border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     background-color: #1dbf73;
     padding: 10px;
     text-align: left;
     margin-right: 16px;
-}
 
+    img {
+        width: 100%;
+        // height: 200px;
+        max-height: 150px;
+        // padding: 5px;
+        // margin-top: 40px;
+        object-fit: cover;
+        // border-top: 2px solid #ddd;
+        border-radius: 10px;
+    }
 
-.card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-bottom: 2px solid #ddd;
-    border-radius: 10px;
-
-}
-
-.card-content {
-    padding: 20px;
-    text-align: left;
+    .card-content {
+        // padding: 20px;
+        margin-top: 20px;
+        text-align: left;
+        padding-left: 10px;
+        // display: flex;
+        // flex-direction: left;
+        // align-items: left;
+        // justify-content: left;
+        width: 100%;
+        height: 100%;
+        // margin-top: 40px;
+    }
 }
 
 .card-link {
     color: white;
     gap: 0px;
     text-decoration: none;
-}
 
-.card-link:hover {
-    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
 }
 
 .home-page-carrousel {
     font-weight: bold;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-    padding: 20px;
-    align-items: center;
-    background-color: #fff;
-    border: 1px solid black;
-    border-radius: 50%;
-    bottom: 0;
 }
 
 // .card {
