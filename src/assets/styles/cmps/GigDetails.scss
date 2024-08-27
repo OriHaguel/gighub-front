@@ -1,0 +1,59 @@
+.gig-overview {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+
+	.gig-title {
+		font-size: rem(28px);
+		font-weight: bold;
+		line-height: 1.3;
+		padding-bottom: rem(10px);
+		color: #404145;
+	}
+
+	.owner-name {
+		color: #404145;
+		cursor: pointer;
+		font-weight: 700;
+		margin-right: 8px;
+	}
+
+	.owner-details-container {
+		display: flex;
+		flex-direction: column;
+		align-items: inline-start;
+		margin-bottom: 1rem;
+	}
+
+	.rating-container {
+		display: flex;
+	}
+
+	.owner-details {
+		display: flex;
+		flex-direction: row;
+		gap: 1rem;
+	}
+
+	.owner-image {
+		height: 70px;
+	}
+
+	.first-line {
+		margin-bottom: 0.8rem;
+	}
+
+	.star-container {
+		margin-inline-end: 0.3rem;
+	}
+
+	.light-text {
+		color: #878990;
+		font-size: 0.8em;
+		font-weight: 600;
+	}
+}
+
+p {
+	margin-inline-end: 1rem;
+}

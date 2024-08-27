@@ -74,7 +74,7 @@ export function GigPage() {
             </section>
 
             <section className="gig-sorting">
-                <div>Sorting Section...</div>
+                {/* <div>Sorting Section...</div> */}
                 <div className="top-filters">
 
                     <div className="filter">
@@ -157,7 +157,7 @@ export function GigPage() {
                 </section>
             }
             <section className="pagination">
-                <div>pages....</div>
+                <div>||gig pages section....||</div>
             </section>
         </div>
     )

@@ -14,13 +14,13 @@ export function GigDetailsPage() {
 		<section>
 			<GigDetails />
 
-			<GigCarrousel />
+			{/* <GigCarrousel /> */}
 
-			<GigAbout />
+			{/* <GigAbout /> */}
 
 			<GigPricing />
 
-			<GigReviews />
+			{/* <GigReviews /> */}
 		</section>
 	)
 }
