@@ -1,4 +1,4 @@
-footer {
+.app-footer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -7,6 +7,9 @@ footer {
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 1400px;
 
 	.footer-left-container {
 		display: flex;
@@ -71,10 +74,4 @@ footer {
 			}
 		}
 	}
-}
-
-footer {
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 1400px;
 }

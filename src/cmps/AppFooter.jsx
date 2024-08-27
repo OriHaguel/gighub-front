@@ -11,7 +11,7 @@ import GighubLogo from '../assets/svg/Gighub_logo.svg?react'
 
 export function AppFooter() {
 	return (
-		<footer className='main-container flex space-between align-center'>
+		<footer className='app-footer main-container flex space-between align-center'>
 			<div className='logo footer-left-container space-between'>
 				<GighubLogo />
 				<p className='copy-rights'>© GigHub International Ltd. 2024</p>
