@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { useSelector } from 'react-redux'
+// import { Link } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.local.js'
+
+import Star from '../assets/svg/star.svg?react'
 
 export function GigDetails() {
 	const [gig, setGig] = useState(null)
@@ -25,11 +27,26 @@ export function GigDetails() {
 
 	return (
 		<section className='gig-overview'>
-			<h1 className='text-display-3'>{gig.title}</h1>
-			<div tabIndex='0' role='button' aria-label='Scroll to about the seller' className='o6KMeAI tbody-4  text-bold'>
-				<p>{gig.owner}</p>
-				<p>Price: ${gig.price}</p>
-				<p>Days to make: {gig.daysToMake}</p>
+			<h1 className='gig-title'>{gig.title}</h1>
+			<div className='owner-details'>
+				<img className='owner-image' src={gig.ownerImage} alt='Owner' />
+				<div className='owner-details-container'>
+					<div className='first-line'>
+						<p className='owner-name'>{gig.owner}</p>
+						{/* <img className='owner-pro' src={gig.ownerPro} alt='Pro' /> */}
+						{/* <img className='owner-point' src={gig.ownerPoint} alt='Tag' /> */}
+					</div>
+					<div className='second-line'>
+						<div className='rating-container'>
+							<div className='star-container'>
+								<Star />
+							</div>
+							{/* <p>{gig.ownerRating}</p> */}
+							<p>5</p>
+							<p className='light-text'>22 orders in queue</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	)

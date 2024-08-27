@@ -110,6 +110,8 @@ function _createGig() {
 	gig.daysToMake = getRandomIntInclusive(1, 14)
 	// temp
 	gig.owner = makeUserNameLorem()
+	gig.ownerImage = getImg()
+	gig.ownerRating = getRandomIntInclusive(1, 5)
 
 	return gig
 }
@@ -123,6 +125,10 @@ function _createGigs() {
 		}
 		saveToStorage(STORAGE_KEY, gigs)
 	}
+}
+
+function getImg() {
+	return '../src/assets/img/profile_clean.png'
 }
 
 // async function addGigMsg(gigId, txt) {
