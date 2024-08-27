@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom'
 
 export function MostPopularCarrousel() {
     return (
-        <div>MostPopularCarrousel placeholder</div>
+        <div>||MostPopularCarrousel placeholder...||</div>
     )
 
 }
