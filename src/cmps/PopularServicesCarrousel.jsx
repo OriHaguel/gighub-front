@@ -32,7 +32,8 @@ export function PopularServicesCarrousel() {
         { _id: 108, serviceDescription: "Data Science & ML", picSrc: dataSciencePic, color: "#8f2900" },
         { _id: 109, serviceDescription: "Product Photography", picSrc: productPhotographyPic, color: "#687200" },
         { _id: 110, serviceDescription: "E-Commerce Marketing", picSrc: eCommercePic, color: "#00732e" },
-        { _id: 111, serviceDescription: "Video Editing", picSrc: videoEditingPic, color: "#be5272" }
+        { _id: 111, serviceDescription: "Video Editing", picSrc: videoEditingPic, color: "#be5272" },
+        // { _id: 112, serviceDescription: "God", picSrc: "http://i0.kym-cdn.com/photos/images/newsfeed/000/600/293/a38.gif " }
     ]
 
     const slidesToShow = 10
@@ -49,12 +50,13 @@ export function PopularServicesCarrousel() {
 
     return (
         <div className="popular-carrousel-grid">
+            <button onClick={handlePrev} className="carousel-control-prev"><CarrouselControlPrev /></button>
             <div className="popular-services-carrousel">
                 <Carousel
                     showThumbs={false}
                     showStatus={false}
                     showIndicators={false}
-                    showArrows={true}
+                    showArrows={false}
                     centerMode={true}
                     centerSlidePercentage={17}
                     selectedItem={currentIndex}
@@ -75,20 +77,12 @@ export function PopularServicesCarrousel() {
 
                         </NavLink>
                     ))}
-
                 </Carousel>
-                <button onClick={handlePrev} className="carousel-control-prev"><CarrouselControlPrev /></button>
-                <button onClick={handleNext} className="carousel-control-next"><CarrouselControlNext /></button>
             </div>
+            <button onClick={handleNext} className="carousel-control-next"><CarrouselControlNext /></button>
         </div>
     )
 }
 
-
-// {
-//     "id": "152",
-//     "service": "God",
-//     "width": 4000,
-//     "height": 4000,
-//     "url": "http://i0.kym-cdn.com/photos/images/newsfeed/000/600/293/a38.gif "
-// }
+{/* <button onClick={handlePrev} className="carousel-control-prev"><CarrouselControlPrev /></button>
+<button onClick={handleNext} className="carousel-control-next"><CarrouselControlNext /></button> */}

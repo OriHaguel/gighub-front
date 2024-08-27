@@ -11,7 +11,7 @@ export const gigService = {
     getById,
     save,
     remove,
-
+    getFilterFromSearchParams,
 
 }
 window.cs = gigService
@@ -21,13 +21,14 @@ window.cs = gigService
 
 async function query(filterBy = { txt: '', price: 0 }) {
 
-
     var gigs = await storageService.query(STORAGE_KEY)
     const { txt, daysToMake, price, sortField, sortDir, category } = filterBy
 
     if (txt) {
-        const regex = new RegExp(filterBy.txt, 'i')
+        // const regex = new RegExp(filterBy.txt, 'i')
+        const regex = new RegExp(filterBy.txt.split(' ').join('|'), 'i')
         gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
+        console.log("🚀 ~ query ~ gigs:", gigs)
     }
     if (daysToMake) {
         gigs = gigs.filter(gig => gig.daysToMake >= daysToMake)
@@ -89,6 +90,30 @@ async function save(gig) {
     }
     return savedGig
 }
+
+
+function _diffFilter() {
+    return {
+        title: '',
+        price: 0,
+        sortField: '',
+        sortDir: '',
+        txt: '',
+        category: '',
+    }
+}
+
+function getFilterFromSearchParams(searchParams) {
+    const defaultFilter = _diffFilter()
+    const filterBy = {}
+    for (const field in defaultFilter) {
+        filterBy[field] = searchParams.get(field) || ''
+    }
+    return filterBy
+}
+
+
+
 
 function _createGig() {
 

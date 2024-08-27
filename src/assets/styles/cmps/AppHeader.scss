@@ -5,7 +5,6 @@
 
   .header-package {
     background-color: #ffffff;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     width: 100%;
     z-index: 1000;
     border-bottom: 1px solid #e4e6e7;
@@ -14,13 +13,71 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px;
+      padding: 20px;
 
       .header-row {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
+
+        .fiverr-header-search-animated {
+          width: rem(400px);
+          // width: 100%;
+          display: block;
+          margin-top: 0;
+          order: 0;
+          border: none;
+
+          .search-form {
+            position: relative;
+            display: flex;
+            height: rem(42px);
+
+            input {
+              border-color: #c5c6c9;
+              color: #62646a;
+              display: block;
+              border-radius: 4px 0 0 4px;
+              border-right: 0;
+              flex: 1 1 auto;
+              font-size: 16px;
+              padding: 10px 2px 10px 16px;
+              z-index: 3;
+              height: inherit;
+              border: solid rgb(184, 184, 184) 1px;
+            }
+
+            .submit-button-link {
+              height: inherit;
+
+              .submit-button {
+                margin: 0;
+                background-color: #222325;
+                color: #fff;
+                border-radius: 0 4px 4px 0;
+                display: block;
+                font-size: 14px;
+                text-shadow: none;
+                flex-shrink: 0;
+                padding: 8px 16px;
+                z-index: 3;
+                font-weight: 700;
+                height: inherit;
+
+                .submit-button-icon {
+                  svg {
+                    height: rem(16px);
+                    width: rem(16px);
+                    overflow-clip-margin: content-box;
+                    overflow: hidden;
+                    color: white;
+                  }
+                }
+              }
+            }
+          }
+        }
 
         .btn-navicon {
           background: none;
@@ -66,20 +123,43 @@
               button {
                 background: none;
                 border: none;
-                font-size: 17px;
+                font-size: 16px;
                 color: #615c5c;
                 cursor: pointer;
                 padding: 10px;
                 text-decoration: none;
-                transition: color 0.3s;
+                transition: 0.3s;
+                // svg{
+                //   color: rgb(179, 55, 55);
+                //   background-color: #1dbf73;
+                // }
 
                 &:hover {
                   color: #1dbf73;
+
+                  svg {
+                    fill: #1dbf73;
+                    transition: 0.3s;
+
+                  }
                 }
 
                 &.active {
                   color: #1dbf73;
                 }
+              }
+
+              .join-button {
+                color: #25b471;
+                border: 1px solid #25b471;
+                border-radius: 15%;
+                background-color: none;
+
+              }
+
+              .join-button:hover {
+                color: white;
+                background-color: #25b471;
               }
             }
           }

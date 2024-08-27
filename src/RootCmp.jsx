@@ -1,11 +1,12 @@
 import React from 'react'
 import { Routes, Route } from 'react-router'
 import { HomePage } from './pages/HomePage'
-import { GigDetails } from './pages/GigDetails.jsx'
 import { AppHeader } from './cmps/AppHeader'
 import { AppFooter } from './cmps/AppFooter'
 import { GigPage } from './pages/GigsPage.jsx'
-import { GigPreview } from './pages/GigPreviewPage.jsx'
+import { GigDetailsPage } from './pages/GigDetailsPage.jsx'
+
+// import { GigDetails } from './pages/GigDetails.jsx'
 
 export function RootCmp() {
 	return (
@@ -14,8 +15,10 @@ export function RootCmp() {
 			<main>
 				<Routes>
 					<Route path='/' element={<HomePage />} />
-					<Route path='/category/:gigs' element={<GigPage />} />
-					<Route path='/username/:gigId' element={<GigPreview />} />
+					<Route path='/gigs' element={<GigPage />} />
+					{/* <Route path='/category/:gigs' element={<GigPage />} /> */}
+					<Route path='/username/:gigId' element={<GigDetailsPage />} />
+					{/* <Route path='/gigs/:gigId' element={<GigPreview />} /> */}
 				</Routes>
 			</main>
 			<AppFooter />
