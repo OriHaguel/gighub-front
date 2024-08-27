@@ -11,7 +11,7 @@ import { GigReviews } from '../cmps/GigReviews'
 
 export function GigDetailsPage() {
 	return (
-		<section>
+		<section className='main-detail-container'>
 			<GigDetails />
 
 			{/* <GigCarrousel /> */}
