@@ -58,7 +58,7 @@ export function PopularServicesCarrousel() {
                     showIndicators={false}
                     showArrows={false}
                     centerMode={true}
-                    centerSlidePercentage={17}
+                    centerSlidePercentage={16}
                     selectedItem={currentIndex}
                     onChange={(index) => setCurrentIndex(index)}
                 >

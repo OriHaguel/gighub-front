@@ -134,7 +134,7 @@
                 cursor: pointer;
                 padding: 10px;
                 text-decoration: none;
-                transition: 0.3s;
+                transition: 0.2s;
                 // svg{
                 //   color: rgb(179, 55, 55);
                 //   background-color: #1dbf73;
@@ -145,7 +145,7 @@
 
                   svg {
                     fill: #1dbf73;
-                    transition: 0.3s;
+                    transition: 0.2s;
 
                   }
                 }
@@ -158,8 +158,10 @@
               .join-button {
                 color: #25b471;
                 border: 1px solid #25b471;
-                border-radius: 15%;
+                border-radius: 10%;
                 background-color: none;
+                padding: 10px 17px;
+                font-size: 14px;
 
               }
 
