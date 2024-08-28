@@ -50,7 +50,11 @@ export function PopularServicesCarrousel() {
 
     return (
         <div className="popular-carrousel-grid">
-            <button onClick={handlePrev} className="carousel-control-prev"><CarrouselControlPrev /></button>
+            {currentIndex > 0 && (
+                <button onClick={handlePrev} className="carousel-control-prev">
+                    <CarrouselControlPrev />
+                </button>
+            )}
             <div className="popular-services-carrousel">
                 <Carousel
                     showThumbs={false}
@@ -62,24 +66,27 @@ export function PopularServicesCarrousel() {
                     selectedItem={currentIndex}
                     onChange={(index) => setCurrentIndex(index)}
                 >
-                    {popularServices.map(service => (
-                        <NavLink to={`/services/${service.serviceDescription}`} key={service._id} className="card-link">
+                    {popularServices.map((service) => (
+                        <NavLink
+                            to={`/services/${service.serviceDescription}`}
+                            key={service._id}
+                            className="card-link"
+                        >
                             <div className="card" style={{ backgroundColor: service.color }}>
-
                                 <div className="card-content">
                                     <p>{service.serviceDescription}</p>
                                 </div>
-                                <img
-                                    src={service.picSrc}
-                                    alt={service.serviceDescription}
-                                />
+                                <img src={service.picSrc} alt={service.serviceDescription} />
                             </div>
-
                         </NavLink>
                     ))}
                 </Carousel>
             </div>
-            <button onClick={handleNext} className="carousel-control-next"><CarrouselControlNext /></button>
+            {currentIndex < totalSlides - slidesToShow && (
+                <button onClick={handleNext} className="carousel-control-next">
+                    <CarrouselControlNext />
+                </button>
+            )}
         </div>
     )
 }
