@@ -2,13 +2,14 @@ import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
 import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 import { setFilterBy } from '../store/actions/gig.actions'
 import Globe from '../assets/svg/Globe.svg?react'
-import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
+
+import { LoginSignUp } from './LoginSignup'
 
 export function AppHeader() {
 	const navigate = useNavigate()
@@ -16,6 +17,8 @@ export function AppHeader() {
 	const filterBy = useSelector(state => state.gigModule.filterBy)
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
+
+
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -34,6 +37,8 @@ export function AppHeader() {
 			window.removeEventListener('scroll', handleScroll)
 		}
 	}, [])
+
+
 
 	function handleChange(ev) {
 		const type = ev.target.type
@@ -137,30 +142,7 @@ export function AppHeader() {
 
 			{/* Button to open the modal */}
 			{/* <button className="login-signup-modal" onClick={openModal}>open modal</button> */}
-
-			<dialog className='modal' id='modal' open={isModalOpen}>
-				<button className='button close-button' onClick={closeModal}>X</button>
-				<img src={ModalLoginSignupPic} alt='modal' className='modal-image' />
-				<div className='modal-txt'>
-					<h2>Success starts here</h2>
-					<p>Over 700 categories</p>
-					<p>Quality work done faster</p>
-					<p>Access to talent and businesses across the globe</p>
-				</div>
-				<form className='form' method='dialog'>
-					<h2>Create a new account</h2>
-					<p>Already have an account? Sign in</p>
-					<label>
-						Email
-						<input type='email' />
-					</label>
-					<label>
-						Password
-						<input type='pass' />
-					</label>
-					<button className='button' type='submit'>Continue</button>
-				</form>
-			</dialog>
+			<LoginSignUp isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
 
 		</div>
