@@ -32,15 +32,15 @@ export function Login() {
         const value = ev.target.value
         setCredentials({ ...credentials, [field]: value })
     }
-    
+
     return (
         <form className="login-form" onSubmit={onLogin}>
             <select
                 name="username"
                 value={credentials.username}
                 onChange={handleChange}>
-                    <option value="">Select User</option>
-                    {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
+                <option value="">Select User</option>
+                {users.map(user => <option key={user._id} value={user.username}>{user.fullname}</option>)}
             </select>
             <button>Login</button>
         </form>

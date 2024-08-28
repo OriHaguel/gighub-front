@@ -7,37 +7,33 @@ import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
 import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 import { setFilterBy } from '../store/actions/gig.actions'
-
 import Globe from '../assets/svg/Globe.svg?react'
+import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
 
 export function AppHeader() {
 	const navigate = useNavigate()
 	const [inputValue, setInputValue] = useState({ txt: '' })
 	const filterBy = useSelector(state => state.gigModule.filterBy)
-	const [isVisible, setIsVisible] = useState(false);
-
-
+	const [isVisible, setIsVisible] = useState(false)
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	useEffect(() => {
 		const handleScroll = () => {
-			const scrollPosition = window.scrollY || window.pageYOffset;
+			const scrollPosition = window.scrollY || window.pageYOffset
 
 			if (scrollPosition > 405) {
-				setIsVisible(true);
+				setIsVisible(true)
 			} else {
-				setIsVisible(false);
+				setIsVisible(false)
 			}
-		};
+		}
 
-		window.addEventListener('scroll', handleScroll);
+		window.addEventListener('scroll', handleScroll)
 
 		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
-
-
-
+			window.removeEventListener('scroll', handleScroll)
+		}
+	}, [])
 
 	function handleChange(ev) {
 		const type = ev.target.type
@@ -65,6 +61,15 @@ export function AppHeader() {
 		setFilterBy(inputValue)
 		setInputValue({ txt: '' })
 		navigate('gigs')
+	}
+
+	const openModal = () => {
+		setIsModalOpen(true)
+	}
+
+
+	const closeModal = () => {
+		setIsModalOpen(false)
 	}
 
 	return (
@@ -111,20 +116,53 @@ export function AppHeader() {
 									</NavLink>
 								</li>
 								<li>
-									<NavLink to='/sign-in' className='sign'>
+									{/* <NavLink to='/sign-in'> */}
+									<button to='/sign-in' className='sign-button' onClick={openModal}>
 										Sign In
-									</NavLink>
+									</button>
+									{/* </NavLink> */}
 								</li>
 								<li>
-									<NavLink to='/join' className='join-button'>
+									{/* <NavLink to='/join'> */}
+									<button to='/join' className='join-button' onClick={openModal}>
 										Join
-									</NavLink>
+									</button>
+									{/* </NavLink> */}
 								</li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</header>
+
+			{/* Button to open the modal */}
+			{/* <button className="login-signup-modal" onClick={openModal}>open modal</button> */}
+
+			<dialog className='modal' id='modal' open={isModalOpen}>
+				<button className='button close-button' onClick={closeModal}>X</button>
+				<img src={ModalLoginSignupPic} alt='modal' className='modal-image' />
+				<div className='modal-txt'>
+					<h2>Success starts here</h2>
+					<p>Over 700 categories</p>
+					<p>Quality work done faster</p>
+					<p>Access to talent and businesses across the globe</p>
+				</div>
+				<form className='form' method='dialog'>
+					<h2>Create a new account</h2>
+					<p>Already have an account? Sign in</p>
+					<label>
+						Email
+						<input type='email' />
+					</label>
+					<label>
+						Password
+						<input type='pass' />
+					</label>
+					<button className='button' type='submit'>Continue</button>
+				</form>
+			</dialog>
+
+
 		</div>
 	)
 }
