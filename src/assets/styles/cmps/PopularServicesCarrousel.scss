@@ -4,7 +4,7 @@
     position: relative;
 
     .popular-services-carrousel {
-        padding: 30px;
+        // padding: 30px;
         max-width: 100%;
         overflow: hidden;
         flex: 1;
@@ -23,11 +23,11 @@
         z-index: 10;
 
         &.carousel-control-prev {
-            left: 0;
+            left: -25px;
         }
 
         &.carousel-control-next {
-            right: 0;
+            right: -25px;
         }
     }
 }
@@ -52,27 +52,18 @@
 
     img {
         width: 100%;
-        // height: 200px;
         max-height: 150px;
-        // padding: 5px;
-        // margin-top: 40px;
         object-fit: cover;
-        // border-top: 2px solid #ddd;
         border-radius: 10px;
     }
 
     .card-content {
-        // padding: 20px;
         margin-top: 20px;
         text-align: left;
         padding-left: 10px;
-        // display: flex;
-        // flex-direction: left;
-        // align-items: left;
-        // justify-content: left;
         width: 100%;
         height: 100%;
-        // margin-top: 40px;
+
     }
 }
 
@@ -89,18 +80,3 @@
 .home-page-carrousel {
     font-weight: bold;
 }
-
-// .card {
-//     border-radius: 16px;
-//     margin: 12px 4px;
-//     min-height: 235px;
-//     padding: 25px 6px 6px;
-//     width: 188px;
-//     display: flex;
-//     flex-direction: column;
-//     align-items: center;
-//     justify-content: center;
-//     border-radius: 8px;
-//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-//     background-color: #1dbf73;
-// }

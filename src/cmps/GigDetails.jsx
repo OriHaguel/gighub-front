@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-// import { useSelector } from 'react-redux'
-// import { Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.local.js'
-
+import { SellerLevel } from './SellerLevel.jsx'
+import { SellerPro } from './SellerPro.jsx'
 import Star from '../assets/svg/star.svg?react'
 
 export function GigDetails() {
 	const [gig, setGig] = useState(null)
 	const { gigId } = useParams()
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		if (gigId) loadGig()
@@ -20,30 +20,34 @@ export function GigDetails() {
 			.then(gig => setGig(gig))
 			.catch(err => {
 				console.log('Had issues in gig details', err)
-				navigate('/gig')
+				navigate('/gig') // This now uses navigate correctly
 			})
 	}
+
 	if (!gig) return <div>Loading...</div>
 
 	return (
 		<section className='gig-overview'>
 			<h1 className='gig-title'>{gig.title}</h1>
 			<div className='owner-details'>
-				<img className='owner-image' src={gig.ownerImage} alt='Owner' />
+				<img
+					className='owner-image'
+					src={gig.ownerImage || 'fallback-image.png'} // Add fallback for image
+					alt={gig.owner || 'Owner'} // Add fallback for alt text
+				/>
 				<div className='owner-details-container'>
 					<div className='first-line'>
 						<p className='owner-name'>{gig.owner}</p>
-						{/* <img className='owner-pro' src={gig.ownerPro} alt='Pro' /> */}
-						{/* <img className='owner-point' src={gig.ownerPoint} alt='Tag' /> */}
+						{gig.ownerPro && <SellerPro />}
+						<SellerLevel />
 					</div>
 					<div className='second-line'>
 						<div className='rating-container'>
 							<div className='star-container'>
 								<Star />
 							</div>
-							{/* <p>{gig.ownerRating}</p> */}
-							<p>5</p>
-							<p className='light-text'>22 orders in queue</p>
+							<p>{gig.ownerRating}</p>
+							<p className='light-text'>{gig.ownerOrders} orders in queue</p>
 						</div>
 					</div>
 				</div>

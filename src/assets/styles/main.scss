@@ -21,12 +21,10 @@
 
 // Components
 
-
-@import "cmps/AppHeader";
-@import "cmps/AppFooter";
-@import "cmps/CategoryList.scss";
-@import "cmps/GigPricing.scss";
-
+@import 'cmps/AppHeader';
+@import 'cmps/AppFooter';
+@import 'cmps/CategoryList.scss';
+@import 'cmps/GigPricing.scss';
 
 @import 'cmps/GigFilter';
 @import 'cmps/ReviewEdit';
@@ -38,3 +36,5 @@
 @import 'cmps/PopularServicesCarrousel.scss';
 @import 'cmps/AdvertArea.scss';
 @import 'cmps/MainSearchArea.scss';
+@import 'cmps/SellerLevel.scss';
+@import 'cmps/SellerPro.scss';

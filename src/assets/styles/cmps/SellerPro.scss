@@ -1,0 +1,15 @@
+.seller-pro-container {
+	display: flex;
+	flex-direction: row;
+
+	background-color: #2e25ad;
+	color: #ffffff;
+	fill: #ffffff;
+	align-items: center;
+	border-radius: 5px;
+	padding-inline: 0.3rem;
+
+	.pro-text {
+		margin-inline-start: 0.3rem;
+	}
+}
