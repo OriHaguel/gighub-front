@@ -110,8 +110,10 @@ function _createGig() {
 	gig.daysToMake = getRandomIntInclusive(1, 14)
 	// temp
 	gig.owner = makeUserNameLorem()
+	gig.ownerRating = getGitRating(0, 5)
+	gig.ownerLevel = getRandomIntInclusive(1, 3)
+	gig.ownerOrders = getRandomIntInclusive(1, 30)
 	gig.ownerImage = getImg()
-	gig.ownerRating = getRandomIntInclusive(1, 5)
 
 	return gig
 }
@@ -129,6 +131,15 @@ function _createGigs() {
 
 function getImg() {
 	return '../src/assets/img/profile_clean.png'
+}
+
+function getGitRating(min, max) {
+	min = Math.ceil(min)
+	max = Math.floor(max)
+
+	let randomNumber = Math.random() * (max - min) + min
+
+	return Math.round(randomNumber * 10) / 10
 }
 
 // async function addGigMsg(gigId, txt) {

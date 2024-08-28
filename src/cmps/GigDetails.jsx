@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 // import { useSelector } from 'react-redux'
 // import { Link } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.local.js'
+import { SellerLevel } from './SellerLevel.jsx'
 
 import Star from '../assets/svg/star.svg?react'
 
@@ -33,6 +34,7 @@ export function GigDetails() {
 				<div className='owner-details-container'>
 					<div className='first-line'>
 						<p className='owner-name'>{gig.owner}</p>
+						<SellerLevel />
 						{/* <img className='owner-pro' src={gig.ownerPro} alt='Pro' /> */}
 						{/* <img className='owner-point' src={gig.ownerPoint} alt='Tag' /> */}
 					</div>
@@ -41,9 +43,8 @@ export function GigDetails() {
 							<div className='star-container'>
 								<Star />
 							</div>
-							{/* <p>{gig.ownerRating}</p> */}
-							<p>5</p>
-							<p className='light-text'>22 orders in queue</p>
+							<p>{gig.ownerRating}</p>
+							<p className='light-text'>{gig.ownerOrders} orders in queue</p>
 						</div>
 					</div>
 				</div>
