@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import { makeId, makeLorem, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories, makeUserNameLorem } from '../util.service'
+import { makeId, makeLorem, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories, makeUserNameLorem, getRandomBoolean } from '../util.service'
 
 import { userService } from '../user'
 
@@ -113,6 +113,7 @@ function _createGig() {
 	gig.ownerRating = getGitRating(0, 5)
 	gig.ownerLevel = getRandomIntInclusive(1, 3)
 	gig.ownerOrders = getRandomIntInclusive(1, 30)
+	gig.ownerPro = getRandomBoolean()
 	gig.ownerImage = getImg()
 
 	return gig

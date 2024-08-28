@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 // import { Link } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.local.js'
 import { SellerLevel } from './SellerLevel.jsx'
+import { SellerPro } from './SellerPro.jsx'
 
 import Star from '../assets/svg/star.svg?react'
 
@@ -34,9 +35,8 @@ export function GigDetails() {
 				<div className='owner-details-container'>
 					<div className='first-line'>
 						<p className='owner-name'>{gig.owner}</p>
+						{gig.ownerPro && <SellerPro />}
 						<SellerLevel />
-						{/* <img className='owner-pro' src={gig.ownerPro} alt='Pro' /> */}
-						{/* <img className='owner-point' src={gig.ownerPoint} alt='Tag' /> */}
 					</div>
 					<div className='second-line'>
 						<div className='rating-container'>
