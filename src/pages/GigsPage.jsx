@@ -8,6 +8,7 @@ import GigImage from '../assets/img/gig-image.png'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 import { useSearchParams } from "react-router-dom";
 import { gigService } from "../services/gig";
+import { SortGigs } from "../cmps/SortGigs";
 
 
 export function GigPage() {
@@ -17,42 +18,36 @@ export function GigPage() {
     const [activeDropdown, setActiveDropdown] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     // const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
-    const [num, setNum] = useState(3);
     const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
 
+    // console.log("🚀 ~ GigPage ~ filterBy:", defaultFilter)
     // const g = {
     //     txt: ''
     // }
     // const y = {
     //     txt: 'hello'
     // }
-    // setFilterBy({ ...defaultFilter, ...filterBy })
-    // console.log({ ...g, ...y })
     useEffect(() => {
 
 
-        // if (num < 1) {
-        //     setFilterBy(defaultFilter)
-        //     console.log('yoooo')
+        setFilterBy(defaultFilter)
+    }, []);
+
+    useEffect(() => {
+
+
+        // if (filterBy.category) {
+        setSearchParams(filterBy, { replace: true })
         // }
-        // setNum(prevNum => prevNum - 1)
-    }, [])
+        // if (!filterBy.category) {
+        // loadGigs({ ...filterBy, category: searchParams.get('category') })
+        // } else {
 
+        loadGigs(filterBy)
+        // }
 
-    useEffect(() => {
-
-
-        if (filterBy.category) {
-            setSearchParams(filterBy)
-        }
-        if (!filterBy.category) {
-            console.log({ ...filterBy, category: searchParams.get('category') })
-            loadGigs({ ...filterBy, category: searchParams.get('category') })
-        } else {
-
-            loadGigs(filterBy)
-        }
     }, [filterBy])
+
 
 
     const toggleDropdown = (dropdownName) => {
@@ -65,6 +60,7 @@ export function GigPage() {
 
     if (!gigs) return
 
+
     return (
 
         <div className="gig-page">
@@ -72,9 +68,9 @@ export function GigPage() {
             <section className="most-carousel-section">
                 <MostPopularCarrousel />
             </section>
+            <SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
 
-            <section className="gig-sorting">
-                {/* <div>Sorting Section...</div> */}
+            {/* <section className="gig-sorting">
                 <div className="top-filters">
 
                     <div className="filter">
@@ -149,7 +145,7 @@ export function GigPage() {
                         )}
                     </div>
                 </div>
-            </section>
+            </section> */}
 
             {param.gigs !== 'ai' && param.gigs !== 'consulting' &&
                 <section className="gig-prev-container">

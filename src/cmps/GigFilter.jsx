@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 export function GigFilter({ filterBy, setFilterBy }) {
+
     const [filterToEdit, setFilterToEdit] = useState(structuredClone(filterBy))
 
     useEffect(() => {

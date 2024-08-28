@@ -25,10 +25,31 @@ async function query(filterBy = { txt: '', price: 0 }) {
 		console.log('🚀 ~ query ~ gigs:', gigs)
 	}
 	if (daysToMake) {
-		gigs = gigs.filter(gig => gig.daysToMake >= daysToMake)
+
+		if (daysToMake === 'day') {
+			gigs = gigs.filter(gig => gig.daysToMake === 1)
+		}
+		if (daysToMake === '3days') {
+			gigs = gigs.filter(gig => gig.daysToMake <= 3 && gig.daysToMake > 1)
+		}
+		if (daysToMake === '7days') {
+			gigs = gigs.filter(gig => gig.daysToMake <= 7 && gig.daysToMake > 3)
+		}
+		if (daysToMake === 'anytime') {
+			gigs = gigs.filter(gig => gig.daysToMake > 7)
+		}
 	}
+
 	if (price) {
-		gigs = gigs.filter(gig => gig.price >= price)
+		if (price === 'low') {
+			gigs = gigs.filter(gig => gig.price < 100)
+		}
+		if (price === 'mid') {
+			gigs = gigs.filter(gig => gig.price > 100 && gig.price < 500)
+		}
+		if (price === 'high') {
+			gigs = gigs.filter(gig => gig.price > 500)
+		}
 	}
 	if (sortField === 'title' || sortField === 'owner') {
 		gigs.sort((gig1, gig2) => gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
