@@ -3,6 +3,7 @@
 
 export function CloudinaryLinks() {
     return {
+        //tech gigs
         techGig101: ['https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/1.webp',
             'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/2.webp',
             'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/3.webp'],
