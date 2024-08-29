@@ -29,6 +29,7 @@
 						width: 12px;
 						height: 12px;
 						display: inline-block;
+
 						-webkit-mask-size: cover;
 						mask-size: cover;
 						-webkit-mask-repeat: no-repeat;
@@ -65,6 +66,17 @@
 						display: flex;
 						height: rem(42px);
 						align-items: center;
+
+						.magnify-icon {
+							fill: #fff;
+
+							-webkit-mask-size: cover;
+							mask-size: cover;
+							-webkit-mask-repeat: no-repeat;
+							mask-repeat: no-repeat;
+							-webkit-mask-position: center;
+							mask-position: center;
+						}
 
 						input {
 							border-color: #c5c6c9;
@@ -163,26 +175,26 @@
 								transition: 0.2s;
 								// svg{
 								//   color: rgb(179, 55, 55);
-								//   background-color: #1dbf73;
+								//   background-color: $main_clr1;
 								// }
 
 								&:hover {
-									color: #1dbf73;
+									color: $main_clr1;
 
 									svg {
-										fill: #1dbf73;
+										fill: $main_clr1;
 										transition: 0.2s;
 									}
 								}
 
 								&.active {
-									color: #1dbf73;
+									color: $main_clr1;
 								}
 							}
 
 							.join-button {
-								color: #25b471;
-								border: 1px solid #25b471;
+								color: $main_clr2;
+								border: 1px solid $main_clr2;
 								border-radius: 10%;
 								background-color: none;
 								padding: 10px 17px;
@@ -197,7 +209,7 @@
 
 							.join-button:hover {
 								color: white;
-								background-color: #25b471;
+								background-color: $main_clr2;
 							}
 						}
 					}

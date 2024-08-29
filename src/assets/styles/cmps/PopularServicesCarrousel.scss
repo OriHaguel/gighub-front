@@ -1,82 +1,90 @@
 .popular-carrousel-grid {
-    display: flex;
-    align-items: center;
-    position: relative;
+	display: flex;
+	align-items: center;
+	position: relative;
 
-    .popular-services-carrousel {
-        // padding: 30px;
-        max-width: 100%;
-        overflow: hidden;
-        flex: 1;
-        // background-color: rgb(216, 240, 216);
-    }
+	.popular-services-carrousel {
+		// padding: 30px;
+		max-width: 100%;
+		overflow: hidden;
+		flex: 1;
+		// background-color: rgb(216, 240, 216);
+	}
 
-    .carousel-control-prev,
-    .carousel-control-next {
-        padding: 15px 20px;
-        align-items: center;
-        background-color: #fff;
-        border: 1px solid rgb(231, 218, 218);
-        border-radius: 100%;
-        position: absolute;
-        cursor: pointer;
-        z-index: 10;
+	.carousel-control-prev,
+	.carousel-control-next {
+		padding: 15px 20px;
+		width: rem(48px);
+		height: rem(48px);
+		align-items: center;
+		justify-content: center;
+		fill: #62646a;
+		background-color: #fff;
+		// border: 1px solid rgb(231, 218, 218);
+		border-radius: 50%;
+		position: absolute;
+		cursor: pointer;
+		z-index: 10;
+		border-width: 0;
+		box-shadow: rgba(0, 0, 0, 0.02) 0px 1.2px 1.92251px 0px, rgba(0, 0, 0, 0.04) 0px 2px 3.68135px 0px, rgba(0, 0, 0, 0.05) 0px 1px 5px 0px;
 
-        &.carousel-control-prev {
-            left: -25px;
-        }
+		&.carousel-control-prev {
+			left: -25px;
+		}
 
-        &.carousel-control-next {
-            right: -25px;
-        }
-    }
+		&.carousel-control-next {
+			right: -25px;
+		}
+	}
 }
 
 .card {
-    width: 200px;
-    height: 270px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background-color: #1dbf73;
-    padding: 10px;
-    text-align: left;
-    margin-right: 16px;
+	width: 200px;
+	height: 270px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border-radius: 15px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	background-color: #1dbf73;
+	padding: 10px;
+	text-align: left;
+	margin-right: 16px;
 
-    &:hover {
-        opacity: 90%;
-    }
+	&:hover {
+		opacity: 90%;
+	}
 
-    img {
-        width: 100%;
-        max-height: 150px;
-        object-fit: cover;
-        border-radius: 10px;
-    }
+	img {
+		width: 100%;
+		max-height: 150px;
+		object-fit: cover;
+		border-radius: 10px;
+	}
 
-    .card-content {
-        margin-top: 20px;
-        text-align: left;
-        padding-left: 10px;
-        width: 100%;
-        height: 100%;
-
-    }
+	.card-content {
+		margin-top: 20px;
+		text-align: left;
+		padding-left: 10px;
+		width: 100%;
+		height: 100%;
+	}
 }
 
 .card-link {
-    color: white;
-    gap: 0px;
-    text-decoration: none;
+	color: white;
+	gap: 0px;
+	text-decoration: none;
 
-    &:hover {
-        text-decoration: none;
-    }
+	&:hover {
+		text-decoration: none;
+	}
 }
 
 .home-page-carrousel {
-    font-weight: bold;
+	font-weight: bold;
 }
+
+// .main-carousel-chevron {
+// }
