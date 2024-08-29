@@ -12,13 +12,16 @@
 
 		.header-row-wrapper {
 			align-items: center;
-			padding: 10px;
+			// padding: 10px;
+			padding-block: 10px;
 
 			.header-navigation-container {
 				display: flex;
 				flex-direction: row;
 				// gap: rem(12px);
 				align-items: center;
+				margin: 0;
+				padding: 0;
 
 				.header-pro {
 					color: #222325;
@@ -153,6 +156,8 @@
 					flex: 1;
 					display: flex;
 					align-items: center;
+					padding-block: 1rem;
+					padding-inline-end: rem(32px);
 
 					svg {
 						width: 110px;
@@ -181,7 +186,8 @@
 								font-size: 16px;
 								color: #615c5c;
 								cursor: pointer;
-								padding: 10px;
+								// padding: 10px;
+								padding-block: rem(10px);
 								text-decoration: none;
 								transition: 0.2s;
 								// svg{

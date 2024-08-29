@@ -1,9 +1,9 @@
+import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { setFilterBy } from '../store/actions/gig.actions'
-import React, { useEffect, useState } from 'react'
 
 // Image Imports
 import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
