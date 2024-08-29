@@ -17,6 +17,26 @@
 
 			.header-navigation-container {
 				align-items: center;
+
+				.header-link-container {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+
+					.header-chevron {
+						margin-inline-start: 0.34rem;
+						fill: #84868d;
+						width: 12px;
+						height: 12px;
+						display: inline-block;
+						-webkit-mask-size: cover;
+						mask-size: cover;
+						-webkit-mask-repeat: no-repeat;
+						mask-repeat: no-repeat;
+						-webkit-mask-position: center;
+						mask-position: center;
+					}
+				}
 			}
 
 			.header-row {
@@ -44,6 +64,7 @@
 						position: relative;
 						display: flex;
 						height: rem(42px);
+						align-items: center;
 
 						input {
 							border-color: #c5c6c9;
