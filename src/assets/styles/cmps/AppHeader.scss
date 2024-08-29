@@ -207,17 +207,21 @@
 
   &.relative {
     position: fixed;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
   }
 
   .modal {
     width: 800px;
     height: 600px;
+    max-height: 90vh;
     padding: 0;
-    border-radius: 10px;
+    border-radius: 12px;
     overflow: hidden;
     border: none;
     margin-top: 60px;
-
 
 
 

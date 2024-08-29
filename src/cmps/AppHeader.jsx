@@ -9,7 +9,7 @@ import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 import { setFilterBy } from '../store/actions/gig.actions'
 import Globe from '../assets/svg/Globe.svg?react'
 
-import { LoginSignUp } from './LoginSignup'
+import { Modal } from './Modal'
 
 export function AppHeader() {
 	const navigate = useNavigate()
@@ -142,7 +142,7 @@ export function AppHeader() {
 
 			{/* Button to open the modal */}
 			{/* <button className="login-signup-modal" onClick={openModal}>open modal</button> */}
-			<LoginSignUp isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
 
 
 		</div>
