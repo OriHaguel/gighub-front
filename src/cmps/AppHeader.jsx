@@ -100,7 +100,7 @@ export function AppHeader() {
 							<ul className='header-navigation-container'>
 								<li>
 									<NavLink to='/fiverr-pro' className='header-link-container header-pro'>
-										Fiverr Pro <ChevronIcon className='header-chevron' />
+										Gighub Pro <ChevronIcon className='header-chevron' />
 									</NavLink>
 								</li>
 								<li>
@@ -120,7 +120,7 @@ export function AppHeader() {
 								</li>
 								<li>
 									{/* <NavLink to='/sign-in'> */}
-									<button to='/sign-in' className='sign-button' onClick={openModal}>
+									<button to='/sign-in' className='sign-button header-link-container' onClick={openModal}>
 										Sign In
 									</button>
 									{/* </NavLink> */}

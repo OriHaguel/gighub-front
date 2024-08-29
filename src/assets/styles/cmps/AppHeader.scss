@@ -2,6 +2,7 @@
 	position: sticky;
 	top: 0;
 	z-index: 1000;
+	padding-block: 0rem;
 
 	.header-package {
 		background-color: #ffffff;
@@ -10,18 +11,28 @@
 		border-bottom: 1px solid #e4e6e7;
 
 		.header-row-wrapper {
-			display: flex;
-			justify-content: space-between;
 			align-items: center;
-			padding: 20px;
+			padding: 10px;
 
 			.header-navigation-container {
+				display: flex;
+				flex-direction: row;
+				// gap: rem(12px);
 				align-items: center;
+
+				.header-pro {
+					color: #222325;
+				}
 
 				.header-link-container {
 					display: flex;
 					flex-direction: row;
 					align-items: center;
+					border-radius: 8px;
+					margin-inline: rem(16px);
+					white-space: nowrap;
+
+					padding-block-end: rem(20px);
 
 					.header-chevron {
 						margin-inline-start: 0.34rem;
