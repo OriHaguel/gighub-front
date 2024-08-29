@@ -84,7 +84,13 @@ export function GigDetails() {
 						</div>
 					</div>
 					<div className='gig-detail-carousel'>
-						<Carousel>
+						<Carousel
+							showArrows={true}
+							autoPlay={false}
+							infiniteLoop={true}
+							showThumbs={false}
+							dynamicHeight={false}
+							emulateTouch={false}>
 							{gigMedia.map((mediaUrl, index) => (
 								mediaUrl.endsWith('.mp4') ? (
 									<div className="gig-list-img-container" key={index}>
