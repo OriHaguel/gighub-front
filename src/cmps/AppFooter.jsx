@@ -37,18 +37,18 @@ export function AppFooter() {
 						<TwitterIcon />
 					</a>
 				</div>
-				<div className='footer-misc'>
-					<div className='footer-lang'>
+				{/* <div className='footer-misc'> */}
+				{/* <div className='footer-lang'>
 						<LanguageIcon />
 						<p>English</p>
-					</div>
-					<div className='footer-currency'>
+					</div> */}
+				{/* <div className='footer-currency'>
 						<p>$ USD</p>
-					</div>
-					{/* <div className='footer-accessibility'>
+					</div> */}
+				{/* <div className='footer-accessibility'>
 						<AccessIcon />
 					</div> */}
-				</div>
+				{/* </div> */}
 			</div>
 		</footer>
 	)

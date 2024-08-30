@@ -12,22 +12,18 @@ import { gigService } from '../services/gig/gig.service.local'
 
 export function GigDetailsPage() {
 	const param = useParams()
-	const [gig, setGig] = useState();
-
+	const [gig, setGig] = useState()
 
 	useEffect(() => {
-
 		loadGig()
-
 	}, [param.gigId])
-
 
 	async function loadGig() {
 		try {
 			const gig = await gigService.getById(param.gigId)
 			setGig(gig)
 		} catch (error) {
-			console.log("🚀 ~ loadGig ~ error:", error)
+			console.log('🚀 ~ loadGig ~ error:', error)
 			navigate('/gigs')
 		}
 	}
@@ -41,8 +37,8 @@ export function GigDetailsPage() {
 			{/* <GigAbout /> */}
 
 			<GigPricing gig={gig} />
-			{/* <GigReviews /> */}
 
+			<GigReviews />
 		</section>
 	)
 }
