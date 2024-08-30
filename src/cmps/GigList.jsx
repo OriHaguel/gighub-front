@@ -1,12 +1,15 @@
+import React from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { Link } from "react-router-dom"
 import Star from '../assets/svg/star.svg?react'
 import GigImage from '../assets/img/gig-image.png'
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { CloudinaryLinks } from '../cmps/CloudinaryLinks.jsx'
+import CarrouselControlNext from '../assets/svg/CarrouselControlNext.svg?react'
+import CarrouselControlPrev from '../assets/svg/CarrouselControlPrev.svg?react'
 
 export function GigList({ gigs }) {
-
     const mediaLinks = CloudinaryLinks()
 
     const mediaMap = {
@@ -32,8 +35,39 @@ export function GigList({ gigs }) {
         gig120: mediaLinks.businessGig101
     }
 
-    return (
+    const renderArrowPrev = (clickHandler, hasPrev) => (
+        hasPrev && (
+            <button
+                type="button"
+                className="custom-prev-button"
+                onClick={(e) => {
+                    e.stopPropagation()
+                    console.log("Prev clicked")
+                    clickHandler()
+                }}
+            >
+                <CarrouselControlPrev className='main-carousel-chevron' />
+            </button>
+        )
+    )
 
+    const renderArrowNext = (clickHandler, hasNext) => (
+        hasNext && (
+            <button
+                type="button"
+                className="custom-next-button"
+                onClick={(e) => {
+                    e.stopPropagation()
+                    console.log("Next clicked")
+                    clickHandler()
+                }}
+            >
+                <CarrouselControlNext className='main-carousel-chevron' />
+            </button>
+        )
+    )
+
+    return (
         <section className="gig-list-container">
             {gigs.map((gig, index) => {
 
@@ -48,6 +82,8 @@ export function GigList({ gigs }) {
                             showThumbs={false}
                             dynamicHeight={false}
                             emulateTouch={false}
+                            renderArrowPrev={renderArrowPrev}
+                            renderArrowNext={renderArrowNext}
                         >
                             {media.map((mediaUrl, index) => (
                                 mediaUrl.endsWith('.mp4') ? (

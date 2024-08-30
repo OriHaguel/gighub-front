@@ -41,6 +41,37 @@
 
         }
 
+        .custom-prev-button,
+        .custom-next-button {
+            padding: 8px;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            fill: #62646a;
+            background-color: #fff;
+            border: 1px solid rgb(231, 218, 218);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1.2px 1.92251px 0px, rgba(0, 0, 0, 0.04) 0px 2px 3.68135px 0px, rgba(0, 0, 0, 0.05) 0px 1px 5px 0px;
+            position: absolute;
+
+            &.custom-prev-button {
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+
+            }
+
+            &.custom-next-button {
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+
         .gig-list-owner-name {
             margin-top: 12px;
             display: flex;
