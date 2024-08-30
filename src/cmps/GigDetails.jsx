@@ -8,6 +8,8 @@ import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { CloudinaryLinks } from '../cmps/CloudinaryLinks.jsx'
 import GigImage from '../assets/img/gig-image.png'
+import CarrouselControlNext from '../assets/svg/CarrouselControlNext.svg?react'
+import CarrouselControlPrev from '../assets/svg/CarrouselControlPrev.svg?react'
 
 export function GigDetails() {
 	const [gig, setGig] = useState(null)
@@ -56,6 +58,38 @@ export function GigDetails() {
 			})
 	}
 
+	const renderArrowPrev = (clickHandler, hasPrev) => (
+		hasPrev && (
+			<button
+				type="button"
+				className="detail-prev-button"
+				onClick={(e) => {
+					e.stopPropagation()
+					console.log("Prev clicked")
+					clickHandler()
+				}}
+			>
+				<CarrouselControlPrev className='main-carousel-chevron' />
+			</button>
+		)
+	)
+
+	const renderArrowNext = (clickHandler, hasNext) => (
+		hasNext && (
+			<button
+				type="button"
+				className="detail-next-button"
+				onClick={(e) => {
+					e.stopPropagation()
+					console.log("Next clicked")
+					clickHandler()
+				}}
+			>
+				<CarrouselControlNext className='main-carousel-chevron' />
+			</button>
+		)
+	)
+
 	if (!gig) return <div>Loading...</div>
 
 	return (
@@ -88,9 +122,13 @@ export function GigDetails() {
 							showArrows={true}
 							autoPlay={false}
 							infiniteLoop={true}
-							showThumbs={false}
+							showThumbs={true}
 							dynamicHeight={false}
-							emulateTouch={false}>
+							emulateTouch={false}
+							showIndicators={false}
+							renderArrowPrev={renderArrowPrev}
+							renderArrowNext={renderArrowNext}
+						>
 							{gigMedia.map((mediaUrl, index) => (
 								mediaUrl.endsWith('.mp4') ? (
 									<div className="gig-list-img-container" key={index}>
