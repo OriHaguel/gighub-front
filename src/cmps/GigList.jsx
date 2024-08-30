@@ -8,6 +8,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { CloudinaryLinks } from '../cmps/CloudinaryLinks.jsx'
 import CarrouselControlNext from '../assets/svg/CarrouselControlNext.svg?react'
 import CarrouselControlPrev from '../assets/svg/CarrouselControlPrev.svg?react'
+import HeartLogo from '../assets/svg/HeartLogo.svg?react'
 
 export function GigList({ gigs }) {
     const mediaLinks = CloudinaryLinks()
@@ -82,20 +83,24 @@ export function GigList({ gigs }) {
                             showThumbs={false}
                             dynamicHeight={false}
                             emulateTouch={false}
+                            showStatus={false}
                             renderArrowPrev={renderArrowPrev}
                             renderArrowNext={renderArrowNext}
                         >
+                            {/* <HeartLogo /> */}
                             {media.map((mediaUrl, index) => (
                                 mediaUrl.endsWith('.mp4') ? (
                                     <Link to={`/username/${gig._id}`} className="gig-list-img" key={index}>
                                         <div className="gig-list-img-container">
                                             <video src={mediaUrl} alt={`Gig || ${gig.title} || Video ${index + 1}`} autoPlay />
+                                            <HeartLogo className="heart-logo-overlay" />
                                         </div>
                                     </Link>
                                 ) : (
                                     <Link to={`/username/${gig._id}`} className="gig-list-img" key={index}>
                                         <div className="gig-list-img-container">
                                             <img src={mediaUrl} alt={`Gig || ${gig.title} || Slide ${index + 1}`} />
+                                            <HeartLogo className="heart-logo-overlay" />
                                         </div>
                                     </Link>
                                 )
