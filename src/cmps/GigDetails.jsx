@@ -126,6 +126,7 @@ export function GigDetails() {
 							dynamicHeight={false}
 							emulateTouch={false}
 							showIndicators={false}
+							showStatus={false}
 							renderArrowPrev={renderArrowPrev}
 							renderArrowNext={renderArrowNext}
 						>

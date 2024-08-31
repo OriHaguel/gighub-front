@@ -79,7 +79,7 @@ export function GigList({ gigs }) {
                         <Carousel
                             showArrows={true}
                             autoPlay={false}
-                            infiniteLoop={true}
+                            infiniteLoop={false}
                             showThumbs={false}
                             dynamicHeight={false}
                             emulateTouch={false}
