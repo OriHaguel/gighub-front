@@ -91,7 +91,7 @@ export function GigDetails() {
 							showThumbs={false}
 							dynamicHeight={false}
 							emulateTouch={false}>
-							{gigMedia.map((mediaUrl, index) => (
+							{gig.img && gig.img.map((mediaUrl, index) => (
 								mediaUrl.endsWith('.mp4') ? (
 									<div className="gig-list-img-container" key={index}>
 										<video src={mediaUrl} alt={`Gig Video ${index + 1}`} autoPlay controls />

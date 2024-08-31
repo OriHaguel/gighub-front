@@ -49,7 +49,7 @@ export function GigList({ gigs }) {
 
         <section className="gig-list-container">
             {gigs.map((gig, index) => {
-                console.log("🚀 ~ {gigs.map ~ gig:", gig)
+
 
                 // const media = mediaLinks[category.video][index]
                 // console.log("🚀 ~ {gigs.map ~ media:", media)
