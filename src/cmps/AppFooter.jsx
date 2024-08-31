@@ -11,13 +11,13 @@ import GighubLogo from '../assets/svg/Gighub_logo.svg?react'
 
 export function AppFooter() {
 	return (
-		<footer className='app-footer main-container flex space-between align-center'>
-			<div className='logo footer-left-container space-between'>
-				<GighubLogo />
+		<footer className='app-footer main-container'>
+			<div className='logo-container footer-left-container'>
+				<GighubLogo className='logo' />
 				<p className='copy-rights'>© GigHub International Ltd. 2024</p>
 			</div>
 			<div className='footer-right-container'>
-				<div className='footer-socials flex space-between'>
+				<div className='footer-socials'>
 					<a href='https://www.tiktok.com/@fiverr' aria-label='Tiktok'>
 						<TiktokIcon />
 					</a>
@@ -37,18 +37,18 @@ export function AppFooter() {
 						<TwitterIcon />
 					</a>
 				</div>
-				<div className='footer-misc'>
-					<div className='footer-lang'>
+				{/* <div className='footer-misc'> */}
+				{/* <div className='footer-lang'>
 						<LanguageIcon />
 						<p>English</p>
-					</div>
-					<div className='footer-currency'>
+					</div> */}
+				{/* <div className='footer-currency'>
 						<p>$ USD</p>
-					</div>
-					{/* <div className='footer-accessibility'>
+					</div> */}
+				{/* <div className='footer-accessibility'>
 						<AccessIcon />
 					</div> */}
-				</div>
+				{/* </div> */}
 			</div>
 		</footer>
 	)
