@@ -25,7 +25,6 @@ async function query(filterBy = { txt: '', price: 0 }) {
 		console.log('🚀 ~ query ~ gigs:', gigs)
 	}
 	if (daysToMake) {
-
 		if (daysToMake === 'day') {
 			gigs = gigs.filter(gig => gig.daysToMake === 1)
 		}
