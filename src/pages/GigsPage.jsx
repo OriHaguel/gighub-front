@@ -10,38 +10,41 @@ import { useSearchParams } from "react-router-dom";
 import { gigService } from "../services/gig";
 import { SortGigs } from "../cmps/SortGigs";
 
-
 export function GigPage() {
     const param = useParams()
     const gigs = useSelector(state => state.gigModule.gigs)
+
+
     const filterBy = useSelector(state => state.gigModule.filterBy)
     const [activeDropdown, setActiveDropdown] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
-    // const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
     const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
 
-    // console.log("🚀 ~ GigPage ~ filterBy:", defaultFilter)
-    // const g = {
-    //     txt: ''
-    // }
-    // const y = {
-    //     txt: 'hello'
-    // }
+
     useEffect(() => {
         setFilterBy(defaultFilter)
-    }, []);
+
+
+    }, [])
+
+
 
     useEffect(() => {
 
-
-        // if (filterBy.category) {
         setSearchParams(filterBy, { replace: true })
-        // }
-        // if (!filterBy.category) {
-        // loadGigs({ ...filterBy, category: searchParams.get('category') })
-        // } else {
-        loadGigs(filterBy)
-        // }
+        async function loadGig() {
+            try {
+                if (filterBy.category || filterBy.txt) {
+                    await loadGigs(filterBy)
+
+                }
+            } catch (error) {
+                console.log("🚀 ~ loadGig ~ error:", error)
+
+            }
+        }
+
+        loadGig()
 
     }, [filterBy])
 
@@ -54,7 +57,6 @@ export function GigPage() {
             setActiveDropdown(dropdownName)
         }
     }
-
     if (!gigs) return
 
 
@@ -67,82 +69,6 @@ export function GigPage() {
             </section>
             <SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
 
-            {/* <section className="gig-sorting">
-                <div className="top-filters">
-
-                    <div className="filter">
-                        <button className="filter-button" onClick={() => toggleDropdown('serviceOptions')}>
-                            <p className="filter-label">Service options</p>
-                            <span className="chevron-icon-down" aria-hidden="true">
-                                <ChevronIcon />
-                            </span>
-                        </button>
-                        {activeDropdown === 'serviceOptions' && (
-                            <div className="dropdown-content">
-                                <ul>
-                                    <li><button>Option 1</button></li>
-                                    <li><button>Option 2</button></li>
-                                    <li><button>Option 3</button></li>
-                                </ul>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="filter">
-                        <button className="filter-button" onClick={() => toggleDropdown('sellerDetails')}>
-                            <p className="filter-label">Seller details</p>
-                            <span className="chevron-icon-down" aria-hidden="true">
-                                <ChevronIcon />
-                            </span>
-                        </button>
-                        {activeDropdown === 'sellerDetails' && (
-                            <div className="dropdown-content">
-                                <ul>
-                                    <li><button>Top Rated</button></li>
-                                    <li><button>Level One</button></li>
-                                    <li><button>Level Two</button></li>
-                                </ul>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="filter">
-                        <button className="filter-button" onClick={() => toggleDropdown('budget')}>
-                            <p className="filter-label">Budget</p>
-                            <span className="chevron-icon-down" aria-hidden="true">
-                                <ChevronIcon />
-                            </span>
-                        </button>
-                        {activeDropdown === 'budget' && (
-                            <div className="dropdown-content">
-                                <ul>
-                                    <li><button>$5 - $50</button></li>
-                                    <li><button>$51 - $100</button></li>
-                                    <li><button>$101 - $500</button></li>
-                                </ul>
-                            </div>
-                        )}
-                    </div>
-
-                    <div className="filter">
-                        <button className="filter-button" onClick={() => toggleDropdown('deliveryTime')}>
-                            <p className="filter-label">Delivery time</p>
-                            <span className="chevron-icon-down" aria-hidden="true">
-                                <ChevronIcon />
-                            </span>
-                        </button>
-                        {activeDropdown === 'deliveryTime' && (
-                            <div className="dropdown-content">
-                                <ul>
-                                    <li><button>24 Hours</button></li>
-                                    <li><button>3 Days</button></li>
-                                    <li><button>7 Days</button></li>
-                                </ul>
-                            </div>
-                        )}
-                    </div>
-                </div>
-            </section> */}
 
             {param.gigs !== 'ai' && param.gigs !== 'consulting' &&
                 <section className="gig-prev-container">

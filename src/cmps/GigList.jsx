@@ -7,37 +7,53 @@ import { CloudinaryLinks } from '../cmps/CloudinaryLinks.jsx'
 
 export function GigList({ gigs }) {
 
-    const mediaLinks = CloudinaryLinks()
 
-    const mediaMap = {
-        gig101: mediaLinks.techGig101,
-        gig102: mediaLinks.techGig102,
-        gig103: mediaLinks.techGig103,
-        gig104: mediaLinks.techGig104,
-        gig105: mediaLinks.techGig105,
-        gig106: mediaLinks.graphicsGig101,
-        gig107: mediaLinks.graphicsGig102,
-        gig108: mediaLinks.graphicsGig103,
-        gig109: mediaLinks.graphicsGig104,
-        gig110: mediaLinks.animationGig101,
-        gig111: mediaLinks.animationGig102,
-        gig112: mediaLinks.animationGig103,
-        gig113: mediaLinks.animationGig104,
-        gig114: mediaLinks.animationGig105,
-        gig115: mediaLinks.animationGig106,
-        gig116: mediaLinks.writingGig101,
-        gig117: mediaLinks.writingGig102,
-        gig118: mediaLinks.audioGig101,
-        gig119: mediaLinks.audioGig102,
-        gig120: mediaLinks.businessGig101
-    }
+
+    const mediaLinks = CloudinaryLinks()
+    // console.log("🚀 ~ GigList ~ mediaLinks:", mediaLinks[0][0])
+
+    // const mediaMap = {
+    //     gig101: mediaLinks.techGig101,
+    //     gig102: mediaLinks.techGig102,
+    //     gig103: mediaLinks.techGig103,
+    //     gig104: mediaLinks.techGig104,
+    //     gig105: mediaLinks.techGig105,
+    //     gig106: mediaLinks.graphicsGig101,
+    //     gig107: mediaLinks.graphicsGig102,
+    //     gig108: mediaLinks.graphicsGig103,
+    //     gig109: mediaLinks.graphicsGig104,
+    //     gig110: mediaLinks.animationGig101,
+    //     gig111: mediaLinks.animationGig102,
+    //     gig112: mediaLinks.animationGig103,
+    //     gig113: mediaLinks.animationGig104,
+    //     gig114: mediaLinks.animationGig105,
+    //     gig115: mediaLinks.animationGig106,
+    //     gig116: mediaLinks.writingGig101,
+    //     gig117: mediaLinks.writingGig102,
+    //     gig118: mediaLinks.audioGig101,
+    //     gig119: mediaLinks.audioGig102,
+    //     gig120: mediaLinks.businessGig101
+    // }
+    const category = {
+        programming: 'programming',
+        graphics: 'graphics',
+        video: 'video',
+        writing: 'writing',
+        music: 'music',
+        business: 'business'
+    };
+
+
 
     return (
 
         <section className="gig-list-container">
             {gigs.map((gig, index) => {
+                console.log("🚀 ~ {gigs.map ~ gig:", gig)
 
-                const media = mediaMap[`gig${index + 101}`] || defaultGig
+                // const media = mediaLinks[category.video][index]
+                // console.log("🚀 ~ {gigs.map ~ media:", media)
+                // const media = mediaMap[`gig${index + 101}`] || defaultGig
 
                 return (
                     <section key={gig._id} className="gig-list">
@@ -49,7 +65,7 @@ export function GigList({ gigs }) {
                             dynamicHeight={false}
                             emulateTouch={false}
                         >
-                            {media.map((mediaUrl, index) => (
+                            {gig.img && gig.img.map((mediaUrl, index) => (
                                 mediaUrl.endsWith('.mp4') ? (
                                     <Link to={`/username/${gig._id}`} className="gig-list-img" key={index}>
                                         <div className="gig-list-img-container">

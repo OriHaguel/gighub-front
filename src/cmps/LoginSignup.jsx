@@ -14,7 +14,6 @@ export function LoginSignup({ elModal, onClose }) {
 
     const [isSignup, setIsSignUp] = useState(false)
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
-    console.log("🚀 ~ LoginSignup ~ credentials:", credentials)
 
     function handleChange({ target }) {
         const { name: field, value } = target

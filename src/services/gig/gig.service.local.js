@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import { makeId, makeLorem, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories, makeUserNameLorem, getRandomBoolean } from '../util.service'
+import { makeId, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories, makeUserNameLorem, getRandomBoolean, getGigImg } from '../util.service'
 
 import { userService } from '../user'
 
@@ -22,7 +22,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
 		// const regex = new RegExp(filterBy.txt, 'i')
 		const regex = new RegExp(filterBy.txt.split(' ').join('|'), 'i')
 		gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-		console.log('🚀 ~ query ~ gigs:', gigs)
+
 	}
 	if (daysToMake) {
 
@@ -67,7 +67,7 @@ async function query(filterBy = { txt: '', price: 0 }) {
 		// console.log("🚀 ~ query ~ gigs:", gigs)
 		// console.log("🚀 ~ categories:", categories[category])
 	}
-	gigs = gigs.map(({ _id, title, price, daystomake, owner }) => ({ _id, title, price, daystomake, owner }))
+	// gigs = gigs.map(({ _id, title, price, daystomake, owner }) => ({ _id, title, price, daystomake, owner }))
 	return gigs
 }
 
@@ -144,12 +144,23 @@ function _createGigs() {
 	let gigs = loadFromStorage(STORAGE_KEY)
 	if (!gigs || !gigs.length) {
 		gigs = []
-		for (var i = 0; i < 20; i++) {
+		for (var i = 0; i < 15; i++) {
 			gigs.push(_createGig())
 		}
-		saveToStorage(STORAGE_KEY, gigs)
+
+		saveToStorage(STORAGE_KEY, getGigImg(gigs))
 	}
 }
+// function _createGigs() {
+// 	let gigs = loadFromStorage(STORAGE_KEY)
+// 	if (!gigs || !gigs.length) {
+// 		gigs = []
+// 		for (var i = 0; i < 30; i++) {
+// 			gigs.push(_createGig())
+// 		}
+// 		saveToStorage(STORAGE_KEY, gigs)
+// 	}
+// }
 
 function getImg() {
 	return '../src/assets/img/profile_clean.png'

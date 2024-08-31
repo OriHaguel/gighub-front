@@ -30,7 +30,6 @@ export function Modal({ isOpen, onClose }) {
 
     return (
 
-
         <div className={`modal-container ${isOpen && 'relative'}`}>
             <dialog className='modal' id='modal' ref={elModal} onClick={(e) => {
                 if (e.target === elModal.current) onClose();

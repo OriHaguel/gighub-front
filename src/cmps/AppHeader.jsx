@@ -64,22 +64,22 @@ export function AppHeader() {
 		setInputValue(prevFilter => ({ ...prevFilter, [field]: value }))
 	}
 
+
 	function onSubmit(ev) {
 		ev.preventDefault()
 		if (filterBy.category) {
 			setFilterBy({ category: '' })
 		}
+		// debugger
 		setFilterBy(inputValue)
-		setInputValue({ txt: '' })
-		navigate('gigs')
+
+		// setInputValue({ txt: '' })
+		// navigate(`gigs?${filterBy}`)
+		navigate(`gigs?txt=${inputValue.txt}`)
 	}
 
 	const openModal = () => {
 		setIsModalOpen(true)
-	}
-
-	const closeModal = () => {
-		setIsModalOpen(false)
 	}
 
 	return (

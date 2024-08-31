@@ -4,8 +4,8 @@ import { setFilterBy } from '../store/actions/gig.actions'
 import { Link, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 export function SearchInput() {
-    // const filterBy = useSelector(state => state.gigModule.filterBy)
-    // console.log("🚀 ~ GigPage ~ filterBy:", filterBy)
+    const filterBy = useSelector(state => state.gigModule.filterBy)
+
 
     const navigate = useNavigate()
     function handleChange(ev) {
@@ -28,7 +28,8 @@ export function SearchInput() {
     }
     function onSubmit(ev) {
         ev.preventDefault()
-        navigate('gigs')
+        // navigate(`gigs?${filterBy}`)
+        navigate(`gigs?txt=${filterBy.txt}`)
     }
 
     return (

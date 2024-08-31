@@ -6,6 +6,8 @@ export async function loadGigs(filterBy) {
     try {
 
         const gigs = await gigService.query(filterBy)
+        // console.log("🚀 ~ loadGigs ~ filterBy:", filterBy)
+        // console.log("🚀 ~ loadGigs ~ gigs:", gigs)
         store.dispatch(getCmdSetGigs(gigs))
     } catch (err) {
         console.log('Cannot load gigs', err)
@@ -68,6 +70,7 @@ export async function addGigMsg(gigId, txt) {
 }
 
 export function setFilterBy(filterBy) {
+
     store.dispatch({ type: SET_FILTER_BY, filterBy })
 }
 // Command Creators:
