@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { setFilterBy } from '../store/actions/gig.actions'
+import { userService } from '../services/user'
+// userService.getLoggedinUser
 
 // Image Imports
 
@@ -15,12 +17,14 @@ import MagnifyIcon from '../assets/svg/MagnifyIcon.svg?react'
 import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
 
 import { Modal } from './Modal'
+import { logout } from '../store/actions/user.actions'
 
 export function AppHeader() {
 	const navigate = useNavigate()
 	const [inputValue, setInputValue] = useState({ txt: '' })
 	const filterBy = useSelector(state => state.gigModule.filterBy)
-
+	const loggedInUser = useSelector(storeState => storeState.userModule.user)
+	console.log("🚀 ~ AppHeader ~ loggedInUser:", loggedInUser)
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -125,19 +129,20 @@ export function AppHeader() {
 										Become a Seller
 									</NavLink>
 								</li>
-								<li>
-									{/* <NavLink to='/sign-in'> */}
+								{!loggedInUser && <li>
 									<button to='/sign-in' className='sign-button header-link-container' onClick={openModal}>
 										Sign In
 									</button>
-									{/* </NavLink> */}
+								</li>}
+								<li>
+									{!loggedInUser && <button to='/join' className='join-button' onClick={openModal}>
+										Join
+									</button>}
 								</li>
 								<li>
-									{/* <NavLink to='/join'> */}
-									<button to='/join' className='join-button' onClick={openModal}>
-										Join
-									</button>
-									{/* </NavLink> */}
+									{loggedInUser && <button className='sign-button header-link-container' onClick={logout}>
+										Logout
+									</button>}
 								</li>
 							</ul>
 						</nav>
