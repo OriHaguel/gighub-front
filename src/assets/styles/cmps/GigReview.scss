@@ -127,10 +127,26 @@
 		font-size: rem(16px);
 		line-height: rem(24px);
 		color: #404145;
+		margin-block-end: rem(12px);
+	}
+
+	.review-gig-details {
+		display: flex;
+		flex-direction: row;
+
+		p {
+			font-size: rem(12px);
+			line-height: rem(18px);
+			color: #74767e;
+		}
+
+		.review-stats {
+			display: flex;
+			flex-direction: column;
+		}
 	}
 }
-
-.review-separator-dot {
+yy .review-separator-dot {
 	color: #e4e5e7;
 	margin-inline-end: rem(12px);
 }

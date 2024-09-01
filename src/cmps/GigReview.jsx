@@ -70,10 +70,14 @@ export function GigReview() {
 			</div>
 			<p className='review-content'>{gig.reviewContent}</p>
 			<div className='review-gig-details'>
-				{/* price actual */}
-				<p>Price</p>
-				{/* duration actual */}
-				<p>Duration</p>
+				<div className='review-price review-stats'>
+					{/* price actual */}
+					<p>Price</p>
+				</div>
+				<div className='review-duration review-stats'>
+					{/* duration actual */}
+					<p>Duration</p>
+				</div>
 			</div>
 			<p className='review-response'>{gig.reviewSellerResponse}</p>
 		</section>
