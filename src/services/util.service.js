@@ -1,5 +1,7 @@
 import { storageService } from "./async-storage.service"
 const STORAGE_KEY = 'gig'
+import GigImage from '../assets/img/gig-image.png'
+// console.log("🚀 ~ GigImage:", GigImage)
 export function makeId(prefix, length = 10) {
 	var txt = `${prefix}-`
 	var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'

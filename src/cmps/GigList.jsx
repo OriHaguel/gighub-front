@@ -64,7 +64,9 @@ export function GigList({ gigs }) {
     return (
         <section className="gig-list-container">
             {gigs.map((gig, index) => {
-
+                if (gig.img === undefined) {
+                    gig.img = [GigImage, GigImage, GigImage]
+                }
 
                 // const media = mediaLinks[category.video][index]
                 // console.log("🚀 ~ {gigs.map ~ media:", media)
@@ -94,6 +96,7 @@ export function GigList({ gigs }) {
                                     </Link>
                                 ) : (
                                     <Link to={`/username/${gig._id}`} className="gig-list-img" key={index}>
+                                        {/* {console.log("🚀 ~ {gigs.map ~ mediaUrl:", mediaUrl)} */}
                                         <div className="gig-list-img-container">
                                             <img src={mediaUrl} alt={`Gig || ${gig.title} || Slide ${index + 1}`} />
                                             <HeartLogo className="heart-logo-overlay" />

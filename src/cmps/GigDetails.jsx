@@ -16,36 +16,37 @@ export function GigDetails() {
 	const { gigId } = useParams()
 	const navigate = useNavigate()
 
-	const mediaLinks = CloudinaryLinks()
+	// const mediaLinks = CloudinaryLinks()
 
-	const mediaMap = {
-		gig101: mediaLinks.techGig101,
-		gig102: mediaLinks.techGig102,
-		gig103: mediaLinks.techGig103,
-		gig104: mediaLinks.techGig104,
-		gig105: mediaLinks.techGig105,
-		gig106: mediaLinks.graphicsGig101,
-		gig107: mediaLinks.graphicsGig102,
-		gig108: mediaLinks.graphicsGig103,
-		gig109: mediaLinks.graphicsGig104,
-		gig110: mediaLinks.animationGig101,
-		gig111: mediaLinks.animationGig102,
-		gig112: mediaLinks.animationGig103,
-		gig113: mediaLinks.animationGig104,
-		gig114: mediaLinks.animationGig105,
-		gig115: mediaLinks.animationGig106,
-		gig116: mediaLinks.writingGig101,
-		gig117: mediaLinks.writingGig102,
-		gig118: mediaLinks.audioGig101,
-		gig119: mediaLinks.audioGig102,
-		gig120: mediaLinks.businessGig101
-	}
+	// const mediaMap = {
+	// 	gig101: mediaLinks.techGig101,
+	// 	gig102: mediaLinks.techGig102,
+	// 	gig103: mediaLinks.techGig103,
+	// 	gig104: mediaLinks.techGig104,
+	// 	gig105: mediaLinks.techGig105,
+	// 	gig106: mediaLinks.graphicsGig101,
+	// 	gig107: mediaLinks.graphicsGig102,
+	// 	gig108: mediaLinks.graphicsGig103,
+	// 	gig109: mediaLinks.graphicsGig104,
+	// 	gig110: mediaLinks.animationGig101,
+	// 	gig111: mediaLinks.animationGig102,
+	// 	gig112: mediaLinks.animationGig103,
+	// 	gig113: mediaLinks.animationGig104,
+	// 	gig114: mediaLinks.animationGig105,
+	// 	gig115: mediaLinks.animationGig106,
+	// 	gig116: mediaLinks.writingGig101,
+	// 	gig117: mediaLinks.writingGig102,
+	// 	gig118: mediaLinks.audioGig101,
+	// 	gig119: mediaLinks.audioGig102,
+	// 	gig120: mediaLinks.businessGig101
+	// }
 
-	const tempGigPreview = 'gig102'
-	const gigMedia = mediaMap[tempGigPreview]
+	// const tempGigPreview = 'gig102'
+	// const gigMedia = mediaMap[tempGigPreview]
 
 	useEffect(() => {
 		if (gigId) loadGig()
+
 	}, [gigId])
 
 	function loadGig() {
@@ -91,7 +92,10 @@ export function GigDetails() {
 	)
 
 	if (!gig) return <div>Loading...</div>
-
+	console.log("🚀 ~ GigDetails ~ gig:", gig.img)
+	if (gig.img === undefined) {
+		gig.img = [GigImage, GigImage, GigImage]
+	}
 	return (
 		<section className='gig-overview'>
 
