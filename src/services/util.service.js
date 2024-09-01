@@ -53,9 +53,21 @@ export function loadFromStorage(key) {
 
 
 export function makeUserNameLorem() {
-	const firstNames = ['Alice', 'Bob', 'Charlie', 'Diana', 'Edward', 'Fiona', 'George', 'Hannah', 'Ian', 'Jasmine']
+	const firstNames = [
+		"Alex", "Avery", "Bailey", "Blake", "Cameron", "Casey", "Charlie", "Dakota", "Devon", "Drew",
+		"Dylan", "Eden", "Elliott", "Emerson", "Finley", "Frankie", "Harper", "Hayden", "Hunter", "Jamie",
+		"Jayden", "Jordan", "Jules", "Kai", "Kelly", "Kendall", "Kennedy", "Lane", "Lee", "Logan",
+		"Morgan", "Parker", "Peyton", "Quinn", "Reese", "Riley", "River", "Robin", "Rowan", "Sage",
+		"Sawyer", "Skyler", "Spencer", "Stevie", "Sydney", "Taylor", "Tegan", "Toby", "Toni", "Tyler", "Sam"
+	]
 
-	const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Martinez', 'Wilson']
+	const lastNames = [
+		"Smith", "Johnson", "Williams", "Brown", "Jones", "Miller", "Davis",
+		"Garcia", "Rodriguez", "Martinez", "Anderson", "Taylor", "Thomas",
+		"Moore", "Jackson", "White", "Harris", "Martin", "Thompson", "Martinez",
+		"Clark", "Lewis", "Lee", "Walker", "Hall", "Allen", "Young", "King",
+		"Wright", "Scott"
+	]
 
 	const randomFirstName = firstNames[Math.floor(Math.random() * firstNames.length)]
 	const randomLastName = lastNames[Math.floor(Math.random() * lastNames.length)]
