@@ -5,29 +5,11 @@ import Star from '../assets/svg/star.svg?react'
 import GigImage from '../assets/img/gig-image.png'
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import { CloudinaryLinks } from '../cmps/CloudinaryLinks.jsx'
 import CarrouselControlNext from '../assets/svg/CarrouselControlNext.svg?react'
 import CarrouselControlPrev from '../assets/svg/CarrouselControlPrev.svg?react'
 import HeartLogo from '../assets/svg/HeartLogo.svg?react'
 
 export function GigList({ gigs }) {
-
-
-    const mediaLinks = CloudinaryLinks()
-    // console.log("🚀 ~ GigList ~ mediaLinks:", mediaLinks[0][0])
-
-
-    const category = {
-        programming: 'programming',
-        graphics: 'graphics',
-        video: 'video',
-        writing: 'writing',
-        music: 'music',
-        business: 'business'
-    };
-
-
-
 
     const renderArrowPrev = (clickHandler, hasPrev) => (
         hasPrev && (

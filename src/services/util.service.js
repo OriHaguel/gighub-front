@@ -438,7 +438,11 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_iao93d.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_kssgez.webp'
 			]
-		]
+		],
+		//legal
+		consulting: {
+
+		}
 	}
 
 	const categoryKeys = Object.keys(categories);
