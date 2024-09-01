@@ -43,6 +43,27 @@
 		display: flex;
 		flex-direction: row;
 		margin-bottom: 0.8rem;
+		align-items: center;
+		justify-content: center;
+
+		.owner-level-container {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+
+			fill: #421300;
+			font-size: rem(14px);
+			line-height: rem(18px);
+			text-align: start;
+			letter-spacing: normal;
+		}
+
+		.top-rated {
+			background-color: #ffe0b3;
+			// padding: 5px 10px;
+			border-radius: 4px;
+		}
 	}
 
 	.star-container {

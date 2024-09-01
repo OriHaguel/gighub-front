@@ -1,0 +1,153 @@
+.review-container {
+	display: flex;
+	flex-direction: column;
+	padding: rem(16px);
+
+	border-radius: rem(16px);
+	border-width: 1px;
+	border-color: #dedfe1;
+	border-style: solid;
+
+	// text-align: start;
+	align-items: flex-start;
+
+	.user-details-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		margin-block-end: rem(33px);
+	}
+
+	.user-name-container {
+		display: flex;
+		flex-direction: row;
+		align-items: flex-start;
+		justify-content: center;
+		position: relative; // Needed for the absolute positioning of the ::after pseudo-element
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			bottom: -16px;
+			left: 0;
+			width: 100%;
+			height: 1px;
+			background-color: #eeeef0;
+		}
+
+		.user-data-container {
+			display: flex;
+			flex-direction: row;
+			margin-block-end: rem(6px);
+		}
+
+		.user-details-1 {
+			display: flex;
+			flex-direction: column;
+
+			.review-country {
+				display: flex;
+				flex-direction: row;
+				align-items: center;
+				// justify-content: center;
+
+				.review-country-flag {
+					font-family: 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', 'Twemoji', sans-serif;
+				}
+			}
+		}
+
+		.review-name {
+			font-size: rem(16px);
+			line-height: rem(24px);
+			font-weight: 600;
+			color: #222325;
+			white-space: nowrap;
+			margin-inline-end: rem(12px);
+		}
+
+		.review-image {
+			height: rem(48px);
+			margin-inline-end: rem(16px);
+		}
+
+		.review-repeat-client {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: center;
+			white-space: nowrap;
+
+			p {
+				font-size: 14px;
+				line-height: 22px;
+				font-weight: 600;
+				text-align: start;
+				color: #3b3b3d;
+			}
+
+			.repeat-icon {
+				margin-inline-end: rem(4px);
+			}
+		}
+	}
+
+	.review-country {
+		font-size: rem(12px);
+		line-height: rem(18px);
+		padding-inline-start: rem(8px);
+	}
+	.user-details-container {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.review-details-container {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		margin-block-end: rem(12px);
+
+		.review-rating {
+			font-size: rem(16px);
+			line-height: rem(21px);
+			font-weight: 600;
+		}
+
+		.review-time {
+			font-size: 12px;
+			line-height: 18px;
+		}
+	}
+
+	.review-content {
+		font-size: rem(16px);
+		line-height: rem(24px);
+		color: #404145;
+		margin-block-end: rem(12px);
+	}
+
+	.review-gig-details {
+		display: flex;
+		flex-direction: row;
+
+		p {
+			font-size: rem(12px);
+			line-height: rem(18px);
+			color: #74767e;
+		}
+
+		.review-stats {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+}
+
+.review-separator-dot {
+	color: #e4e5e7;
+	margin-inline-end: rem(12px);
+}
