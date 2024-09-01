@@ -64,7 +64,7 @@ export function makeUserNameLorem() {
 }
 
 export function getPlan() {
-	const randomValue = Math.random() // Generates a number between 0 and 1
+	const randomValue = Math.random()
 	return randomValue < 0.8 ? 'basic' : 'premium'
 }
 
@@ -176,7 +176,7 @@ function getRandomWord(wordList) {
 
 
 export function getGigImg(gigs) {
-	// var gigs = await storageService.query(STORAGE_KEY)
+
 	const imgCategories = {
 		programming: [
 			[
@@ -337,19 +337,13 @@ export function getGigImg(gigs) {
 	const categoryKeys = Object.keys(categories);
 	const newGigs = []
 	categoryKeys.map((category) => {
-		const bro = gigs.filter(gig => categories[category].some(word => gig.title.includes(word)))
+		const gigImg = gigs.filter(gig => categories[category].some(word => gig.title.includes(word)))
 			.map((gig, index) => (
 				{ ...gig, img: imgCategories[category][index] }
 			))
-		newGigs.push(...bro)
-		// console.log('gig', bro.flat())
-
+		newGigs.push(...gigImg)
 	})
-	// console.log("🚀 ~ test ~ newGigs:", newGigs)
-
-
 	return newGigs
-
 }
-// getGigImg().then(gigs => console.log('gigs', gigs))
+
 
