@@ -90,7 +90,7 @@ export function GigList({ gigs }) {
                                 mediaUrl.endsWith('.mp4') ? (
                                     <Link to={`/username/${gig._id}`} className="gig-list-img" key={index}>
                                         <div className="gig-list-img-container">
-                                            <video src={mediaUrl} alt={`Gig || ${gig.title} || Video ${index + 1}`} autoPlay />
+                                            <video src={mediaUrl} alt={`Gig || ${gig.title} || Video ${index + 1}`} autoPlay muted loop />
                                             <HeartLogo className="heart-logo-overlay" />
                                         </div>
                                     </Link>

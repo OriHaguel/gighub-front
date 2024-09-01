@@ -84,12 +84,23 @@ p {
 .gig-detail-carousel {
 	margin-top: 50px;
 	width: 700px;
+	max-width: 700px;
 	height: auto;
 	border-radius: 8px;
+
 	// box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	// background-color: #fff;
 	// position: relative;
 	// overflow: visible;
+	// .gig-list-img-container img {
+	// 	width: 500px;
+	// 	height: 500px;
+	// }
+
+	.gig-list-vid-container video {
+		width: 700px;
+		height: auto;
+	}
 
 	.detail-prev-button,
 	.detail-next-button {
