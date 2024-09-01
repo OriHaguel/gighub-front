@@ -134,8 +134,8 @@ export function GigDetails() {
 
 							{gig.img && gig.img.map((mediaUrl, index) => (
 								mediaUrl.endsWith('.mp4') ? (
-									<div className="gig-list-img-container" key={index}>
-										<video src={mediaUrl} alt={`Gig Video ${index + 1}`} autoPlay controls />
+									<div className="gig-list-vid-container" key={index}>
+										<video src={mediaUrl} alt={`Gig Video ${index + 1}`} controls />
 									</div>
 								) : (
 									<div className="gig-list-img-container" key={index}>
