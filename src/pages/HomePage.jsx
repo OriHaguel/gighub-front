@@ -30,7 +30,7 @@ export function HomePage() {
                 <MainSearchArea />
             </section>
 
-            <section className="category-list">
+            <section className="categories-container">
                 <CategoryList />
             </section>
 
