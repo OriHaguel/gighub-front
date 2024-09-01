@@ -7,7 +7,7 @@ import { GigDetails } from '../cmps/GigDetails'
 import { GigCarrousel } from '../cmps/GigCarrousel'
 import { GigAbout } from '../cmps/GigAbout'
 import { GigPricing } from '../cmps/GigPricing'
-import { GigReviews } from '../cmps/GigReviews'
+import { GigReviewsList } from '../cmps/GigReviewsList'
 import { gigService } from '../services/gig/gig.service.local'
 
 export function GigDetailsPage() {
@@ -34,7 +34,8 @@ export function GigDetailsPage() {
 				<GigDetails />
 				{/* <GigCarrousel /> */}
 				<GigAbout />
-				<GigReviews />
+
+				<GigReviewsList />
 			</div>
 			<div className='pricing-container'>
 				<GigPricing gig={gig} />

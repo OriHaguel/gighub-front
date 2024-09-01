@@ -3,8 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.local.js'
+import { GigReview } from './GigReview.jsx'
 
-export function GigReviews() {
+import star from '../assets/svg/star.svg?react'
+
+// TODO: randomize reviews
+
+export function GigReviewsList() {
 	const [gig, setGig] = useState(null)
 	const { gigId } = useParams()
 	const navigate = useNavigate()
@@ -26,19 +31,12 @@ export function GigReviews() {
 	if (!gig) return <div>Loading...</div>
 
 	return (
-		<section>
-			<h1>review</h1>
-			<div className='user-details'>
-				<p className='review-name'>{gig.reviewName}</p>
-				<p className='review-country'>{gig.reviewCountry}</p>
-				<p className='review-repeat-client'>{gig.reivewIsRepeatClient}</p>
+		<section className='reviews-list-container'>
+			<div className='review-overview-container'>
+				<h1 className='review-title'>Reviews</h1>
+				<h2 className='reviews-for-gig'>reviews for this Gig</h2>
 			</div>
-			<div className='review-details'>
-				<p className='review-rating'>{gig.reviewRating}</p>
-				<p className='review-rating'>{gig.reviewTime}</p>
-				<p className='review-content'>{gig.reviewContent}</p>
-			</div>
-			<p className='review-response'>{gig.reviewSellerResponse}</p>
+			<GigReview />
 		</section>
 	)
 }

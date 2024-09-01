@@ -143,7 +143,8 @@ function _createGig() {
 	gig.reviewContent = getReviewContent()
 	gig.reviewRating = getRandomIntInclusive(0, 5)
 	gig.reviewTime = getReviewTime()
-	gig.reivewIsRepeatClient = getRepeatClient()
+	// gig.reviewIsRepeatClient = getRepeatClient()
+	gig.reviewIsRepeatClient = true
 	gig.reviewSellerResponse = getSellerResponse()
 
 	return gig
@@ -164,13 +165,15 @@ function getImg() {
 	return '../src/assets/img/profile_clean.png'
 }
 
-function getCountry() {
+export function getCountry() {
 	const countries = ['USA', 'UK', 'Canada', 'Australia', 'France', 'Germany', 'Japan', 'India', 'China', 'Russia', 'Italy', 'Spain', 'Netherlands', 'Belgium', 'Switzerland', 'Austria', 'Poland', 'Greece', 'Romania', 'Portugal', 'Turkey', 'Ireland', 'Denmark', 'Sweden', 'Norway', 'Finland', 'Iceland', 'Luxembourg', 'Malta', 'Cyprus', 'Slovakia', 'Estonia', 'Latvia', 'Lithuania', 'Hungary', 'Slovenia', 'Croatia', 'Bosnia and Herzegovina', 'Serbia', 'Montenegro', 'Kosovo', 'Macedonia']
 	const flags = ['🇺🇸', '🇬🇧', '🇨🇦', '🇦🇺', '🇫🇷', '🇩🇪', '🇯🇵', '🇮🇳', '🇨🇳', '🇷🇺', '🇮🇹', '🇪🇸', '🇳🇱', '🇧🇪', '🇨🇭', '🇦🇹', '🇵🇱', '🇬🇷', '🇷🇴', '🇵🇹', '🇹🇷', '🇮🇪', '🇩🇰', '🇸🇪', '🇳🇴', '🇫🇮', '🇮🇸', '🇱🇺', '🇲🇹', '🇨🇾', '🇸🇰', '🇪🇪', '🇱🇻', '🇱🇹', '🇭🇺', '🇸🇮', '🇭🇷', '🇧🇦', '🇷🇸', '🇲🇪', '🇽🇰', '🇲🇰']
-	const country = countries[getRandomIntInclusive(0, countries.length - 1)]
-	const flag = flags[getRandomIntInclusive(0, countries.length - 1)]
 
-	return flag, country
+	const random = getRandomIntInclusive(0, countries.length - 1)
+	const country = countries[random]
+	const flag = flags[random]
+
+	return { country, flag }
 }
 
 function getGitRating(min, max) {
@@ -228,11 +231,6 @@ function getSellerResponse() {
 	const sentences = ["We're thrilled to have you on board! We'll be in touch soon with more details.", "Thank you for choosing us! We'll be in touch with you shortly to discuss your requirements.", "We're excited to have you on board! We'll be in touch soon with more details.", "We're thrilled to have you on board! We'll be in touch soon with more details.", "Thank you for choosing us! We'll be in touch with you shortly to discuss your requirements."]
 
 	return sentences[getRandomIntInclusive(0, sentences.length - 1)]
-}
-
-function getRepeatClient() {
-	const isRepeat = getRandomBoolean()
-	if (isRepeat) return 'Repeat Client'
 }
 
 function getAboutGig() {
