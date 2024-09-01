@@ -24,8 +24,6 @@ export function AppHeader() {
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
-
-
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY || window.pageYOffset
@@ -43,8 +41,6 @@ export function AppHeader() {
 			window.removeEventListener('scroll', handleScroll)
 		}
 	}, [])
-
-
 
 	function handleChange(ev) {
 		const type = ev.target.type
@@ -115,11 +111,11 @@ export function AppHeader() {
 										Explore <ChevronIcon className='header-chevron' />
 									</NavLink>
 								</li>
-								<li>
+								{/* <li>
 									<NavLink to='/language' className='header-link-container header-language'>
 										<Globe /> English
 									</NavLink>
-								</li>
+								</li> */}
 								<li>
 									<NavLink to='/become-seller' className='header-link-container header-seller'>
 										Become a Seller
@@ -149,8 +145,6 @@ export function AppHeader() {
 			{/* <button className="login-signup-modal" onClick={openModal}>open modal</button> */}
 
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-
 		</div>
 	)
 }

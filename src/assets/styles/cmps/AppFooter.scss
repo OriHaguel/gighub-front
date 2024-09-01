@@ -1,38 +1,38 @@
 .app-footer {
 	display: flex;
+	align-items: center;
+	justify-content: center;
+	// margin-inline: auto;
+	// position: relative;
+}
+
+.footer-wrapper {
+	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 20px;
+	padding-block: rem(20px);
+	margin-inline: rem(252px);
 	background-color: #ffffff;
-	width: 100%;
+	// width: 100%;
 	border-top: 1px solid #e4e6e7;
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 1400px;
-	// position: relative;
+
+	width: 1400px; // temp
+	// max-width: 1400px;
 
 	.footer-left-container {
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-items: center;
-		gap: 2em;
-		width: 330px;
+		// width: 330px;
 
-		.logo-container {
-			display: flex;
-			flex-direction: row;
-			align-items: flex-start;
-			// gap: 2em;
+		margin-inline-end: rem(23px);
 
-			margin-inline-end: 23px;
-
-			.logo {
-				width: 77px;
-				height: 23px;
-				fill: #7a7d85;
-				flex-shrink: 0;
-			}
+		.logo {
+			height: rem(30px);
+			// height: 23px;
+			flex-shrink: 0;
+			margin-inline-end: rem(24px);
 		}
 
 		.copy-rights {
@@ -40,8 +40,8 @@
 			text-align: start;
 			font-size: rem(14px);
 			line-height: rem(21px);
-			font-weight: 520;
-			color: #b5b6ba;
+			// font-weight: 520;
+			// color: #b5b6ba;
 			white-space: normal; /* Ensure wrapping happens normally if needed */
 			overflow: hidden; /* Prevent content overflow */
 			text-overflow: ellipsis; /* Add ellipsis if the content overflows */
@@ -101,7 +101,7 @@
 	position: absolute;
 	top: 0;
 	left: 0;
-	width: 100vw;
+	width: 90vw;
 	height: 1px;
 	background-color: #e4e6e7;
 }

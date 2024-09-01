@@ -10,7 +10,7 @@ import { GigDetailsPage } from './pages/GigDetailsPage.jsx'
 
 export function RootCmp() {
 	return (
-		<div className='main-container'>
+		<div className='main-page-container'>
 			<AppHeader />
 			<main>
 				<Routes>

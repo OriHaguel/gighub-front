@@ -214,9 +214,10 @@
 								border: 1px solid $main_clr2;
 								border-radius: 10%;
 								background-color: none;
-								padding: 10px 17px;
-								font-size: 14px;
-								font-weight: bold;
+								padding: rem(10px) rem(17px);
+								font-size: rem(14px);
+								line-height: rem(14px);
+								font-weight: 550;
 								// font-family: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
 							}
 
@@ -237,19 +238,17 @@
 }
 
 .header-row-wrapper {
-	margin-left: auto;
-	margin-right: auto;
+	margin-inline: auto;
 	max-width: 1400px;
 }
-
 
 .modal-container {
 	display: flex;
 	opacity: 1;
 	transform: translateY(0);
-	transition: opacity .15s;
+	transition: opacity 0.15s;
 	align-items: center;
-	background-color: rgba(0, 0, 0, .65);
+	background-color: rgba(0, 0, 0, 0.65);
 	bottom: 0;
 	justify-content: center;
 	left: 0;
@@ -275,7 +274,6 @@
 		overflow: hidden;
 		border: none;
 		margin-top: 60px;
-
 
 		// Modal
 		.modal {
@@ -308,7 +306,6 @@
 			font-size: 20px;
 			line-height: 1.5;
 			width: 40%;
-
 		}
 
 		.modal-txt {
