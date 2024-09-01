@@ -1,0 +1,18 @@
+.reviews-list-container {
+	display: flex;
+	flex-direction: column;
+
+	.review-overview-container {
+		color: #404145;
+
+		h1 {
+			font-size: rem(20px);
+			line-height: rem(28px);
+		}
+
+		h2 {
+			font-size: rem(16px);
+			line-height: rem(22.4px);
+		}
+	}
+}
