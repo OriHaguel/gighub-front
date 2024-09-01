@@ -8,42 +8,45 @@ import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { CloudinaryLinks } from '../cmps/CloudinaryLinks.jsx'
 import GigImage from '../assets/img/gig-image.png'
+import CarrouselControlNext from '../assets/svg/CarrouselControlNext.svg?react'
+import CarrouselControlPrev from '../assets/svg/CarrouselControlPrev.svg?react'
 
 export function GigDetails() {
 	const [gig, setGig] = useState(null)
 	const { gigId } = useParams()
 	const navigate = useNavigate()
 
-	const mediaLinks = CloudinaryLinks()
+	// const mediaLinks = CloudinaryLinks()
 
-	const mediaMap = {
-		gig101: mediaLinks.techGig101,
-		gig102: mediaLinks.techGig102,
-		gig103: mediaLinks.techGig103,
-		gig104: mediaLinks.techGig104,
-		gig105: mediaLinks.techGig105,
-		gig106: mediaLinks.graphicsGig101,
-		gig107: mediaLinks.graphicsGig102,
-		gig108: mediaLinks.graphicsGig103,
-		gig109: mediaLinks.graphicsGig104,
-		gig110: mediaLinks.animationGig101,
-		gig111: mediaLinks.animationGig102,
-		gig112: mediaLinks.animationGig103,
-		gig113: mediaLinks.animationGig104,
-		gig114: mediaLinks.animationGig105,
-		gig115: mediaLinks.animationGig106,
-		gig116: mediaLinks.writingGig101,
-		gig117: mediaLinks.writingGig102,
-		gig118: mediaLinks.audioGig101,
-		gig119: mediaLinks.audioGig102,
-		gig120: mediaLinks.businessGig101
-	}
+	// const mediaMap = {
+	// 	gig101: mediaLinks.techGig101,
+	// 	gig102: mediaLinks.techGig102,
+	// 	gig103: mediaLinks.techGig103,
+	// 	gig104: mediaLinks.techGig104,
+	// 	gig105: mediaLinks.techGig105,
+	// 	gig106: mediaLinks.graphicsGig101,
+	// 	gig107: mediaLinks.graphicsGig102,
+	// 	gig108: mediaLinks.graphicsGig103,
+	// 	gig109: mediaLinks.graphicsGig104,
+	// 	gig110: mediaLinks.animationGig101,
+	// 	gig111: mediaLinks.animationGig102,
+	// 	gig112: mediaLinks.animationGig103,
+	// 	gig113: mediaLinks.animationGig104,
+	// 	gig114: mediaLinks.animationGig105,
+	// 	gig115: mediaLinks.animationGig106,
+	// 	gig116: mediaLinks.writingGig101,
+	// 	gig117: mediaLinks.writingGig102,
+	// 	gig118: mediaLinks.audioGig101,
+	// 	gig119: mediaLinks.audioGig102,
+	// 	gig120: mediaLinks.businessGig101
+	// }
 
-	const tempGigPreview = 'gig102'
-	const gigMedia = mediaMap[tempGigPreview]
+	// const tempGigPreview = 'gig102'
+	// const gigMedia = mediaMap[tempGigPreview]
 
 	useEffect(() => {
 		if (gigId) loadGig()
+
 	}, [gigId])
 
 	function loadGig() {
@@ -56,8 +59,43 @@ export function GigDetails() {
 			})
 	}
 
-	if (!gig) return <div>Loading...</div>
+	const renderArrowPrev = (clickHandler, hasPrev) => (
+		hasPrev && (
+			<button
+				type="button"
+				className="detail-prev-button"
+				onClick={(e) => {
+					e.stopPropagation()
+					console.log("Prev clicked")
+					clickHandler()
+				}}
+			>
+				<CarrouselControlPrev className='main-carousel-chevron' />
+			</button>
+		)
+	)
 
+	const renderArrowNext = (clickHandler, hasNext) => (
+		hasNext && (
+			<button
+				type="button"
+				className="detail-next-button"
+				onClick={(e) => {
+					e.stopPropagation()
+					console.log("Next clicked")
+					clickHandler()
+				}}
+			>
+				<CarrouselControlNext className='main-carousel-chevron' />
+			</button>
+		)
+	)
+
+	if (!gig) return <div>Loading...</div>
+	console.log("🚀 ~ GigDetails ~ gig:", gig.img)
+	if (gig.img === undefined) {
+		gig.img = [GigImage, GigImage, GigImage]
+	}
 	return (
 		<section className='gig-overview'>
 
@@ -88,13 +126,20 @@ export function GigDetails() {
 							showArrows={true}
 							autoPlay={false}
 							infiniteLoop={true}
-							showThumbs={false}
+							showThumbs={true}
 							dynamicHeight={false}
-							emulateTouch={false}>
-							{gigMedia.map((mediaUrl, index) => (
+							emulateTouch={false}
+							showIndicators={false}
+							showStatus={false}
+							renderArrowPrev={renderArrowPrev}
+							renderArrowNext={renderArrowNext}
+
+						>
+
+							{gig.img && gig.img.map((mediaUrl, index) => (
 								mediaUrl.endsWith('.mp4') ? (
-									<div className="gig-list-img-container" key={index}>
-										<video src={mediaUrl} alt={`Gig Video ${index + 1}`} autoPlay controls />
+									<div className="gig-list-vid-container" key={index}>
+										<video src={mediaUrl} alt={`Gig Video ${index + 1}`} controls />
 									</div>
 								) : (
 									<div className="gig-list-img-container" key={index}>

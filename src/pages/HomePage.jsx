@@ -10,7 +10,7 @@ import { setFilterBy } from '../store/actions/gig.actions.js'
 import { gigService } from '../services/gig/index.js'
 
 export function HomePage() {
-    const gigs = useSelector(state => state.gigModule.gigs)
+
 
     useEffect(() => {
 
