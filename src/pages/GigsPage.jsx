@@ -28,8 +28,6 @@ export function GigPage() {
     //     txt: 'hello'
     // }
     useEffect(() => {
-
-
         setFilterBy(defaultFilter)
     }, []);
 
@@ -42,7 +40,6 @@ export function GigPage() {
         // if (!filterBy.category) {
         // loadGigs({ ...filterBy, category: searchParams.get('category') })
         // } else {
-
         loadGigs(filterBy)
         // }
 

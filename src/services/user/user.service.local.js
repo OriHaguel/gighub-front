@@ -1,5 +1,5 @@
 import { storageService } from '../async-storage.service'
-import { getPlan, loadFromStorage, makeUserNameLorem, saveToStorage } from '../util.service'
+import { getPlan, loadFromStorage, makeUserNameLorem, saveToStorage, makeId } from '../util.service'
 
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
@@ -13,6 +13,7 @@ export const userService = {
     update,
     getLoggedinUser,
     saveLoggedinUser,
+    getEmptyCredentials
 }
 _createUsers()
 async function getUsers() {
@@ -44,15 +45,17 @@ async function update({ _id, score }) {
 }
 
 async function login(userCred) {
+
     const users = await storageService.query('user')
     const user = users.find(user => user.username === userCred.username)
+    // users.find(user => console.log("🚀 ~ login ~ user.username:", userCred.username))
+
 
     if (user) return saveLoggedinUser(user)
 }
 
 async function signup(userCred) {
     if (!userCred.imgUrl) userCred.imgUrl = 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png'
-    userCred.score = 10000
 
     const user = await storageService.post('user', userCred)
     return saveLoggedinUser(user)
@@ -91,10 +94,20 @@ function saveLoggedinUser(user) {
 //     const newUser = await storageService.post('user', userCred)
 //     console.log('newUser: ', newUser)
 // }
+function getEmptyCredentials() {
+    return {
+        username: '',
+        password: '',
+        fullname: ''
+    }
+}
+
+
 
 function _createUser() {
     const user = {
-        username: 'whatever',
+        _id: makeId('u'),
+        username: makeUserNameLorem(),
         password: 'pass',
         fullname: makeUserNameLorem(),
         imgUrl: 'https://cdn.pixabay.com/photo/2020/07/01/12/58/icon-5359553_1280.png',

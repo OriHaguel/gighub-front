@@ -7,52 +7,29 @@ import { CloudinaryLinks } from '../cmps/CloudinaryLinks.jsx'
 
 export function GigList({ gigs }) {
 
-    const {
-        techGig101,
-        techGig102,
-        techGig103,
-        techGig104,
-        techGig105,
-        graphicsGig101,
-        graphicsGig102,
-        graphicsGig103,
-        graphicsGig104,
-        animationGig101,
-        animationGig102,
-        animationGig103,
-        animationGig104,
-        animationGig105,
-        animationGig106,
-        writingGig101,
-        writingGig102,
-        audioGig101,
-        audioGig102,
-        businessGig101
-    } = CloudinaryLinks()
+    const mediaLinks = CloudinaryLinks()
 
-    const defaultGig = [GigImage]
-
-    const imageMap = {
-        gig101: techGig101,
-        gig102: techGig102,
-        gig103: techGig103,
-        gig104: techGig104,
-        gig105: techGig105,
-        gig106: graphicsGig101,
-        gig107: graphicsGig102,
-        gig108: graphicsGig103,
-        gig109: graphicsGig104,
-        gig110: animationGig101,
-        gig111: animationGig102,
-        gig112: animationGig103,
-        gig113: animationGig104,
-        gig114: animationGig105,
-        gig115: animationGig106,
-        gig116: writingGig101,
-        gig117: writingGig102,
-        gig118: audioGig101,
-        gig119: audioGig102,
-        gig120: businessGig101
+    const mediaMap = {
+        gig101: mediaLinks.techGig101,
+        gig102: mediaLinks.techGig102,
+        gig103: mediaLinks.techGig103,
+        gig104: mediaLinks.techGig104,
+        gig105: mediaLinks.techGig105,
+        gig106: mediaLinks.graphicsGig101,
+        gig107: mediaLinks.graphicsGig102,
+        gig108: mediaLinks.graphicsGig103,
+        gig109: mediaLinks.graphicsGig104,
+        gig110: mediaLinks.animationGig101,
+        gig111: mediaLinks.animationGig102,
+        gig112: mediaLinks.animationGig103,
+        gig113: mediaLinks.animationGig104,
+        gig114: mediaLinks.animationGig105,
+        gig115: mediaLinks.animationGig106,
+        gig116: mediaLinks.writingGig101,
+        gig117: mediaLinks.writingGig102,
+        gig118: mediaLinks.audioGig101,
+        gig119: mediaLinks.audioGig102,
+        gig120: mediaLinks.businessGig101
     }
 
     return (
@@ -60,7 +37,7 @@ export function GigList({ gigs }) {
         <section className="gig-list-container">
             {gigs.map((gig, index) => {
 
-                const media = imageMap[`gig${index + 101}`] || defaultGig
+                const media = mediaMap[`gig${index + 101}`] || defaultGig
 
                 return (
                     <section key={gig._id} className="gig-list">
@@ -99,3 +76,4 @@ export function GigList({ gigs }) {
         </section>
     )
 }
+

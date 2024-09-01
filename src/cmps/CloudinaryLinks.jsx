@@ -3,6 +3,7 @@
 
 export function CloudinaryLinks() {
     return {
+        //tech gigs
         techGig101: ['https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/1.webp',
             'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/2.webp',
             'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/3.webp'],
@@ -18,6 +19,14 @@ export function CloudinaryLinks() {
         techGig105: ['https://res.cloudinary.com/dofblayxi/image/upload/2_gqapyn.webp',
             'https://res.cloudinary.com/dofblayxi/image/upload/3_fjcp1e.webp',
             'https://res.cloudinary.com/dofblayxi/image/upload/5_h4ivae.webp'],
+        techGig106: ['https://res.cloudinary.com/dofblayxi/image/upload/1_ieqqi5.webp',
+            'https://res.cloudinary.com/dofblayxi/image/upload/2_mxc78m.webp',
+            'https://res.cloudinary.com/dofblayxi/image/upload/3_k7abw0.webp'],
+        techGig107: ['https://res.cloudinary.com/dofblayxi/image/upload/1_sfu5ye.webp',
+            'https://res.cloudinary.com/dofblayxi/image/upload/2_est8wa.webp',
+            'https://res.cloudinary.com/dofblayxi/image/upload/3_dduzty.webp',
+            'https://res.cloudinary.com/dofblayxi/image/upload/4_wsvd6m.webp',
+            'https://res.cloudinary.com/dofblayxi/image/upload/5_etcyta.webp'],
         //graphics gigs
         graphicsGig101: ['https://res.cloudinary.com/dofblayxi/image/upload/1_z9rrab.webp',
             'https://res.cloudinary.com/dofblayxi/image/upload/2_veg6zj.webp',
@@ -51,6 +60,10 @@ export function CloudinaryLinks() {
             'https://res.cloudinary.com/dofblayxi/image/upload/samples/animals/kitten-playing.webp'],
         animationGig106: ['https://res.cloudinary.com/dofblayxi/video/upload/samples/elephants.mp4',
             'https://res.cloudinary.com/dofblayxi/image/upload/samples/animals/reindeer.webp'],
+        animationGig107: ['https://res.cloudinary.com/dofblayxi/video/upload/1_mrrzig.mp4',
+            'https://res.cloudinary.com/dofblayxi/image/upload/2_bgvprq.webp',
+            'https://res.cloudinary.com/dofblayxi/image/upload/3_ej64fz.webp',
+            'https://res.cloudinary.com/dofblayxi/image/upload/5_cpm6zv.webp'],
         //writing gigs
         writingGig101: ['https://res.cloudinary.com/dofblayxi/image/upload/1_ll85yj.webp',
             'https://res.cloudinary.com/dofblayxi/image/upload/3_cj48yf.webp',
