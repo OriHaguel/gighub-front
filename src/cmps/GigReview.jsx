@@ -10,8 +10,6 @@ import RepeatClientIcon from '../assets/svg/RepeatClientIcon.svg?react'
 // TODO: make review content and review score fit (high score good praise and vice versa)
 // TODO: add price
 // TODO: add duration
-// TODO: add helpful
-// TODO: borrow buttons
 // TODO: fix flags
 // TODO: stars system
 
