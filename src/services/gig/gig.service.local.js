@@ -154,7 +154,7 @@ function _createGigs() {
 	let gigs = loadFromStorage(STORAGE_KEY)
 	if (!gigs || !gigs.length) {
 		gigs = []
-		for (var i = 0; i < 500; i++) {
+		for (var i = 0; i < 20; i++) {
 			gigs.push(_createGig())
 		}
 

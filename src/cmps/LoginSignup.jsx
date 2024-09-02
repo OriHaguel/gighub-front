@@ -85,7 +85,13 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
 
             <form className='form' method='dialog' onSubmit={handleSubmit}>
                 <h2>Create a new account</h2>
-                <p>Already have an account? Sign in</p>
+                {/* <p>Already have an account? Sign in</p> */}
+                <a href="#" onClick={() => setIsSignUp(!isSignup)}>
+                    {isSignup ?
+                        'Already have an account? sign in' :
+                        'Don\'t have an account? join here'
+                    }
+                </a >
                 <label>
                     Email or username
                     <input type='text' onChange={handleChange} name='username' />
@@ -106,12 +112,6 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
                         />
                     </label>}
                 {elModal.current && <button className='button' type='submit' onClick={onCloseModal}>Continue</button>}
-                <a href="#" onClick={() => setIsSignUp(!isSignup)}>
-                    {isSignup ?
-                        'Already a member? Login' :
-                        'New user? Signup here'
-                    }
-                </a >
             </form>
         </div>
     )
