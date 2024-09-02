@@ -3,7 +3,6 @@ import { GigList } from "../cmps/GigList";
 import { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux"
 import { loadGigs, setFilterBy } from "../store/actions/gig.actions";
-import { MostPopularCarrousel } from "../cmps/MostPopularCarrousel";
 import GigImage from '../assets/img/gig-image.png'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 import { useSearchParams } from "react-router-dom";
@@ -65,9 +64,7 @@ export function GigPage() {
 
         <div className="gig-page">
             <h1>Gig Page</h1>
-            <section className="most-carousel-section">
-                <MostPopularCarrousel />
-            </section>
+          
             <SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
 
 
@@ -76,9 +73,9 @@ export function GigPage() {
                     <GigList gigs={gigs} />
                 </section>
             }
-            <section className="pagination">
+            {/* <section className="pagination">
                 <div>||gig pages section....||</div>
-            </section>
+            </section> */}
         </div>
     )
 }
