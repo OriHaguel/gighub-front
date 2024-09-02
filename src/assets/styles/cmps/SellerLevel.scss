@@ -1,12 +1,36 @@
-// .owner-level-container {
-// 	display: flex;
-// 	flex-direction: row;
-// 	align-items: center;
-// 	justify-content: center;
-// }
+.owner-level-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
 
-// .top-rated {
-// 	background-color: #ffe0b3;
-// 	padding: 5px 10px;
-// 	border-radius: 4px;
-// }
+	margin-inline-start: rem(25px);
+	padding-inline: rem(6px);
+	min-height: rem(20px);
+
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: 550;
+
+	&::before {
+		content: '';
+		display: block;
+		width: rem(1px);
+		height: rem(20px);
+		background-color: #f4f5f6;
+		// margin-right: rem(10px); // Optional: Adjust space between line and content
+		position: absolute; // Optional: Position the line relative to the content
+		left: rem(-12px);
+	}
+
+	p {
+		margin-inline-end: rem(4px);
+		margin-bottom: rem(1px);
+	}
+}
+
+.top-rated {
+	background-color: #ffe0b3;
+	border-radius: 4px;
+	position: relative;
+}
