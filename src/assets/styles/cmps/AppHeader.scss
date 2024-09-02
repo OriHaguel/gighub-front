@@ -4,6 +4,8 @@
 	z-index: 1000;
 	padding-block: 0rem;
 
+	margin-block-end: rem(42px);
+
 	.header-package {
 		background-color: #ffffff;
 		width: 100%;
@@ -58,7 +60,7 @@
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				justify-content: center;
+
 				width: 100%;
 
 				.fiverr-header-search-animated {
@@ -76,20 +78,22 @@
 					}
 
 					.search-form {
-						position: relative;
 						display: flex;
-						height: rem(42px);
 						align-items: center;
+						justify-content: center;
+
+						position: relative;
+						height: rem(42px);
 
 						.magnify-icon {
-							fill: #fff;
-
 							-webkit-mask-size: cover;
 							mask-size: cover;
 							-webkit-mask-repeat: no-repeat;
 							mask-repeat: no-repeat;
 							-webkit-mask-position: center;
 							mask-position: center;
+
+							fill: #fff;
 						}
 
 						input {
@@ -153,11 +157,7 @@
 				}
 
 				.site-logo {
-					flex: 1;
-					// display: flex;
-					align-items: center;
-					padding-block: 1rem;
-					// padding-inline-end: rem(32px);
+					margin-block: rem(12px) rem(13px);
 
 					svg {
 						// width: 110px;
