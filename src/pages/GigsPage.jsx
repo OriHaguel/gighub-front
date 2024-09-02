@@ -13,22 +13,14 @@ import { SortGigs } from "../cmps/SortGigs";
 export function GigPage() {
     const param = useParams()
     const gigs = useSelector(state => state.gigModule.gigs)
-    console.log("🚀 ~ GigPage ~ gigs:", gigs.filter(gig => gig._id === 'g-K7dZl6ROAl'))
-
-
     const filterBy = useSelector(state => state.gigModule.filterBy)
     const [activeDropdown, setActiveDropdown] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
 
-
     useEffect(() => {
         setFilterBy(defaultFilter)
-
-
     }, [])
-
-
 
     useEffect(() => {
 
@@ -37,19 +29,14 @@ export function GigPage() {
             try {
                 if (filterBy.category || filterBy.txt) {
                     await loadGigs(filterBy)
-
                 }
             } catch (error) {
                 console.log("🚀 ~ loadGig ~ error:", error)
-
             }
         }
-
         loadGig()
 
     }, [filterBy])
-
-
 
     const toggleDropdown = (dropdownName) => {
         if (activeDropdown === dropdownName) {
