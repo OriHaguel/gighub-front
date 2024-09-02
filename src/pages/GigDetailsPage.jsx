@@ -32,9 +32,8 @@ export function GigDetailsPage() {
 		<section className='main-detail-page'>
 			<div className='gig-details-page-container grid-2'>
 				<GigDetails />
-				{/* <GigCarrousel /> */}
+				<GigCarrousel />
 				<GigAbout />
-
 				<GigReviewsList />
 			</div>
 			<div className='pricing-container grid-4'>
