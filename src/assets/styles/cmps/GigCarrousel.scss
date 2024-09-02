@@ -1,15 +1,14 @@
 .gig-detail-carousel {
-	margin-top: 50px;
 	width: 700px;
 	max-width: 700px;
 	height: auto;
 	border-radius: 8px;
-	background-color: red;
 
 	// box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	// background-color: #fff;
 	// position: relative;
-	// overflow: visible;
+	overflow: visible;
+
 	// .gig-list-img-container img {
 	// 	width: 500px;
 	// 	height: 500px;
@@ -36,16 +35,20 @@
 		z-index: 8;
 		border-width: 0;
 		box-shadow: rgba(0, 0, 0, 0.02) 0px 1.2px 1.92251px 0px, rgba(0, 0, 0, 0.04) 0px 2px 3.68135px 0px, rgba(0, 0, 0, 0.05) 0px 1px 5px 0px;
+		overflow: visible; // Ensures the button isn't clipped
+
+		// ! TEMP
+		background-color: red;
 
 		&.detail-prev-button {
-			left: 25px;
+			left: -25px;
 			top: 50%;
 			transform: translateY(-50%);
 			// z-index: 11;
 		}
 
 		&.detail-next-button {
-			right: 25px;
+			right: -25px;
 			top: 50%;
 			transform: translateY(-50%);
 			// z-index: 11;
@@ -79,7 +82,7 @@
 	}
 
 	.gig-list-img-container:hover {
-		transform: scale(1.1);
+		transform: scale(1.05);
 		transition: 0.5s ease;
 	}
 }

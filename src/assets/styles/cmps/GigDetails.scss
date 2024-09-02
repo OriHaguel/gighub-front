@@ -7,7 +7,7 @@
 		font-size: rem(28px);
 		font-weight: bold;
 		line-height: 1.3;
-		padding-bottom: rem(10px);
+		padding-block-end: rem(10px);
 		color: #404145;
 	}
 
@@ -22,11 +22,15 @@
 		display: flex;
 		flex-direction: column;
 		align-items: inline-start;
-		margin-bottom: 1rem;
+		justify-content: center;
+		// margin-bottom: 1rem;
+		margin-block-end: rem(30px);
 	}
 
 	.rating-container {
 		display: flex;
+		font-weight: 550;
+		color: #222325;
 	}
 
 	.owner-details {
@@ -42,7 +46,7 @@
 	.first-line {
 		display: flex;
 		flex-direction: row;
-		margin-bottom: 0.8rem;
+		margin-bottom: rem(8px);
 		align-items: center;
 		justify-content: start;
 
@@ -74,6 +78,18 @@
 		color: #878990;
 		font-size: 0.8em;
 		font-weight: 600;
+		margin-inline-start: rem(25px);
+
+		&::before {
+			// TODO: fix this
+			content: '';
+			display: block;
+			width: rem(1px);
+			height: rem(20px);
+			background-color: #f4f5f6;
+			position: absolute; // Optional: Position the line relative to the content
+			left: rem(-12px);
+		}
 	}
 }
 
