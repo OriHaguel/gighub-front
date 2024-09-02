@@ -10,6 +10,19 @@ import CarrouselControlPrev from '../assets/svg/CarrouselControlPrev.svg?react'
 import HeartLogo from '../assets/svg/HeartLogo.svg?react'
 
 export function GigList({ gigs }) {
+    const videoRefs = useRef({})
+
+    const setVideoRef = (index, element) => {
+        videoRefs.current[index] = element
+    }
+
+    const handleMouseEnter = (index) => {
+        if (videoRefs.current[index]) videoRefs.current[index].play()
+    }
+
+    const handleMouseLeave = (index) => {
+        if (videoRefs.current[index]) videoRefs.current[index].pause()
+    }
 
     const renderArrowPrev = (clickHandler, hasPrev) => (
         hasPrev && (
@@ -45,14 +58,10 @@ export function GigList({ gigs }) {
 
     return (
         <section className="gig-list-container">
-            {gigs.map((gig, index) => {
+            {gigs.map((gig, gigIndex) => {
                 if (gig.img === undefined) {
                     gig.img = [GigImage, GigImage, GigImage]
                 }
-
-                // const media = mediaLinks[category.video][index]
-                // console.log("🚀 ~ {gigs.map ~ media:", media)
-                // const media = mediaMap[`gig${index + 101}`] || defaultGig
 
                 return (
                     <section key={gig._id} className="gig-list">
@@ -67,25 +76,31 @@ export function GigList({ gigs }) {
                             renderArrowPrev={renderArrowPrev}
                             renderArrowNext={renderArrowNext}
                         >
-                            {/* <HeartLogo /> */}
-                            {gig.img && gig.img.map((mediaUrl, index) => (
-                                mediaUrl.endsWith('.mp4') ? (
-                                    <Link to={`/username/${gig._id}`} className="gig-list-img" key={index}>
+                            {gig.img.map((mediaUrl, mediaIndex) => {
+                                return mediaUrl.endsWith('.mp4') ? (
+                                    <Link to={`/username/${gig._id}`} className="gig-list-img" key={mediaIndex}>
                                         <div className="gig-list-img-container">
-                                            <video src={mediaUrl} alt={`Gig || ${gig.title} || Video ${index + 1}`} autoPlay muted loop />
+                                            <video
+                                                ref={(element) => setVideoRef(`${gigIndex}-${mediaIndex}`, element)}
+                                                src={mediaUrl}
+                                                alt={`Gig || ${gig.title} || Video ${mediaIndex + 1}`}
+                                                muted
+                                                loop
+                                                onMouseEnter={() => handleMouseEnter(`${gigIndex}-${mediaIndex}`)}
+                                                onMouseLeave={() => handleMouseLeave(`${gigIndex}-${mediaIndex}`)}
+                                            />
                                             <HeartLogo className="heart-logo-overlay" />
                                         </div>
                                     </Link>
                                 ) : (
-                                    <Link to={`/username/${gig._id}`} className="gig-list-img" key={index}>
-                                        {/* {console.log("🚀 ~ {gigs.map ~ mediaUrl:", mediaUrl)} */}
+                                    <Link to={`/username/${gig._id}`} className="gig-list-img" key={mediaIndex}>
                                         <div className="gig-list-img-container">
-                                            <img src={mediaUrl} alt={`Gig || ${gig.title} || Slide ${index + 1}`} />
+                                            <img src={mediaUrl} alt={`Gig || ${gig.title} || Slide ${mediaIndex + 1}`} />
                                             <HeartLogo className="heart-logo-overlay" />
                                         </div>
                                     </Link>
                                 )
-                            ))}
+                            })}
                         </Carousel>
 
                         <Link to={`/username/${gig._id}`} className="gig-list-owner-name"><span>Gig</span></Link>
@@ -98,4 +113,3 @@ export function GigList({ gigs }) {
         </section>
     )
 }
-
