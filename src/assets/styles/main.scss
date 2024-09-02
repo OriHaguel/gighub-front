@@ -6,7 +6,7 @@
 
 // Basics
 @import 'basics/helpers';
-@import 'basics/layout';
+// @import 'basics/layout';
 @import 'basics/base';
 @import 'basics/links';
 @import 'basics/forms';
@@ -39,3 +39,6 @@
 @import 'cmps/MainSearchArea.scss';
 @import 'cmps/SellerLevel.scss';
 @import 'cmps/SellerPro.scss';
+@import 'cmps/GigCarrousel.scss';
+
+@import 'basics/layout'; // temp
