@@ -3,7 +3,45 @@
 // 	src: url(../../fonts/Caveat/Caveat-Regular.ttf);
 // }
 
+// montserrat
 @font-face {
 	font-family: montserrat;
 	src: url(../../fonts/Montserrat/Montserrat-Regular.ttf);
+}
+
+// domaine
+@font-face {
+	font-family: domaine-bold;
+	src: url(../../fonts/domaine-display-web-bold.woff2);
+}
+
+@font-face {
+	font-family: domaine-italic;
+	src: url(../../fonts/domaine-display-web-medium-italic.woff2);
+}
+
+@font-face {
+	font-family: domaine;
+	src: url(../../fonts/domaine-display-web-regular.woff2);
+}
+
+// mecan
+@font-face {
+	font-family: mecan-bold;
+	src: url(../../fonts/macan-bold.woff2);
+}
+
+@font-face {
+	font-family: mecan-light;
+	src: url(../../fonts/macan-light.woff2);
+}
+
+@font-face {
+	font-family: mecan;
+	src: url(../../fonts/macan-regular.woff2);
+}
+
+@font-face {
+	font-family: mecan-semibold;
+	src: url(../../fonts/macan-semibold.woff2);
 }
