@@ -4,17 +4,7 @@ import { login, signup } from '../store/actions/user.actions.js'
 
 export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
 
-
-    // const [isSignup, setIsSignUp] = useState(isSinged)
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
-    console.log("🚀 ~ LoginSignup ~ isSignup:", isSignup)
-
-    // useEffect(() => {
-
-    //     setIsSignUp(isSinged)
-
-
-    // }, [isSinged]);
 
     function handleChange({ target }) {
         const { name: field, value } = target
