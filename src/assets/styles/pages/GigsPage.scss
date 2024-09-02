@@ -20,6 +20,12 @@
 
 			.filter {
 				position: relative;
+            .filter-budget,
+            .filter-time {
+                position: relative;
+                padding: 5px;
+                max-height: 476px;
+                background-color: #fff;
 
 				.filter-button {
 					color: black;
@@ -32,10 +38,25 @@
 					padding: 0.5rem 1rem;
 					cursor: pointer;
 					z-index: 1;
+                .filter-button {
+                    color: #333;
+                    font-size: 16px;
+                    display: flex;
+                    align-items: center;
+                    background: #fff;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                    // padding: 0.5rem 1rem;
+                    padding: 10px 20px;
+                    cursor: pointer;
 
 					&:hover {
 						background: #f5f5f5;
 					}
+                    &:hover {
+                        background: #f0f0f0;
+                        border-color: #ccc;
+                    }
 
 					.filter-label {
 						margin-right: 0.5rem;
