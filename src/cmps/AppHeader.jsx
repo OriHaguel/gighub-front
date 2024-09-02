@@ -84,7 +84,7 @@ export function AppHeader() {
 	return (
 		<div id='Header'>
 			<header className='header-package fiverr-header logged-out-homepage-header'>
-				<div className='header-row-wrapper'>
+				<div className='header-row-wrapper main-container'>
 					<div className='header-row max-width-container equal-padding row-main'>
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
@@ -111,11 +111,11 @@ export function AppHeader() {
 										Explore <ChevronIcon className='header-chevron' />
 									</NavLink>
 								</li>
-								<li>
+								{/* <li>
 									<NavLink to='/language' className='header-link-container header-language'>
 										<Globe /> English
 									</NavLink>
-								</li>
+								</li> */}
 								<li>
 									<NavLink to='/become-seller' className='header-link-container header-seller'>
 										Become a Seller
@@ -132,9 +132,11 @@ export function AppHeader() {
 									</button>}
 								</li>
 								<li>
-									{loggedInUser && <button className='sign-button header-link-container' onClick={logout}>
-										Logout
-									</button>}
+									{loggedInUser && (
+										<button className='sign-button header-link-container' onClick={logout}>
+											Logout
+										</button>
+									)}
 								</li>
 							</ul>
 						</nav>
