@@ -13,6 +13,7 @@ import { SortGigs } from "../cmps/SortGigs";
 export function GigPage() {
     const param = useParams()
     const gigs = useSelector(state => state.gigModule.gigs)
+    console.log("🚀 ~ GigPage ~ gigs:", gigs.filter(gig => gig._id === 'g-K7dZl6ROAl'))
 
 
     const filterBy = useSelector(state => state.gigModule.filterBy)

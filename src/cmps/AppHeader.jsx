@@ -22,13 +22,12 @@ import { logout } from '../store/actions/user.actions'
 export function AppHeader() {
 	const navigate = useNavigate()
 	const [inputValue, setInputValue] = useState({ txt: '' })
+	const [isSinged, setIsSinged] = useState(false);
+	// console.log("🚀 ~ AppHeader ~ isSinged:", isSinged)
 	const filterBy = useSelector(state => state.gigModule.filterBy)
 	const loggedInUser = useSelector(storeState => storeState.userModule.user)
-	console.log("🚀 ~ AppHeader ~ loggedInUser:", loggedInUser)
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
-
-
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -48,8 +47,6 @@ export function AppHeader() {
 		}
 	}, [])
 
-
-
 	function handleChange(ev) {
 		const type = ev.target.type
 		const field = ev.target.name
@@ -68,22 +65,20 @@ export function AppHeader() {
 		setInputValue(prevFilter => ({ ...prevFilter, [field]: value }))
 	}
 
-
 	function onSubmit(ev) {
 		ev.preventDefault()
 		if (filterBy.category) {
 			setFilterBy({ category: '' })
 		}
-		// debugger
 		setFilterBy(inputValue)
-
 		// setInputValue({ txt: '' })
 		// navigate(`gigs?${filterBy}`)
 		navigate(`gigs?txt=${inputValue.txt}`)
 	}
 
-	const openModal = () => {
+	const openModal = (isSignedUp) => {
 		setIsModalOpen(true)
+		setIsSinged(isSignedUp)
 	}
 
 	return (
@@ -91,9 +86,6 @@ export function AppHeader() {
 			<header className='header-package fiverr-header logged-out-homepage-header'>
 				<div className='header-row-wrapper'>
 					<div className='header-row max-width-container equal-padding row-main'>
-						{/* <button className='btn-navicon js-side-nav-trigger'>
-							<HeaderNavicon />
-						</button> */}
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
@@ -130,12 +122,12 @@ export function AppHeader() {
 									</NavLink>
 								</li>
 								{!loggedInUser && <li>
-									<button to='/sign-in' className='sign-button header-link-container' onClick={openModal}>
+									<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(true)}>
 										Sign In
 									</button>
 								</li>}
 								<li>
-									{!loggedInUser && <button to='/join' className='join-button' onClick={openModal}>
+									{!loggedInUser && <button to='/join' className='join-button' onClick={() => openModal(false)}>
 										Join
 									</button>}
 								</li>
@@ -149,13 +141,7 @@ export function AppHeader() {
 					</div>
 				</div>
 			</header>
-
-			{/* Button to open the modal */}
-			{/* <button className="login-signup-modal" onClick={openModal}>open modal</button> */}
-
-			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-
-
+			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isSinged={isSinged} setIsSinged={setIsSinged} />
 		</div>
 	)
 }

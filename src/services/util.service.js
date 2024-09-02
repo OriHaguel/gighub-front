@@ -85,10 +85,10 @@ export function getPlan() {
 export const categories = {
 	programming: ['web', 'app', 'software', 'coding', 'algorithms', 'JavaScript', 'Python', 'backend', 'frontend', 'database'],
 	graphics: ['logo', 'UI', 'graphic', 'illustration', 'branding', 'typography', 'color', 'layout', 'icons', 'photoshop'],
-	digital: ['SEO', 'growth hacking', 'social', 'email', 'PPC', 'analytics', 'ads', 'keywords', 'campaign', 'influencers'],
+	digital: ['SEO', 'hacking', 'social', 'email', 'PPC', 'analytics', 'ads', 'keywords', 'campaign', 'influencers'],
 	writing: ['copywriting', 'modern', 'technical', 'translation', 'proofreading', 'copyediting', 'blogging', 'articles', 'scripts', 'localization'],
-	video: ['video', 'motion', '2D', '3D', 'HD', 'animation', 'Directing', 'storyboard', 'vfx', 'rendering'],
-	music: ['music', 'sound', 'voiceover', 'mixing', 'podcasting', 'recording', 'composition', 'audio', 'beats', 'synth'],
+	video: ['movie', 'motion', '2D', '3D', 'HD', 'animations', 'Directing', 'storyboard', 'vfx', 'rendering'],
+	music: ['instrument', 'melody', 'voiceover', 'mixing', 'podcasting', 'recording', 'composition', 'chord ', 'beats', 'synth'],
 	business: ['strategy', 'management', 'entrepreneurship', 'finance', 'consulting', 'startup', 'operations', 'leadership', 'deals', 'investment'],
 }
 
@@ -103,7 +103,7 @@ export function getRandomSentence() {
 		`Transform your digital presence with our ${getRandomWord(categories.programming)} and technology solutions.`,
 		`Our team excels in ${getRandomWord(categories.programming)} to deliver robust and innovative solutions.`,
 		`We provide end-to-end ${getRandomWord(categories.programming)} services to build your next big project.`,
-		`Leverage our ${getRandomWord(categories.programming)} skills to enhance your software capabilities.`,
+		`Leverage our ${getRandomWord(categories.programming)} skills to enhance your site capabilities.`,
 		`We design and develop ${getRandomWord(categories.programming)} solutions that drive business growth.`,
 		`Our ${getRandomWord(categories.programming)} experts work closely with you to bring your vision to life.`,
 
@@ -152,7 +152,7 @@ export function getRandomSentence() {
 		`Transform your concepts into dynamic ${getRandomWord(categories.video)} with our services.`,
 		`Our ${getRandomWord(categories.video)} professionals create high-quality content to captivate your audience.`,
 		`We provide innovative ${getRandomWord(categories.video)} solutions for all your visual needs.`,
-		`Enhance your storytelling with our ${getRandomWord(categories.video)} and motion animation.`,
+		`Enhance your storytelling with our ${getRandomWord(categories.video)} and animation.`,
 		`Our ${getRandomWord(categories.video)} services ensure that your message is delivered with impact.`,
 
 		// Music
@@ -171,7 +171,7 @@ export function getRandomSentence() {
 		`We provide ${getRandomWord(categories.business)} solutions to help your company thrive.`,
 		`Our ${getRandomWord(categories.business)} expertise ensures strategic growth and operational excellence.`,
 		`From ${getRandomWord(categories.business)} to ${getRandomWord(categories.business)}, we support your business success.`,
-		`We offer comprehensive ${getRandomWord(categories.business)} services to enhance your business operations.`,
+		`We offer comprehensive ${getRandomWord(categories.business)} services to enhance your business move.`,
 		`Our ${getRandomWord(categories.business)} solutions are designed to drive innovation and efficiency.`,
 		`Leverage our ${getRandomWord(categories.business)} expertise to achieve your strategic goals.`,
 		`We specialize in ${getRandomWord(categories.business)} to streamline your business processes.`,
@@ -187,6 +187,8 @@ export function getRandomSentence() {
 function getRandomWord(wordList) {
 	return wordList[Math.floor(Math.random() * wordList.length)]
 }
+
+
 
 
 export function getGigImg(gigs) {
@@ -442,15 +444,288 @@ export function getGigImg(gigs) {
 	}
 
 	const categoryKeys = Object.keys(categories);
-	const newGigs = []
-	categoryKeys.map((category) => {
-		const gigImg = gigs.filter(gig => categories[category].some(word => gig.title.includes(word)))
-			.map((gig, index) => (
-				{ ...gig, img: imgCategories[category][index] }
-			))
-		newGigs.push(...gigImg)
-	})
-	return newGigs
+	const gigMap = new Map(); // Use a Map to track gigs and avoid duplicates
+
+	categoryKeys.forEach((category) => {
+		const categoryKeywords = categories[category];
+		const images = imgCategories[category] || [];
+		const filteredGigs = gigs
+			.filter(gig => categoryKeywords.some(word => gig.title.includes(word)));
+
+		filteredGigs.forEach((gig, index) => {
+			if (!gigMap.has(gig._id)) { // Use _id to ensure uniqueness
+				const img = images[index] || []; // Use default empty array if index exceeds images length
+				gigMap.set(gig._id, { ...gig, img });
+			}
+		});
+	});
+
+	return Array.from(gigMap.values()); // Convert Map values to an array
 }
+
+//!!! DONT DELETE(YET)!!!
+// export function getGigImg(gigs) {
+
+// 	const imgCategories = {
+// 		//tech
+// 		programming: [
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/1.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/2.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/3.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/tech_5_1_lnpdet.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/tech_5_1_xkx2su.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/v1681292390/tech_5_2_ingp2n.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/prog2_1_rglah7.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/prog2_2_ktpg4w.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/prog2_3_r12pmp.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_ieqqi5.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_mxc78m.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_k7abw0.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_sfu5ye.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_est8wa.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_dduzty.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_wsvd6m.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/5_etcyta.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_mvdoq5.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_bge79q.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_pnwh0l.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_hnlpgx.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/5_fk2x0b.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/6_ayhnhy.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_q4va92.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_iybtmb.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_r8ghua.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_egvgdt.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_s2htmr.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_kyn0mz.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/tech_3_1_yh5r1p.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/tech_3_1_udxnne.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/tech_3_2_qjkelz.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_gqapyn.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_fjcp1e.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/5_h4ivae.webp'
+// 			],
+
+
+// 		],
+// 		//design
+// 		graphics: [
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_z9rrab.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_veg6zj.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_cdadns.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_d52ipm.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_dqbi2y.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_dnqzt0.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/5_kuv9a9.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/6_bzveuq.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/7_v4zegm.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_bt99v7.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_wwlfsy.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/5_zpzban.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/6_o6apzw.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/0_a5v53p.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/00_ejnxb4.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/000_ytqxle.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_wpgskd.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_jto6cd.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_oqg4j7.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_hzy27x.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/5_in6nn7.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_u0epwq.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_hf811f.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_bbxhrz.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_fsivb3.webp'
+// 			]
+// 		],
+// 		//animation
+// 		video: [
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/00_dxalu8.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/0_xqvxje.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/11_ckswgc.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_s1rtwn.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_bqz2bq.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_d6ahg6.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample-2.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/samples/balloons.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample-5.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample.webp',
+// 				// 'https://res.cloudinary.com/dofblayxi/image/upload/samples/dessert-on-a-plate.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/video/upload/samples/sea-turtle.mp4',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/samples/animals/kitten-playing.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/video/upload/samples/elephants.mp4',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/samples/animals/reindeer.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/video/upload/1_mrrzig.mp4',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_bgvprq.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_ej64fz.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/5_cpm6zv.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_iacxim.webp',
+// 				'https://res.cloudinary.com/dofblayxi/video/upload/2_gjl1lu.mp4',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_rbsp1x.webp'
+// 			]
+// 		],
+// 		//translation
+// 		writing: [
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_ymahhr.webp',
+// 				'https://res.cloudinary.com/dofblayxi/video/upload/1_hluacb.mp4',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_jpdk6y.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_h8g4ck.webp'
+
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_zmsai2.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_xcvsns.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_lnpodr.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_qpzm75.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_llghjy.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_helgmv.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_ll85yj.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_cj48yf.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_ozcalj.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_cp9rgx.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_ipqtx1.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_lnj06l.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_efflfv.webp'
+// 			]
+// 		],
+// 		//marketing
+// 		digital: [
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_mxphj2.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_fd72b6.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_ucvzib.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_w4opjt.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/5_a0dqvd.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_x8amij.webp',
+// 				'https://res.cloudinary.com/dofblayxi/video/upload/1_hehnqd.mp4',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_th9jl2.webp'
+// 			],
+// 			['https://res.cloudinary.com/dofblayxi/image/upload/1_tdcu3d.webp'],
+// 			['https://res.cloudinary.com/dofblayxi/image/upload/1_seypam.webp'],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_kcupoa.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_l8kglv.webp'
+// 			],
+// 		],
+// 		//audio
+// 		music: [
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_qxm2qw.webp',
+// 				// 'https://res.cloudinary.com/dofblayxi/image/upload/2_soydkl.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_okyazc.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_nd8ifz.webp'
+// 			],
+// 			['https://res.cloudinary.com/dofblayxi/image/upload/1_dxzmay.webp'],
+// 			['https://res.cloudinary.com/dofblayxi/image/upload/1_aqw4bd.webp'],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_ucw0wc.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/7_ryyvnm.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/m_1_bnx2e7.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/m_2_wyluxz.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/m_v8pfvv.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_td6qnb.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_xvzkqj.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_neju3l.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_uzufey.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_udhyj6.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/4_rlawua.webp'
+// 			]
+// 		],
+
+// 		business: [
+// 			[
+// 				// 'https://res.cloudinary.com/dofblayxi/image/upload/get-your-ein-number-from-irs-for-us-and-non-us-citizens_wmnm7v.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/get-your-ein-number-from-irs-for-us-and-non-us-citizens_yy3pv2.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/get-your-ein-number-from-irs-for-us-and-non-us-citizens_1_jduj12.webp'],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_bcpqls.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_fgvas5.webp'
+// 			],
+// 			['https://res.cloudinary.com/dofblayxi/image/upload/1_r5lqse.webp'],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/1_n5fw3d.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_rtzhfe.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_c6obj1.webp'
+// 			],
+// 			[
+// 				'https://res.cloudinary.com/dofblayxi/video/upload/1_kjyj7d.mp4',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/2_iao93d.webp',
+// 				'https://res.cloudinary.com/dofblayxi/image/upload/3_kssgez.webp'
+// 			]
+// 		]
+// 	}
+
+// 	const categoryKeys = Object.keys(categories);
+// 	const newGigs = []
+// 	categoryKeys.map((category) => {
+// 		const gigImg = gigs.filter(gig => categories[category].some(word => gig.title.includes(word)))
+// 			.map((gig, index) => (
+// 				{ ...gig, img: imgCategories[category][index] }
+// 			))
+// 		newGigs.push(...gigImg)
+// 	})
+// 	return newGigs
+// }
 
 

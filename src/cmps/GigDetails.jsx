@@ -93,7 +93,7 @@ export function GigDetails() {
 
 	if (!gig) return <div>Loading...</div>
 	console.log("🚀 ~ GigDetails ~ gig:", gig.img)
-	if (gig.img === undefined) {
+	if (gig.img.length === 0) {
 		gig.img = [GigImage, GigImage, GigImage]
 	}
 	return (

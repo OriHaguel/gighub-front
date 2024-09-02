@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
 import { LoginSignup } from './LoginSignup';
 
-export function Modal({ isOpen, onClose }) {
+export function Modal({ isOpen, onClose, isSinged, setIsSinged }) {
     const user = useSelector(state => state.userModule.user)
     const elModal = useRef(null)
     useEffect(() => {
@@ -55,7 +55,7 @@ export function Modal({ isOpen, onClose }) {
                     </label>
                     <button className='button' type='submit'>Continue</button>
                 </form> */}
-                <LoginSignup elModal={elModal} onClose={onClose} />
+                <LoginSignup elModal={elModal} onClose={onClose} isSignup={isSinged} setIsSignUp={setIsSinged} />
             </dialog>
         </div>
     )

@@ -1,19 +1,20 @@
-import { useState } from 'react'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
-
-
-// import { login, signup } from '../store/actions/user.action.js'
+import { useEffect, useState } from 'react'
 import { userService } from '../services/user/index.js'
 import { login, signup } from '../store/actions/user.actions.js'
-// import { signup, login } from '../store/user.action.js'
+
+export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
 
 
-// const { useState } = React
-
-export function LoginSignup({ elModal, onClose }) {
-
-    const [isSignup, setIsSignUp] = useState(false)
+    // const [isSignup, setIsSignUp] = useState(isSinged)
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
+    console.log("🚀 ~ LoginSignup ~ isSignup:", isSignup)
+
+    // useEffect(() => {
+
+    //     setIsSignUp(isSinged)
+
+
+    // }, [isSinged]);
 
     function handleChange({ target }) {
         const { name: field, value } = target
