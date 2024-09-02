@@ -58,7 +58,7 @@ export function GigList({ gigs }) {
 
     return (
         <section className="gig-list-container">
-            {gigs.map((gig, index) => {
+            {gigs.map((gig, gigIndex) => {
                 if (gig.img.length === 0) {
                     gig.img = [GigImage, GigImage, GigImage]
                 }
