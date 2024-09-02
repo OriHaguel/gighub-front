@@ -24,17 +24,19 @@ export function GigPage() {
     useEffect(() => {
 
         setSearchParams(filterBy, { replace: true })
+        // console.log("🚀 ~ useEffect ~ filterBy:", filterBy)
+
         async function loadGig() {
             try {
-                if (filterBy.category || filterBy.txt) {
+                if (filterBy.category || filterBy.txt || filterBy.price) {
                     await loadGigs(filterBy)
                 }
             } catch (error) {
                 console.log("🚀 ~ loadGig ~ error:", error)
             }
         }
-        loadGig()
 
+        loadGig()
     }, [filterBy])
 
     const toggleDropdown = (dropdownName) => {
@@ -51,7 +53,7 @@ export function GigPage() {
 
         <div className="gig-page">
             <h1>Gig Page</h1>
-          
+
             <SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
 
 

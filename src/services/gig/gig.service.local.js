@@ -105,11 +105,12 @@ async function save(gig) {
 function _diffFilter() {
 	return {
 		title: '',
-		price: 0,
+		price: '',
 		sortField: '',
 		sortDir: '',
 		txt: '',
 		category: '',
+		daysToMake: '',
 	}
 }
 
