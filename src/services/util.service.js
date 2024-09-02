@@ -190,7 +190,7 @@ function getRandomWord(wordList) {
 
 
 export function getGigImg(gigs) {
-
+	//~62 gigs
 	const imgCategories = {
 		//tech
 		programming: [
@@ -240,6 +240,18 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_kyn0mz.webp'
 			],
 			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_atkdne.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_loeg1k.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_buj68p.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_py5kzw.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/5_lpdb3l.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_viz2b8.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_gxra0m.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_rucfqm.webp'
+			],
+			[
 				'https://res.cloudinary.com/dofblayxi/image/upload/tech_3_1_yh5r1p.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/tech_3_1_udxnne.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/tech_3_2_qjkelz.webp'
@@ -249,7 +261,6 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_fjcp1e.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/5_h4ivae.webp'
 			],
-
 
 		],
 		//design
@@ -292,7 +303,24 @@ export function getGigImg(gigs) {
 			[
 				'https://res.cloudinary.com/dofblayxi/image/upload/1_bbxhrz.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_fsivb3.webp'
-			]
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_te6haz.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_hm8zb2.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_ucztjn.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_y8pvtp.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/5_dmdekn.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/6_fsplen.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_polrvq.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_qann3f.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_qrf9vv.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_jy4af5.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_eg0mqf.webp'
+			],
 		],
 		//animation
 		video: [
@@ -307,13 +335,27 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/4_d6ahg6.webp'
 			],
 			[
-				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample-2.webp',
-				'https://res.cloudinary.com/dofblayxi/image/upload/samples/balloons.webp',
-				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample-5.webp'
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_mrrzig.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_bgvprq.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_ej64fz.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/5_cpm6zv.webp'
 			],
 			[
-				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample.webp',
-				// 'https://res.cloudinary.com/dofblayxi/image/upload/samples/dessert-on-a-plate.webp'
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_iacxim.webp',
+				'https://res.cloudinary.com/dofblayxi/video/upload/2_gjl1lu.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_rbsp1x.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_nyif3p.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_gv9uti.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_lewwbl.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_oqao3n.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_ghmtv3.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_nhehgy.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_vkckns.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_td9ey7.webp'
 			],
 			[
 				'https://res.cloudinary.com/dofblayxi/video/upload/samples/sea-turtle.mp4',
@@ -324,16 +366,14 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/samples/animals/reindeer.webp'
 			],
 			[
-				'https://res.cloudinary.com/dofblayxi/video/upload/1_mrrzig.mp4',
-				'https://res.cloudinary.com/dofblayxi/image/upload/2_bgvprq.webp',
-				'https://res.cloudinary.com/dofblayxi/image/upload/3_ej64fz.webp',
-				'https://res.cloudinary.com/dofblayxi/image/upload/5_cpm6zv.webp'
+				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample-2.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/samples/balloons.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample-5.webp'
 			],
 			[
-				'https://res.cloudinary.com/dofblayxi/image/upload/1_iacxim.webp',
-				'https://res.cloudinary.com/dofblayxi/video/upload/2_gjl1lu.mp4',
-				'https://res.cloudinary.com/dofblayxi/image/upload/3_rbsp1x.webp'
-			]
+				'https://res.cloudinary.com/dofblayxi/image/upload/cld-sample.webp',
+				// 'https://res.cloudinary.com/dofblayxi/image/upload/samples/dessert-on-a-plate.webp'
+			],
 		],
 		//translation
 		writing: [
@@ -364,10 +404,40 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_ipqtx1.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_lnj06l.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/4_efflfv.webp'
-			]
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_xzab67.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_lploc4.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_fmwkyq.webp'
+			],
 		],
 		//marketing
 		digital: [
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_x8amij.webp',
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_hehnqd.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_th9jl2.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_tdcu3d.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_seypam.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_kcupoa.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_l8kglv.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_rtebfu.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_g04bxx.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_sbi4xc.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_c5oc2y.webp'
+			],
 			[
 				'https://res.cloudinary.com/dofblayxi/image/upload/1_mxphj2.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_fd72b6.webp',
@@ -376,15 +446,10 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/5_a0dqvd.webp'
 			],
 			[
-				'https://res.cloudinary.com/dofblayxi/image/upload/2_x8amij.webp',
-				'https://res.cloudinary.com/dofblayxi/video/upload/1_hehnqd.mp4',
-				'https://res.cloudinary.com/dofblayxi/image/upload/3_th9jl2.webp'
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_ykqusz.webp'
 			],
-			['https://res.cloudinary.com/dofblayxi/image/upload/1_tdcu3d.webp'],
-			['https://res.cloudinary.com/dofblayxi/image/upload/1_seypam.webp'],
 			[
-				'https://res.cloudinary.com/dofblayxi/image/upload/1_kcupoa.webp',
-				'https://res.cloudinary.com/dofblayxi/image/upload/2_l8kglv.webp'
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_scg8fm.webp'
 			],
 		],
 		//audio
@@ -395,8 +460,18 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_okyazc.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/4_nd8ifz.webp'
 			],
-			['https://res.cloudinary.com/dofblayxi/image/upload/1_dxzmay.webp'],
-			['https://res.cloudinary.com/dofblayxi/image/upload/1_aqw4bd.webp'],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_dxzmay.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_aqw4bd.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_hnjuc2.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_mgg5qg.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_exckn1.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_absxs1.webp'
+			],
 			[
 				'https://res.cloudinary.com/dofblayxi/image/upload/4_ucw0wc.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/7_ryyvnm.webp'
@@ -415,10 +490,15 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_uzufey.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_udhyj6.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/4_rlawua.webp'
-			]
+			],
 		],
 
 		business: [
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_kjyj7d.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_iao93d.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_kssgez.webp'
+			],
 			[
 				// 'https://res.cloudinary.com/dofblayxi/image/upload/get-your-ein-number-from-irs-for-us-and-non-us-citizens_wmnm7v.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/get-your-ein-number-from-irs-for-us-and-non-us-citizens_yy3pv2.webp',
@@ -427,22 +507,23 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/1_bcpqls.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_fgvas5.webp'
 			],
-			['https://res.cloudinary.com/dofblayxi/image/upload/1_r5lqse.webp'],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_r5lqse.webp'
+			],
 			[
 				'https://res.cloudinary.com/dofblayxi/image/upload/1_n5fw3d.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_rtzhfe.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_c6obj1.webp'
 			],
-			[
-				'https://res.cloudinary.com/dofblayxi/video/upload/1_kjyj7d.mp4',
-				'https://res.cloudinary.com/dofblayxi/image/upload/2_iao93d.webp',
-				'https://res.cloudinary.com/dofblayxi/image/upload/3_kssgez.webp'
-			]
 		],
 		//legal
-		consulting: {
-
-		}
+		consulting: [
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_t69iqg.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_unknhc.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_cqa3bi.webp'
+			],
+		]
 	}
 
 	const categoryKeys = Object.keys(categories);
