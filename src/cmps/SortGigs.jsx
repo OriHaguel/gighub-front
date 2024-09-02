@@ -27,83 +27,91 @@ export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy
     }
 
 
-    return <section className="gig-sorting">
-        <div className="top-filters">
+    return (
 
-            {/* <div className="filter">
-                <button className="filter-button" onClick={() => toggleDropdown('serviceOptions')}>
-                    <p className="filter-label">Service options</p>
-                    <span className="chevron-icon-down" aria-hidden="true">
-                        <ChevronIcon />
-                    </span>
-                </button>
-                {activeDropdown === 'serviceOptions' && (
-                    <div className="dropdown-content">
-                        <ul>
-                            <li><button>Option 1</button></li>
-                            <li><button>Option 2</button></li>
-                            <li><button>Option 3</button></li>
-                        </ul>
-                    </div>
+        /* <div className="filter">
+            <button className="filter-button" onClick={() => toggleDropdown('serviceOptions')}>
+            <p className="filter-label">Service options</p>
+            <span className="chevron-icon-down" aria-hidden="true">
+            <ChevronIcon />
+            </span>
+        </button>
+        {activeDropdown === 'serviceOptions' && (
+            <div className="dropdown-content">
+                <ul>
+                <li><button>Option 1</button></li>
+                <li><button>Option 2</button></li>
+                <li><button>Option 3</button></li>
+                </ul>
+                </div>
                 )}
-            </div> */}
+                </div> */
 
-            {/* <div className="filter">
-                <button className="filter-button" onClick={() => toggleDropdown('sellerDetails')}>
-                    <p className="filter-label">Seller details</p>
-                    <span className="chevron-icon-down" aria-hidden="true">
-                        <ChevronIcon />
-                    </span>
-                </button>
-                {activeDropdown === 'sellerDetails' && (
-                    <div className="dropdown-content">
-                        <ul>
-                            <li><button>Top Rated</button></li>
-                            <li><button>Level One</button></li>
-                            <li><button>Level Two</button></li>
-                        </ul>
+        /* <div className="filter">
+        <button className="filter-button" onClick={() => toggleDropdown('sellerDetails')}>
+        <p className="filter-label">Seller details</p>
+            <span className="chevron-icon-down" aria-hidden="true">
+            <ChevronIcon />
+            </span>
+            </button>
+            {activeDropdown === 'sellerDetails' && (
+                <div className="dropdown-content">
+                <ul>
+                    <li><button>Top Rated</button></li>
+                    <li><button>Level One</button></li>
+                    <li><button>Level Two</button></li>
+                    </ul>
                     </div>
-                )}
-            </div> */}
+                    )}
+    </div> */
 
-            <div className="filter">
-                <button className="filter-button" onClick={() => toggleDropdown('budget')}>
-                    <p className="filter-label">Budget</p>
-                    <span className="chevron-icon-down" aria-hidden="true">
-                        <ChevronIcon />
-                    </span>
-                </button>
-                {activeDropdown === 'budget' && (
-                    <div className="dropdown-content">
-                        <ul>
-                            <li><input type="radio" value={`low`} name='price' onChange={handleChange} />under 100</li>
-                            <li><input type="radio" value={`mid`} name='price' onChange={handleChange} />$100 - $500</li>
-                            <li><input type="radio" value={`high`} name='price' onChange={handleChange} />$500 & above</li>
-                            <li><button onClick={() => setFilterByToEdit(prevFilter => ({ ...prevFilter, price: '' }))}>clear</button></li>
-                        </ul>
-                    </div>
-                )}
+        <section className="gig-sorting">
+            <div className="top-filters">
+                <div className="filter-budget">
+                    <button className="filter-button" onClick={() => toggleDropdown('budget')}>
+                        <p className="filter-label">Budget</p>
+                        {/* <span className="chevron-icon-down" aria-hidden="true"> */}
+                        <ChevronIcon className="chevron-icon-down" />
+                        {/* </span> */}
+                    </button>
+                    {activeDropdown === 'budget' && (
+                        <div className="dropdown-content">
+                            <ul>
+                                <li><input className='radio-dot' type="radio" value={`low`} name='price' onChange={handleChange} />under 100</li>
+                                <li><input className='radio-dot' type="radio" value={`mid`} name='price' onChange={handleChange} />$100 - $500</li>
+                                <li><input className='radio-dot' type="radio" value={`high`} name='price' onChange={handleChange} />$500 & above</li>
+                            </ul>
+                            <div className='sort-buttons-section'>
+                                <button className='clear-button' onClick={() => setFilterByToEdit(prevFilter => ({ ...prevFilter, price: '' }))}>Clear All</button>
+                                <button className='apply-button'>Apply</button>
+                            </div>
+                        </div>
+                    )}
+                </div>
+
+                <div className="filter-time">
+                    <button className="filter-button" onClick={() => toggleDropdown('deliveryTime')}>
+                        <p className="filter-label">Delivery time</p>
+                        {/* <span className="chevron-icon-down" aria-hidden="true"> */}
+                        <ChevronIcon className="chevron-icon-down" />
+                        {/* </span> */}
+                    </button>
+                    {activeDropdown === 'deliveryTime' && (
+                        <div className="dropdown-content">
+                            <ul>
+                                <li><input className='radio-dot' type="radio" value={`day`} name='daysToMake' onChange={handleChange} />Express 24H</li>
+                                <li><input className='radio-dot' type="radio" value={`3days`} name='daysToMake' onChange={handleChange} />up to 3 days</li>
+                                <li><input className='radio-dot' type="radio" value={`7days`} name='daysToMake' onChange={handleChange} />up to 7 days</li>
+                                <li><input className='radio-dot' type="radio" value={`anytime`} name='daysToMake' onChange={handleChange} />Anytime</li>
+                            </ul>
+                            <div className='sort-buttons-section'>
+                                <button className='clear-button' onClick={() => setFilterByToEdit(prevFilter => ({ ...prevFilter, daysToMake: '' }))}>Clear All</button>
+                                <button className='apply-button'>Apply</button>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
-
-            <div className="filter">
-                <button className="filter-button" onClick={() => toggleDropdown('deliveryTime')}>
-                    <p className="filter-label">Delivery time</p>
-                    <span className="chevron-icon-down" aria-hidden="true">
-                        <ChevronIcon />
-                    </span>
-                </button>
-                {activeDropdown === 'deliveryTime' && (
-                    <div className="dropdown-content">
-                        <ul>
-                            <li><input type="radio" value={`day`} name='daysToMake' onChange={handleChange} />Express 24H</li>
-                            <li><input type="radio" value={`3days`} name='daysToMake' onChange={handleChange} />up to 3 days</li>
-                            <li><input type="radio" value={`7days`} name='daysToMake' onChange={handleChange} />up to 7 days</li>
-                            <li><input type="radio" value={`anytime`} name='daysToMake' onChange={handleChange} />Anytime</li>
-                            <li><button onClick={() => setFilterByToEdit(prevFilter => ({ ...prevFilter, daysToMake: '' }))}>clear</button></li>
-                        </ul>
-                    </div>
-                )}
-            </div>
-        </div>
-    </section>
+        </section>
+    )
 }
