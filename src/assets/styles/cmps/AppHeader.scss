@@ -154,14 +154,14 @@
 
 				.site-logo {
 					flex: 1;
-					display: flex;
+					// display: flex;
 					align-items: center;
 					padding-block: 1rem;
-					padding-inline-end: rem(32px);
+					// padding-inline-end: rem(32px);
 
 					svg {
-						width: 110px;
-						height: auto;
+						// width: 110px;
+						height: rem(32px);
 					}
 				}
 

@@ -1,14 +1,19 @@
-.main-detail-container {
-	margin-left: auto;
-	margin-right: auto;
-	padding-inline: rem(32px);
-	display: flex;
-	flex-direction: row;
+// .main-detail-container {
+// 	margin-left: auto;
+// 	margin-right: auto;
+// 	padding-inline: rem(32px);
+// 	display: flex;
+// 	flex-direction: row;
 
-	.gig-details-page-container {
-		display: flex;
-		flex-direction: column;
-		flex: 0.9;
-		margin-inline-end: rem(113px);
-	}
+// 	.gig-details-page-container {
+// 		display: flex;
+// 		flex-direction: column;
+// 		flex: 0.9;
+// 		margin-inline-end: rem(113px);
+// 	}
+// }
+
+.main-detail-page {
+	display: grid;
+	grid-template-columns: rem(80px) 1fr 114px 412px rem(80px); /* This defines your grid layout */
 }

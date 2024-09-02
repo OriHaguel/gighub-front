@@ -29,15 +29,15 @@ export function GigDetailsPage() {
 	}
 	if (!gig) return
 	return (
-		<section className='main-detail-container'>
-			<div className='gig-details-page-container'>
+		<section className='main-detail-page'>
+			<div className='gig-details-page-container grid-2'>
 				<GigDetails />
 				{/* <GigCarrousel /> */}
 				<GigAbout />
 
 				<GigReviewsList />
 			</div>
-			<div className='pricing-container'>
+			<div className='pricing-container grid-4'>
 				<GigPricing gig={gig} />
 			</div>
 		</section>

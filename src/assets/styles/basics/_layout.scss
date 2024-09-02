@@ -1,3 +1,9 @@
+.main-page-container {
+	display: flex;
+	flex-direction: column;
+	// margin-inline: rem(252px);
+}
+
 // Grid
 .main-container {
 	display: grid;
@@ -39,14 +45,6 @@
 // 	grid-gap: 20px;
 // }
 
-// Flex
-// .main-container {
-// 	display: flex;
-// 	flex-direction: column;
-// 	// align-items: center;
-// 	// justify-content: center;
-// 	min-height: 100vh;
-
 // 	// main {
 // 	// 	min-height: calc(100vh - 12rem);
 // 	// 	overflow: hidden; // Quick fix for JSONs in <pre>
@@ -55,9 +53,3 @@
 // 	// 	background-color: yellow;
 // 	// }
 // }
-
-.main-page-container {
-	display: flex;
-	flex-direction: column;
-	// margin-inline: rem(252px);
-}
