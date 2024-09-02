@@ -11,13 +11,11 @@
 	justify-content: space-between;
 	align-items: center;
 	padding-block: rem(20px);
-	margin-inline: rem(252px);
+	// margin-inline: rem(252px);
 	background-color: #ffffff;
 	// width: 100%;
 	border-top: 1px solid #e4e6e7;
-
-	// width: 1400px; // temp
-	// max-width: 1400px;
+	width: 1400px;
 
 	.footer-left-container {
 		display: flex;

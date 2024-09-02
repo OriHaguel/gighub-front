@@ -24,7 +24,7 @@ export function AppHeader() {
 	const [inputValue, setInputValue] = useState({ txt: '' })
 	const filterBy = useSelector(state => state.gigModule.filterBy)
 	const loggedInUser = useSelector(storeState => storeState.userModule.user)
-	console.log("🚀 ~ AppHeader ~ loggedInUser:", loggedInUser)
+	console.log('🚀 ~ AppHeader ~ loggedInUser:', loggedInUser)
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -64,7 +64,6 @@ export function AppHeader() {
 		setInputValue(prevFilter => ({ ...prevFilter, [field]: value }))
 	}
 
-
 	function onSubmit(ev) {
 		ev.preventDefault()
 		if (filterBy.category) {
@@ -85,7 +84,7 @@ export function AppHeader() {
 	return (
 		<div id='Header'>
 			<header className='header-package fiverr-header logged-out-homepage-header'>
-				<div className='header-row-wrapper'>
+				<div className='header-row-wrapper main-container'>
 					<div className='header-row max-width-container equal-padding row-main'>
 						{/* <button className='btn-navicon js-side-nav-trigger'>
 							<HeaderNavicon />
@@ -125,20 +124,26 @@ export function AppHeader() {
 										Become a Seller
 									</NavLink>
 								</li>
-								{!loggedInUser && <li>
-									<button to='/sign-in' className='sign-button header-link-container' onClick={openModal}>
-										Sign In
-									</button>
-								</li>}
+								{!loggedInUser && (
+									<li>
+										<button to='/sign-in' className='sign-button header-link-container' onClick={openModal}>
+											Sign In
+										</button>
+									</li>
+								)}
 								<li>
-									{!loggedInUser && <button to='/join' className='join-button' onClick={openModal}>
-										Join
-									</button>}
+									{!loggedInUser && (
+										<button to='/join' className='join-button' onClick={openModal}>
+											Join
+										</button>
+									)}
 								</li>
 								<li>
-									{loggedInUser && <button className='sign-button header-link-container' onClick={logout}>
-										Logout
-									</button>}
+									{loggedInUser && (
+										<button className='sign-button header-link-container' onClick={logout}>
+											Logout
+										</button>
+									)}
 								</li>
 							</ul>
 						</nav>

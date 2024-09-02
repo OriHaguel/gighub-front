@@ -2,8 +2,8 @@
 .main-container {
 	display: grid;
 	// grid-template-columns: 1rem 1400px 1rem;
-	grid-template-columns: $layoutPadding 1fr $layoutPadding;
-	background-color: yellow;
+	// grid-template-columns: $layoutPadding 1400px $layoutPadding;
+	grid-template-columns: 1fr 1400px 1fr;
 
 	> * {
 		grid-column: 2;
