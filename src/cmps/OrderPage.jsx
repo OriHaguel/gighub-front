@@ -100,7 +100,7 @@ export function OrderPage({ gig, onClose }) {
                             </li>
                         </ul>
                         <button className="place-order-button">Continue (${gig.price + 20})</button>
-                        <div>You won’t be charged yet</div>
+                        <div className='charged-msg'>You won’t be charged yet</div>
                     </div>
                 </div>
             </div>

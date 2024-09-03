@@ -52,7 +52,7 @@ export function GigPage() {
     return (
 
         <div className="gig-page">
-            <h1>Gig Page</h1>
+            <h1 className="main-msg">Gig Page</h1>
 
             <SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
 

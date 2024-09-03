@@ -36,8 +36,8 @@
     }
 
     svg {
-        width: 16px;
-        height: 16px;
+        width: 22px;
+        height: 22px;
     }
 }
 
@@ -89,7 +89,7 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
-                padding: 10px;
+                padding: 20px;
                 background-color: #f8f8f8;
                 border-radius: 6px;
                 margin-bottom: 10px;
@@ -145,6 +145,7 @@
     .bonus-info-order-page {
         background-color: #f8f8f8;
         font-size: 15px;
+        padding: 20px;
 
         // .package-icon,
         // .arrow-container,
@@ -197,6 +198,12 @@
                     font-weight: 500;
                 }
             }
+        }
+
+        .charged-msg {
+            margin-top: 10px;
+            text-align: center;
+            font-size: 13px;
         }
 
         .total-price {
