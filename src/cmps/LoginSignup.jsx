@@ -13,10 +13,11 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
     function handleSubmit(ev) {
         ev.preventDefault()
         onLogin(credentials)
+        setCredentials(userService.getEmptyCredentials())
     }
 
     function onLogin(credentials) {
-        const method = isSignup ? signup : login
+        const method = !isSignup ? signup : login
 
         method(credentials)
         // .then(user => showSuccessMsg('Hello!'))
@@ -78,15 +79,15 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
                     <p className='input-title'>Email or username</p>
                     <input type='text' onChange={handleChange} name='username' />
                 </label>
-                <label className='input-container'>
-                    <p className='input-title'>Password</p>
-                    <input type='password' onChange={handleChange} name='password' className='input-pass' />
-                </label>
-                <div className='model-end'>
+
+                <div className={`model-end ${isSignup && 'nogap'}`}>
                     {isSignup && (
-                        <label>
+                        <label className='input-title'>
                             {' '}
-                            Fullname
+                            <p className='modal-fullname'>
+
+                                Fullname
+                            </p>
                             <input
                                 type='text'
                                 name='fullname'
@@ -97,17 +98,23 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
                             />
                         </label>
                     )}
-                    {elModal.current && (
-                        <button className='button' type='submit' onClick={onCloseModal}>
-                            Continue
-                        </button>
-                    )}
-                    <a href='#' onClick={() => setIsSignUp(!isSignup)}>
+                    <label className='input-container'>
+                        <p className='input-title'>Password</p>
+                        <input type='password' onChange={handleChange} name='password' className='input-pass' />
+                    </label>
+                    <div>
+                        {elModal.current && (
+                            <button className='button' type='submit' onClick={onCloseModal}>
+                                Continue
+                            </button>
+                        )}
+                        <p className='small-txt'>
+                            By joining, you agree to the Gighub <span className='link'>Terms of Service</span> and to occasionally receive emails from us. Please read our <span className='link'>Privacy Policy</span> to learn how we use your personal data.
+                        </p>
+                    </div>
+                    {/* <a href='#' onClick={() => setIsSignUp(!isSignup)}>
                         {isSignup ? 'Already a member? Login' : 'New user? Signup here'}
-                    </a>
-                    <p className='small-txt'>
-                        By joining, you agree to the Gighub <span className='link'>Terms of Service</span> and to occasionally receive emails from us. Please read our <span className='link'>Privacy Policy</span> to learn how we use your personal data.
-                    </p>
+                    </a> */}
                 </div>
             </form>
         </div>

@@ -69,10 +69,38 @@
 			flex-direction: column;
 		}
 	}
+
 	.link {
 		text-decoration: underline;
 		cursor: pointer;
 	}
+
+	// .model-end-signin {
+	// 	display: flex;
+	// 	flex-direction: column;
+	// 	justify-content: space-between;
+
+	// 	// gap: calc(rem(213px) - rem(102px));
+	// 	button {
+	// 		background-color: #f5f5f5;
+	// 		color: #c5c6c9;
+	// 		width: 100%;
+	// 		height: rem(42px);
+	// 		border-width: 0;
+	// 		// margin-block-end: rem(100px);
+
+	// 		.active {
+	// 			background-color: black;
+	// 			color: white;
+	// 		}
+	// 	}
+
+	// 	.small-txt {
+	// 		font-size: rem(12px);
+	// 		line-height: rem(20px);
+	// 		color: #74767e;
+	// 	}
+	// }
 
 	.model-end {
 		display: flex;
@@ -99,5 +127,13 @@
 			line-height: rem(20px);
 			color: #74767e;
 		}
+
+		// .modal-fullname {
+		// 	margin-block-end: rem(8px);
+		// }
+	}
+
+	.nogap {
+		gap: 0;
 	}
 }
