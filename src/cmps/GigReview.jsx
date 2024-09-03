@@ -67,17 +67,24 @@ export function GigReview() {
 				<p className='review-time'>{gig.reviewTime}</p>
 			</div>
 			<p className='review-content'>{gig.reviewContent}</p>
-			<div className='review-gig-details'>
+
+			{/* <div className='review-gig-details'>
 				<div className='review-price review-stats'>
-					{/* price actual */}
+					TODO: price actual
 					<p>Price</p>
 				</div>
 				<div className='review-duration review-stats'>
-					{/* duration actual */}
+					TODO: duration actual
 					<p>Duration</p>
 				</div>
+			</div> */}
+			<div className='seller-response'>
+				<div className='seller-details'>
+					<img className='owner-image' src={gig.ownerImage || 'fallback-image.png'} alt={gig.owner || 'Owner'} />
+					<h2>Seller's Response</h2>
+				</div>
+				<p>{gig.reviewSellerResponse}</p>
 			</div>
-			<p className='review-response'>{gig.reviewSellerResponse}</p>
 		</section>
 	)
 }

@@ -48,7 +48,8 @@
 	border-radius: 15px;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	background-color: #1dbf73;
-	padding: 10px;
+	padding-inline: rem(6px);
+	padding-block: rem(5px) rem(10px);
 	text-align: left;
 	margin-right: 16px;
 
@@ -70,6 +71,11 @@
 		width: 100%;
 		height: 100%;
 	}
+
+	p {
+		font-size: rem(18px);
+		line-height: rem(28px);
+	}
 }
 
 .card-link {
@@ -84,6 +90,13 @@
 
 .home-page-carrousel {
 	font-weight: bold;
+	h1 {
+		font-size: rem(48px);
+		line-height: rem(50.4px);
+		letter-spacing: rem(-1.44px);
+
+		margin-block-end: rem(32px);
+	}
 }
 
 // .main-carousel-chevron {

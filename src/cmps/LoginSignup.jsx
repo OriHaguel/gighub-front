@@ -3,7 +3,6 @@ import { userService } from '../services/user/index.js'
 import { login, signup } from '../store/actions/user.actions.js'
 
 export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
-
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
 
     function handleChange({ target }) {
@@ -25,7 +24,6 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
         // .then(user => showSuccessMsg('Hello!'))
         // .catch(err => showErrorMsg('Error logging in'))
     }
-
 
     function onCloseModal() {
         elModal.current.close()
@@ -72,36 +70,51 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
         //         </a >
         //     </div>
         // </div >
-        <div>
-
+        <div className='login-container'>
             <form className='form' method='dialog' onSubmit={handleSubmit}>
                 <h2>Create a new account</h2>
-                {/* <p>Already have an account? Sign in</p> */}
+                {/* <p className='sign-in'>
+					Already have an account? <span className='link'>Sign in</span>
+				</p> */}
                 <a href="#" onClick={() => setIsSignUp(!isSignup)}>
                     {isSignup ?
                         'Don\'t have an account? join here' :
                         'Already have an account? sign in'
                     }
                 </a >
-                <label>
-                    Email or username
-                    <input type='text' onChange={handleChange} name='username' value={credentials.username} />
+                <label className='input-container'>
+                    <p className='input-title'>Email or username</p>
+                    <input type='text' onChange={handleChange} name='username' placeholder='name@email.com' value={credentials.username} />
                 </label>
-                {!isSignup &&
-                    <label> Fullname
-                        <input
-                            type="text"
-                            name="fullname"
-                            value={credentials.fullname}
-                            onChange={handleChange}
-                            required
-                        />
-                    </label>}
-                <label>
-                    Password
-                    <input type='password' onChange={handleChange} name='password' value={credentials.password} />
-                </label>
-                {elModal.current && <button className='button' type='submit' onClick={onCloseModal}>Continue</button>}
+                <div className='model-end'>
+                    {!isSignup && (
+                        <label>
+                            {' '}
+                            Fullname
+                            <input
+                                className='input-title'
+                                type='text'
+                                name='fullname'
+                                value={credentials.fullname}
+                                // placeholder="Full name"
+                                onChange={handleChange}
+                                required
+                            />
+                        </label>
+                    )}
+                    <label className='input-container'>
+                        <p className='input-title'>Password</p>
+                        <input type='password' onChange={handleChange} name='password' className='input-pass' value={credentials.password} />
+                    </label>
+                    {elModal.current && (
+                        <button className='button' type='submit' onClick={onCloseModal}>
+                            Continue
+                        </button>
+                    )}
+                    <p className='small-txt'>
+                        By joining, you agree to the Gighub <span className='link'>Terms of Service</span> and to occasionally receive emails from us. Please read our <span className='link'>Privacy Policy</span> to learn how we use your personal data.
+                    </p>
+                </div>
             </form>
         </div>
     )
