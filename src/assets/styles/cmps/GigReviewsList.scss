@@ -2,17 +2,25 @@
 	display: flex;
 	flex-direction: column;
 
+	margin-block-end: rem(73px);
+
 	.review-overview-container {
 		color: #404145;
 
 		h1 {
 			font-size: rem(20px);
 			line-height: rem(28px);
+			font-weight: 600;
+
+			margin-block-end: rem(16px);
 		}
 
 		h2 {
 			font-size: rem(16px);
 			line-height: rem(22.4px);
+			font-weight: 600;
+
+			margin-block-end: rem(16px);
 		}
 	}
 }
