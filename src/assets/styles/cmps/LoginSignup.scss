@@ -58,12 +58,6 @@
 			margin-block-end: rem(44px);
 		}
 
-		a {
-			// TODO: fix this
-			background-color: cyan;
-			display: none;
-		}
-
 		.input-container {
 			display: flex;
 			flex-direction: column;
@@ -134,6 +128,6 @@
 	}
 
 	.nogap {
-		gap: 0;
+		gap: calc(rem(112.5px) - rem(102px));
 	}
 }

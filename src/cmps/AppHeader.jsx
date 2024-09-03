@@ -122,12 +122,12 @@ export function AppHeader() {
 									</NavLink>
 								</li>
 								{!loggedInUser && <li>
-									<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(true)}>
+									<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(false)}>
 										Sign In
 									</button>
 								</li>}
 								<li>
-									{!loggedInUser && <button to='/join' className='join-button' onClick={() => openModal(false)}>
+									{!loggedInUser && <button to='/join' className='join-button' onClick={() => openModal(true)}>
 										Join
 									</button>}
 								</li>
