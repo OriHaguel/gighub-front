@@ -1,11 +1,15 @@
 .dashboard-container {
+    // layout need to be fixed here
     margin-bottom: rem(20px);
     min-height: rem(800px);
-    margin-top: rem(30px);
     position: relative;
     padding-bottom: rem(100px);
     background: #f7f7f7;
     font-size: 100%;
+    width: 1240px;
+    margin: 0 auto;
+    margin-top: rem(30px);
+    // padding-left: 200px;
 
     header {
         padding-bottom: 20px;
@@ -16,6 +20,7 @@
             line-height: 120%;
             color: #404145;
             font-family: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
         }
 
     }
@@ -27,12 +32,13 @@
         ul {
             border-bottom: 1px #dddddd solid;
             position: relative;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
 
             li {
-                // margin-left: 0;
                 display: inline-block;
                 transition: left .3s;
-                margin-left: rem(11px);
 
                 a {
                     display: block;
@@ -163,18 +169,46 @@
                     }
 
                     .dahsboard-title {
-                        white-space: normal;
                         font-size: 14px;
                         line-height: 16px;
                         transition: background-color .1s;
-                        padding-right: rem(150px);
+                        white-space: normal;
 
+                        // padding-right: rem(290px);
+
+                        div {
+                            max-height: 40px;
+                            min-width: rem(315px);
+                            overflow: hidden;
+                        }
                     }
 
                     .dashboard-dropdown {
                         padding-right: 20px;
                         transition: background-color .1s;
                         text-align: right;
+
+                        div {
+                            margin-top: 5px;
+
+                            a {
+                                border-color: #e5e5e5;
+                                padding: 8px 17px 21px 10px;
+                                background-color: #fff;
+                                display: inline-block;
+                                position: relative;
+                                font: 400 12px "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                                color: #777777;
+                                text-decoration: none;
+                                text-align: left;
+                                border: 1px #b2b2b2 solid;
+                                text-transform: uppercase;
+                                margin: 0;
+                                white-space: nowrap;
+                                cursor: pointer;
+                                border-radius: 3px;
+                            }
+                        }
                     }
                 }
             }

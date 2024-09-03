@@ -48,14 +48,21 @@ export function Dashboard() {
                             image here
                         </td>
                         <td className="dahsboard-title">
-                            gig title here
+                            <div>
+                                gig title here
+                            </div>
                         </td>
                         <td>0</td>
                         <td>0</td>
                         <td>0</td>
                         <td>0%</td>
-                        <td className="dashboard-dropdown"></td>
+                        <td className="dashboard-dropdown">
+                            <div>
+                                <a></a>
+                            </div>
+                        </td>
                     </tr>
+
                 </tbody>
             </table>
         </div>
