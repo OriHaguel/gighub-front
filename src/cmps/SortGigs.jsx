@@ -2,12 +2,17 @@ import { useEffect, useState } from 'react'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 
 export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy }) {
+    // console.log("🚀 ~ SortGigs ~ filterBy:", filterBy)
 
     const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
 
-    useEffect(() => {
 
-        setFilterBy(filterByToEdit)
+
+    useEffect(() => {
+        if (filterByToEdit.price === '' && filterByToEdit.daysToMake === '') {
+
+            setFilterBy(filterByToEdit)
+        }
     }, [filterByToEdit])
 
 
@@ -26,6 +31,14 @@ export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy
         setFilterByToEdit(prevFilter => ({ ...prevFilter, [field]: value }))
     }
 
+    function onSubmit() {
+        setFilterBy(filterByToEdit)
+    }
+
+
+    function onClear() {
+        setFilterByToEdit(prevFilter => ({ ...prevFilter, price: '', daysToMake: '' }))
+    }
 
     return (
 
@@ -82,8 +95,8 @@ export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy
                                 <li><input className='radio-dot' type="radio" value={`high`} name='price' onChange={handleChange} />$500 & above</li>
                             </ul>
                             <div className='sort-buttons-section'>
-                                <button className='clear-button' onClick={() => setFilterByToEdit(prevFilter => ({ ...prevFilter, price: '' }))}>Clear All</button>
-                                <button className='apply-button'>Apply</button>
+                                <button className='clear-button' onClick={onClear}>Clear All</button>
+                                <button className='apply-button' onClick={onSubmit}>Apply</button>
                             </div>
                         </div>
                     )}
@@ -105,8 +118,9 @@ export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy
                                 <li><input className='radio-dot' type="radio" value={`anytime`} name='daysToMake' onChange={handleChange} />Anytime</li>
                             </ul>
                             <div className='sort-buttons-section'>
-                                <button className='clear-button' onClick={() => setFilterByToEdit(prevFilter => ({ ...prevFilter, daysToMake: '' }))}>Clear All</button>
-                                <button className='apply-button'>Apply</button>
+                                <button className='clear-button' onClick={onClear}>Clear All</button>
+                                <button className='apply-button' onClick={onSubmit}>Apply</button>
+                                {/* <button className='apply-button' onClick={onSubmit}>Apply</button> */}
                             </div>
                         </div>
                     )}

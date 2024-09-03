@@ -1,0 +1,217 @@
+.dashboard-container {
+    // layout need to be fixed here
+    margin-bottom: rem(20px);
+    min-height: rem(800px);
+    position: relative;
+    padding-bottom: rem(100px);
+    background: #f7f7f7;
+    font-size: 100%;
+    width: 1240px;
+    margin: 0 auto;
+    margin-top: rem(30px);
+    // padding-left: 200px;
+
+    header {
+        padding-bottom: 20px;
+
+        h1 {
+            font-weight: 300;
+            font-size: rem(40px);
+            line-height: 120%;
+            color: #404145;
+            font-family: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0;
+        }
+
+    }
+
+    .dashboard-filter {
+        margin-bottom: rem(20px);
+        position: relative;
+
+        ul {
+            border-bottom: 1px #dddddd solid;
+            position: relative;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+
+            li {
+                display: inline-block;
+                transition: left .3s;
+
+                a {
+                    display: block;
+                    padding: 3px 5px 10px 5px;
+                    color: #999999;
+                    font-size: 14px;
+                    line-height: 42px;
+                    font-weight: 400;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                }
+
+            }
+        }
+
+        .dashboard-create-gig-btn {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            background-color: #1DBF73;
+            font-weight: 700;
+            color: #fff;
+            border: 1px solid transparent;
+            padding-left: 10px;
+            padding-right: 10px;
+            font-size: 12px;
+            line-height: 12px;
+            display: inline-block;
+            letter-spacing: 0;
+            white-space: nowrap;
+            text-transform: uppercase;
+            padding: 9px 20px 8px 20px;
+            margin: 0;
+            cursor: pointer;
+            transition: color .2s, background-color .2s, box-shadow .2s, border .2s;
+            border-radius: 3px;
+        }
+    }
+
+    .dashboard-data-container {
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            border-spacing: 0;
+            font-size: inherit;
+            // width: 1240px;
+
+
+            thead {
+                border-collapse: collapse;
+
+
+                .header-filter {
+                    background-color: #fff;
+                    border: 1px #e5e5e5 solid;
+
+                    td {
+                        font-size: 14px;
+                        line-height: 25px;
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                        color: #0e0e0f;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        padding: 15px 15px 15px 0;
+                        padding-left: 20px;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                        position: relative;
+
+                    }
+                }
+
+                .header-data {
+                    background-color: #fff;
+                    border: 1px #e5e5e5 solid;
+
+                    td {
+                        font-size: 12px;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                        color: #999999;
+                        padding-top: 0;
+                        padding-bottom: 0;
+                        // padding: 3px 3px 3px 0;
+                        padding: 5px 45px 5px 0;
+                        white-space: nowrap;
+
+                    }
+
+                    .dashboard-table-header-gig {
+                        padding-left: 100px;
+                        // padding: 15px 15px 15px 0;
+                    }
+
+                    .dashboard-table-header-cancellation {
+                        padding-right: 200px;
+                    }
+                }
+            }
+
+            tbody {
+                tr {
+                    background-color: #fff;
+                    border: 1px #e5e5e5 solid;
+                    outline: 0;
+                    font-size: 100%;
+                    vertical-align: baseline;
+                    margin: 0;
+                    border-collapse: collapse;
+                    border-spacing: 0;
+                    height: 71px;
+
+                    td {
+                        padding: 15px 15px 15px 0;
+                        font-size: 14px;
+                        line-height: 20px;
+                        color: #555555;
+                        vertical-align: middle;
+                        white-space: nowrap;
+                    }
+
+                    .dahsboard-gig-img {
+                        width: 32px;
+                        transition: background-color .1s;
+                        padding-left: rem(100px);
+                        padding-right: 0;
+                    }
+
+                    .dahsboard-title {
+                        font-size: 14px;
+                        line-height: 16px;
+                        transition: background-color .1s;
+                        white-space: normal;
+
+                        // padding-right: rem(290px);
+
+                        div {
+                            max-height: 40px;
+                            min-width: rem(315px);
+                            overflow: hidden;
+                        }
+                    }
+
+                    .dashboard-dropdown {
+                        padding-right: 20px;
+                        transition: background-color .1s;
+                        text-align: right;
+
+                        div {
+                            margin-top: 5px;
+
+                            a {
+                                border-color: #e5e5e5;
+                                padding: 8px 17px 21px 10px;
+                                background-color: #fff;
+                                display: inline-block;
+                                position: relative;
+                                font: 400 12px "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+                                color: #777777;
+                                text-decoration: none;
+                                text-align: left;
+                                border: 1px #b2b2b2 solid;
+                                text-transform: uppercase;
+                                margin: 0;
+                                white-space: nowrap;
+                                cursor: pointer;
+                                border-radius: 3px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

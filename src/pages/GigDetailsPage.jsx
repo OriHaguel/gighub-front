@@ -9,10 +9,12 @@ import { GigAbout } from '../cmps/GigAbout'
 import { GigPricing } from '../cmps/GigPricing'
 import { GigReviewsList } from '../cmps/GigReviewsList'
 import { gigService } from '../services/gig/gig.service.local'
+import { OrderPage } from '../cmps/OrderPage'
 
 export function GigDetailsPage() {
 	const param = useParams()
 	const [gig, setGig] = useState()
+	const [isOrderPageOpen, setIsOrderPageOpen] = useState(false)
 
 	useEffect(() => {
 		loadGig()
@@ -27,6 +29,11 @@ export function GigDetailsPage() {
 			navigate('/gigs')
 		}
 	}
+
+	const toggleOrderPage = () => {
+		setIsOrderPageOpen(!isOrderPageOpen)
+	}
+
 	if (!gig) return
 	return (
 		<section className='main-detail-page'>
@@ -37,8 +44,9 @@ export function GigDetailsPage() {
 				<GigReviewsList />
 			</div>
 			<div className='pricing-container grid-4'>
-				<GigPricing gig={gig} />
+				<GigPricing gig={gig} onContinue={toggleOrderPage} />
 			</div>
+			{isOrderPageOpen && <OrderPage gig={gig} onClose={toggleOrderPage} />}
 		</section>
 	)
 }
