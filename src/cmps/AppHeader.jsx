@@ -138,6 +138,13 @@ export function AppHeader() {
 										</button>
 									)}
 								</li>
+								<li>
+									{loggedInUser && (
+										<Link to={'/dashboard'}>
+											Dashboard
+										</Link>
+									)}
+								</li>
 							</ul>
 						</nav>
 					</div>

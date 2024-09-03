@@ -14,11 +14,12 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
     function handleSubmit(ev) {
         ev.preventDefault()
         onLogin(credentials)
+        setCredentials(userService.getEmptyCredentials())
     }
 
 
     function onLogin(credentials) {
-        const method = isSignup ? signup : login
+        const method = !isSignup ? signup : login
 
         method(credentials)
         // .then(user => showSuccessMsg('Hello!'))
@@ -78,29 +79,28 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
                 {/* <p>Already have an account? Sign in</p> */}
                 <a href="#" onClick={() => setIsSignUp(!isSignup)}>
                     {isSignup ?
-                        'Already have an account? sign in' :
-                        'Don\'t have an account? join here'
+                        'Don\'t have an account? join here' :
+                        'Already have an account? sign in'
                     }
                 </a >
                 <label>
                     Email or username
-                    <input type='text' onChange={handleChange} name='username' />
+                    <input type='text' onChange={handleChange} name='username' value={credentials.username} />
                 </label>
-                <label>
-                    Password
-                    <input type='password' onChange={handleChange} name='password' />
-                </label>
-                {isSignup &&
+                {!isSignup &&
                     <label> Fullname
                         <input
                             type="text"
                             name="fullname"
                             value={credentials.fullname}
-                            // placeholder="Full name"
                             onChange={handleChange}
                             required
                         />
                     </label>}
+                <label>
+                    Password
+                    <input type='password' onChange={handleChange} name='password' value={credentials.password} />
+                </label>
                 {elModal.current && <button className='button' type='submit' onClick={onCloseModal}>Continue</button>}
             </form>
         </div>
