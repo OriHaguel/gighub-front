@@ -1,7 +1,17 @@
 .gig-overview {
 	display: flex;
 	flex-direction: column;
+	// align-items: center;
+	justify-content: center;
+
 	gap: 1rem;
+
+	.owner-details-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
 
 	.gig-title {
 		font-size: rem(28px);
@@ -21,22 +31,15 @@
 	.owner-details-container {
 		display: flex;
 		flex-direction: column;
-		align-items: inline-start;
+		align-items: center;
 		justify-content: center;
-		// margin-bottom: 1rem;
-		margin-block-end: rem(30px);
-	}
-
-	.rating-container {
-		display: flex;
-		font-weight: 550;
-		color: #222325;
 	}
 
 	.owner-details {
 		display: flex;
 		flex-direction: row;
 		gap: 1rem;
+		margin-block-end: rem(30px);
 	}
 
 	.owner-image {
@@ -46,7 +49,7 @@
 	.first-line {
 		display: flex;
 		flex-direction: row;
-		margin-bottom: rem(8px);
+		margin-block-end: rem(8px);
 		align-items: center;
 		justify-content: start;
 
@@ -70,29 +73,45 @@
 		}
 	}
 
-	.star-container {
-		margin-inline-end: 0.3rem;
-	}
+	.second-line {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
 
-	.light-text {
-		color: #878990;
-		font-size: 0.8em;
-		font-weight: 600;
-		margin-inline-start: rem(25px);
+		.rating-container {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
 
-		&::before {
-			// TODO: fix this
-			content: '';
-			display: block;
-			width: rem(1px);
-			height: rem(20px);
-			background-color: #f4f5f6;
-			position: absolute; // Optional: Position the line relative to the content
-			left: rem(-12px);
+			font-weight: 550;
+			color: #222325;
+
+			.star-container {
+				margin-inline-end: 0.3rem;
+			}
+
+			.light-text {
+				color: #878990;
+				font-size: 0.8em;
+				font-weight: 600;
+				margin-inline-start: rem(25px);
+
+				&::before {
+					// TODO: fix this
+					content: '';
+					display: block;
+					width: rem(1px);
+					height: rem(20px);
+					background-color: #eeeef0;
+					position: absolute; // Optional: Position the line relative to the content
+					left: rem(-12px);
+				}
+			}
 		}
 	}
-}
 
-p {
-	margin-inline-end: 1rem;
+	p {
+		margin-inline-end: 1rem;
+	}
 }
