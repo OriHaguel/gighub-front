@@ -48,6 +48,10 @@
 			border-radius: 4px;
 
 			padding-inline: rem(12px);
+
+			.error {
+				background-color: #fffcc8;
+			}
 		}
 
 		.input-pass {
