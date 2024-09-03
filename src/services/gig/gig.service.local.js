@@ -22,7 +22,6 @@ async function query(filterBy = { txt: '', price: 0 }) {
 		// const regex = new RegExp(filterBy.txt, 'i')
 		const regex = new RegExp(filterBy.txt.split(' ').join('|'), 'i')
 		gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
-
 	}
 	if (daysToMake) {
 		if (daysToMake === 'day') {
@@ -236,7 +235,8 @@ function getReviewContent() {
 }
 
 function getSellerResponse() {
-	const willResponse = getRandomBoolean()
+	// const willResponse = getRandomBoolean() // temp
+	const willResponse = true
 	if (!willResponse) return
 
 	const sentences = ["We're thrilled to have you on board! We'll be in touch soon with more details.", "Thank you for choosing us! We'll be in touch with you shortly to discuss your requirements.", "We're excited to have you on board! We'll be in touch soon with more details.", "We're thrilled to have you on board! We'll be in touch soon with more details.", "Thank you for choosing us! We'll be in touch with you shortly to discuss your requirements."]
