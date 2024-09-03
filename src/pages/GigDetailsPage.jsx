@@ -46,7 +46,7 @@ export function GigDetailsPage() {
 			<div className='pricing-container grid-4'>
 				<GigPricing gig={gig} onContinue={toggleOrderPage} />
 			</div>
-			{isOrderPageOpen && <OrderPage onClose={toggleOrderPage} />}
+			{isOrderPageOpen && <OrderPage gig={gig} onClose={toggleOrderPage} />}
 		</section>
 	)
 }

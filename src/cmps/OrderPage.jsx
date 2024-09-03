@@ -1,7 +1,7 @@
 import InfoIcon from '../assets/svg/InfoIcon.svg?react'
 import CloseIcon from '../assets/svg/CloseIcon.svg?react'
 import OptionsIcon from '../assets/svg/OptionsIcon.svg?react'
-export function OrderPage({ onClose }) {
+export function OrderPage({ gig, onClose }) {
 
     return (
 
@@ -41,7 +41,7 @@ export function OrderPage({ onClose }) {
                         <ul class="summary-list">
                             <li class="summary-item">
                                 <span class="summary-item-name">Base Price</span>
-                                <span class="summary-item-price">$100</span>
+                                <span class="summary-item-price">${gig.price}</span>
                             </li>
                             <li class="summary-item">
                                 <span class="summary-item-name">Total Upgrades</span>
@@ -50,9 +50,9 @@ export function OrderPage({ onClose }) {
                         </ul>
                         <div class="total-price">
                             <span>Total</span>
-                            <span class="total-amount">$120</span>
+                            <span class="total-amount">${gig.price + 20}</span>
                         </div>
-                        <button class="place-order-button">Continue($120)</button>
+                        <button class="place-order-button">Continue (${gig.price + 20})</button>
                         <div>You won’t be charged yet</div>
                     </div>
                 </div>
