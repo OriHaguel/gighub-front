@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { useSelector } from 'react-redux'
+// import { Link } from 'react-router-dom'
 import { gigService } from '../services/gig/gig.service.local.js'
 
 export function GigAbout() {
@@ -32,7 +32,7 @@ export function GigAbout() {
 
 	return (
 		<section className='about-details'>
-			<h1 className='about-gig'>About this gig</h1>
+			<h1>About this gig</h1>
 			<p>{gig.aboutGig}</p>
 		</section>
 	)

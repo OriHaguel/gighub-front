@@ -1,0 +1,103 @@
+.login-container {
+	form {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+
+		position: relative;
+		margin-left: -30px;
+		margin-right: 470px;
+
+		.sign-in {
+			// TODO: match this
+			font-size: rem(16px);
+			line-height: rem(31.2px);
+			color: #222325;
+			// font-weight: 550;
+		}
+
+		h2 {
+			font-size: rem(24px);
+			line-height: rem(31.2px);
+			color: #222325;
+			font-weight: 550;
+
+			margin-block-end: rem(8px);
+		}
+
+		p {
+			font-size: rem(16px);
+			line-height: rem(24px);
+			color: #222325;
+
+			margin-block-end: rem(8px);
+		}
+
+		.input-title {
+			font-weight: 550;
+		}
+
+		input {
+			color: rgb(149, 151, 160);
+			margin-block-end: rem(16px);
+			// width: rem(357px); // actual
+			width: rem(327px);
+			height: rem(42px);
+			border: 1px solid rgb(149, 151, 160);
+			border-radius: 4px;
+
+			padding-inline: rem(12px);
+
+			.error {
+				background-color: #fffcc8;
+			}
+		}
+
+		.input-pass {
+			margin-block-end: rem(44px);
+		}
+
+		a {
+			// TODO: fix this
+			background-color: cyan;
+			display: none;
+		}
+
+		.input-container {
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	.link {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+
+	.model-end {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: calc(rem(213px) - rem(102px));
+
+		button {
+			background-color: #f5f5f5;
+			color: #c5c6c9;
+			width: 100%;
+			height: rem(42px);
+			border-width: 0;
+			// margin-block-end: rem(100px);
+
+			.active {
+				background-color: black;
+				color: white;
+			}
+		}
+
+		.small-txt {
+			font-size: rem(12px);
+			line-height: rem(20px);
+			color: #74767e;
+		}
+	}
+}

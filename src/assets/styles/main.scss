@@ -18,6 +18,7 @@
 @import 'pages/UserDetails';
 @import 'pages/GigsPage.scss';
 @import 'pages/GigDetailsPage.scss';
+@import 'pages/Dashboard.scss';
 
 // Components
 
@@ -40,6 +41,9 @@
 @import 'cmps/SellerLevel.scss';
 @import 'cmps/SellerPro.scss';
 @import 'cmps/GigCarrousel.scss';
+@import 'cmps/GigAbout.scss';
+@import 'cmps/Modal.scss';
+@import 'cmps/LoginSignup.scss';
 @import 'cmps/OrderPage.scss';
 
 @import 'basics/layout'; // temp

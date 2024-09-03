@@ -115,6 +115,8 @@
 			font-size: rem(16px);
 			line-height: rem(21px);
 			font-weight: 600;
+
+			margin-inline-end: rem(12px);
 		}
 
 		.review-time {
@@ -138,6 +140,8 @@
 			font-size: rem(12px);
 			line-height: rem(18px);
 			color: #74767e;
+
+			margin-inline-end: rem(81px);
 		}
 
 		.review-stats {
@@ -150,4 +154,29 @@
 .review-separator-dot {
 	color: #e4e5e7;
 	margin-inline-end: rem(12px);
+}
+
+.seller-response {
+	.seller-details {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: start;
+
+		margin-block-end: rem(8px);
+
+		img {
+			height: rem(32px);
+			margin-inline-end: rem(8px);
+		}
+
+		h2 {
+			font-size: rem(14px);
+			line-height: rem(22px);
+			font-weight: 550;
+		}
+	}
+	p {
+		margin-inline-start: calc(rem(8px) + rem(32px));
+	}
 }
