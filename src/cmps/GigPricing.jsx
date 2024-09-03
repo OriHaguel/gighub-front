@@ -7,7 +7,8 @@ import ClockLogo from '../assets/svg/DaystomakeLogo.svg?react'
 import RevisionsLogo from '../assets/svg/RevisionsLogo.svg?react'
 import Vlogo from '../assets/svg/V.svg?react'
 import Arrowlogo from '../assets/svg/Rightarrowbtn.svg?react'
-export function GigPricing({ gig }) {
+import { OrderPage } from './OrderPage.jsx'
+export function GigPricing({ gig, onContinue }) {
 	return (
 		<div className='package-tabs'>
 			<div className='nav-container'>
@@ -59,7 +60,7 @@ export function GigPricing({ gig }) {
 				</div>
 			</div>
 			<footer className='tab-footer'>
-				<button className='footer-btn-continue'>
+				<button className='footer-btn-continue' onClick={onContinue}>
 					Continue{' '}
 					<span>
 						<Arrowlogo />
