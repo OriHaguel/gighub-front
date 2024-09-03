@@ -157,7 +157,9 @@ function _createGigs() {
 			gigs.push(_createGig())
 		}
 
-		saveToStorage(STORAGE_KEY, getGigImg(gigs))
+		// saveToStorage(STORAGE_KEY, getGigImg(gigs))
+		const gigsWithImages = getGigImg(gigs);
+		saveToStorage(STORAGE_KEY, gigsWithImages);
 	}
 }
 // function _createGigs() {

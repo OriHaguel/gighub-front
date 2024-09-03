@@ -1,15 +1,8 @@
-import { useState } from 'react'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service.js'
-
-// import { login, signup } from '../store/actions/user.action.js'
+import { useEffect, useState } from 'react'
 import { userService } from '../services/user/index.js'
 import { login, signup } from '../store/actions/user.actions.js'
-// import { signup, login } from '../store/user.action.js'
 
-// const { useState } = React
-
-export function LoginSignup({ elModal, onClose }) {
-	const [isSignup, setIsSignUp] = useState(false)
+export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
 	const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
 
 	function handleChange({ target }) {

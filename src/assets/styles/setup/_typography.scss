@@ -40,3 +40,47 @@
 	font-family: mecan-semibold, Helvetica, Arial, sans-serif;
 	src: url(../../fonts/macan-semibold.woff2);
 }
+
+// domaine
+@font-face {
+	font-family: domaine-bold, 'Times New Roman', Times, serif;
+	src: url(../../fonts/domaine-display-web-bold.woff2);
+}
+
+@font-face {
+	font-family: domaine-italic, 'Times New Roman', Times, serif;
+	src: url(../../fonts/domaine-display-web-medium-italic.woff2);
+}
+
+@font-face {
+	font-family: domaine, 'Times New Roman', Times, serif;
+	src: url(../../fonts/domaine-display-web-regular.woff2);
+}
+
+// mecan
+@font-face {
+	font-family: mecan-bold, Helvetica, Arial, sans-serif;
+	src: url(../../fonts/macan-bold.woff2);
+}
+
+@font-face {
+	font-family: mecan-light, Helvetica, Arial, sans-serif;
+	src: url(../../fonts/macan-light.woff2);
+}
+
+@font-face {
+	font-family: mecan, Helvetica, Arial, sans-serif;
+	src: url(../../fonts/macan-regular.woff2);
+}
+
+@font-face {
+	font-family: mecan-semibold, Helvetica, Arial, sans-serif;
+	src: url(../../fonts/macan-semibold.woff2);
+}
+
+@font-face {
+	font-family: 'Macan';
+	src: url(/src/assets/fonts/macan-regular.woff2) format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}

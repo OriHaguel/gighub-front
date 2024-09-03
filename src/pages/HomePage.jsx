@@ -24,7 +24,7 @@ export function HomePage() {
 				<MainSearchArea />
 			</section>
 
-			<section className='category-list'>
+			<section className='category-list categories-container'>
 				<CategoryList />
 			</section>
 

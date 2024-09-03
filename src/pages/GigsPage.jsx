@@ -3,7 +3,6 @@ import { GigList } from "../cmps/GigList";
 import { useEffect, useState, useRef } from "react"
 import { useSelector } from "react-redux"
 import { loadGigs, setFilterBy } from "../store/actions/gig.actions";
-import { MostPopularCarrousel } from "../cmps/MostPopularCarrousel";
 import GigImage from '../assets/img/gig-image.png'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 import { useSearchParams } from "react-router-dom";
@@ -13,21 +12,14 @@ import { SortGigs } from "../cmps/SortGigs";
 export function GigPage() {
     const param = useParams()
     const gigs = useSelector(state => state.gigModule.gigs)
-
-
     const filterBy = useSelector(state => state.gigModule.filterBy)
     const [activeDropdown, setActiveDropdown] = useState(null)
     const [searchParams, setSearchParams] = useSearchParams()
     const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
 
-
     useEffect(() => {
         setFilterBy(defaultFilter)
-
-
     }, [])
-
-
 
     useEffect(() => {
 
@@ -36,19 +28,14 @@ export function GigPage() {
             try {
                 if (filterBy.category || filterBy.txt) {
                     await loadGigs(filterBy)
-
                 }
             } catch (error) {
                 console.log("🚀 ~ loadGig ~ error:", error)
-
             }
         }
-
         loadGig()
 
     }, [filterBy])
-
-
 
     const toggleDropdown = (dropdownName) => {
         if (activeDropdown === dropdownName) {
@@ -64,9 +51,7 @@ export function GigPage() {
 
         <div className="gig-page">
             <h1>Gig Page</h1>
-            <section className="most-carousel-section">
-                <MostPopularCarrousel />
-            </section>
+          
             <SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
 
 
@@ -75,9 +60,9 @@ export function GigPage() {
                     <GigList gigs={gigs} />
                 </section>
             }
-            <section className="pagination">
+            {/* <section className="pagination">
                 <div>||gig pages section....||</div>
-            </section>
+            </section> */}
         </div>
     )
 }
