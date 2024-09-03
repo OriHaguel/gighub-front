@@ -34,7 +34,7 @@ export function HomePage() {
 			</section>
 
 			<section className='advert-area'>
-				<h1>Advert Area</h1>
+				{/* <h1>Advert Area</h1> */}
 				<AdvertArea />
 			</section>
 		</div>
