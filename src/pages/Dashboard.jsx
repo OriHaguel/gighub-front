@@ -20,23 +20,41 @@ export function Dashboard() {
 
                 <thead>
                     <tr className="header-filter">
-                        <td>this text will change depand on the filter</td>
+                        <td>this text will change</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
 
                     </tr>
                     <tr className="header-data">
                         <td className="dashboard-table-header-gig">GIG</td>
+                        <td></td>
                         <td>IMPRESSIONS</td>
                         <td>CLICKS</td>
                         <td>ORDERS</td>
                         <td className="dashboard-table-header-cancellation">CANCELLATIONS</td>
+                        <td></td>
+
                     </tr>
                 </thead>
 
                 <tbody>
                     <tr>
-                        <td>
-
+                        <td className="dahsboard-gig-img">
+                            image here
                         </td>
+                        <td className="dahsboard-title">
+                            gig title here
+                        </td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0</td>
+                        <td>0%</td>
+                        <td className="dashboard-dropdown"></td>
                     </tr>
                 </tbody>
             </table>
