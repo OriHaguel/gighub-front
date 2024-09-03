@@ -7,16 +7,34 @@
 	// box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	// background-color: #fff;
 	// position: relative;
-	overflow: visible;
 
 	// .gig-list-img-container img {
 	// 	width: 500px;
 	// 	height: 500px;
 	// }
 
+	.gig-list-img-container {
+		overflow: hidden;
+		cursor: pointer;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			transition: transform 0.5s ease;
+		}
+
+		&:hover img {
+			transform: scale(1.05); // Only the image scales, not the container
+		}
+	}
+	.gig-list-img-container,
 	.gig-list-vid-container video {
 		width: 700px;
+		height: 432px;
 		height: auto;
+		margin-block-end: rem(12px);
+		object-fit: cover;
 	}
 
 	.detail-prev-button,
@@ -37,9 +55,6 @@
 		box-shadow: rgba(0, 0, 0, 0.02) 0px 1.2px 1.92251px 0px, rgba(0, 0, 0, 0.04) 0px 2px 3.68135px 0px, rgba(0, 0, 0, 0.05) 0px 1px 5px 0px;
 		overflow: visible; // Ensures the button isn't clipped
 
-		// ! TEMP
-		background-color: red;
-
 		&.detail-prev-button {
 			left: -25px;
 			top: 50%;
@@ -55,34 +70,38 @@
 		}
 	}
 
-	.carousel .thumbs-wrapper {
-		opacity: 1;
-		margin-top: -15px;
-		margin-left: -1px;
-	}
+	.carousel {
+		overflow: visible; // Affects buttons
+		margin-block-end: rem(5px);
 
-	.carousel .thumbs .thumb {
-		border: none;
-		opacity: 0.5;
-		transition: opacity 0.1s ease;
-	}
+		.thumbs-wrapper {
+			opacity: 1;
+			margin-top: rem(-15px);
+			margin-left: rem(-1px);
+		}
 
-	.carousel .thumbs .thumb.selected {
-		opacity: 1;
-	}
+		.thumbs .thumb {
+			border: none;
+			opacity: 0.5;
+			transition: opacity 0.1s ease;
+		}
 
-	.carousel .thumbs .thumb img {
-		width: auto;
-		height: 55px;
-		object-fit: cover;
+		.thumbs .thumb.selected {
+			opacity: 1;
+		}
+
+		.thumbs .thumb img {
+			width: auto;
+			height: 55px;
+			object-fit: cover;
+		}
+
+		.thumb {
+			cursor: pointer;
+		}
 	}
 
 	.gig-list-img-container {
-		transition: 0.5s ease;
-	}
-
-	.gig-list-img-container:hover {
-		transform: scale(1.05);
 		transition: 0.5s ease;
 	}
 }
