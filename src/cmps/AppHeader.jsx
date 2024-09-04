@@ -90,13 +90,12 @@ export function AppHeader() {
 
 	return (
 		<div id='Header' className={isHomePage ? 'header-sticky' : ''}>
-			<header className='header-package fiverr-header'>
-				<div className='header-row-wrapper main-container'>
+			<header className='header-package'>
+				<div className='main-container'>
 					<div className='header-row'>
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
-						{/* <div className={`fiverr-header-search-animated ${!isHomePage || (isHomePage && isVisible) ? 'visible' : 'hidden'}`}> */}
 						<div className={`fiverr-header-search-animated ${!isHomePage || (isHomePage && isVisible) ? 'visible' : 'hidden'}`}>
 							<form className='search-form dark' onSubmit={onSubmit}>
 								<input type='search' placeholder='What service are you looking for today?' onChange={handleChange} value={inputValue.txt} name='txt' />
@@ -158,7 +157,6 @@ export function AppHeader() {
 			</header>
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isSinged={isSinged} setIsSinged={setIsSinged} />
 			{!isHomePage && <HeaderCategories />}
-			{/* <HeaderCategories /> */}
 		</div>
 	)
 }
