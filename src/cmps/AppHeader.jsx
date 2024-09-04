@@ -1,33 +1,38 @@
+// React
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { setFilterBy } from '../store/actions/gig.actions'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { userService } from '../services/user'
 // userService.getLoggedinUser
 
-// Image Imports
-
-import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
-// import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
-import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
-import Globe from '../assets/svg/Globe.svg?react'
-import MagnifyIcon from '../assets/svg/MagnifyIcon.svg?react'
-import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
-
+// Component Imports
 import { Modal } from './Modal'
+import { HeaderCategories } from './HeaderCategories'
+
 import { logout } from '../store/actions/user.actions'
+
+// Image Imports
+import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
+import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
+import MagnifyIcon from '../assets/svg/MagnifyIcon.svg?react'
+// import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
+// import Globe from '../assets/svg/Globe.svg?react'
+// import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
 
 export function AppHeader() {
 	const navigate = useNavigate()
 	const [inputValue, setInputValue] = useState({ txt: '' })
-	const [isSinged, setIsSinged] = useState(false);
+	const [isSinged, setIsSinged] = useState(false)
 	// console.log("🚀 ~ AppHeader ~ isSinged:", isSinged)
 	const filterBy = useSelector(state => state.gigModule.filterBy)
 	const loggedInUser = useSelector(storeState => storeState.userModule.user)
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
+
+	const location = useLocation()
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -76,20 +81,22 @@ export function AppHeader() {
 		navigate(`gigs?txt=${inputValue.txt}`)
 	}
 
-	const openModal = (isSignedUp) => {
+	const openModal = isSignedUp => {
 		setIsModalOpen(true)
 		setIsSinged(isSignedUp)
 	}
 
+	const isHomePage = location.pathname === '/'
+
 	return (
-		<div id='Header'>
-			<header className='header-package fiverr-header logged-out-homepage-header'>
-				<div className='header-row-wrapper main-container'>
-					<div className='header-row max-width-container equal-padding row-main'>
+		<div id='Header' className={isHomePage ? 'header-sticky' : ''}>
+			<header className='header-package'>
+				<div className='main-container'>
+					<div className='header-row'>
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
-						<div className={`fiverr-header-search-animated ${isVisible ? 'visible' : ''}`}>
+						<div className={`fiverr-header-search-animated ${!isHomePage || (isHomePage && isVisible) ? 'visible' : 'hidden'}`}>
 							<form className='search-form dark' onSubmit={onSubmit}>
 								<input type='search' placeholder='What service are you looking for today?' onChange={handleChange} value={inputValue.txt} name='txt' />
 								<button className='submit-button dark-search-button' type='submit'>
@@ -138,19 +145,14 @@ export function AppHeader() {
 										</button>
 									)}
 								</li>
-								<li>
-									{loggedInUser && (
-										<Link to={'/dashboard'}>
-											Dashboard
-										</Link>
-									)}
-								</li>
+								<li>{loggedInUser && <Link to={'/dashboard'}>Dashboard</Link>}</li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</header>
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isSinged={isSinged} setIsSinged={setIsSinged} />
+			{!isHomePage && <HeaderCategories />}
 		</div>
 	)
 }

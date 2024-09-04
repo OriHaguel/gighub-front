@@ -3,7 +3,6 @@
 // 	overflow: hidden; // Quick fix for JSONs in <pre>
 // 	display: flex;
 // 	flex-direction: column;
-// 	background-color: yellow;
 // }
 
 // .app-header,
@@ -13,15 +12,15 @@
 //     max-width: 1400px;
 // }
 
-/* CSS Reset */
-
-/* Box sizing reset */
-
 *,
 *::before,
 *::after {
 	box-sizing: border-box;
 }
+
+/* CSS Reset */
+
+/* Box sizing reset */
 
 /* Remove default margin and padding */
 html,
@@ -208,4 +207,8 @@ button::-moz-focus-inner,
 // [type="reset"],
 // [type="submit"] {
 //   -webkit-appearance: button;
+// }
+
+// ::-webkit-scrollbar {
+// 	display: none;
 // }

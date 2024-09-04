@@ -1,0 +1,44 @@
+.breadcrumbs-container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+
+	font-size: rem(16px);
+	line-height: rem(24px);
+	margin-block-end: rem(20px);
+
+	.home-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		padding: rem(8px);
+		// margin-inline: rem(8px);
+		// padding: rem(8px);
+
+		border-radius: 50%;
+		transition-duration: 0.2s;
+
+		margin-inline-end: rem(8px);
+
+		&:hover {
+			cursor: pointer;
+			background-color: #f5f5f5;
+		}
+	}
+
+	span {
+		color: #c5c6c9;
+		margin-inline-end: rem(8px);
+		cursor: default;
+	}
+
+	p {
+		text-transform: capitalize;
+		cursor: pointer;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
