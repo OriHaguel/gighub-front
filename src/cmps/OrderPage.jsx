@@ -11,7 +11,8 @@ import { gigService } from "../services/gig"
 
 export function OrderPage({ selectedPackage, gig, onClose }) {
 
-    // console.log('testing yesh ',gig)
+    // console.log('order page gig debug ', gig)
+    // console.log('order page package debug', selectedPackage)
 
     const [upgrades, setUpgrades] = useState({
         'Include Source File': false,
@@ -50,7 +51,7 @@ export function OrderPage({ selectedPackage, gig, onClose }) {
         }
     }
     // gig.price = selectedPackage
-    
+
     const totalPrice = gig.price + totalUpgradesPrice
 
     return (

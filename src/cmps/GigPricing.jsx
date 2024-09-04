@@ -13,22 +13,25 @@ export function GigPricing({ gig, onContinue }) {
 
 	const packages = {
 		Basic: {
+			gig,
 			price: gig.price,
-			daysToMake: 7,
+			daysToMake: gig.daysToMake + 4,
 			revisions: 2,
 			pages: 3,
 			assets: 1
 		},
 		Standard: {
+			gig,
 			price: gig.price * 1.2,
-			daysToMake: 5,
+			daysToMake: gig.daysToMake + 2,
 			revisions: 4,
 			pages: 5,
 			assets: 2
 		},
 		Premium: {
+			gig,
 			price: gig.price * 1.5,
-			daysToMake: 3,
+			daysToMake: gig.daysToMake,
 			revisions: 6,
 			pages: 7,
 			assets: 3
@@ -36,13 +39,13 @@ export function GigPricing({ gig, onContinue }) {
 	}
 
 	const currentPackage = packages[selectedPackage]
+	// console.log('gig pricing package debug', currentPackage)
 
 	const handlePackageSelect = (pkg) => {
 		setSelectedPackage(pkg)
 	}
-	console.log('lol test',currentPackage)
 	const handleContinue = () => {
-	
+
 		onContinue(currentPackage)
 
 	}
