@@ -33,6 +33,8 @@ export function HeaderCategories() {
 					{categoriesList.map(category => (
 						<div className='category-list' key={category.categoryTxt}>
 							<Link className='category-list-link' to={`gigs${onCategory(category)}`} onClick={e => handleClick(e, category)}>
+								{/* <Link className='category-list-link' to={`gigs`}> */}
+								{/* <Link className='category-list-link' to={`gigs${onCategory(category)}`}> */}
 								<p className='category-list-text'>{category.categoryTxt}</p>
 							</Link>
 						</div>

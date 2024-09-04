@@ -70,14 +70,14 @@ export function GigList({ gigs }) {
 									<Link to={`/username/${gig._id}`} className='gig-list-img' key={mediaIndex}>
 										<div className='gig-list-img-container'>
 											<video ref={element => setVideoRef(`${gigIndex}-${mediaIndex}`, element)} src={mediaUrl} alt={`Gig || ${gig.title} || Video ${mediaIndex + 1}`} muted loop onMouseEnter={() => handleMouseEnter(`${gigIndex}-${mediaIndex}`)} onMouseLeave={() => handleMouseLeave(`${gigIndex}-${mediaIndex}`)} />
-											<HeartLogo className='heart-logo-overlay' />
+											{/* <HeartLogo className='heart-logo-overlay' /> */}
 										</div>
 									</Link>
 								) : (
 									<Link to={`/username/${gig._id}`} className='gig-list-img' key={mediaIndex}>
 										<div className='gig-list-img-container'>
 											<img src={mediaUrl} alt={`Gig || ${gig.title} || Slide ${mediaIndex + 1}`} />
-											<HeartLogo className='heart-logo-overlay' />
+											{/* <HeartLogo className='heart-logo-overlay' /> */}
 										</div>
 									</Link>
 								)
