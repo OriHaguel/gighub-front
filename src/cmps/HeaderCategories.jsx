@@ -5,7 +5,7 @@ import { Link, useSearchParams } from 'react-router-dom'
 export function HeaderCategories() {
 	const [searchParams, setSearchParams] = useSearchParams()
 
-	const categoriesList = [{ categoryTxt: 'Graphics & Design' }, { categoryTxt: 'Programming & Tech' }, { categoryTxt: 'Digital Marketing' }, { categoryTxt: 'Video & Animation' }, { categoryTxt: 'Writing & Translation' }, { categoryTxt: 'Music & Audio' }, { categoryTxt: 'Business' }, { categoryTxt: 'Consulting' }, { categoryTxt: 'Consulting' }, { categoryTxt: 'AI Services' }, { categoryTxt: 'Personal Growth' }]
+	const categoriesList = [{ categoryTxt: 'Graphics & Design' }, { categoryTxt: 'Programming & Tech' }, { categoryTxt: 'Digital Marketing' }, { categoryTxt: 'Video & Animation' }, { categoryTxt: 'Writing & Translation' }, { categoryTxt: 'Music & Audio' }, { categoryTxt: 'Business' }, { categoryTxt: 'Consulting' }, { categoryTxt: 'AI Services' }]
 
 	const onCategory = categoryToSave => {
 		return `?category=${categoryToSave.categoryTxt.split(' ')[0].toLowerCase()}`
