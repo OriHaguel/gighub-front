@@ -7,8 +7,8 @@ import ArrowIcon from '../assets/svg/ArrowIcon.svg?react'
 import TimerLogo from '../assets/svg/TimerLogo.svg?react'
 import RecycleLogo from '../assets/svg/RecycleLogo.svg?react'
 
-export function OrderPage({ gig, onClose }) {
-    
+export function OrderPage({ selectedPackage, gig, onClose }) {
+
     const [upgrades, setUpgrades] = useState({
         'Include Source File': false,
         'Personal Consultation': false,
@@ -45,7 +45,7 @@ export function OrderPage({ gig, onClose }) {
             totalUpgradesPrice += upgradeDetails[title].price
         }
     }
-
+    // gig.price = selectedPackage
     const totalPrice = gig.price + totalUpgradesPrice
 
     return (

@@ -13,12 +13,18 @@
 	background-color: #fff;
 
 	position: sticky;
-	top: rem(120px); /* Adjust this value to set the distance from the top of the viewport */
-	z-index: 100; /* Ensure it appears above other content */
+	top: rem(120px);
+	/* Adjust this value to set the distance from the top of the viewport */
+	z-index: 100;
+	/* Ensure it appears above other content */
 
 	.nav-container {
 		display: flex;
 		flex-direction: row;
+
+		// .nav-container.selected{
+		// 	border: 1px solid black;
+		// }
 
 		label {
 			border-top: none;
@@ -34,6 +40,12 @@
 			font-weight: 700;
 			padding: rem(16px);
 			text-align: center;
+		}
+
+		label.active {
+			// border: 1px solid black;
+			border-bottom: 3px solid #000000;
+
 		}
 	}
 
