@@ -32,6 +32,8 @@ export function AppHeader() {
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
+	const location = useLocation()
+
 	useEffect(() => {
 		const handleScroll = () => {
 			const scrollPosition = window.scrollY || window.pageYOffset
@@ -84,11 +86,10 @@ export function AppHeader() {
 		setIsSinged(isSignedUp)
 	}
 
-	const location = useLocation()
 	const isHomePage = location.pathname === '/'
 
 	return (
-		<div id='Header' className='header-sticky'>
+		<div id='Header' className={isHomePage ? 'header-sticky' : ''}>
 			<header className='header-package fiverr-header'>
 				<div className='header-row-wrapper main-container'>
 					<div className='header-row'>

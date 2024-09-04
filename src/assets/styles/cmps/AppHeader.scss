@@ -1,5 +1,5 @@
 #Header {
-	position: sticky;
+	// position: sticky;
 	top: 0;
 	z-index: 1000;
 
@@ -14,17 +14,15 @@
 		background-color: #ffffff;
 
 		.header-row-wrapper {
-			align-items: center;
+			// align-items: center;
 			// padding: 10px;
 			padding-block: 10px;
 
 			.header-navigation-container {
 				display: flex;
 				flex-direction: row;
-				// gap: rem(12px);
 				align-items: center;
-				margin: 0;
-				padding: 0;
+				// gap: rem(12px);
 
 				.header-pro {
 					color: #222325;
@@ -234,4 +232,8 @@
 			}
 		}
 	}
+}
+
+.header-sticky {
+	position: sticky;
 }
