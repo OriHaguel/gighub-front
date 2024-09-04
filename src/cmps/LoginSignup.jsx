@@ -18,7 +18,7 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
 
     function onLogin(credentials) {
         const method = isSignup ? signup : login
-        console.log("🚀 ~ onLogin ~ method:", method)
+
 
         method(credentials)
         // .then(user => showSuccessMsg('Hello!'))
