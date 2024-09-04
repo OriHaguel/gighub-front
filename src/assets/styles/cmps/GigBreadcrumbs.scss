@@ -1,0 +1,10 @@
+.breadcrumbs-container {
+	display: flex;
+	flex-direction: row;
+
+	svg {
+		&:hover {
+			background-color: red;
+		}
+	}
+}
