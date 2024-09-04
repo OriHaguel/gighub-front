@@ -6,8 +6,12 @@ import PackageIcon from '../assets/svg/PackageIcon.svg?react'
 import ArrowIcon from '../assets/svg/ArrowIcon.svg?react'
 import TimerLogo from '../assets/svg/TimerLogo.svg?react'
 import RecycleLogo from '../assets/svg/RecycleLogo.svg?react'
+import { gigService } from "../services/gig"
+
 
 export function OrderPage({ selectedPackage, gig, onClose }) {
+
+    // console.log('testing yesh ',gig)
 
     const [upgrades, setUpgrades] = useState({
         'Include Source File': false,
@@ -46,6 +50,7 @@ export function OrderPage({ selectedPackage, gig, onClose }) {
         }
     }
     // gig.price = selectedPackage
+    
     const totalPrice = gig.price + totalUpgradesPrice
 
     return (

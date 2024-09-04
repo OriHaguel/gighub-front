@@ -40,9 +40,11 @@ export function GigPricing({ gig, onContinue }) {
 	const handlePackageSelect = (pkg) => {
 		setSelectedPackage(pkg)
 	}
-
+	console.log('lol test',currentPackage)
 	const handleContinue = () => {
+	
 		onContinue(currentPackage)
+
 	}
 
 	return (
