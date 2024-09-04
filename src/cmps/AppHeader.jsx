@@ -108,26 +108,11 @@ export function AppHeader() {
 						</div>
 						<nav className='fiverr-nav'>
 							<ul className='header-navigation-container'>
-								<li>
-									<NavLink to='/fiverr-pro' className='header-link-container header-pro'>
-										Gighub Pro <ChevronIcon className='header-chevron' />
-									</NavLink>
-								</li>
-								<li>
-									<NavLink to='/explore' className='header-link-container header-explore'>
-										Explore <ChevronIcon className='header-chevron' />
-									</NavLink>
-								</li>
 								{/* <li>
-									<NavLink to='/language' className='header-link-container header-language'>
-										<Globe /> English
-									</NavLink>
-								</li> */}
-								<li>
 									<NavLink to='/become-seller' className='header-link-container header-seller'>
 										Become a Seller
 									</NavLink>
-								</li>
+								</li> */}
 								{!loggedInUser && <li>
 									<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(false)}>
 										Sign In
