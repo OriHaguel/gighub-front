@@ -42,13 +42,13 @@
 }
 
 .order-modal-header {
-    border-bottom: 1px solid #e0e0e0;
-    // border-top: 1px solid #ddd;
+    border-bottom: 1px solid #9c9c9c;
     padding-bottom: 10px;
     margin-bottom: 15px;
 
     .order-modal-title {
-        font-size: 15px;
+        margin-bottom: 7px;
+        font-size: 17px;
         font-weight: bold;
         color: #333;
     }
@@ -84,13 +84,18 @@
 
         .option-list {
             margin-top: 10px;
+            cursor: pointer;
+
+            .option-item.selected {
+                border: 1px solid black;
+            }
 
             .option-item {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 padding: 20px;
-                background-color: #f8f8f8;
+                border: 1px solid #ddd;
                 border-radius: 6px;
                 margin-bottom: 10px;
 
@@ -141,43 +146,31 @@
         }
     }
 
-    //
     .bonus-info-order-page {
         background-color: #f8f8f8;
         font-size: 15px;
         padding: 20px;
-
-        // .package-icon,
-        // .arrow-container,
-        // .recycle-logo,
-        // .timer-logo {
-        //     width: 1px;
-        //     height: 1px;
-        // }
-
     }
-
-    //
 
     .order-summary {
         position: absolute;
         bottom: 0;
-        left: 0;
-        width: 100%;
-        background-color: #fff;
-        padding: 15px;
-        // box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-        // border-top: 1px solid #ddd;
-        border-top: 1px solid #ddd;
+        left: 20px;
+        right: 20px;
+        width: calc(100% - 40px);
+        background-color: #f8f8f8;
+        padding: 20px;
 
         .summary-title {
             font-size: 16px;
+
             font-weight: 600;
             color: #333;
             margin-bottom: 10px;
         }
 
         .summary-list {
+            background-color: #f8f8f8;
             list-style: none;
             padding: 0;
             margin-bottom: 10px;
@@ -190,10 +183,12 @@
                 padding: 5px 0;
 
                 .summary-item-name {
+
                     color: #777;
                 }
 
                 .summary-item-price {
+
                     color: #333;
                     font-weight: 500;
                 }
@@ -216,26 +211,56 @@
         }
 
         .total-amount {
+
             font-size: 22px;
             color: #333;
             margin-bottom: 15px;
         }
 
-        .place-order-button {
-            width: 100%;
-            padding: 10px 0;
-            background-color: #000000;
-            color: #fff;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-top: 15px;
-            transition: background-color 0.3s;
+        .finish-order-section {
+            border-top: 1px solid #9c9c9c;
 
-            &:hover {
-                background-color: #383a3b;
+            .place-order-button {
+                width: 100%;
+                padding: 13px;
+                background-color: #000000;
+                color: #fff;
+                border: none;
+                border-radius: 5px;
+                font-size: 17px;
+                font-weight: 600;
+                cursor: pointer;
+                margin-top: 15px;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: #383a3b;
+                }
+            }
+        }
+    }
+
+    .bonus-info-order-page {
+        font-weight: 700;
+
+        .summery-icons {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+
+            .package-icon,
+            .timer-logo,
+            .recycle-logo {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 0.5rem;
+            }
+
+            .package-name,
+            .detail-info {
+                font-size: 14px;
+                color: #333;
             }
         }
     }
