@@ -1,15 +1,20 @@
+// ! Scrollbar width "fix"
+
+:root {
+	--scrollbar-width: 0px;
+}
+
 .main-page-container {
+	width: calc(100% - var(--scrollbar-width));
 	display: flex;
 	flex-direction: column;
-	// margin-inline: rem(252px);
 }
 
 // Grid
 .main-container {
 	display: grid;
-	// grid-template-columns: 1rem 1400px 1rem;
-	// grid-template-columns: $layoutPadding 1400px $layoutPadding;
 	grid-template-columns: 1fr 1400px 1fr;
+	// grid-template-columns: $layoutPadding 1400px $layoutPadding;
 
 	> * {
 		grid-column: 2;
@@ -45,11 +50,10 @@
 // 	grid-gap: 20px;
 // }
 
-// 	// main {
-// 	// 	min-height: calc(100vh - 12rem);
-// 	// 	overflow: hidden; // Quick fix for JSONs in <pre>
-// 	// 	display: flex;
-// 	// 	flex-direction: column;
-// 	// 	background-color: yellow;
-// 	// }
+// main {
+// 	min-height: calc(100vh - 12rem);
+// 	overflow: hidden; // Quick fix for JSONs in <pre>
+// 	display: flex;
+// 	flex-direction: column;
+// }
 // }

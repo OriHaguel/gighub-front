@@ -39,8 +39,10 @@
 }
 
 .card {
-	width: 200px;
-	height: 270px;
+	// width: 200px;
+	// height: 270px;
+	width: calc(rem(188px) + rem(6px));
+	height: calc(rem(235px) + rem(25px));
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -49,7 +51,7 @@
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	background-color: #1dbf73;
 	padding-inline: rem(6px);
-	padding-block: rem(5px) rem(10px);
+	padding-block: rem(5px) rem(6px);
 	text-align: left;
 	margin-right: 16px;
 

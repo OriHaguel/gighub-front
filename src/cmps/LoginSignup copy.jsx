@@ -3,6 +3,7 @@ import { userService } from '../services/user/index.js'
 import { login, signup } from '../store/actions/user.actions.js'
 
 export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
+    console.log("🚀 ~ LoginSignup ~ isSignup:", isSignup)
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
 
     function handleChange({ target }) {

@@ -94,15 +94,18 @@
 				font-size: rem(12px);
 				line-height: rem(24px);
 				font-weight: 550;
+				color: #809d89;
 			}
 
 			li {
 				display: flex;
 				align-items: center;
+				fill: #809d89;
+				color: #809d89;
 
 				svg {
-					color: #909299;
-					// background-color: #21793d;
+					fill: #809d89;
+					// background-color: red;
 				}
 			}
 		}

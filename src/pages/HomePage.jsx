@@ -1,11 +1,14 @@
+// React
+import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useState, useEffect, useRef } from 'react'
+
+// Component Imports
 import { CategoryList } from '../cmps/CategoryList.jsx'
-import React from 'react'
-import { AppHeader } from '../cmps/AppHeader'
 import { PopularServicesCarrousel } from '../cmps/PopularServicesCarrousel'
 import { AdvertArea } from '../cmps/AdvertArea'
 import { MainSearchArea } from '../cmps/MainSearchArea.jsx'
+
 import { setFilterBy } from '../store/actions/gig.actions.js'
 import { gigService } from '../services/gig/index.js'
 
