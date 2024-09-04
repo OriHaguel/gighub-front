@@ -63,14 +63,15 @@
 				width: 100%;
 
 				.fiverr-header-search-animated {
-					width: rem(400px);
-					// width: 100%;
+					// width: rem(400px);
+					width: 100%;
 					display: block;
-					margin-top: 0;
 					order: 0;
 					border: none;
 					opacity: 0;
 					transition: opacity 0.2s ease-in-out;
+
+					margin-inline: rem(32px);
 					cursor: default;
 
 					&.visible {
@@ -88,6 +89,7 @@
 
 						position: relative;
 						height: rem(42px);
+						// display: none;
 
 						.magnify-icon {
 							-webkit-mask-size: cover;
