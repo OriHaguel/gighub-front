@@ -96,7 +96,7 @@ export function AppHeader() {
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
-						<div className={`fiverr-header-search-animated ${isVisible ? 'visible' : ''}`}>
+						<div className={`fiverr-header-search-animated ${!isHomePage || (isHomePage && isVisible) ? 'visible' : 'hidden'}`}>
 							<form className='search-form dark' onSubmit={onSubmit}>
 								<input type='search' placeholder='What service are you looking for today?' onChange={handleChange} value={inputValue.txt} name='txt' />
 								<button className='submit-button dark-search-button' type='submit'>

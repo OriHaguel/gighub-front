@@ -71,9 +71,14 @@
 					border: none;
 					opacity: 0;
 					transition: opacity 0.2s ease-in-out;
+					cursor: default;
 
 					&.visible {
 						opacity: 1;
+					}
+
+					&.hidden {
+						display: none;
 					}
 
 					.search-form {
@@ -187,9 +192,10 @@
 								padding-block: rem(10px);
 								text-decoration: none;
 								transition: 0.2s;
-								// svg{
-								//   color: rgb(179, 55, 55);
-								//   background-color: $main_clr1;
+
+								// svg {
+								// 	color: rgb(179, 55, 55);
+								// 	background-color: $main_clr1;
 								// }
 
 								&:hover {
