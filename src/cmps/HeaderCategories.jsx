@@ -2,8 +2,6 @@
 import React from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 
-// TODO: refresh filter
-
 export function HeaderCategories() {
 	const [searchParams, setSearchParams] = useSearchParams()
 
@@ -13,13 +11,19 @@ export function HeaderCategories() {
 		return `?category=${categoryToSave.categoryTxt.split(' ')[0].toLowerCase()}`
 	}
 
+	const handleClick = (e, category) => {
+		e.preventDefault()
+		setSearchParams({ category: category.categoryTxt.split(' ')[0].toLowerCase() })
+		window.location.reload()
+	}
+
 	return (
 		<div className='header-category-wrapper'>
 			<section className='main-container'>
 				<div className='header-category-list'>
 					{categoriesList.map(category => (
 						<div className='category-list' key={category.categoryTxt}>
-							<Link className='category-list-link' to={`gigs${onCategory(category)}`}>
+							<Link className='category-list-link' to={`gigs${onCategory(category)}`} onClick={e => handleClick(e, category)}>
 								<p className='category-list-text'>{category.categoryTxt}</p>
 							</Link>
 						</div>
