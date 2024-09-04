@@ -12,7 +12,6 @@ export function RootCmp() {
 	// 	const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
 	// 	document.documentElement.style.setProperty('--scrollbar-width', `${scrollbarWidth}px`)
 
-	// 	// No need to recalculate or add event listeners since it only runs once
 	// }, [])
 
 	return (
