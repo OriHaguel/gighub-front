@@ -25,6 +25,7 @@ export function GigPage() {
 
 	useEffect(() => {
 		setFilterBy(defaultFilter)
+		// console.log("🚀 ~ useEffect ~ filterBy:", filterBy)
 	}, [])
 
 	useEffect(() => {
