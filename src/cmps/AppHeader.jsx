@@ -1,6 +1,6 @@
 // React
 import React, { useEffect, useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
 import { setFilterBy } from '../store/actions/gig.actions'
@@ -84,11 +84,14 @@ export function AppHeader() {
 		setIsSinged(isSignedUp)
 	}
 
+	const location = useLocation()
+	const isHomePage = location.pathname === '/'
+
 	return (
-		<div id='Header'>
-			<header className='header-package fiverr-header logged-out-homepage-header'>
+		<div id='Header' className='header-sticky'>
+			<header className='header-package fiverr-header'>
 				<div className='header-row-wrapper main-container'>
-					<div className='header-row max-width-container row-main'>
+					<div className='header-row'>
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
@@ -152,7 +155,8 @@ export function AppHeader() {
 				</div>
 			</header>
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isSinged={isSinged} setIsSinged={setIsSinged} />
-			<HeaderCategories />
+			{!isHomePage && <HeaderCategories />}
+			{/* <HeaderCategories /> */}
 		</div>
 	)
 }
