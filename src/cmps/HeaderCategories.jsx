@@ -17,14 +17,15 @@ export function HeaderCategories() {
 		return `?category=${categoryToSave.categoryTxt.split(' ')[0].toLowerCase()}`
 	}
 
+
+
 	return (
 		<div className='header-category-wrapper'>
 			<section className='main-container'>
 				<div className='header-category-list'>
 					{categoriesList.map(category => (
 						<div className='category-list' key={category.categoryTxt}>
-
-							<Link className='category-list-link' to={`gigs${onCategory(category)}`} onClick={() => setFilterBy({ category: categoryToSave.categoryTxt.split(' ')[0].toLowerCase() })}>
+							<Link className='category-list-link' to={`gigs${onCategory(category)}`} onClick={() => setFilterBy({ category: category.categoryTxt.split(' ')[0].toLowerCase() })}>
 								<p className='category-list-text'>{category.categoryTxt}</p>
 							</Link>
 						</div>
