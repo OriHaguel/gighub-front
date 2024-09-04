@@ -88,7 +88,7 @@ export function AppHeader() {
 		<div id='Header'>
 			<header className='header-package fiverr-header logged-out-homepage-header'>
 				<div className='header-row-wrapper main-container'>
-					<div className='header-row max-width-container equal-padding row-main'>
+					<div className='header-row max-width-container row-main'>
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
