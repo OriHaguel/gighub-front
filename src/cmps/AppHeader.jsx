@@ -1,28 +1,31 @@
+// React
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
-import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { setFilterBy } from '../store/actions/gig.actions'
+import { showErrorMsg, showSuccessMsg } from '../services/event-bus.service'
 import { userService } from '../services/user'
 // userService.getLoggedinUser
 
-// Image Imports
-
-import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
-// import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
-import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
-import Globe from '../assets/svg/Globe.svg?react'
-import MagnifyIcon from '../assets/svg/MagnifyIcon.svg?react'
-import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
-
+// Component Imports
 import { Modal } from './Modal'
+import { HeaderCategories } from './HeaderCategories'
+
 import { logout } from '../store/actions/user.actions'
+
+// Image Imports
+import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
+import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
+import MagnifyIcon from '../assets/svg/MagnifyIcon.svg?react'
+// import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
+// import Globe from '../assets/svg/Globe.svg?react'
+// import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
 
 export function AppHeader() {
 	const navigate = useNavigate()
 	const [inputValue, setInputValue] = useState({ txt: '' })
-	const [isSinged, setIsSinged] = useState(false);
+	const [isSinged, setIsSinged] = useState(false)
 	// console.log("🚀 ~ AppHeader ~ isSinged:", isSinged)
 	const filterBy = useSelector(state => state.gigModule.filterBy)
 	const loggedInUser = useSelector(storeState => storeState.userModule.user)
@@ -76,7 +79,7 @@ export function AppHeader() {
 		navigate(`gigs?txt=${inputValue.txt}`)
 	}
 
-	const openModal = (isSignedUp) => {
+	const openModal = isSignedUp => {
 		setIsModalOpen(true)
 		setIsSinged(isSignedUp)
 	}
@@ -121,15 +124,19 @@ export function AppHeader() {
 										Become a Seller
 									</NavLink>
 								</li>
-								{!loggedInUser && <li>
-									<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(true)}>
-										Sign In
-									</button>
-								</li>}
+								{!loggedInUser && (
+									<li>
+										<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(true)}>
+											Sign In
+										</button>
+									</li>
+								)}
 								<li>
-									{!loggedInUser && <button to='/join' className='join-button' onClick={() => openModal(false)}>
-										Join
-									</button>}
+									{!loggedInUser && (
+										<button to='/join' className='join-button' onClick={() => openModal(false)}>
+											Join
+										</button>
+									)}
 								</li>
 								<li>
 									{loggedInUser && (
@@ -138,19 +145,14 @@ export function AppHeader() {
 										</button>
 									)}
 								</li>
-								<li>
-									{loggedInUser && (
-										<Link to={'/dashboard'}>
-											Dashboard
-										</Link>
-									)}
-								</li>
+								<li>{loggedInUser && <Link to={'/dashboard'}>Dashboard</Link>}</li>
 							</ul>
 						</nav>
 					</div>
 				</div>
 			</header>
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isSinged={isSinged} setIsSinged={setIsSinged} />
+			<HeaderCategories />
 		</div>
 	)
 }
