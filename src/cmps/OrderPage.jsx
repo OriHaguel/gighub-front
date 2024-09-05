@@ -9,20 +9,20 @@ import RecycleLogo from '../assets/svg/RecycleLogo.svg?react'
 import { gigService } from "../services/gig"
 
 
-export function OrderPage({ selectedPackage, gig, onClose }) {
+export function OrderPage({ gig, selectedPackage, onClose }) {
 
     // console.log('order page gig debug ', gig)
     // console.log('order page package debug', selectedPackage)
 
     const [upgrades, setUpgrades] = useState({
-        'Include Source File': false,
+        'Proof of Concept': false,
         'Personal Consultation': false,
         'Social Media Promotion': false
     })
 
     const upgradeDetails = {
-        'Include Source File': {
-            description: 'Receive the source file in addition to your final work.',
+        'Proof of Concept': {
+            description: 'Receive a bonus proof of concept for the project, showcasing the key elements before final delivery.',
             price: 20
         },
         'Personal Consultation': {
@@ -52,7 +52,8 @@ export function OrderPage({ selectedPackage, gig, onClose }) {
     }
     // gig.price = selectedPackage
 
-    const totalPrice = gig.price + totalUpgradesPrice
+    const totalPrice = selectedPackage.price + totalUpgradesPrice
+
 
     return (
 
@@ -122,7 +123,7 @@ export function OrderPage({ selectedPackage, gig, onClose }) {
                                                 <span className="package-icon" aria-hidden="true">
                                                     <PackageIcon />
                                                 </span>
-                                                <span className="package-name">Basic package</span>
+                                                <span className="package-name">{selectedPackage.type}</span>
                                             </li>
                                         </div>
                                         <div className="arrow-container">
@@ -137,18 +138,18 @@ export function OrderPage({ selectedPackage, gig, onClose }) {
                                 <span className="timer-logo" aria-hidden="true" >
                                     <TimerLogo />
                                 </span>
-                                <span className="detail-info">3-day delivery</span>
+                                <span className="detail-info">{selectedPackage.daysToMake}-day delivery</span>
                             </li>
                             <li className="summery-icons">
                                 <span className="recycle-logo" aria-hidden="true" >
                                     <RecycleLogo />
                                 </span>
-                                <span className="detail-info">No revisions</span>
+                                <span className="detail-info">{selectedPackage.revisions} revisions</span>
                             </li>
                         </ul>
                         <div className='finish-order-section'>
                             <button className="place-order-button">
-                                Continue (${totalPrice})
+                                Confirm & Pay (${totalPrice})
                             </button>
                             <div className='charged-msg'>You won’t be charged yet</div>
                         </div>

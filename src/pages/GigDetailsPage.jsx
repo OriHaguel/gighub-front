@@ -15,6 +15,7 @@ export function GigDetailsPage() {
 	const param = useParams()
 	const [gig, setGig] = useState()
 	const [isOrderPageOpen, setIsOrderPageOpen] = useState(false)
+	const [selectedPackage, setSelectedPackage] = useState(null) 
 
 	useEffect(() => {
 		loadGig()
@@ -30,7 +31,8 @@ export function GigDetailsPage() {
 		}
 	}
 
-	const toggleOrderPage = () => {
+	const toggleOrderPage = (pkg) => {
+		setSelectedPackage(pkg)
 		setIsOrderPageOpen(!isOrderPageOpen)
 	}
 
@@ -46,7 +48,7 @@ export function GigDetailsPage() {
 			<div className='pricing-container grid-4'>
 				<GigPricing gig={gig} onContinue={toggleOrderPage} />
 			</div>
-			{isOrderPageOpen && <OrderPage gig={gig} onClose={toggleOrderPage} />}
+			{isOrderPageOpen && <OrderPage gig={gig} selectedPackage={selectedPackage} onClose={toggleOrderPage} />}
 		</section>
 	)
 }

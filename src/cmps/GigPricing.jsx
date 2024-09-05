@@ -13,24 +13,24 @@ export function GigPricing({ gig, onContinue }) {
 
 	const packages = {
 		Basic: {
-			gig,
-			price: gig.price,
+			type: 'Basic',
+			price: Math.round(gig.price),
 			daysToMake: gig.daysToMake + 4,
 			revisions: 2,
 			pages: 3,
 			assets: 1
 		},
 		Standard: {
-			gig,
-			price: gig.price * 1.2,
+			type: 'Standart',
+			price: Math.round(gig.price * 1.2),
 			daysToMake: gig.daysToMake + 2,
 			revisions: 4,
 			pages: 5,
 			assets: 2
 		},
 		Premium: {
-			gig,
-			price: gig.price * 1.5,
+			type: 'Premium',
+			price: Math.round(gig.price * 1.5),
 			daysToMake: gig.daysToMake,
 			revisions: 6,
 			pages: 7,
@@ -70,7 +70,7 @@ export function GigPricing({ gig, onContinue }) {
 							<b>{selectedPackage} Design Package</b>
 							<span>${currentPackage.price}</span>
 						</h3>
-						<p>Simple mobile app design, {currentPackage.pages} pages/screens</p>
+						<p>Gig Breakdown Information: {currentPackage.pages} pages/screens</p>
 					</header>
 					<article>
 						<div className='additional-info'>
