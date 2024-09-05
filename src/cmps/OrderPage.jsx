@@ -10,15 +10,28 @@ import { gigService } from "../services/gig"
 
 
 export function OrderPage({ gig, selectedPackage, onClose }) {
-
-    // console.log('order page gig debug ', gig)
-    // console.log('order page package debug', selectedPackage)
-
+    const modalRef = useRef(null)
     const [upgrades, setUpgrades] = useState({
         'Proof of Concept': false,
         'Personal Consultation': false,
         'Social Media Promotion': false
     })
+
+    // console.log('order page gig debug ', gig)
+    // console.log('order page package debug', selectedPackage)
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                onClose()
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [onClose])
+
 
     const upgradeDetails = {
         'Proof of Concept': {
@@ -50,15 +63,11 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
             totalUpgradesPrice += upgradeDetails[title].price
         }
     }
-    // gig.price = selectedPackage
-
     const totalPrice = selectedPackage.price + totalUpgradesPrice
 
-
     return (
-
         <div className="order-modal-overlay">
-            <div className="order-modal-content">
+            <div className="order-modal-content" ref={modalRef}>
                 <button className="close-modal-button" onClick={onClose}>
                     <CloseIcon />
                 </button>
@@ -135,13 +144,13 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
                                 </article>
                             </li>
                             <li className="summery-icons">
-                                <span className="timer-logo" aria-hidden="true" >
+                                <span className="timer-logo" aria-hidden="true">
                                     <TimerLogo />
                                 </span>
                                 <span className="detail-info">{selectedPackage.daysToMake}-day delivery</span>
                             </li>
                             <li className="summery-icons">
-                                <span className="recycle-logo" aria-hidden="true" >
+                                <span className="recycle-logo" aria-hidden="true">
                                     <RecycleLogo />
                                 </span>
                                 <span className="detail-info">{selectedPackage.revisions} revisions</span>

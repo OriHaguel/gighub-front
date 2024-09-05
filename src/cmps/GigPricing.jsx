@@ -94,13 +94,13 @@ export function GigPricing({ gig, onContinue }) {
 								<span>
 									<Vlogo />
 								</span>{' '}
-								Include source file
+								{currentPackage.assets} custom assets
 							</li>
 							<li>
 								<span>
 									<Vlogo />
 								</span>{' '}
-								{currentPackage.assets} custom assets
+								Include source file
 							</li>
 						</ul>
 					</article>
