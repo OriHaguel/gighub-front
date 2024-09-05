@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { gigService } from '../services/gig/gig.service.local.js'
+
 
 // Carrousel
 import { Carousel } from 'react-responsive-carousel'
@@ -8,6 +8,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import GigImage from '../assets/img/gig-image.png'
 import CarrouselControlNext from '../assets/svg/CarrouselControlNext.svg?react'
 import CarrouselControlPrev from '../assets/svg/CarrouselControlPrev.svg?react'
+import { gigService } from '../services/gig'
 
 export function GigCarrousel() {
 	const [gig, setGig] = useState(null)

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { gigService } from '../services/gig/gig.service.local.js'
+
 import ClockLogo from '../assets/svg/DaystomakeLogo.svg?react'
 import RevisionsLogo from '../assets/svg/RevisionsLogo.svg?react'
 import Vlogo from '../assets/svg/V.svg?react'

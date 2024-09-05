@@ -2,10 +2,9 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { gigService } from '../services/gig/gig.service.local.js'
-
 import star from '../assets/svg/star.svg?react'
 import RepeatClientIcon from '../assets/svg/RepeatClientIcon.svg?react'
+import { gigService } from '../services/gig'
 
 // TODO: make review content and review score fit (high score good praise and vice versa)
 // TODO: add price

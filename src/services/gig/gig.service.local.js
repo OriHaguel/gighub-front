@@ -160,6 +160,7 @@ function _createGigs() {
 
 		// saveToStorage(STORAGE_KEY, getGigImg(gigs))
 		const gigsWithImages = getGigImg(gigs);
+		console.log("🚀 ~ _createGigs ~ gigsWithImages:", gigsWithImages)
 		saveToStorage(STORAGE_KEY, gigsWithImages);
 	}
 }
