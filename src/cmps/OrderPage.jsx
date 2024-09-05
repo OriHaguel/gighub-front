@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react"
+import { useSelector } from "react-redux"
 import InfoIcon from '../assets/svg/InfoIcon.svg?react'
 import CloseIcon from '../assets/svg/CloseIcon.svg?react'
 import OptionsIcon from '../assets/svg/OptionsIcon.svg?react'
@@ -9,20 +10,34 @@ import RecycleLogo from '../assets/svg/RecycleLogo.svg?react'
 import { gigService } from "../services/gig"
 
 
-export function OrderPage({ selectedPackage, gig, onClose }) {
-
-    // console.log('order page gig debug ', gig)
-    // console.log('order page package debug', selectedPackage)
-
+export function OrderPage({ gig, selectedPackage, onClose }) {
+    const gigOrder = useSelector(state => state.gigOrder.addOrder)
+    const modalRef = useRef(null)
     const [upgrades, setUpgrades] = useState({
-        'Include Source File': false,
+        'Proof of Concept': false,
         'Personal Consultation': false,
         'Social Media Promotion': false
     })
 
+    // console.log('order page gig debug ', gig)
+    // console.log('order page package debug', selectedPackage)
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                onClose()
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [onClose])
+
+
     const upgradeDetails = {
-        'Include Source File': {
-            description: 'Receive the source file in addition to your final work.',
+        'Proof of Concept': {
+            description: 'Receive a bonus proof of concept for the project, showcasing the key elements before final delivery.',
             price: 20
         },
         'Personal Consultation': {
@@ -50,14 +65,26 @@ export function OrderPage({ selectedPackage, gig, onClose }) {
             totalUpgradesPrice += upgradeDetails[title].price
         }
     }
-    // gig.price = selectedPackage
+    const totalPrice = selectedPackage.price + totalUpgradesPrice
 
-    const totalPrice = gig.price + totalUpgradesPrice
+    const handleConfirmOrder = async () => {
+        try {
+            const finalOrder = {
+                // gig,
+                // selectedPackage,
+                // upgrades,
+                totalPrice
+            }
+            const savedOrder = await gigOrder(finalOrder)
+            console.log('Order confirmed:', savedOrder)
+        } catch (err) {
+            console.error('Error confirming order:', err)
+        }
+    }
 
     return (
-
         <div className="order-modal-overlay">
-            <div className="order-modal-content">
+            <div className="order-modal-content" ref={modalRef}>
                 <button className="close-modal-button" onClick={onClose}>
                     <CloseIcon />
                 </button>
@@ -122,7 +149,7 @@ export function OrderPage({ selectedPackage, gig, onClose }) {
                                                 <span className="package-icon" aria-hidden="true">
                                                     <PackageIcon />
                                                 </span>
-                                                <span className="package-name">Basic package</span>
+                                                <span className="package-name">{selectedPackage.type}</span>
                                             </li>
                                         </div>
                                         <div className="arrow-container">
@@ -134,21 +161,21 @@ export function OrderPage({ selectedPackage, gig, onClose }) {
                                 </article>
                             </li>
                             <li className="summery-icons">
-                                <span className="timer-logo" aria-hidden="true" >
+                                <span className="timer-logo" aria-hidden="true">
                                     <TimerLogo />
                                 </span>
-                                <span className="detail-info">3-day delivery</span>
+                                <span className="detail-info">{selectedPackage.daysToMake}-day delivery</span>
                             </li>
                             <li className="summery-icons">
-                                <span className="recycle-logo" aria-hidden="true" >
+                                <span className="recycle-logo" aria-hidden="true">
                                     <RecycleLogo />
                                 </span>
-                                <span className="detail-info">No revisions</span>
+                                <span className="detail-info">{selectedPackage.revisions} revisions</span>
                             </li>
                         </ul>
                         <div className='finish-order-section'>
-                            <button className="place-order-button">
-                                Continue (${totalPrice})
+                            <button className="place-order-button" onClick={handleConfirmOrder}>
+                                Confirm & Pay (${totalPrice})
                             </button>
                             <div className='charged-msg'>You won’t be charged yet</div>
                         </div>

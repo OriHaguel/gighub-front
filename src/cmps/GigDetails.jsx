@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { gigService } from '../services/gig/gig.service.local.js'
 import { SellerLevel } from './SellerLevel.jsx'
+
 import { SellerPro } from './SellerPro.jsx'
 import Star from '../assets/svg/star.svg?react'
+import { gigService } from '../services/gig/index.js'
 
 export function GigDetails() {
 	const [gig, setGig] = useState(null)

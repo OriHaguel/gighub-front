@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { gigService } from '../services/gig/gig.service.local.js'
-
 import LevelStar from '../assets/svg/LevelStar.svg?react'
 import LevelStarEmpty from '../assets/svg/LevelStarEmpty.svg?react'
+import { gigService } from '../services/gig'
 
 export function SellerLevel() {
 	const [gig, setGig] = useState(null)

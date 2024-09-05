@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { gigService } from '../services/gig/gig.service.local.js'
 import { GigReview } from './GigReview.jsx'
 
 import star from '../assets/svg/star.svg?react'
+import { gigService } from '../services/gig/index.js'
 
 // TODO: randomize reviews
 

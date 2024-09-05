@@ -1,59 +1,59 @@
 import { storageService } from '../async-storage.service'
-import { makeId, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories, makeUserNameLorem, getRandomBoolean, getGigImg } from '../util.service'
+import { makeId, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories, makeUserNameLorem, getRandomBoolean, getOrderImg } from '../util.service'
 
 import { userService } from '../user'
 
-const STORAGE_KEY = 'gig'
-_createGigs()
-export const gigService = {
+const STORAGE_KEY = 'order'
+_createOrders()
+export const orderService = {
 	query,
 	getById,
 	save,
 	remove,
 	getFilterFromSearchParams,
 }
-window.cs = gigService
+window.cs = orderService
 
 async function query(filterBy = { txt: '', price: 0 }) {
-	var gigs = await storageService.query(STORAGE_KEY)
+	var orders = await storageService.query(STORAGE_KEY)
 	const { txt, daysToMake, price, sortField, sortDir, category } = filterBy
 
 	if (txt) {
 		// const regex = new RegExp(filterBy.txt, 'i')
 		const regex = new RegExp(filterBy.txt.split(' ').join('|'), 'i')
-		gigs = gigs.filter(gig => regex.test(gig.title) || regex.test(gig.description))
+		orders = orders.filter(order => regex.test(order.title) || regex.test(order.description))
 	}
 	if (daysToMake) {
 		if (daysToMake === 'day') {
-			gigs = gigs.filter(gig => gig.daysToMake === 1)
+			orders = orders.filter(order => order.daysToMake === 1)
 		}
 		if (daysToMake === '3days') {
-			gigs = gigs.filter(gig => gig.daysToMake <= 3 && gig.daysToMake > 1)
+			orders = orders.filter(order => order.daysToMake <= 3 && order.daysToMake > 1)
 		}
 		if (daysToMake === '7days') {
-			gigs = gigs.filter(gig => gig.daysToMake <= 7 && gig.daysToMake > 3)
+			orders = orders.filter(order => order.daysToMake <= 7 && order.daysToMake > 3)
 		}
 		if (daysToMake === 'anytime') {
-			gigs = gigs.filter(gig => gig.daysToMake > 7)
+			orders = orders.filter(order => order.daysToMake > 7)
 		}
 	}
 
 	if (price) {
 		if (price === 'low') {
-			gigs = gigs.filter(gig => gig.price < 100)
+			orders = orders.filter(order => order.price < 100)
 		}
 		if (price === 'mid') {
-			gigs = gigs.filter(gig => gig.price > 100 && gig.price < 500)
+			orders = orders.filter(order => order.price > 100 && order.price < 500)
 		}
 		if (price === 'high') {
-			gigs = gigs.filter(gig => gig.price > 500)
+			orders = orders.filter(order => order.price > 500)
 		}
 	}
 	if (sortField === 'title' || sortField === 'owner') {
-		gigs.sort((gig1, gig2) => gig1[sortField].localeCompare(gig2[sortField]) * +sortDir)
+		orders.sort((order1, order2) => order1[sortField].localeCompare(order2[sortField]) * +sortDir)
 	}
 	if (sortField === 'price' || sortField === 'daystomake') {
-		gigs.sort((gig1, gig2) => (gig1[sortField] - gig2[sortField]) * +sortDir)
+		orders.sort((order1, order2) => (order1[sortField] - order2[sortField]) * +sortDir)
 	}
 
 	if (category && category !== 'ai' && category !== 'consulting') {
@@ -61,44 +61,44 @@ async function query(filterBy = { txt: '', price: 0 }) {
 		// const sen = 'hello there buddy'
 		// const yo = ['hererllo', 'hrewrwerewr', 'fgfdgdfgd', 'rewrwerwr', 'buddy']
 		// const what = yo.filter(bro => sen.includes(bro))
-		gigs = gigs.filter(gig => categories[category].some(word => gig.title.includes(word)))
-		// console.log("🚀 ~ query ~ gigs:", gigs)
+		orders = orders.filter(order => categories[category].some(word => order.title.includes(word)))
+		// console.log("🚀 ~ query ~ orders:", orders)
 		// console.log("🚀 ~ categories:", categories[category])
 	}
-	// gigs = gigs.map(({ _id, title, price, daystomake, owner }) => ({ _id, title, price, daystomake, owner }))
-	return gigs
+	// orders = orders.map(({ _id, title, price, daystomake, owner }) => ({ _id, title, price, daystomake, owner }))
+	return orders
 }
 
-function getById(gigId) {
-	return storageService.get(STORAGE_KEY, gigId)
+function getById(orderId) {
+	return storageService.get(STORAGE_KEY, orderId)
 }
 
-async function remove(gigId) {
+async function remove(orderId) {
 	// throw new Error('Nope')
-	await storageService.remove(STORAGE_KEY, gigId)
+	await storageService.remove(STORAGE_KEY, orderId)
 }
 
-async function save(gig) {
-	var savedGig
-	if (gig._id) {
-		const gigToSave = {
-			_id: gig._id,
-			price: gig.price,
-			daystomake: gig.daystomake,
+async function save(order) {
+	var savedOrder
+	if (order._id) {
+		const orderToSave = {
+			_id: order._id,
+			price: order.price,
+			daystomake: order.daystomake,
 		}
-		savedGig = await storageService.put(STORAGE_KEY, gigToSave)
+		savedOrder = await storageService.put(STORAGE_KEY, orderToSave)
 	} else {
-		const gigToSave = {
-			title: gig.title,
-			price: gig.price,
-			daystomake: gig.daystomake,
+		const orderToSave = {
+			title: order.title,
+			price: order.price,
+			daystomake: order.daystomake,
 			// Later, owner is set by the backend
 			owner: userService.getLoggedinUser(),
 			msgs: [],
 		}
-		savedGig = await storageService.post(STORAGE_KEY, gigToSave)
+		savedOrder = await storageService.post(STORAGE_KEY, orderToSave)
 	}
-	return savedGig
+	return savedOrder
 }
 
 function _diffFilter() {
@@ -122,56 +122,55 @@ function getFilterFromSearchParams(searchParams) {
 	return filterBy
 }
 
-function _createGig() {
-	const gig = { title: '', price: 0 }
-	gig.title = getRandomSentence()
-	gig.price = getRandomIntInclusive(15, 1000)
-	gig._id = makeId('g')
-	gig.daysToMake = getRandomIntInclusive(1, 14)
-	gig.aboutGig = getAboutGig()
+function _createOrder() {
+	const order = { title: '', price: 0 }
+	order.title = getRandomSentence()
+	order.price = getRandomIntInclusive(15, 1000)
+	order._id = makeId('g')
+	order.daysToMake = getRandomIntInclusive(1, 14)
+	order.aboutOrder = getAboutOrder()
 	// temp
-	gig.owner = makeUserNameLorem()
-	gig.ownerRating = getGitRating(0, 5)
-	gig.ownerLevel = getRandomIntInclusive(1, 3)
-	gig.ownerOrders = getRandomIntInclusive(1, 30)
-	gig.ownerPro = getRandomBoolean()
-	gig.ownerImage = getImg()
+	order.owner = makeUserNameLorem()
+	order.ownerRating = getGitRating(0, 5)
+	order.ownerLevel = getRandomIntInclusive(1, 3)
+	order.ownerOrders = getRandomIntInclusive(1, 30)
+	order.ownerPro = getRandomBoolean()
+	order.ownerImage = getImg()
 	// reviews
-	gig.reviewName = makeUserNameLorem()
-	gig.reviewImage = getImg()
-	gig.reviewCountry = getCountry()
-	gig.reviewContent = getReviewContent()
-	gig.reviewRating = getRandomIntInclusive(0, 5)
-	gig.reviewTime = getReviewTime()
-	// gig.reviewIsRepeatClient = getRepeatClient()
-	gig.reviewIsRepeatClient = true
-	gig.reviewSellerResponse = getSellerResponse()
+	order.reviewName = makeUserNameLorem()
+	order.reviewImage = getImg()
+	order.reviewCountry = getCountry()
+	order.reviewContent = getReviewContent()
+	order.reviewRating = getRandomIntInclusive(0, 5)
+	order.reviewTime = getReviewTime()
+	// order.reviewIsRepeatClient = getRepeatClient()
+	order.reviewIsRepeatClient = true
+	order.reviewSellerResponse = getSellerResponse()
 
-	return gig
+	return order
 }
 
-function _createGigs() {
-	let gigs = loadFromStorage(STORAGE_KEY)
-	if (!gigs || !gigs.length) {
-		gigs = []
+function _createOrders() {
+	let orders = loadFromStorage(STORAGE_KEY)
+	if (!orders || !orders.length) {
+		orders = []
 		for (var i = 0; i < 50; i++) {
-			gigs.push(_createGig())
+			orders.push(_createOrder())
 		}
 
-		// saveToStorage(STORAGE_KEY, getGigImg(gigs))
-		const gigsWithImages = getGigImg(gigs);
-		console.log("🚀 ~ _createGigs ~ gigsWithImages:", gigsWithImages)
-		saveToStorage(STORAGE_KEY, gigsWithImages);
+		// saveToStorage(STORAGE_KEY, getOrderImg(orders))
+		const ordersWithImages = getOrderImg(orders);
+		saveToStorage(STORAGE_KEY, ordersWithImages);
 	}
 }
-// function _createGigs() {
-// 	let gigs = loadFromStorage(STORAGE_KEY)
-// 	if (!gigs || !gigs.length) {
-// 		gigs = []
+// function _createOrders() {
+// 	let orders = loadFromStorage(STORAGE_KEY)
+// 	if (!orders || !orders.length) {
+// 		orders = []
 // 		for (var i = 0; i < 30; i++) {
-// 			gigs.push(_createGig())
+// 			orders.push(_createOrder())
 // 		}
-// 		saveToStorage(STORAGE_KEY, gigs)
+// 		saveToStorage(STORAGE_KEY, orders)
 // 	}
 // }
 
@@ -248,17 +247,17 @@ function getSellerResponse() {
 	return sentences[getRandomIntInclusive(0, sentences.length - 1)]
 }
 
-function getAboutGig() {
+function getAboutOrder() {
 	const abouts = [
-		'This gig offers top-notch services tailored to meet your specific needs. Our team is dedicated to delivering high-quality results that exceed your expectations.',
+		'This order offers top-notch services tailored to meet your specific needs. Our team is dedicated to delivering high-quality results that exceed your expectations.',
 		'With years of experience in the industry, we bring a wealth of knowledge and expertise to every project. You can trust us to handle your requirements with professionalism.',
 		'We prioritize customer satisfaction above all else. Our goal is to ensure that you are completely happy with the final product, and we are committed to making any necessary adjustments.',
 		'We understand the importance of deadlines. Our efficient workflow allows us to deliver your project quickly without compromising on quality.',
 		'We offer competitive pricing for our services, ensuring that you receive great value for your investment. Quality service doesn’t have to break the bank!',
 		'Every project is unique, and we take the time to understand your specific needs. Our tailored solutions are designed to fit your requirements perfectly.',
 		'We believe in maintaining open lines of communication throughout the project. You will be updated regularly, and your feedback will always be valued.',
-		'In addition to the primary gig offerings, we provide a range of supplementary services to enhance your experience and ensure all your needs are met.',
-		'This gig is designed to offer services that are meticulously tailored to align with your unique needs and objectives. We understand that each project comes with its own set of challenges and requirements, and that’s why we take the time to get to know you and your business intimately. Our dedicated team is committed to delivering high-quality results that not only meet but exceed your expectations. From the initial consultation to the final delivery, every step of our process is crafted to ensure that your vision is brought to life with precision and care. Whether you’re looking for a one-time solution or ongoing support, we are here to provide you with the expertise and resources needed to achieve your goals. Our services are designed to be flexible and scalable, allowing us to adapt to your evolving needs over time. We pride ourselves on our ability to deliver results that are not just satisfactory but truly exceptional.',
+		'In addition to the primary order offerings, we provide a range of supplementary services to enhance your experience and ensure all your needs are met.',
+		'This order is designed to offer services that are meticulously tailored to align with your unique needs and objectives. We understand that each project comes with its own set of challenges and requirements, and that’s why we take the time to get to know you and your business intimately. Our dedicated team is committed to delivering high-quality results that not only meet but exceed your expectations. From the initial consultation to the final delivery, every step of our process is crafted to ensure that your vision is brought to life with precision and care. Whether you’re looking for a one-time solution or ongoing support, we are here to provide you with the expertise and resources needed to achieve your goals. Our services are designed to be flexible and scalable, allowing us to adapt to your evolving needs over time. We pride ourselves on our ability to deliver results that are not just satisfactory but truly exceptional.',
 		'With a deep reservoir of experience accumulated over many years in the industry, we bring a profound level of knowledge and expertise to every project we undertake. Our team consists of seasoned professionals who have honed their skills through countless successful projects across various domains. This wealth of experience allows us to anticipate potential challenges before they arise and implement solutions that are both innovative and effective. You can trust us to handle your requirements with the utmost professionalism and care. We don’t just execute tasks; we offer strategic insights that can help you achieve your long-term objectives. Our industry experience also means we stay ahead of the curve with the latest trends and technologies, ensuring that your project is always at the cutting edge of innovation. We are dedicated to continuous learning and adapting to the evolving landscape, so you can be confident that your project will benefit from the latest best practices and insights.',
 		'Customer satisfaction is not just a priority for us—it’s the cornerstone of everything we do. We believe that the success of any project hinges on how well it meets the needs and expectations of our clients. That’s why we go the extra mile to ensure that you are completely satisfied with the final product. Our commitment to excellence means that we are always ready to make any necessary adjustments to achieve your desired outcome. We value your feedback and view it as an essential part of the creative process. By maintaining a close and collaborative relationship with you throughout the project, we are able to refine and perfect every detail, ensuring that the final result is something you can truly be proud of. Our dedication to your satisfaction doesn’t end with the delivery of the project; we are here to support you even after the work is complete, providing any additional assistance you may need to ensure long-term success.',
 		'We recognize that time is of the essence in today’s fast-paced world. That’s why we have developed an efficient workflow that allows us to deliver your project quickly without ever compromising on quality. Our team is skilled in managing tight deadlines and complex schedules, ensuring that your project is completed on time and to the highest standard. We understand that delays can have significant implications, which is why we prioritize timely delivery as a key component of our service. From the moment we begin working on your project, we implement a structured process that includes regular progress updates and milestone reviews. This approach not only keeps the project on track but also allows for any necessary adjustments to be made in real time. Our commitment to efficiency is matched by our dedication to quality, ensuring that you receive a final product that is both timely and exceptional in every way.',
@@ -267,17 +266,17 @@ function getAboutGig() {
 	return abouts[getRandomIntInclusive(0, abouts.length - 1)]
 }
 
-// async function addGigMsg(gigId, txt) {
+// async function addOrderMsg(orderId, txt) {
 //     // Later, this is all done by the backend
-//     const gig = await getById(gigId)
+//     const order = await getById(orderId)
 
 //     const msg = {
 //         id: makeId(),
 //         by: userService.getLoggedinUser(),
 //         txt
 //     }
-//     gig.msgs.push(msg)
-//     await storageService.put(STORAGE_KEY, gig)
+//     order.msgs.push(msg)
+//     await storageService.put(STORAGE_KEY, order)
 
 //     return msg
 // }
