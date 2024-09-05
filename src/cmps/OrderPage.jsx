@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from "react"
+import { useSelector } from "react-redux"
 import InfoIcon from '../assets/svg/InfoIcon.svg?react'
 import CloseIcon from '../assets/svg/CloseIcon.svg?react'
 import OptionsIcon from '../assets/svg/OptionsIcon.svg?react'
@@ -10,6 +11,7 @@ import { gigService } from "../services/gig"
 
 
 export function OrderPage({ gig, selectedPackage, onClose }) {
+    const gigOrder = useSelector(state => state.gigOrder.addOrder)
     const modalRef = useRef(null)
     const [upgrades, setUpgrades] = useState({
         'Proof of Concept': false,
@@ -64,6 +66,21 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
         }
     }
     const totalPrice = selectedPackage.price + totalUpgradesPrice
+
+    const handleConfirmOrder = async () => {
+        try {
+            const finalOrder = {
+                // gig,
+                // selectedPackage,
+                // upgrades,
+                totalPrice
+            }
+            const savedOrder = await gigOrder(finalOrder)
+            console.log('Order confirmed:', savedOrder)
+        } catch (err) {
+            console.error('Error confirming order:', err)
+        }
+    }
 
     return (
         <div className="order-modal-overlay">
@@ -157,7 +174,7 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
                             </li>
                         </ul>
                         <div className='finish-order-section'>
-                            <button className="place-order-button">
+                            <button className="place-order-button" onClick={handleConfirmOrder}>
                                 Confirm & Pay (${totalPrice})
                             </button>
                             <div className='charged-msg'>You won’t be charged yet</div>

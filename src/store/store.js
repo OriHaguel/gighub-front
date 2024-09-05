@@ -11,6 +11,7 @@ const rootReducer = combineReducers({
     gigModule: gigReducer,
     userModule: userReducer,
     reviewModule: reviewReducer,
+    gigOrder: gigReducer
     // systemModule: systemReducer,
 })
 
