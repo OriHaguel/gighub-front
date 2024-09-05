@@ -31,7 +31,7 @@
 				flex-direction: row;
 				align-items: center;
 				border-radius: 8px;
-				margin-inline: rem(16px);
+				margin-inline: rem(24px);
 				white-space: nowrap;
 
 				padding-block-end: rem(20px);
@@ -177,8 +177,6 @@
 				ul {
 					list-style: none;
 					display: flex;
-					margin: 0;
-					padding: 0;
 
 					li {
 						a,
