@@ -1,3 +1,5 @@
+import { useEffect, useState, useRef } from "react"
+import { useSelector } from "react-redux"
 import InfoIcon from '../assets/svg/InfoIcon.svg?react'
 import CloseIcon from '../assets/svg/CloseIcon.svg?react'
 import OptionsIcon from '../assets/svg/OptionsIcon.svg?react'
@@ -5,12 +7,84 @@ import PackageIcon from '../assets/svg/PackageIcon.svg?react'
 import ArrowIcon from '../assets/svg/ArrowIcon.svg?react'
 import TimerLogo from '../assets/svg/TimerLogo.svg?react'
 import RecycleLogo from '../assets/svg/RecycleLogo.svg?react'
-export function OrderPage({ gig, onClose }) {
+import { gigService } from "../services/gig"
+
+
+export function OrderPage({ gig, selectedPackage, onClose }) {
+    const gigOrder = useSelector(state => state.gigOrder.addOrder)
+    const modalRef = useRef(null)
+    const [upgrades, setUpgrades] = useState({
+        'Proof of Concept': false,
+        'Personal Consultation': false,
+        'Social Media Promotion': false
+    })
+
+    // console.log('order page gig debug ', gig)
+    // console.log('order page package debug', selectedPackage)
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (modalRef.current && !modalRef.current.contains(event.target)) {
+                onClose()
+            }
+        }
+        document.addEventListener('mousedown', handleClickOutside)
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [onClose])
+
+
+    const upgradeDetails = {
+        'Proof of Concept': {
+            description: 'Receive a bonus proof of concept for the project, showcasing the key elements before final delivery.',
+            price: 20
+        },
+        'Personal Consultation': {
+            description: 'A 30-minute one-on-one consultation to discuss your project and provide personalized guidance.',
+            price: 40
+        },
+        'Social Media Promotion': {
+            description: 'Promote your project on my social media channels to reach a wider audience.',
+            price: 60
+        }
+    }
+
+    const handleUpgradeToggle = (title) => {
+        setUpgrades(prevUpgrades => ({
+            ...prevUpgrades,
+            [title]: !prevUpgrades[title]
+        }))
+    }
+
+    let totalUpgradesPrice = 0
+    const upgradeTitles = Object.keys(upgrades)
+    for (let i = 0; i < upgradeTitles.length; i++) {
+        const title = upgradeTitles[i]
+        if (upgrades[title]) {
+            totalUpgradesPrice += upgradeDetails[title].price
+        }
+    }
+    const totalPrice = selectedPackage.price + totalUpgradesPrice
+
+    const handleConfirmOrder = async () => {
+        try {
+            const finalOrder = {
+                // gig,
+                // selectedPackage,
+                // upgrades,
+                totalPrice
+            }
+            const savedOrder = await gigOrder(finalOrder)
+            console.log('Order confirmed:', savedOrder)
+        } catch (err) {
+            console.error('Error confirming order:', err)
+        }
+    }
 
     return (
-
         <div className="order-modal-overlay">
-            <div className="order-modal-content">
+            <div className="order-modal-content" ref={modalRef}>
                 <button className="close-modal-button" onClick={onClose}>
                     <CloseIcon />
                 </button>
@@ -26,18 +100,28 @@ export function OrderPage({ gig, onClose }) {
                             </button>
                         </div>
                         <div className="option-list">
-                            <div className="option-item">
-                                <div className="option-info">
-                                    <h4 className="option-title">Include Source File</h4>
-                                    <p className="option-description">Receive the source file in addition to your final work.</p>
+                            {Object.keys(upgradeDetails).map(title => (
+                                <div
+                                    className={`option-item ${upgrades[title] ? 'selected' : ''}`}
+                                    key={title}
+                                    onClick={() => handleUpgradeToggle(title)}
+                                >
+                                    <div className="option-info">
+                                        <h4 className="option-title">{title}</h4>
+                                        <p className="option-description">
+                                            {upgradeDetails[title].description}
+                                        </p>
+                                    </div>
+                                    <div className="option-action">
+                                        <p className="option-price">${upgradeDetails[title].price}</p>
+                                        <button
+                                            className="add-option-button"
+                                        >
+                                            <OptionsIcon />
+                                        </button>
+                                    </div>
                                 </div>
-                                <div className="option-action">
-                                    <p className="option-price">$20</p>
-                                    <button className="add-option-button">
-                                        <OptionsIcon />
-                                    </button>
-                                </div>
-                            </div>
+                            ))}
                         </div>
                     </div>
                     <div className="order-summary">
@@ -49,15 +133,15 @@ export function OrderPage({ gig, onClose }) {
                             </li>
                             <li className="summary-item">
                                 <span className="summary-item-name">Total Upgrades</span>
-                                <span className="summary-item-price">$20</span>
+                                <span className="summary-item-price">${totalUpgradesPrice}</span>
                             </li>
                         </ul>
                         <div className="total-price">
                             <span>Total</span>
-                            <span className="total-amount">${gig.price + 20}</span>
+                            <span className="total-amount">${totalPrice}</span>
                         </div>
                         <ul className="bonus-info-order-page">
-                            <li>
+                            <li className="summery-icons">
                                 <article className="package-item">
                                     <div className="package-header">
                                         <div className="icon-container">
@@ -65,7 +149,7 @@ export function OrderPage({ gig, onClose }) {
                                                 <span className="package-icon" aria-hidden="true">
                                                     <PackageIcon />
                                                 </span>
-                                                <span className="package-name">Basic package</span>
+                                                <span className="package-name">{selectedPackage.type}</span>
                                             </li>
                                         </div>
                                         <div className="arrow-container">
@@ -74,37 +158,30 @@ export function OrderPage({ gig, onClose }) {
                                             </span>
                                         </div>
                                     </div>
-                                    {/* <div >
-                                        <ul className="details-list">
-                                            <li className="detail-item-items-center">
-                                                <span>Speed optimization</span>
-                                            </li>
-                                            <li className="detail-item-items-center-text-normal">
-                                                <span>Browser Caching</span>
-                                            </li>
-                                        </ul>
-                                    </div> */}
                                 </article>
                             </li>
-                            <li className="flex-items-center-icon-list-item">
-                                <span className="timer-logo" aria-hidden="true" >
+                            <li className="summery-icons">
+                                <span className="timer-logo" aria-hidden="true">
                                     <TimerLogo />
                                 </span>
-                                <span className="detail-info">3-day delivery</span>
+                                <span className="detail-info">{selectedPackage.daysToMake}-day delivery</span>
                             </li>
-                            <li className="flex-items-center-icon-list-item">
-                                <span className="recycle-logo" aria-hidden="true" >
+                            <li className="summery-icons">
+                                <span className="recycle-logo" aria-hidden="true">
                                     <RecycleLogo />
                                 </span>
-                                <span className="detail-info">No revisions</span>
+                                <span className="detail-info">{selectedPackage.revisions} revisions</span>
                             </li>
                         </ul>
-                        <button className="place-order-button">Continue (${gig.price + 20})</button>
-                        <div className='charged-msg'>You won’t be charged yet</div>
+                        <div className='finish-order-section'>
+                            <button className="place-order-button" onClick={handleConfirmOrder}>
+                                Confirm & Pay (${totalPrice})
+                            </button>
+                            <div className='charged-msg'>You won’t be charged yet</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     )
-
 }
