@@ -17,10 +17,16 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
     }
 
     function onLogin(credentials) {
-        const method = isSignup ? signup : login
+        try {
+            const method = isSignup ? signup : login
+            method(credentials)
+
+        } catch (error) {
+            console.log("🚀 ~ onLogin ~ error:", error)
+
+        }
 
 
-        method(credentials)
         // .then(user => showSuccessMsg('Hello!'))
         // .catch(err => showErrorMsg('Error logging in'))
     }

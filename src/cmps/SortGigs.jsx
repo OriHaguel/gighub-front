@@ -2,9 +2,10 @@ import { useEffect, useState } from 'react'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 
 export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy }) {
-    // console.log("🚀 ~ SortGigs ~ filterBy:", filterBy)
 
-    const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
+
+    // const [filterByToEdit, setFilterByToEdit] = useState({ ...filterBy })
+    const [filterByToEdit, setFilterByToEdit] = useState({ price: '', daysToMake: '' })
 
 
 
@@ -33,6 +34,7 @@ export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy
 
     function onSubmit() {
         setFilterBy(filterByToEdit)
+        console.log("🚀 ~ onSubmit ~ filterByToEdit:", filterByToEdit)
     }
 
 
@@ -115,7 +117,7 @@ export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy
                                 <li><input className='radio-dot' type="radio" value={`day`} name='daysToMake' onChange={handleChange} />Express 24H</li>
                                 <li><input className='radio-dot' type="radio" value={`3days`} name='daysToMake' onChange={handleChange} />up to 3 days</li>
                                 <li><input className='radio-dot' type="radio" value={`7days`} name='daysToMake' onChange={handleChange} />up to 7 days</li>
-                                <li><input className='radio-dot' type="radio" value={`anytime`} name='daysToMake' onChange={handleChange} />Anytime</li>
+                                <li><input className='radio-dot' type="radio" value={`anytime`} name='daysToMake' onChange={handleChange} />More then 7 days</li>
                             </ul>
                             <div className='sort-buttons-section'>
                                 <button className='clear-button' onClick={onClear}>Clear All</button>

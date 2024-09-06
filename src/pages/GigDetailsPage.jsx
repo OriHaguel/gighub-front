@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 
@@ -8,15 +8,15 @@ import { GigCarrousel } from '../cmps/GigCarrousel'
 import { GigAbout } from '../cmps/GigAbout'
 import { GigPricing } from '../cmps/GigPricing'
 import { GigReviewsList } from '../cmps/GigReviewsList'
-import { gigService } from '../services/gig/gig.service.local'
 import { OrderPage } from '../cmps/OrderPage'
+import { gigService } from '../services/gig'
 
 export function GigDetailsPage() {
 	const param = useParams()
 	const [gig, setGig] = useState()
 	const [isOrderPageOpen, setIsOrderPageOpen] = useState(false)
-	const [selectedPackage, setSelectedPackage] = useState(null) 
-
+	const [selectedPackage, setSelectedPackage] = useState(null)
+	const navigate = useNavigate()
 	useEffect(() => {
 		loadGig()
 	}, [param.gigId])
@@ -26,8 +26,8 @@ export function GigDetailsPage() {
 			const gig = await gigService.getById(param.gigId)
 			setGig(gig)
 		} catch (error) {
-			console.log('🚀 ~ loadGig ~ error:', error)
 			navigate('/gigs')
+			console.log('🚀 ~ loadGig ~ error:', error)
 		}
 	}
 
