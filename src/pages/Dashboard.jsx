@@ -1,73 +1,125 @@
+// React
+import { useEffect, useState, useRef } from 'react'
+import { useParams } from 'react-router'
+import { useSelector } from 'react-redux'
+import { useSearchParams } from 'react-router-dom'
+
+import { loadOrders, setFilterBy, loadOrder } from '../store/actions/order.actions'
+
+import { orderService } from '../services/order'
+import { gigService } from '../services/gig'
+
 export function Dashboard() {
+    const param = useParams()
+    const orders = useSelector(state => state.gigOrder.orders)
+    const [searchParams, setSearchParams] = useSearchParams()
+    const filterBy = useSelector(state => state.gigOrder.filterBy)
+    const defaultFilter = orderService.getFilterFromSearchParams(searchParams)
 
+    // useEffect(() => {
+    //     setFilterBy(defaultFilter)
+    //     console.log("🚀 ~ useEffect ~ filterBy:", filterBy)
+    // }, [])
 
+    // useEffect(() => {
+    //     setSearchParams(filterBy, { replace: true })
+    //     console.log("🚀 ~ useEffect ~ filterBy:", filterBy)
 
-    return <article className="dashboard-container">
+    //     async function loadOrder() {
+    //         try {
+    //             if (filterBy.title || filterBy.price) {
+    //                 await loadOrders(filterBy)
+    //             }
+    //         } catch (error) {
+    //             console.log('🚀 ~ loadOrders ~ error:', error)
+    //         }
+    //     }
 
-        <header>
-            <h1>Gigs</h1>
-        </header>
+    //     loadOrder()
+    // }, [filterBy])
 
-        <div className="dashboard-filter">
-            <ul>
-                <li><a href="">ACTIVE</a></li>
-                <li><a href="">PENDING APPROVAL</a></li>
-                <li><a href="">ACCEPTED</a></li>
-                <li><a href="">DENIED</a></li>
-            </ul>
-            <a href="" className="dashboard-create-gig-btn">CREATE A NEW GIG</a>
-        </div>
+    useEffect(() => {
+        Promise.all([loadOrders()])
+            .catch((error) => {
+                console.error('Error loading orders:', error)
+            })
+    }, [])
 
-        <div className="dashboard-data-container">
-            <table>
+    console.log('orders debug', orders)
 
-                <thead>
-                    <tr className="header-filter">
-                        <td>this text will change</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+    return (
 
+        <article className="dashboard-container">
 
-                    </tr>
-                    <tr className="header-data">
-                        <td className="dashboard-table-header-gig">GIG</td>
-                        <td></td>
-                        <td>IMPRESSIONS</td>
-                        <td>CLICKS</td>
-                        <td>ORDERS</td>
-                        <td className="dashboard-table-header-cancellation">CANCELLATIONS</td>
-                        <td></td>
+            <header>
+                <h1>Gigs</h1>
+            </header>
 
-                    </tr>
-                </thead>
+            <div className="dashboard-filter">
+                <ul>
+                    <li><a href="">ACTIVE</a></li>
+                    <li><a href="">PENDING APPROVAL</a></li>
+                    <li><a href="">ACCEPTED</a></li>
+                    <li><a href="">DENIED</a></li>
+                </ul>
+                <a href="" className="dashboard-create-gig-btn">CREATE A NEW GIG</a>
+            </div>
 
-                <tbody>
-                    <tr>
-                        <td className="dahsboard-gig-img">
-                            image here
-                        </td>
-                        <td className="dahsboard-title">
-                            <div>
-                                gig title here
-                            </div>
-                        </td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0</td>
-                        <td>0%</td>
-                        <td className="dashboard-dropdown">
-                            <div>
-                                <a></a>
-                            </div>
-                        </td>
-                    </tr>
+            <div className="dashboard-data-container">
+                <table>
 
-                </tbody>
-            </table>
-        </div>
-    </article>
+                    <thead>
+                        <tr className="header-filter">
+                            <td>Gig List</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                        <tr className="header-data">
+                            <td className="dashboard-table-header-gig">GIG</td>
+                            <td></td>
+                            <td>FULL NAME</td>
+                            <td>IMPRESSIONS</td>
+                            <td>CLICKS</td>
+                            <td>ORDERS</td>
+                            <td className="dashboard-table-header-cancellation">PRICE</td>
+                            <td className="dashboard-table-header-cancellation">CANCELLATIONS</td>
+                            <td></td>
+
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {orders.map(order => (
+                            <tr key={order._id}>
+                                <td className="dashboard-gig-img">
+                                    <img src={order.miniGig.img[0]} alt="Gig" width="50" />
+                                </td>
+                                <td className="dashboard-title">
+                                    <div>
+                                        {order.miniGig.title}
+                                    </div>
+                                </td>
+                                <td>{order.buyer.fullname}</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>{order.miniGig.price}</td>
+                                <td className="dashboard-dropdown">
+                                    <div>
+                                        <a href="#">Details</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+    )
 }

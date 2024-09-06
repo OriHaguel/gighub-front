@@ -89,7 +89,7 @@ async function save(order) {
 		savedOrder = await storageService.put(STORAGE_KEY, orderToSave)
 	} else {
 		const orderToSave = {
-			title: order.title,
+			// title: order.title,
 			totalPrice: order.totalPrice,
 			daysToMake: order.daysToMake,
 			miniGig: order.miniGig,
