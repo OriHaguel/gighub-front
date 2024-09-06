@@ -90,11 +90,11 @@ async function save(order) {
 	} else {
 		const orderToSave = {
 			title: order.title,
-			price: order.price,
-			daystomake: order.daystomake,
+			totalPrice: order.totalPrice,
+			daysToMake: order.daysToMake,
+			miniGig: order.miniGig,
 			// Later, owner is set by the backend
-			owner: userService.getLoggedinUser(),
-			msgs: [],
+			buyer: userService.getLoggedinUser(),
 		}
 		savedOrder = await storageService.post(STORAGE_KEY, orderToSave)
 	}

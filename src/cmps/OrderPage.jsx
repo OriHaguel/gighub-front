@@ -67,15 +67,23 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
         }
     }
     const totalPrice = selectedPackage.price + totalUpgradesPrice
-
+    const daysToMake = selectedPackage.daysToMake
     const handleConfirmOrder = async () => {
         try {
             const finalOrder = {
                 // gig,
                 // selectedPackage,
                 // upgrades,
-                totalPrice
+                daysToMake,
+                totalPrice,
+                miniGig: {
+                    _id: gig._id,
+                    title: gig.title,
+                    img: gig.img,
+                    price: totalPrice,
+                }
             }
+            console.log("🚀 ~ handleConfirmOrder ~ finalOrder:", finalOrder)
             const savedOrder = await addOrder(finalOrder)
             console.log('Order confirmed:', savedOrder)
         } catch (err) {
