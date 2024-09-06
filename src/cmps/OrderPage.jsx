@@ -8,6 +8,7 @@ import ArrowIcon from '../assets/svg/ArrowIcon.svg?react'
 import TimerLogo from '../assets/svg/TimerLogo.svg?react'
 import RecycleLogo from '../assets/svg/RecycleLogo.svg?react'
 import { gigService } from "../services/gig"
+import { addOrder } from "../store/actions/order.actions"
 
 
 export function OrderPage({ gig, selectedPackage, onClose }) {
@@ -75,7 +76,7 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
                 // upgrades,
                 totalPrice
             }
-            const savedOrder = await gigOrder(finalOrder)
+            const savedOrder = await addOrder(finalOrder)
             console.log('Order confirmed:', savedOrder)
         } catch (err) {
             console.error('Error confirming order:', err)

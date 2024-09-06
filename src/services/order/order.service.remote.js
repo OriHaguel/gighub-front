@@ -1,35 +1,56 @@
 import { httpService } from '../http.service'
 
-export const gigService = {
+export const orderService = {
     query,
     getById,
     save,
     remove,
-    addOrderMsg
+    // addOrderMsg
 }
 
 async function query(filterBy = { txt: '', price: 0 }) {
-    return httpService.get(`order`, filterBy)
+    return httpService.get(`gig`, filterBy)
 }
 
-function getById(orderId) {
-    return httpService.get(`order/${orderId}`)
+function getById(gigId) {
+    return httpService.get(`gig/${gigId}`)
 }
 
-async function remove(orderId) {
-    return httpService.delete(`order/${orderId}`)
+async function remove(gigId) {
+    return httpService.delete(`gig/${gigId}`)
 }
-async function save(order) {
-    var savedOrder
-    if (order._id) {
-        savedOrder = await httpService.put(`order/${order._id}`, order)
+async function save(gig) {
+    var savedGig
+    if (gig._id) {
+        savedGig = await httpService.put(`gig/${gig._id}`, gig)
     } else {
-        savedOrder = await httpService.post('order', order)
+        savedGig = await httpService.post('gig', gig)
     }
-    return savedOrder
+    return savedGig
 }
 
-async function addOrderMsg(orderId, txt) {
-    const savedMsg = await httpService.post(`order/${orderId}/msg`, { txt })
+async function addGigMsg(gigId, txt) {
+    const savedMsg = await httpService.post(`gig/${gigId}/msg`, { txt })
     return savedMsg
+}
+
+function getFilterFromSearchParams(searchParams) {
+    const defaultFilter = _diffFilter()
+    const filterBy = {}
+    for (const field in defaultFilter) {
+        filterBy[field] = searchParams.get(field) || ''
+    }
+    return filterBy
+}
+
+function _diffFilter() {
+    return {
+        title: '',
+        price: '',
+        sortField: '',
+        sortDir: '',
+        txt: '',
+        category: '',
+        daysToMake: '',
+    }
 }
