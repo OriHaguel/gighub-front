@@ -5,6 +5,7 @@ import { SellerLevel } from './SellerLevel.jsx'
 import { SellerPro } from './SellerPro.jsx'
 import Star from '../assets/svg/star.svg?react'
 import { gigService } from '../services/gig/index.js'
+import GigImage from '../assets/img/gig-image.png'
 
 export function GigDetails() {
 	const [gig, setGig] = useState(null)
