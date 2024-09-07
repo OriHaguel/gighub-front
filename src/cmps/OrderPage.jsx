@@ -12,6 +12,7 @@ import { addOrder } from "../store/actions/order.actions"
 
 
 export function OrderPage({ gig, selectedPackage, onClose }) {
+    // console.log("🚀 ~ OrderPage ~ gig:", gig)
     const gigOrder = useSelector(state => state.gigOrder.addOrder)
     const modalRef = useRef(null)
     const [upgrades, setUpgrades] = useState({
@@ -81,7 +82,8 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
                     title: gig.title,
                     img: gig.img,
                     price: totalPrice,
-                }
+                },
+                seller: gig.owner
             }
             console.log("🚀 ~ handleConfirmOrder ~ finalOrder:", finalOrder)
             const savedOrder = await addOrder(finalOrder)
