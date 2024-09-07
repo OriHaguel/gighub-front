@@ -263,6 +263,27 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_fjcp1e.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/5_h4ivae.webp'
 			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_pxpdti.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_uyyybp.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_nhag8g.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_l4kqsx.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_nddyio.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_uvn9tj.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_o8kmxq.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_hcqwri.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/tech_4_1_ydbquq.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/tech_4_3_qfio6h.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/tech_4_4_ndppln.webp'
+			],
 
 		],
 		//design
@@ -322,6 +343,60 @@ export function getGigImg(gigs) {
 			[
 				'https://res.cloudinary.com/dofblayxi/image/upload/1_jy4af5.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_eg0mqf.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_llhqdi.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_dos0se.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_jais4s.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_wrrxol.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/8_xotlul.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/9_qijaz0.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/12_lmlmx9.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/13_d3n37o.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/14_jcoqeo.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/15_yotesc.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/14_s493u5.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/15_go9dhl.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/16_cgnano.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/17_f671gx.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/18_sazx9g.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/19_ouvuym.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/20_vl6rkg.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/21_lzz8se.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/13_vnnnhp.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/12_xnrk8y.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/11_nv0dm3.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/10_anksaj.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/9_hoyw4t.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/8_kb6lbj.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_r37ayg.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_dh0bi3.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_ph5fs0.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/123_dysibp.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_hj3sqn.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_igauqd.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_nto8dn.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_c9xsyt.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/5_gkivre.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_nocvyv.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_nnzvwn.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_q4qvex.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/1_n4qzby.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/2_toexu9.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/3_vmib00.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/4_hfcid6.webp'
 			],
 		],
 		//animation
@@ -525,6 +600,12 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/2_unknhc.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/3_cqa3bi.webp'
 			],
+		],
+		//AI
+		ai: [
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/1_u4up1q.webp'
+			]
 		]
 	}
 
