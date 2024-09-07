@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 
 import { loadOrders, setFilterBy, loadOrder } from '../store/actions/order.actions'
+import { addGig } from '../store/actions/gig.actions'
 
 import { orderService } from '../services/order'
 import { gigService } from '../services/gig'
@@ -12,6 +13,7 @@ import { gigService } from '../services/gig'
 export function Dashboard() {
     const param = useParams()
     const orders = useSelector(state => state.gigOrder.orders)
+    const gigs = useSelector(state => state.gigModule.gigs)
     const [searchParams, setSearchParams] = useSearchParams()
     const filterBy = useSelector(state => state.gigOrder.filterBy)
     const defaultFilter = orderService.getFilterFromSearchParams(searchParams)
@@ -45,7 +47,21 @@ export function Dashboard() {
             })
     }, [])
 
+
+    function handleAddedGig() {
+        const newGig = {
+            title: 'New Gig Title',
+            price: 100,
+            daystomake: 7,
+            img:[]
+        }
+        addGig(newGig)
+
+        console.log('Gig added:', newGig)
+    }
+
     console.log('orders debug', orders)
+    console.log('gigs debeug', gigs)
 
     return (
 
@@ -63,6 +79,7 @@ export function Dashboard() {
                     <li><a href="">DENIED</a></li>
                 </ul>
                 <a href="" className="dashboard-create-gig-btn">CREATE A NEW GIG</a>
+                {/* <button onClick={handleAddedGig}>Add Gig:</button> */}
             </div>
 
             <div className="dashboard-data-container">

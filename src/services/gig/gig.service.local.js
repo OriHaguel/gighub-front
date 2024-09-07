@@ -85,6 +85,7 @@ async function save(gig) {
 			_id: gig._id,
 			price: gig.price,
 			daystomake: gig.daystomake,
+			// img:gig.img
 		}
 		savedGig = await storageService.put(STORAGE_KEY, gigToSave)
 	} else {
@@ -95,6 +96,7 @@ async function save(gig) {
 			// Later, owner is set by the backend
 			owner: userService.getLoggedinUser(),
 			msgs: [],
+			img: gig.img
 		}
 		savedGig = await storageService.post(STORAGE_KEY, gigToSave)
 	}
@@ -148,6 +150,10 @@ function _createGig() {
 	gig.reviewSellerResponse = getSellerResponse()
 
 	return gig
+}
+
+function createGigToDashBoard(gig) {
+
 }
 
 function _createGigs() {
