@@ -18,26 +18,10 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
     }
 
     function onLogin(credentials) {
-        try {
-            const method = isSignup ? signup : login
-            method(credentials)
-            Swal.fire({
-                title: isSignup ? 'Success!' : 'Status:',
-                text: isSignup ? 'Account created successfully!' : 'Log in attempt!',
-                icon: isSignup ? 'success' : 'info',
-                confirmButtonText: 'OK'
-            })
+        // try {
+        const method = isSignup ? signup : login
+        method(credentials)
 
-        } catch (error) {
-            console.log("🚀 ~ onLogin ~ error:", error)
-            Swal.fire({
-                title: 'Error',
-                text: 'There was an issue with your request. Please try again.',
-                icon: 'error',
-                confirmButtonText: 'OK'
-            })
-
-        }
 
         // .then(user => showSuccessMsg('Hello!'))
         // .catch(err => showErrorMsg('Error logging in'))

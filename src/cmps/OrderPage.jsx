@@ -83,7 +83,8 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
                     img: gig.img,
                     price: totalPrice,
                 },
-                seller: gig.owner
+                seller: gig.owner,
+                status: 'pending'
             }
             console.log("🚀 ~ handleConfirmOrder ~ finalOrder:", finalOrder)
             const savedOrder = await addOrder(finalOrder)
