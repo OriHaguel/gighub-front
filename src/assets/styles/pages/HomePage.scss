@@ -49,6 +49,10 @@
 		font-size: 45px;
 		color: rgb(64, 61, 61);
 		font-weight: 500;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			@include font(32px, 38px, 400);
+		}
 	}
 }
 

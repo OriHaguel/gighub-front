@@ -13,7 +13,3 @@ $normal-breakpoint: 1400px;
 $padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
 $padded-break-tablet: $tablet-breakpoint + $layoutPadding * 2;
 $padded-break-normal: $normal-breakpoint + $layoutPadding * 2;
-
-.gradient-background {
-	background: linear-gradient(to bottom, #003912, #0f7d43);
-}
