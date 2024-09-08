@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { gigService } from '../services/gig'
 // import { useSelector } from 'react-redux'
 // import { Link } from 'react-router-dom'
+import { GigPricing } from './GigPricing.jsx'
+import { PackageBreakdown } from './PackageBreakdown.jsx'
 
 
 export function GigAbout() {
@@ -35,6 +37,9 @@ export function GigAbout() {
 		<section className='about-details'>
 			<h1>About this gig</h1>
 			<p>{gig.aboutGig}</p>
+			{/* <div className='gig-breakdown'>
+			<PackageBreakdown gig={gig}/>
+			</div> */}
 		</section>
 	)
 }
