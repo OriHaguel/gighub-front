@@ -7,11 +7,13 @@ import PackageIcon from '../assets/svg/PackageIcon.svg?react'
 import ArrowIcon from '../assets/svg/ArrowIcon.svg?react'
 import TimerLogo from '../assets/svg/TimerLogo.svg?react'
 import RecycleLogo from '../assets/svg/RecycleLogo.svg?react'
-import { gigService } from "../services/gig"
+// import { gigService } from "../services/gig"
+import { addOrder } from "../store/actions/order.actions"
+import Swal from 'sweetalert2'
 
 
 export function OrderPage({ gig, selectedPackage, onClose }) {
-    const gigOrder = useSelector(state => state.gigOrder.addOrder)
+    // const gigOrder = useSelector(state => state.gigOrder.addOrder)
     const modalRef = useRef(null)
     const [upgrades, setUpgrades] = useState({
         'Proof of Concept': false,
@@ -66,19 +68,39 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
         }
     }
     const totalPrice = selectedPackage.price + totalUpgradesPrice
-
+    const daysToMake = selectedPackage.daysToMake
     const handleConfirmOrder = async () => {
         try {
             const finalOrder = {
                 // gig,
                 // selectedPackage,
                 // upgrades,
-                totalPrice
+                daysToMake,
+                totalPrice,
+                miniGig: {
+                    _id: gig._id,
+                    title: gig.title,
+                    img: gig.img,
+                    price: totalPrice,
+                }
             }
-            const savedOrder = await gigOrder(finalOrder)
+            console.log("🚀 ~ handleConfirmOrder ~ finalOrder:", finalOrder)
+            const savedOrder = await addOrder(finalOrder)
             console.log('Order confirmed:', savedOrder)
+            Swal.fire({
+                title: 'Order Confirmed!',
+                text: `Your order has been placed successfully. You will be charged $${totalPrice}`,
+                icon: 'success',
+                confirmButtonText: 'OK'
+            })
         } catch (err) {
             console.error('Error confirming order:', err)
+            Swal.fire({
+                title: 'Order Failed',
+                text: 'There was an error confirming your order. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
         }
     }
 
@@ -177,7 +199,7 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
                             <button className="place-order-button" onClick={handleConfirmOrder}>
                                 Confirm & Pay (${totalPrice})
                             </button>
-                            <div className='charged-msg'>You won’t be charged yet</div>
+                            <div className='charged-msg'>You Will Be Charged Immediately</div>
                         </div>
                     </div>
                 </div>

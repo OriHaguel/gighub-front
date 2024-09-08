@@ -5,7 +5,6 @@ import { setFilterBy } from "../store/actions/gig.actions";
 import { useSelector } from 'react-redux';
 export function HeaderCategories() {
 	const filterBy = useSelector(state => state.gigModule.filterBy)
-	console.log("🚀 ~ HeaderCategories ~ filterBy:", filterBy)
 	const [searchParams, setSearchParams] = useSearchParams()
 
 	const categoriesList = [{ categoryTxt: 'Graphics & Design' }, { categoryTxt: 'Programming & Tech' }, { categoryTxt: 'Digital Marketing' }, { categoryTxt: 'Video & Animation' }, { categoryTxt: 'Writing & Translation' }, { categoryTxt: 'Music & Audio' }, { categoryTxt: 'Business' }, { categoryTxt: 'Consulting' }, { categoryTxt: 'AI Services' }]

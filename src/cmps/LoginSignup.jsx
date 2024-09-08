@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { userService } from '../services/user/index.js'
 import { login, signup } from '../store/actions/user.actions.js'
+import Swal from 'sweetalert2'
 
 export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
     const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
@@ -17,10 +18,27 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
     }
 
     function onLogin(credentials) {
-        const method = isSignup ? signup : login
+        try {
+            const method = isSignup ? signup : login
+            method(credentials)
+            Swal.fire({
+                title: isSignup ? 'Success!' : 'Status:',
+                text: isSignup ? 'Account created successfully!' : 'Log in attempt!',
+                icon: isSignup ? 'success' : 'info',
+                confirmButtonText: 'OK'
+            })
 
+        } catch (error) {
+            console.log("🚀 ~ onLogin ~ error:", error)
+            Swal.fire({
+                title: 'Error',
+                text: 'There was an issue with your request. Please try again.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
 
-        method(credentials)
+        }
+
         // .then(user => showSuccessMsg('Hello!'))
         // .catch(err => showErrorMsg('Error logging in'))
     }

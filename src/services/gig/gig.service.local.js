@@ -85,6 +85,7 @@ async function save(gig) {
 			_id: gig._id,
 			price: gig.price,
 			daystomake: gig.daystomake,
+			// img:gig.img
 		}
 		savedGig = await storageService.put(STORAGE_KEY, gigToSave)
 	} else {
@@ -95,6 +96,7 @@ async function save(gig) {
 			// Later, owner is set by the backend
 			owner: userService.getLoggedinUser(),
 			msgs: [],
+			img: gig.img
 		}
 		savedGig = await storageService.post(STORAGE_KEY, gigToSave)
 	}
@@ -150,11 +152,15 @@ function _createGig() {
 	return gig
 }
 
+function createGigToDashBoard(gig) {
+
+}
+
 function _createGigs() {
 	let gigs = loadFromStorage(STORAGE_KEY)
 	if (!gigs || !gigs.length) {
 		gigs = []
-		for (var i = 0; i < 50; i++) {
+		for (var i = 0; i < 120; i++) {
 			gigs.push(_createGig())
 		}
 

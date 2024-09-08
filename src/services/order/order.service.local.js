@@ -1,10 +1,10 @@
 import { storageService } from '../async-storage.service'
-import { makeId, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories, makeUserNameLorem, getRandomBoolean, getOrderImg } from '../util.service'
+import { makeId, getRandomIntInclusive, loadFromStorage, saveToStorage, getRandomSentence, categories, makeUserNameLorem, getRandomBoolean, getGigImg } from '../util.service'
 
 import { userService } from '../user'
 
 const STORAGE_KEY = 'order'
-_createOrders()
+// _createOrders()
 export const orderService = {
 	query,
 	getById,
@@ -89,12 +89,12 @@ async function save(order) {
 		savedOrder = await storageService.put(STORAGE_KEY, orderToSave)
 	} else {
 		const orderToSave = {
-			title: order.title,
-			price: order.price,
-			daystomake: order.daystomake,
+			// title: order.title,
+			totalPrice: order.totalPrice,
+			daysToMake: order.daysToMake,
+			miniGig: order.miniGig,
 			// Later, owner is set by the backend
-			owner: userService.getLoggedinUser(),
-			msgs: [],
+			buyer: userService.getLoggedinUser(),
 		}
 		savedOrder = await storageService.post(STORAGE_KEY, orderToSave)
 	}
@@ -159,7 +159,7 @@ function _createOrders() {
 		}
 
 		// saveToStorage(STORAGE_KEY, getOrderImg(orders))
-		const ordersWithImages = getOrderImg(orders);
+		const ordersWithImages = getGigImg(orders);
 		saveToStorage(STORAGE_KEY, ordersWithImages);
 	}
 }

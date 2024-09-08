@@ -34,7 +34,7 @@ export function GigReviewsList() {
 		<section className='reviews-list-container'>
 			<div className='review-overview-container'>
 				<h1 className='review-title'>Reviews</h1>
-				<h2 className='reviews-for-gig'>reviews for this Gig</h2>
+				<h2 className='reviews-for-gig'>Reviews for this Gig</h2>
 			</div>
 			<GigReview />
 		</section>
