@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
-import { setFilterBy } from "../store/actions/gig.actions";
+
+// Images
 import ProgrammingLogo from '../assets/svg/programmingLogo.svg?react'
 import DesignLogo from '../assets/svg/designLogo.svg?react'
 import DigitalLogo from '../assets/svg/digitalLogo.svg?react'
@@ -10,9 +11,11 @@ import AiLogo from '../assets/svg/aiLogo.svg?react'
 import MusicLogo from '../assets/svg/musicLogo.svg?react'
 import BusinessLogo from '../assets/svg/businessLogo.svg?react'
 import ConsultingLogo from '../assets/svg/consultingLogo.svg?react'
+import Chevron from '../assets/svg/chevronIcon.svg?react'
 
 export function CategoryList() {
 	const [searchParams, setSearchParams] = useSearchParams()
+
 	const categoriesList = [
 		{
 			categoryTxt: 'Programming & Tech',
@@ -52,28 +55,52 @@ export function CategoryList() {
 		},
 	]
 
-	const [categories, setCategories] = useState(categoriesList)
+	const [itemsShown, setItemsShown] = useState(0)
+	const [itemsPerPage, setItemsPerPage] = useState(0)
+
+	useEffect(() => {
+		// Calculate how many items fit in one row and update state
+		const calculateItemsPerPage = () => {
+			const itemWidth = 129 // Width of each item
+			const itemsPerRow = Math.floor(window.innerWidth / itemWidth)
+			setItemsPerPage(itemsPerRow)
+			setItemsShown(itemsPerRow * 2) // Show items that fit in two rows
+		}
+
+		calculateItemsPerPage()
+		window.addEventListener('resize', calculateItemsPerPage)
+
+		return () => {
+			window.removeEventListener('resize', calculateItemsPerPage)
+		}
+	}, [])
+
+	const handleViewMore = () => {
+		setItemsShown(prevItemsShown => prevItemsShown + itemsPerPage * 2)
+	}
 
 	function onCategory(categoryToSave) {
-
-		// setFilterBy({ category: categoryToSave.categoryTxt.split(' ')[0].toLowerCase() })
-		// setSearchParams({ category: categoryToSave.categoryTxt.split(' ')[0].toLowerCase() })
 		return `?category=${categoryToSave.categoryTxt.split(' ')[0].toLowerCase()}`
 	}
 
 	return (
 		<section className='category-list-container'>
-			{categories &&
-				categories.map(category => (
-					<div className='category-list' key={category.categoryTxt}>
-						{/* <Link className='category-list-link' to={`category/${category.categoryTxt.split(' ')[0].toLowerCase()}`}> */}
-						<Link className='category-list-link' to={`gigs${onCategory(category)}`}>
-							{/* <Link className='category-list-link' to={`gigs`} onClick={() => onCategory(category)}> */}
-							<div className='category-list-logo'>{category.logo}</div>
-							<p className='category-list-text'>{category.categoryTxt}</p>
-						</Link>
-					</div>
+			<div className='category-list'>
+				{categoriesList.slice(0, itemsShown).map(category => (
+					<Link className='category-list-link' to={`gigs${onCategory(category)}`} key={category.categoryTxt}>
+						<div className='category-list-logo'>{category.logo}</div>
+						<p className='category-list-text'>{category.categoryTxt}</p>
+					</Link>
 				))}
+			</div>
+			{itemsShown < categoriesList.length && (
+				<div className='view-more-button' onClick={handleViewMore}>
+					<p>View more</p>
+					<div className='chevron'>
+						<Chevron />
+					</div>
+				</div>
+			)}
 		</section>
 	)
 }

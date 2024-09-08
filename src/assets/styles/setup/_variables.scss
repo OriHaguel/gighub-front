@@ -3,18 +3,13 @@ $clr1: #ce2e6c;
 $main_clr1: #1dbf73;
 $main_clr2: #25b471;
 
-// Breakpoints
-// $mobile-breakpoint: 460px;
-// $narrow-breakpoint: 720px;
-// $normal-breakpoint: 960px;
-
-$layoutPadding: 20px;
+$layoutPadding: 24px;
 
 // LAYOUT BREAKPOINTS
-$break-narrow: 1200px;
-$break-normal: 1360px;
-$break-wide: 1920px;
+$mobile-breakpoint: 599px;
+$tablet-breakpoint: 899px;
+$normal-breakpoint: 1400px;
 
-$padded-break-narrow: $break-narrow + $layoutPadding * 2;
-$padded-break-normal: $break-normal + $layoutPadding * 2;
-$padded-break-wide: $break-wide + $layoutPadding * 2;
+$padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
+$padded-break-tablet: $tablet-breakpoint + $layoutPadding * 2;
+$padded-break-normal: $normal-breakpoint + $layoutPadding * 2;

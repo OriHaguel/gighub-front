@@ -10,6 +10,7 @@ import { GigPricing } from '../cmps/GigPricing'
 import { GigReviewsList } from '../cmps/GigReviewsList'
 import { OrderPage } from '../cmps/OrderPage'
 import { gigService } from '../services/gig'
+import { PackageBreakdown } from '../cmps/PackageBreakdown.jsx'
 
 export function GigDetailsPage() {
 	const param = useParams()
@@ -31,18 +32,19 @@ export function GigDetailsPage() {
 		}
 	}
 
-	const toggleOrderPage = (pkg) => {
+	const toggleOrderPage = pkg => {
 		setSelectedPackage(pkg)
 		setIsOrderPageOpen(!isOrderPageOpen)
 	}
 
 	if (!gig) return
 	return (
-		<section className='main-detail-page'>
+		<section className='main-detail-page main-container'>
 			<div className='gig-details-page-container grid-2'>
 				<GigDetails />
 				<GigCarrousel />
 				<GigAbout />
+				<PackageBreakdown gig={gig} />
 				<GigReviewsList />
 			</div>
 			<div className='pricing-container grid-4'>

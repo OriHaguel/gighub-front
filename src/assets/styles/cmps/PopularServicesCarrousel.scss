@@ -4,11 +4,9 @@
 	position: relative;
 
 	.popular-services-carrousel {
-		// padding: 30px;
-		max-width: 100%;
+		max-width: calc(100vw - 24px * 3);
 		overflow: hidden;
 		flex: 1;
-		// background-color: rgb(216, 240, 216);
 	}
 
 	.carousel-control-prev,
@@ -35,12 +33,14 @@
 		&.carousel-control-next {
 			right: -25px;
 		}
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			display: none;
+		}
 	}
 }
 
 .card {
-	// width: 200px;
-	// height: 270px;
 	width: calc(rem(188px) + rem(6px));
 	height: calc(rem(235px) + rem(25px));
 	display: flex;
@@ -54,6 +54,12 @@
 	padding-block: rem(5px) rem(6px);
 	text-align: left;
 	margin-right: 16px;
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		width: calc(rem(130px) + rem(8px));
+		height: calc(rem(162px) + rem(16px));
+		margin-right: rem(16px);
+	}
 
 	&:hover {
 		opacity: 90%;
@@ -98,8 +104,10 @@
 		letter-spacing: rem(-1.44px);
 
 		margin-block-end: rem(32px);
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			@include font(32px, 38px, 400);
+			margin-block-end: rem(24px);
+		}
 	}
 }
-
-// .main-carousel-chevron {
-// }

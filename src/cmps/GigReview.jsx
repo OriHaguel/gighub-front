@@ -2,15 +2,14 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import star from '../assets/svg/star.svg?react'
+import Star from '../assets/svg/star.svg?react'
 import RepeatClientIcon from '../assets/svg/RepeatClientIcon.svg?react'
 import { gigService } from '../services/gig'
+import { GigPricing } from './GigPricing.jsx'
 
 // TODO: make review content and review score fit (high score good praise and vice versa)
-// TODO: add price
-// TODO: add duration
 // TODO: fix flags
-// TODO: stars system
+
 
 export function GigReview() {
 	const [gig, setGig] = useState(null)
@@ -31,7 +30,53 @@ export function GigReview() {
 			})
 	}
 
+	function starDecider(rating) {
+		return Array(rating)
+			.fill(null)
+			.map((_, i) => <Star key={i} className='rating-star' />)
+	}
+
+	console.log('gig debug', gig)
 	if (!gig) return <div>Loading...</div>
+
+	function getMagnitude(value) {
+		if (value < 10) return 1
+		if (value < 100) return 10
+		return 100
+	}
+
+	function roundToNearest(value) {
+		const magnitude = getMagnitude(value)
+		return Math.round(value / magnitude) * magnitude
+	}
+
+	const packages = {
+		Basic: {
+			type: 'Basic',
+			price: roundToNearest(gig.price),
+			priceRange: roundToNearest(gig.price * 1.5),
+			daysToMake: gig.daysToMake + 4,
+		},
+		Standard: {
+			type: 'Standard',
+			price: roundToNearest(gig.price),
+			priceRange: roundToNearest(gig.price * 1.5),
+			daysToMake: gig.daysToMake + 2,
+		},
+		Premium: {
+			type: 'Premium',
+			price: roundToNearest(gig.price),
+			priceRange: roundToNearest(gig.price * 1.5),
+			daysToMake: gig.daysToMake,
+		}
+	}
+
+	function getRandomPackage(packages) {
+		const keys = Object.keys(packages)
+		const randomKey = keys[Math.floor(Math.random() * keys.length)]
+		return packages[randomKey]
+	}
+	const currentPackage = getRandomPackage(packages)
 
 	return (
 		<section className='review-container'>
@@ -61,22 +106,26 @@ export function GigReview() {
 				</div>
 			</div>
 			<div className='review-details-container'>
-				<p className='review-rating'>{gig.reviewRating}</p>
+				<p className='review-rating'>
+					{starDecider(gig.reviewRating)}
+
+					{gig.reviewRating}
+				</p>
 				<span className='review-separator-dot'>•</span>
 				<p className='review-time'>{gig.reviewTime}</p>
 			</div>
 			<p className='review-content'>{gig.reviewContent}</p>
-
-			{/* <div className='review-gig-details'>
+			<div className='review-gig-details'>
 				<div className='review-price review-stats'>
-					TODO: price actual
+					${currentPackage.price}-${currentPackage.priceRange}
 					<p>Price</p>
 				</div>
+				{/* <div>|</div> */}
 				<div className='review-duration review-stats'>
-					TODO: duration actual
+					{currentPackage.daysToMake} Days
 					<p>Duration</p>
 				</div>
-			</div> */}
+			</div>
 			<div className='seller-response'>
 				<div className='seller-details'>
 					<img className='owner-image' src={gig.ownerImage || 'fallback-image.png'} alt={gig.owner || 'Owner'} />

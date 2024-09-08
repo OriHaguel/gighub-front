@@ -3,7 +3,9 @@
 	flex-direction: column;
 
 	margin-bottom: rem(16px);
-	border: 1px solid #dadbdd;
+	// border: 1px solid #dadbdd;
+	border-inline: 1px solid #dadbdd;
+	border-block-end: 1px solid #dadbdd;
 	margin: 0;
 	// use this after display flex in main page
 	// width: 33.3%;
@@ -45,7 +47,6 @@
 		label.active {
 			// border: 1px solid black;
 			border-bottom: 3px solid #000000;
-
 		}
 	}
 

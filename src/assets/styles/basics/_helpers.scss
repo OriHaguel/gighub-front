@@ -28,7 +28,6 @@
 }
 
 // flex helpers
-
 .flex {
 	display: flex;
 
@@ -49,8 +48,16 @@
 	}
 }
 
-// Media helpers
+// Visibility helpers
+.visible {
+	opacity: 1;
+}
 
+.hidden {
+	display: none;
+}
+
+// Media helpers
 .square-ratio {
 	@include aspect-ratio(1, 1);
 }
@@ -63,8 +70,13 @@
 	@include aspect-ratio(9, 16);
 }
 
-// Grid
+.hide-mobile {
+	@media screen and (max-width: $mobile-breakpoint) {
+		display: none;
+	}
+}
 
+// Grid
 .grid-1 {
 	grid-column: 1;
 }
@@ -145,4 +157,8 @@
 
 .green {
 	background-color: green;
+}
+
+.gradient-background {
+	background: linear-gradient(to bottom, #003912, #0f7d43);
 }

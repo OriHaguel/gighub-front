@@ -16,8 +16,8 @@ import { logout } from '../store/actions/user.actions'
 
 // Image Imports
 import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
-import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 import MagnifyIcon from '../assets/svg/MagnifyIcon.svg?react'
+// import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 // import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
 // import Globe from '../assets/svg/Globe.svg?react'
 // import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
@@ -33,6 +33,7 @@ export function AppHeader() {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 
 	const location = useLocation()
+	const isHomepage = location.pathname === '/'
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -89,18 +90,19 @@ export function AppHeader() {
 	const isHomePage = location.pathname === '/'
 
 	return (
-		<div id='Header' className={isHomePage ? 'header-sticky' : ''}>
+		<div id='Header' className={`main-container ${isHomePage ? 'header-sticky' : ''}`}>
 			<header className='header-package'>
-				<div className='main-container'>
+				<div className='main-container mobile-head-container'>
 					<div className='header-row'>
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
+						{/* Search bar */}
 						<div className={`fiverr-header-search-animated ${!isHomePage || (isHomePage && isVisible) ? 'visible' : 'hidden'}`}>
-							<form className='search-form dark' onSubmit={onSubmit}>
+							<form className={`search-form ${isHomepage ? 'hide-on-mobile' : ''}`} onSubmit={onSubmit}>
 								<input type='search' placeholder='What service are you looking for today?' onChange={handleChange} value={inputValue.txt} name='txt' />
 								<button className='submit-button dark-search-button' type='submit'>
-									<div className='submit-button-icon'>
+									<div className='submit-button-icon '>
 										<MagnifyIcon className='magnify-icon' />
 									</div>
 								</button>
@@ -113,15 +115,19 @@ export function AppHeader() {
 										Become a Seller
 									</NavLink>
 								</li> */}
-								{!loggedInUser && <li>
-									<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(false)}>
-										Sign In
-									</button>
-								</li>}
+								{!loggedInUser && (
+									<li>
+										<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(false)}>
+											Sign In
+										</button>
+									</li>
+								)}
 								<li>
-									{!loggedInUser && <button to='/join' className='join-button' onClick={() => openModal(true)}>
-										Join
-									</button>}
+									{!loggedInUser && (
+										<button to='/join' className='join-button' onClick={() => openModal(true)}>
+											Join
+										</button>
+									)}
 								</li>
 								<li>
 									{loggedInUser && (
@@ -133,6 +139,12 @@ export function AppHeader() {
 								<li>{loggedInUser && <Link to={'/dashboard'}>Dashboard</Link>}</li>
 							</ul>
 						</nav>
+					</div>
+					{/* Mobile search bar */}
+					<div className={`fiverr-header-search-animated ${!isHomePage || (isHomePage && isVisible) ? 'visible' : 'hidden'}`}>
+						<form className={`search-form-mobile ${isHomepage ? 'hide-on-mobile' : ''}`} onSubmit={onSubmit}>
+							<input type='search' placeholder='Find services' onChange={handleChange} value={inputValue.txt} name='txt' />
+						</form>
 					</div>
 				</div>
 			</header>

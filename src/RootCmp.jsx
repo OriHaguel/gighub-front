@@ -7,6 +7,8 @@ import { GigPage } from './pages/GigsPage.jsx'
 import { GigDetailsPage } from './pages/GigDetailsPage.jsx'
 import { Dashboard } from './pages/Dashboard.jsx'
 
+// TODO: add 'main-container' to dashboard
+
 export function RootCmp() {
 	// useEffect(() => {
 	// 	const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth

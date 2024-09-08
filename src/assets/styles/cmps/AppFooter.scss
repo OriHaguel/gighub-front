@@ -18,6 +18,12 @@
 	border-top: 1px solid #e4e6e7;
 	width: 1400px;
 
+	@media screen and (max-width: $mobile-breakpoint) {
+		flex-direction: column;
+		justify-content: center;
+		width: auto;
+	}
+
 	.footer-left-container {
 		display: flex;
 		flex-direction: row;
@@ -25,26 +31,34 @@
 		justify-items: center;
 		// width: 330px;
 
-		margin-inline-end: rem(23px);
+		@media screen and (max-width: $mobile-breakpoint) {
+			flex-direction: column;
+		}
+
+		// margin-inline-end: rem(23px);
 
 		.logo {
 			height: rem(30px);
 			// height: 23px;
 			flex-shrink: 0;
 			margin-inline-end: rem(24px);
+
+			@media screen and (max-width: $mobile-breakpoint) {
+				margin-block-end: rem(15px);
+			}
 		}
 
 		.copy-rights {
-			margin: 0;
-			text-align: start;
-			font-size: rem(14px);
-			line-height: rem(21px);
-			// font-weight: 520;
-			// color: #b5b6ba;
+			@include font(14px, 21px, 400);
+			color: #b5b6ba;
 			white-space: normal; /* Ensure wrapping happens normally if needed */
 			overflow: hidden; /* Prevent content overflow */
 			text-overflow: ellipsis; /* Add ellipsis if the content overflows */
 			flex-shrink: 0; /* Prevent shrinking to keep it on one line */
+
+			@media screen and (max-width: $mobile-breakpoint) {
+				margin-block-end: rem(16px);
+			}
 		}
 	}
 
