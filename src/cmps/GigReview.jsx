@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import star from '../assets/svg/star.svg?react'
+import Star from '../assets/svg/star.svg?react'
 import RepeatClientIcon from '../assets/svg/RepeatClientIcon.svg?react'
 import { gigService } from '../services/gig'
 
@@ -29,6 +29,12 @@ export function GigReview() {
 				console.log('Had issues in gig details', err)
 				navigate('/gig') // This now uses navigate correctly3
 			})
+	}
+
+	function starDecider(rating) {
+		return Array(rating)
+			.fill(null)
+			.map((_, i) => <Star key={i} className='rating-star' />)
 	}
 
 	if (!gig) return <div>Loading...</div>
@@ -61,13 +67,16 @@ export function GigReview() {
 				</div>
 			</div>
 			<div className='review-details-container'>
-				<p className='review-rating'>{gig.reviewRating}</p>
+				<p className='review-rating'>
+					{starDecider(gig.reviewRating)}
+
+					{gig.reviewRating}
+				</p>
 				<span className='review-separator-dot'>•</span>
 				<p className='review-time'>{gig.reviewTime}</p>
 			</div>
 			<p className='review-content'>{gig.reviewContent}</p>
-
-			{/* <div className='review-gig-details'>
+			<div className='review-gig-details'>
 				<div className='review-price review-stats'>
 					TODO: price actual
 					<p>Price</p>
@@ -76,7 +85,7 @@ export function GigReview() {
 					TODO: duration actual
 					<p>Duration</p>
 				</div>
-			</div> */}
+			</div>
 			<div className='seller-response'>
 				<div className='seller-details'>
 					<img className='owner-image' src={gig.ownerImage || 'fallback-image.png'} alt={gig.owner || 'Owner'} />
