@@ -4,9 +4,13 @@
 }
 
 .gig-page {
-	margin-left: auto;
-	margin-right: auto;
+	margin-inline: auto;
 	max-width: 1400px;
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		margin: 0;
+		padding: 0;
+	}
 
 	.gig-sorting {
 		.top-filters {

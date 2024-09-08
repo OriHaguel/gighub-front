@@ -55,7 +55,7 @@ export function GigPage() {
 	if (!gigs) return
 
 	return (
-		<div className='gig-page'>
+		<div className='gig-page main-container'>
 			<GigBreadcrumbs />
 			<h1 className='main-msg'>Gig Page</h1>
 			<SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />

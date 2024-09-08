@@ -11,6 +11,17 @@
 	align-items: center;
 	justify-content: end;
 
+	img {
+		@media screen and (max-width: $mobile-breakpoint) {
+			display: none;
+		}
+	}
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		background: linear-gradient(to bottom, #003912, #0f7d43);
+		grid-column: 1 / -1;
+	}
+
 	.hero-content {
 		display: flex;
 		flex-direction: column;
@@ -26,6 +37,11 @@
 		color: white;
 		// font-size: 30px;
 		// overflow: hidden;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			justify-content: space-between;
+			margin-inline: 0;
+		}
 	}
 
 	.hero-image {
@@ -37,6 +53,12 @@
 		z-index: -1;
 
 		border-radius: 16px;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			width: auto;
+			height: rem(300px);
+			border-radius: 0;
+		}
 	}
 
 	.main-hero {
@@ -58,6 +80,12 @@
 
 			max-width: 800px;
 
+			@media screen and (max-width: $mobile-breakpoint) {
+				@include font(32px, 35.2px, 300);
+				margin-inline: rem(64px);
+				margin-block-start: rem(40px);
+			}
+
 			.freelancers-txt {
 				font-size: rem(62px);
 				line-height: rem(71.3px);
@@ -65,6 +93,10 @@
 
 				font-family: domaine-italic, serif;
 				font-style: italic;
+
+				@media screen and (max-width: $mobile-breakpoint) {
+					@include font(32px, 35.2px, 300);
+				}
 			}
 		}
 	}
@@ -89,6 +121,10 @@
 			font-size: 13px;
 			color: #909299;
 			font-weight: 500;
+
+			@media screen and (max-width: $mobile-breakpoint) {
+				display: none;
+			}
 
 			p {
 				font-size: rem(12px);

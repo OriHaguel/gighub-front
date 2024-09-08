@@ -3,8 +3,14 @@
 	margin-block-start: rem(16px);
 	grid-row-gap: rem(40px);
 	grid-template-columns: repeat(4, 1fr);
+
 	grid-column-gap: rem(24px);
 	width: 100%;
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		grid-template-columns: repeat(1, 1fr);
+		grid-column-gap: 0; // Adjust the grid-column-gap to fit the mobile layout
+	}
 
 	.gig-list {
 		position: relative;

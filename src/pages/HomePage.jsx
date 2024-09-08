@@ -19,10 +19,6 @@ export function HomePage() {
 
 	return (
 		<div className='main-page'>
-			{/* <section className="main-header">
-                <AppHeader />
-            </section> */}
-
 			<section className='main-search-area'>
 				<MainSearchArea />
 			</section>
