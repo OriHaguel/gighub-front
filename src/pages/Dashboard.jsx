@@ -82,10 +82,10 @@ export function Dashboard() {
 
             <div className="dashboard-filter">
                 <ul>
-                    <li><p className={orderStatus === 'active' && 'dashboard-black'} onClick={() => setOrderStatus('active')}>ACTIVE</p></li>
-                    <li><p className={orderStatus === 'pending' && 'dashboard-black'} onClick={() => setOrderStatus('pending')}>PENDING APPROVAL</p></li>
-                    <li><p className={orderStatus === 'accepted' && 'dashboard-black'} onClick={() => setOrderStatus('accepted')}>ACCEPTED</p></li>
-                    <li><p className={orderStatus === 'denied' && 'dashboard-black'} onClick={() => setOrderStatus('denied')}>DENIED</p></li>
+                    <li><p className={orderStatus === 'active' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('active')}>ACTIVE</p></li>
+                    <li><p className={orderStatus === 'pending' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('pending')}>PENDING APPROVAL</p></li>
+                    <li><p className={orderStatus === 'accepted' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('accepted')}>ACCEPTED</p></li>
+                    <li><p className={orderStatus === 'denied' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('denied')}>DENIED</p></li>
                 </ul>
                 <a href="" className="dashboard-create-gig-btn">CREATE A NEW GIG</a>
                 {/* <button onClick={handleAddedGig}>Add Gig:</button> */}
