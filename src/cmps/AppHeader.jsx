@@ -9,8 +9,9 @@ import { userService } from '../services/user'
 // userService.getLoggedinUser
 
 // Component Imports
-import { Modal } from './Modal'
-import { HeaderCategories } from './HeaderCategories'
+import { Modal } from './Modal.jsx'
+import { HeaderCategories } from './HeaderCategories.jsx'
+import { NaviconHeader } from './NaviconHeader.jsx'
 
 import { logout } from '../store/actions/user.actions'
 
@@ -18,7 +19,7 @@ import { logout } from '../store/actions/user.actions'
 import HeaderLogo from '../assets/svg/Gighub_logo.svg?react'
 import MagnifyIcon from '../assets/svg/MagnifyIcon.svg?react'
 // import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
-// import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
+import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
 // import Globe from '../assets/svg/Globe.svg?react'
 // import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
 
@@ -31,6 +32,7 @@ export function AppHeader() {
 	const loggedInUser = useSelector(storeState => storeState.userModule.user)
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
+	const [isMobileNaviconOpen, setIsMobileNaviconOpen] = useState(false)
 
 	const location = useLocation()
 	const isHomepage = location.pathname === '/'
@@ -87,6 +89,12 @@ export function AppHeader() {
 		setIsSinged(isSignedUp)
 	}
 
+	const toggleNavicon = () => {
+		// setIsSinged(isSignedUp)
+		setIsMobileNaviconOpen(!isMobileNaviconOpen)
+
+	}
+
 	const isHomePage = location.pathname === '/'
 
 	return (
@@ -94,6 +102,11 @@ export function AppHeader() {
 			<header className='header-package'>
 				<div className='main-container mobile-head-container'>
 					<div className='header-row'>
+						<div className='navicon-header'>
+							<button className='navicon-header-button' onClick={toggleNavicon}>
+								<HeaderNavicon />
+							</button>
+						</div>
 						<Link to='/' className='site-logo'>
 							<HeaderLogo />
 						</Link>
@@ -150,6 +163,7 @@ export function AppHeader() {
 			</header>
 			<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isSinged={isSinged} setIsSinged={setIsSinged} />
 			{!isHomePage && <HeaderCategories />}
+			{isMobileNaviconOpen && <NaviconHeader isOpen={toggleNavicon} onClose={toggleNavicon} />}
 		</div>
 	)
 }
