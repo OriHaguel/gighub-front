@@ -6,6 +6,9 @@
 
 	gap: 1rem;
 
+	@media screen and (max-width: $mobile-breakpoint) {
+		grid-row: 1;
+	}
 	.owner-details-container {
 		display: flex;
 		flex-direction: column;

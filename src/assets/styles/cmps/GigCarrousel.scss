@@ -37,6 +37,11 @@
 		height: auto;
 		margin-block-end: rem(12px);
 		object-fit: cover;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			width: 100%;
+			height: 100%;
+		}
 	}
 
 	.detail-prev-button,

@@ -4,6 +4,10 @@
 
 	margin-block-end: rem(73px);
 
+	@media screen and (max-width: $mobile-breakpoint) {
+		grid-row: 4;
+	}
+
 	.review-overview-container {
 		color: #404145;
 
