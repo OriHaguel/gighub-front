@@ -13,7 +13,7 @@ import Swal from 'sweetalert2'
 
 
 export function OrderPage({ gig, selectedPackage, onClose }) {
-    // const gigOrder = useSelector(state => state.gigOrder.addOrder)
+    const gigOrder = useSelector(state => state.gigOrder.addOrder)
     const modalRef = useRef(null)
     const [upgrades, setUpgrades] = useState({
         'Proof of Concept': false,
@@ -82,7 +82,9 @@ export function OrderPage({ gig, selectedPackage, onClose }) {
                     title: gig.title,
                     img: gig.img,
                     price: totalPrice,
-                }
+                },
+                seller: gig.owner,
+                status: 'pending'
             }
             console.log("🚀 ~ handleConfirmOrder ~ finalOrder:", finalOrder)
             const savedOrder = await addOrder(finalOrder)

@@ -51,6 +51,25 @@
                     text-transform: uppercase;
                 }
 
+                p {
+                    display: block;
+                    padding: 3px 5px 10px 5px;
+                    color: #999999;
+                    font-size: 14px;
+                    line-height: 42px;
+                    font-weight: 400;
+                    text-decoration: none;
+                    text-transform: uppercase;
+
+                    &.dashboard-black {
+                        color: #0e0e0f;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
             }
         }
 
@@ -161,7 +180,7 @@
                         white-space: nowrap;
                     }
 
-                    .dahsboard-gig-img {
+                    .dashboard-gig-img {
                         width: 32px;
                         transition: background-color .1s;
                         padding-left: rem(100px);
@@ -191,22 +210,25 @@
                         div {
                             margin-top: 5px;
 
-                            a {
+                            button {
                                 border-color: #e5e5e5;
                                 padding: 8px 17px 21px 10px;
-                                background-color: #fff;
+                                // background-color: #fff;
                                 display: inline-block;
                                 position: relative;
                                 font: 400 12px "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
                                 color: #777777;
                                 text-decoration: none;
-                                text-align: left;
                                 border: 1px #b2b2b2 solid;
                                 text-transform: uppercase;
                                 margin: 0;
                                 white-space: nowrap;
                                 cursor: pointer;
                                 border-radius: 3px;
+
+                                margin-right: 10px;
+
+
                             }
                         }
                     }

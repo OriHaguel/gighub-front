@@ -5,6 +5,7 @@ export const orderService = {
     getById,
     save,
     remove,
+    getFilterFromSearchParams
     // addOrderMsg
 }
 
