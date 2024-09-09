@@ -4,7 +4,6 @@
 
 	@media screen and (max-width: $mobile-breakpoint) {
 		grid-column: 2;
-		grid-row: 2;
 	}
 
 	.package-tabs {
@@ -12,10 +11,10 @@
 		flex-direction: column;
 
 		margin-bottom: rem(16px);
-		// border: 1px solid #dadbdd;
+
 		border-inline: 1px solid #dadbdd;
 		border-block-end: 1px solid #dadbdd;
-		margin: 0;
+
 		// use this after display flex in main page
 		// width: 33.3%;
 		// height: 100%;
@@ -25,13 +24,13 @@
 
 		position: sticky;
 		top: rem(95px);
-		/* Adjust this value to set the distance from the top of the viewport */
 		z-index: 100;
-		/* Ensure it appears above other content */
 
 		@media screen and (max-width: $mobile-breakpoint) {
 			position: relative;
 			top: 0;
+			z-index: 1;
+			margin: 0;
 		}
 
 		.nav-container {

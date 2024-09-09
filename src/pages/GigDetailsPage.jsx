@@ -49,7 +49,7 @@ export function GigDetailsPage() {
 					<PackageBreakdown gig={gig} />
 					<GigReviewsList />
 				</div>
-				<div className='pricing-container grid-4'>
+				<div className='pricing-container grid-4 grid-row-2-mobile'>
 					<GigPricing gig={gig} onContinue={toggleOrderPage} />
 				</div>
 				{isOrderPageOpen && <OrderPage gig={gig} selectedPackage={selectedPackage} onClose={toggleOrderPage} />}
