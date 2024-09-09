@@ -73,83 +73,85 @@ export function Dashboard() {
 
 
     return (
+        // <div className='main-container'>
 
-        <article className="dashboard-container">
+            <article className="dashboard-container">
 
-            <header>
-                <h1>Gigs</h1>
-            </header>
+                <header>
+                    <h1>Gigs</h1>
+                </header>
 
-            <div className="dashboard-filter">
-                <ul>
-                    <li><p className={orderStatus === 'active' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('active')}>ACTIVE</p></li>
-                    <li><p className={orderStatus === 'pending' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('pending')}>PENDING APPROVAL</p></li>
-                    <li><p className={orderStatus === 'accepted' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('accepted')}>ACCEPTED</p></li>
-                    <li><p className={orderStatus === 'denied' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('denied')}>DENIED</p></li>
-                </ul>
-                <a href="" className="dashboard-create-gig-btn">CREATE A NEW GIG</a>
-                {/* <button onClick={handleAddedGig}>Add Gig:</button> */}
-            </div>
+                <div className="dashboard-filter">
+                    <ul>
+                        <li><p className={orderStatus === 'active' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('active')}>ACTIVE</p></li>
+                        <li><p className={orderStatus === 'pending' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('pending')}>PENDING APPROVAL</p></li>
+                        <li><p className={orderStatus === 'accepted' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('accepted')}>ACCEPTED</p></li>
+                        <li><p className={orderStatus === 'denied' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('denied')}>DENIED</p></li>
+                    </ul>
+                    <a href="" className="dashboard-create-gig-btn">CREATE A NEW GIG</a>
+                    {/* <button onClick={handleAddedGig}>Add Gig:</button> */}
+                </div>
 
-            <div className="dashboard-data-container">
-                <table>
+                <div className="dashboard-data-container">
+                    <table>
 
-                    <thead>
-                        <tr className="header-filter">
-                            <td>Gig List</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                        <thead>
+                            <tr className="header-filter">
+                                <td>Gig List</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
 
 
-                        </tr>
-                        <tr className="header-data">
-                            <td className="dashboard-table-header-gig">GIG</td>
-                            <td></td>
-                            {/* <td>FULL NAME</td> */}
-                            <td>IMPRESSIONS</td>
-                            <td>CLICKS</td>
-                            <td>ORDERS</td>
-                            {/* <td className="dashboard-table-header-cancellation">PRICE</td> */}
-                            {/* <td className="dashboard-table-header-cancellation">CANCELLATIONS</td> */}
-                            <td></td>
+                            </tr>
+                            <tr className="header-data">
+                                <td className="dashboard-table-header-gig">GIG</td>
+                                <td></td>
+                                {/* <td>FULL NAME</td> */}
+                                <td>IMPRESSIONS</td>
+                                <td>CLICKS</td>
+                                <td>ORDERS</td>
+                                {/* <td className="dashboard-table-header-cancellation">PRICE</td> */}
+                                {/* <td className="dashboard-table-header-cancellation">CANCELLATIONS</td> */}
+                                <td></td>
 
-                        </tr>
-                    </thead>
+                            </tr>
+                        </thead>
 
-                    <tbody>
-                        {orders.filter(order => order.status === orderStatus).map(order => (
-                            (order.seller._id === userService.getLoggedinUser()._id) && (
-                                <tr key={order._id}>
-                                    <td className="dashboard-gig-img">
-                                        <img src={order.miniGig.img[0]} alt="Gig" width="50" />
-                                    </td>
-                                    <td className="dashboard-title">
-                                        <div>
-                                            {order.miniGig.title}
-                                        </div>
-                                    </td>
-                                    {/* <td>{order.buyer.fullname}</td> */}
-                                    <td>0</td>
-                                    <td>0</td>
-                                    <td>0</td>
-                                    {/* <td>{order.miniGig.price}</td> */}
-                                    <td className="dashboard-dropdown">
-                                        <div>
-                                            <button className='green' onClick={() => changeOrderSatus(order, 'accepted')}></button>
-                                            <button className='red' onClick={() => changeOrderSatus(order, 'denied')}></button>
-                                        </div>
-                                    </td>
+                        <tbody>
+                            {orders.filter(order => order.status === orderStatus).map(order => (
+                                (order.seller._id === userService.getLoggedinUser()._id) && (
+                                    <tr className='gig-dashboard-item' key={order._id}>
+                                        <td className="dashboard-gig-img">
+                                            <img src={order.miniGig.img[0]} alt="Gig" width="50" />
+                                        </td>
+                                        <td className="dashboard-title">
+                                            <div>
+                                                {order.miniGig.title}
+                                            </div>
+                                        </td>
+                                        {/* <td>{order.buyer.fullname}</td> */}
+                                        <td className='hide-mobile-dash'>0</td>
+                                        <td className='hide-mobile-dash'>0</td>
+                                        <td className='hide-mobile-dash'>0</td>
+                                        {/* <td>{order.miniGig.price}</td> */}
+                                        <td className="dashboard-dropdown">
+                                            <div>
+                                                <button className='green' onClick={() => changeOrderSatus(order, 'accepted')}></button>
+                                                <button className='red' onClick={() => changeOrderSatus(order, 'denied')}></button>
+                                            </div>
+                                        </td>
 
-                                </tr>
-                            )
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        </article>
+                                    </tr>
+                                )
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </article>
 
+        // </div>
     )
 }

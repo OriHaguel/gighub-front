@@ -1,5 +1,5 @@
 .gig-detail-carousel {
-	width: 700px;
+	// width: 700px;
 	max-width: 700px;
 	height: auto;
 	border-radius: 8px;
@@ -14,6 +14,17 @@
 	// 	width: 500px;
 	// 	height: 500px;
 	// }
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		// max-width: calc($layoutPadding * 2 + 400px);
+		max-width: 100%;
+	}
+
+	.gig-list-vid-container video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+	}
 
 	.gig-list-img-container {
 		overflow: hidden;
@@ -37,6 +48,11 @@
 		height: auto;
 		margin-block-end: rem(12px);
 		object-fit: cover;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			width: 100%;
+			height: 100%;
+		}
 	}
 
 	.detail-prev-button,
@@ -80,6 +96,12 @@
 			opacity: 1;
 			margin-top: rem(-15px);
 			margin-left: rem(-1px);
+
+			@media screen and (max-width: $mobile-breakpoint) {
+				display: none;
+			}
+
+			// TODO: add dots for missing images
 		}
 
 		.thumbs .thumb {

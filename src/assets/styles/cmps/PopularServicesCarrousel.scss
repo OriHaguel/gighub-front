@@ -73,16 +73,24 @@
 	}
 
 	.card-content {
-		margin-top: 20px;
+		margin-block-start: rem(20px);
+		padding-inline-start: rem(10px);
 		text-align: left;
-		padding-left: 10px;
 		width: 100%;
 		height: 100%;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			margin-block-start: rem(7px);
+		}
 	}
 
 	p {
 		font-size: rem(18px);
 		line-height: rem(28px);
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			@include font(14px, 22px, 550);
+		}
 	}
 }
 

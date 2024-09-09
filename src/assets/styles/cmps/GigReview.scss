@@ -162,7 +162,6 @@
 				border-right: none;
 			}
 		}
-
 	}
 }
 
@@ -172,6 +171,8 @@
 }
 
 .seller-response {
+	// display: flex;
+
 	.seller-details {
 		display: flex;
 		flex-direction: row;
@@ -195,6 +196,6 @@
 	}
 
 	p {
-		margin-inline-start: calc(rem(8px) + rem(32px));
+		margin-inline-start: calc(rem(8px) + rem(32px) + 10px);
 	}
 }

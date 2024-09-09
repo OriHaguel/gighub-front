@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
-
 // Carrousel
 import { Carousel } from 'react-responsive-carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
@@ -64,8 +63,18 @@ export function GigCarrousel() {
 	}
 
 	return (
-		<section className='gig-detail-carousel'>
-			<Carousel showArrows={true} autoPlay={false} infiniteLoop={true} showThumbs={true} dynamicHeight={false} emulateTouch={false} showIndicators={false} showStatus={false} renderArrowPrev={renderArrowPrev} renderArrowNext={renderArrowNext}>
+		<section className='gig-detail-carousel grid-row-1-mobile'>
+			<Carousel
+				showArrows={true}
+				autoPlay={false}
+				infiniteLoop={true}
+				showThumbs={true}
+				dynamicHeight={false}
+				emulateTouch={false}
+				showIndicators={false} // TODO: make this look like it belongs in the app and make it dynamic
+				showStatus={false}
+				renderArrowPrev={renderArrowPrev}
+				renderArrowNext={renderArrowNext}>
 				{gig.img &&
 					gig.img.map((mediaUrl, index) =>
 						mediaUrl.endsWith('.mp4') ? (

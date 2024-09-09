@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react"
+import { useEffect, useState, useRef } from 'react'
 import { useParams } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -18,7 +18,7 @@ export function GigPricing({ gig, onContinue }) {
 			daysToMake: gig.daysToMake + 4,
 			revisions: 2,
 			pages: 3,
-			assets: 1
+			assets: 1,
 		},
 		Standard: {
 			type: 'Standart',
@@ -26,7 +26,7 @@ export function GigPricing({ gig, onContinue }) {
 			daysToMake: gig.daysToMake + 2,
 			revisions: 4,
 			pages: 5,
-			assets: 2
+			assets: 2,
 		},
 		Premium: {
 			type: 'Premium',
@@ -34,31 +34,25 @@ export function GigPricing({ gig, onContinue }) {
 			daysToMake: gig.daysToMake,
 			revisions: 6,
 			pages: 7,
-			assets: 3
-		}
+			assets: 3,
+		},
 	}
 
 	const currentPackage = packages[selectedPackage]
 	// console.log('gig pricing package debug', currentPackage)
 
-	const handlePackageSelect = (pkg) => {
+	const handlePackageSelect = pkg => {
 		setSelectedPackage(pkg)
 	}
 	const handleContinue = () => {
-
 		onContinue(currentPackage)
-
 	}
 
 	return (
 		<div className='package-tabs'>
 			<div className='nav-container'>
 				{Object.keys(packages).map(pkg => (
-					<label
-						key={pkg}
-						className={selectedPackage === pkg ? 'active' : ''}
-						onClick={() => handlePackageSelect(pkg)}
-					>
+					<label key={pkg} className={selectedPackage === pkg ? 'active' : ''} onClick={() => handlePackageSelect(pkg)}>
 						{pkg}
 					</label>
 				))}

@@ -33,7 +33,7 @@ export function GigDetails() {
 	}
 
 	return (
-		<section className='gig-overview'>
+		<section className='gig-overview grid-row-1-mobile'>
 			<h1 className='gig-title'>{gig.title}</h1>
 			<div className='owner-details'>
 				<img className='owner-image' src={gig.owner.imgUrl || 'fallback-image.png'} />

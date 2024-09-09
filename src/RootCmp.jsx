@@ -7,8 +7,6 @@ import { GigPage } from './pages/GigsPage.jsx'
 import { GigDetailsPage } from './pages/GigDetailsPage.jsx'
 import { Dashboard } from './pages/Dashboard.jsx'
 
-// TODO: add 'main-container' to dashboard
-
 export function RootCmp() {
 	// useEffect(() => {
 	// 	const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
@@ -19,7 +17,7 @@ export function RootCmp() {
 	return (
 		<div className='main-page-container'>
 			<AppHeader />
-			<main className='main-container'>
+			<main>
 				<Routes>
 					<Route path='/' element={<HomePage />} />
 					<Route path='/gigs' element={<GigPage />} />

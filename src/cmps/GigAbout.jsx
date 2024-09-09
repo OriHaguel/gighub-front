@@ -6,7 +6,6 @@ import { gigService } from '../services/gig'
 import { GigPricing } from './GigPricing.jsx'
 import { PackageBreakdown } from './PackageBreakdown.jsx'
 
-
 export function GigAbout() {
 	const param = useParams()
 	const [gig, setGig] = useState(null)
@@ -34,7 +33,7 @@ export function GigAbout() {
 		)
 
 	return (
-		<section className='about-details'>
+		<section className='about-details grid-row-3-mobile'>
 			<h1>About this gig</h1>
 			<p>{gig.aboutGig}</p>
 			{/* <div className='gig-breakdown'>
