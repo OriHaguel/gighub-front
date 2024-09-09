@@ -90,7 +90,7 @@ export function AppHeader() {
 	const isHomePage = location.pathname === '/'
 
 	return (
-		<div id='Header' className={`main-container ${isHomePage ? 'header-sticky' : ''}`}>
+		<div id='Header' className={`${isHomePage ? 'header-sticky' : ''}`}>
 			<header className='header-package'>
 				<div className='main-container mobile-head-container'>
 					<div className='header-row'>
