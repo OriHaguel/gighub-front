@@ -12,7 +12,7 @@ import PayoneerLogo from '../assets/svg/PayoneerLogo.svg?react'
 
 export function MainSearchArea() {
 	return (
-		<div className='hero-container'>
+		<div className={`hero-container ${window.innerWidth <= 600 ? 'main-container' : ''}`}>
 			<img src={hero} alt='Green-Hero' className='hero-image' />
 			<div className='hero-content'>
 				<div className='main-hero'>

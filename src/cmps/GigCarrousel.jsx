@@ -64,7 +64,17 @@ export function GigCarrousel() {
 
 	return (
 		<section className='gig-detail-carousel grid-row-1-mobile'>
-			<Carousel showArrows={true} autoPlay={false} infiniteLoop={true} showThumbs={true} dynamicHeight={false} emulateTouch={false} showIndicators={false} showStatus={false} renderArrowPrev={renderArrowPrev} renderArrowNext={renderArrowNext}>
+			<Carousel
+				showArrows={true}
+				autoPlay={false}
+				infiniteLoop={true}
+				showThumbs={true}
+				dynamicHeight={false}
+				emulateTouch={false}
+				showIndicators={false} // TODO: make this look like it belongs in the app and make it dynamic
+				showStatus={false}
+				renderArrowPrev={renderArrowPrev}
+				renderArrowNext={renderArrowNext}>
 				{gig.img &&
 					gig.img.map((mediaUrl, index) =>
 						mediaUrl.endsWith('.mp4') ? (

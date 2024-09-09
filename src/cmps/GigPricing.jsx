@@ -49,7 +49,7 @@ export function GigPricing({ gig, onContinue }) {
 	}
 
 	return (
-		<div className='package-tabs grid-row-2-mobile'>
+		<div className='package-tabs'>
 			<div className='nav-container'>
 				{Object.keys(packages).map(pkg => (
 					<label key={pkg} className={selectedPackage === pkg ? 'active' : ''} onClick={() => handlePackageSelect(pkg)}>

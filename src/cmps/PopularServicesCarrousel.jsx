@@ -26,7 +26,7 @@ export function PopularServicesCarrousel() {
 		const handleResize = () => {
 			const windowWidth = window.innerWidth
 			const isMobile = windowWidth <= 600
-			setCenterSlidePercentage(isMobile ? 30 : 16)
+			setCenterSlidePercentage(isMobile ? 46 : 16)
 		}
 
 		window.addEventListener('resize', handleResize)

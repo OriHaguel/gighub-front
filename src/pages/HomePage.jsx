@@ -18,21 +18,21 @@ export function HomePage() {
 	}, [])
 
 	return (
-		<div className='main-page main-container'>
-			<section className='main-search-area'>
+		<div className='main-page'>
+			<section>
 				<MainSearchArea />
 			</section>
 
-			<section className='category-list categories-container'>
+			<section className='category-list categories-container main-container'>
 				<CategoryList />
 			</section>
 
-			<section className='home-page-carrousel'>
+			<section className='home-page-carrousel main-container'>
 				<h1>Popular services</h1>
 				<PopularServicesCarrousel />
 			</section>
 
-			<section className='advert-area'>
+			<section className='advert-area main-container'>
 				{/* <h1>Advert Area</h1> */}
 				<AdvertArea />
 			</section>
