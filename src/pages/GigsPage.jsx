@@ -14,6 +14,7 @@ import { gigService } from '../services/gig'
 // Images
 import GigImage from '../assets/img/gig-image.png'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
+import { FilterGigPage } from '../cmps/FilterGigPage'
 
 export function GigPage() {
 	const param = useParams()
@@ -58,8 +59,9 @@ export function GigPage() {
 		<div className='gig-page main-container'>
 			<GigBreadcrumbs />
 			<h1 className='main-msg'>Gig Page</h1>
+			{/* or will fix it */}
 			<SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
-
+			<FilterGigPage />
 			{param.gigs !== 'ai' && param.gigs !== 'consulting' && (
 				<section className='gig-prev-container'>
 					<GigList gigs={gigs} />

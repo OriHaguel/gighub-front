@@ -79,60 +79,62 @@ export function GigReview() {
 	const currentPackage = getRandomPackage(packages)
 
 	return (
-		<section className='review-container'>
-			<div className='user-details-container'>
-				<div className='user-name-container'>
-					<img
-						className='review-image'
-						src={gig.reviewImage || 'fallback-image.png'} // Add fallback for image
-						alt={gig.reviewName || 'Reviewer'} // Add fallback for alt text
-					/>
-					<div className='user-details-1'>
-						<div className='user-data-container'>
-							<p className='review-name'>{gig.reviewName}</p>
-							{gig.reviewIsRepeatClient && (
-								<div className='review-repeat-client'>
-									<span className='review-separator-dot'>•</span>
-									<RepeatClientIcon className='repeat-icon' />
-									<p>Repeat Client</p>
-								</div>
-							)}
-						</div>
-						<div className='review-country'>
-							<p className='review-country-flag'>{gig.reviewCountry.flag}</p>
-							<p className='review-country'>{gig.reviewCountry.country}</p>
+		gig.reviews.map(review => (
+			<section className='review-container' key={review._id}>
+				<div className='user-details-container'>
+					<div className='user-name-container'>
+						<img
+							className='review-image'
+							src={gig.reviewImage || 'fallback-image.png'} // Add fallback for image
+							alt={review.by.fullname || 'Reviewer'} // Add fallback for alt text
+						/>
+						<div className='user-details-1'>
+							<div className='user-data-container'>
+								<p className='review-name'>{review.by.fullname}</p>
+								{review.IsRepeatClient && (
+									<div className='review-repeat-client'>
+										<span className='review-separator-dot'>•</span>
+										<RepeatClientIcon className='repeat-icon' />
+										<p>Repeat Client</p>
+									</div>
+								)}
+							</div>
+							<div className='review-country'>
+								<p className='review-country-flag'>{gig.reviewCountry.flag}</p>
+								<p className='review-country'>{gig.reviewCountry.country}</p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className='review-details-container'>
-				<p className='review-rating'>
-					{starDecider(gig.reviewRating)}
+				<div className='review-details-container'>
+					<p className='review-rating'>
+						{starDecider(review.rate)}
 
-					{gig.reviewRating}
-				</p>
-				<span className='review-separator-dot'>•</span>
-				<p className='review-time'>{gig.reviewTime}</p>
-			</div>
-			<p className='review-content'>{gig.reviewContent}</p>
-			<div className='review-gig-details'>
-				<div className='review-price review-stats'>
-					${currentPackage.price}-${currentPackage.priceRange}
-					<p>Price</p>
+						{review.rate}
+					</p>
+					<span className='review-separator-dot'>•</span>
+					<p className='review-time'>{review.createdAt}</p>
 				</div>
-				{/* <div>|</div> */}
-				<div className='review-duration review-stats'>
-					{currentPackage.daysToMake} Days
-					<p>Duration</p>
+				<p className='review-content'>{review.txt}</p>
+				<div className='review-gig-details'>
+					<div className='review-price review-stats'>
+						${currentPackage.price}-${currentPackage.priceRange}
+						<p>Price</p>
+					</div>
+					{/* <div>|</div> */}
+					<div className='review-duration review-stats'>
+						{currentPackage.daysToMake} Days
+						<p>Duration</p>
+					</div>
 				</div>
-			</div>
-			<div className='seller-response'>
-				<div className='seller-details'>
-					<img className='owner-image' src={gig.ownerImage || 'fallback-image.png'} alt={gig.owner || 'Owner'} />
-					<h2>Seller's Response</h2>
+				<div className='seller-response'>
+					<div className='seller-details'>
+						<img className='owner-image' src={gig.owner.imgUrl || 'fallback-image.png'} alt={gig.owner || 'Owner'} />
+						<h2>Seller's Response</h2>
+					</div>
+					<p>{review.SellerResponse}</p>
 				</div>
-				<p>{gig.reviewSellerResponse}</p>
-			</div>
-		</section>
+			</section>
+		))
 	)
 }

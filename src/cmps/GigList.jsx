@@ -85,14 +85,15 @@ export function GigList({ gigs }) {
 						</Carousel>
 
 						<Link to={`/username/${gig._id}`} className='gig-list-owner-name'>
-							<span>Gig</span>
+							<img src={gig.owner.imgUrl} className='gig-list-owner-img' />
+							<span>{gig.owner.fullname}</span>
 						</Link>
 						<Link to={`/username/${gig._id}`} className='gig-list-title'>
 							<p>{gig.title}</p>
 						</Link>
 						<div className='gig-list-owner-rating'>
 							<strong>
-								<Star />4
+								<Star />{gig.owner.rate}
 							</strong>
 						</div>
 						<Link to={`/username/${gig._id}`} className='gig-list-price'>
