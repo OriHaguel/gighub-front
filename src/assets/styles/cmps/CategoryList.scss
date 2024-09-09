@@ -16,7 +16,8 @@
 		grid-template-columns: repeat(auto-fit, minmax(129px, 1fr));
 		gap: 16px;
 		width: 100%;
-		justify-content: center;
+		justify-items: center;
+		align-items: center;
 
 		.category-list-link {
 			width: 129px;
@@ -69,9 +70,9 @@
 			}
 
 			.category-list-text {
-				font-size: 14px;
-				text-align: center;
-				font-weight: 600;
+				@include font(14px, 22px, 550);
+				text-align: start;
+				color: #212224;
 			}
 		}
 	}
