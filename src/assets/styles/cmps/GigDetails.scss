@@ -9,7 +9,7 @@
 	.owner-details-container {
 		display: flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: start;
 		justify-content: center;
 	}
 
@@ -26,13 +26,6 @@
 		cursor: pointer;
 		font-weight: 700;
 		margin-right: 8px;
-	}
-
-	.owner-details-container {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
 	}
 
 	.owner-details {

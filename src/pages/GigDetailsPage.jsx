@@ -38,19 +38,22 @@ export function GigDetailsPage() {
 	}
 
 	if (!gig) return
+
 	return (
-		<section className='main-detail-page main-container'>
-			<div className='gig-details-page-container grid-2'>
-				<GigDetails />
-				<GigCarrousel />
-				<GigAbout />
-				<PackageBreakdown gig={gig} />
-				<GigReviewsList />
+		<section className='main-container'>
+			<div className='main-detail-page'>
+				<div className='gig-details-page-container grid-2'>
+					<GigDetails />
+					<GigCarrousel />
+					<GigAbout />
+					<PackageBreakdown gig={gig} />
+					<GigReviewsList />
+				</div>
+				<div className='pricing-container grid-4'>
+					<GigPricing gig={gig} onContinue={toggleOrderPage} />
+				</div>
+				{isOrderPageOpen && <OrderPage gig={gig} selectedPackage={selectedPackage} onClose={toggleOrderPage} />}
 			</div>
-			<div className='pricing-container grid-4'>
-				<GigPricing gig={gig} onContinue={toggleOrderPage} />
-			</div>
-			{isOrderPageOpen && <OrderPage gig={gig} selectedPackage={selectedPackage} onClose={toggleOrderPage} />}
 		</section>
 	)
 }

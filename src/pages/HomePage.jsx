@@ -18,7 +18,7 @@ export function HomePage() {
 	}, [])
 
 	return (
-		<div className='main-page'>
+		<div className='main-page main-container'>
 			<section className='main-search-area'>
 				<MainSearchArea />
 			</section>

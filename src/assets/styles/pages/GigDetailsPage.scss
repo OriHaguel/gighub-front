@@ -16,4 +16,8 @@
 .main-detail-page {
 	display: grid;
 	grid-template-columns: rem(80px) 1fr 114px 412px rem(80px); /* This defines your grid layout */
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		background-color: yellow;
+	}
 }
