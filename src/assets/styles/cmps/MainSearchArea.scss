@@ -85,7 +85,7 @@
 				@include font(32px, 35.2px, 400);
 				// width: rem(328px);
 				// margin-inline: rem(87px);
-				margin-block: rem(40px);
+				margin-block: rem(8px);
 			}
 
 			.freelancers-txt {
@@ -168,7 +168,8 @@
 
 			@media screen and (max-width: $mobile-breakpoint) {
 				// padding-inline: rem(16px);
-				width: auto;
+				// width: auto;
+				max-width: 330px;
 			}
 
 			.search-input {
@@ -210,6 +211,13 @@
 					background-color: #21793d;
 				}
 			}
+		}
+	}
+
+	.line-break {
+		display: none;
+		@media screen and (max-width: $mobile-breakpoint) {
+			display: block;
 		}
 	}
 }

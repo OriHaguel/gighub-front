@@ -17,7 +17,7 @@ export function MainSearchArea() {
 			<div className='hero-content'>
 				<div className='main-hero'>
 					<h1 className='promotion-txt'>
-						Scale your professional workforce with <i className='freelancers-txt'>freelancers</i>
+						Scale your <br className='line-break' /> professional workforce with <i className='freelancers-txt'>freelancers</i>
 					</h1>
 
 					<SearchInput />
