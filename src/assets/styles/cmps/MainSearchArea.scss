@@ -7,14 +7,15 @@
 	align-items: center;
 	justify-content: end;
 
+	@media screen and (max-width: $mobile-breakpoint) {
+		background: linear-gradient(to bottom, #003912, #0f7d43);
+		justify-content: center;
+	}
+
 	img {
 		@media screen and (max-width: $mobile-breakpoint) {
 			display: none;
 		}
-	}
-
-	@media screen and (max-width: $mobile-breakpoint) {
-		background: linear-gradient(to bottom, #003912, #0f7d43);
 	}
 
 	.hero-content {
@@ -35,9 +36,12 @@
 
 		@media screen and (max-width: $mobile-breakpoint) {
 			align-items: center;
-			// justify-content: space-between;
 			justify-content: center;
+			// gap: 40px;
 			margin-inline: 0;
+			max-width: rem(328px);
+
+			transform: translate(0, 32px);
 		}
 	}
 
@@ -66,22 +70,22 @@
 
 		.promotion-txt {
 			text-align: center;
-
 			font-size: rem(60px);
-			font-family: 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			// margin-left: rem(150px);
-			// margin-top: rem(50px);
 			line-height: rem(69px);
 			letter-spacing: rem(-1.2px);
-			font-weight: 100;
+			font-weight: 400;
+			font-family: 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+			// margin-left: rem(150px);
+			// margin-top: rem(50px);
 
 			max-width: 800px;
 
 			@media screen and (max-width: $mobile-breakpoint) {
-				@include font(32px, 35.2px, 300);
-				max-width: rem(328px);
-				margin-inline: rem(85px);
-				margin-block-start: rem(40px);
+				@include font(32px, 35.2px, 400);
+				// width: rem(328px);
+				// margin-inline: rem(87px);
+				margin-block: rem(40px);
 			}
 
 			.freelancers-txt {
@@ -163,7 +167,7 @@
 			border-radius: 10px;
 
 			@media screen and (max-width: $mobile-breakpoint) {
-				padding-inline: rem(16px);
+				// padding-inline: rem(16px);
 				width: auto;
 			}
 
@@ -174,9 +178,17 @@
 				font-size: 1rem;
 				box-sizing: border-box;
 				outline: none;
+
+				@media screen and (max-width: $mobile-breakpoint) {
+					width: rem(328px);
+				}
 			}
 
 			.search-button {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
 				background-color: #003912;
 				color: #fff;
 				border: none;
@@ -185,9 +197,6 @@
 				padding: 15px;
 				margin-right: rem(5px);
 
-				display: flex;
-				align-items: center;
-				justify-content: center;
 				cursor: pointer;
 				transition: background-color 0.3s ease;
 
