@@ -69,6 +69,14 @@
 			@media screen and (min-width: $normal-breakpoint) {
 			}
 
+			.navicon-header {
+				display: none;
+
+				@media screen and (max-width: $mobile-breakpoint) {
+					display: block;
+				}
+			}
+
 			.navicon-header-button {
 				display: none;
 
@@ -292,16 +300,16 @@
 	}
 
 	.search-form-mobile {
-		display: flex;
-		align-items: center;
-		justify-content: center;
+		display: none;
 
-		position: relative;
-		width: 100%;
-		height: rem(42px);
+		@media screen and (max-width: $mobile-breakpoint) {
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
-		@media screen and (min-width: $normal-breakpoint) {
-			display: none;
+			position: relative;
+			width: 100%;
+			height: rem(42px);
 		}
 
 		input {
