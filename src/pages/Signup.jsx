@@ -1,68 +1,93 @@
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router'
+import { useSelector } from "react-redux"
 
-import { signup } from '../store/actions/user.actions'
+import { login, signup } from '../store/actions/user.actions.js'
 
 import { ImgUploader } from '../cmps/ImgUploader'
 import { userService } from '../services/user'
 
 export function Signup() {
-    const [credentials, setCredentials] = useState(userService.getEmptyUser())
+    const [isSinged, setIsSinged] = useState(false)
+    const loggedInUser = useSelector(storeState => storeState.userModule.user)
+    const [credentials, setCredentials] = useState(userService.getEmptyCredentials())
     const navigate = useNavigate()
 
-    function clearState() {
-        setCredentials({ username: '', password: '', fullname: '', imgUrl: '' })
+    function handleChange({ target }) {
+        const { name: field, value } = target
+        setCredentials(prevCreds => ({ ...prevCreds, [field]: value }))
     }
 
-    function handleChange(ev) {
-        const type = ev.target.type
-
-        const field = ev.target.name
-        const value = ev.target.value
-        setCredentials({ ...credentials, [field]: value })
-    }
-    
-    async function onSignup(ev = null) {
-        if (ev) ev.preventDefault()
-
-        if (!credentials.username || !credentials.password || !credentials.fullname) return
-        await signup(credentials)
-        clearState()
+    function handleSubmit(ev) {
+        ev.preventDefault()
+        onLogin(credentials)
+        setCredentials(userService.getEmptyCredentials())
         navigate('/')
     }
 
-    function onUploaded(imgUrl) {
-        setCredentials({ ...credentials, imgUrl })
-    }
+    function onLogin(credentials) {
+        // try {
+        const method = isSinged ? signup : login
+        method(credentials)
 
+
+        // .then(user => showSuccessMsg('Hello!'))
+        // .catch(err => showErrorMsg('Error logging in'))
+    }
     return (
-        <form className="signup-form" onSubmit={onSignup}>
-            <input
-                type="text"
-                name="fullname"
-                value={credentials.fullname}
-                placeholder="Fullname"
-                onChange={handleChange}
-                required
-            />
-            <input
-                type="text"
-                name="username"
-                value={credentials.username}
-                placeholder="Username"
-                onChange={handleChange}
-                required
-            />
-            <input
-                type="password"
-                name="password"
-                value={credentials.password}
-                placeholder="Password"
-                onChange={handleChange}
-                required
-            />
-            <ImgUploader onUploaded={onUploaded} />
-            <button>Signup</button>
-        </form>
+
+        <div className='login-container-mobile'>
+            <form className='form' method='dialog' onSubmit={handleSubmit}>
+                {/* <h2>Create a new account</h2> */}
+                <h2>Continue with your email</h2>
+                {/* <p className='sign-in'>
+                Already have an account? <span className='link'>Sign in</span>
+            </p> */}
+                <a href="#" onClick={() => setIsSinged(!isSinged)} className='sign-in'>
+                    {!isSinged ?
+                        'Don\'t have an account? join here' :
+                        'Already have an account? sign in'
+                    }
+                </a >
+                <label className='input-container'>
+                    <p className='input-title'>Email or username</p>
+                    <input type='text' onChange={handleChange} name='username' value={credentials.username} />
+                </label>
+
+                <div className={`model-end ${isSinged && 'nogap'}`}>
+                    {isSinged && (
+                        <label className='input-title'>
+                            {' '}
+                            <p className='modal-fullname'>
+
+                                Fullname
+                            </p>
+                            <input
+                                type='text'
+                                name='fullname'
+                                value={credentials.fullname}
+                                // placeholder="Full name"
+                                onChange={handleChange}
+                                required
+                            />
+                        </label>
+                    )}
+                    <label className='input-container'>
+                        <p className='input-title'>Password</p>
+                        <input type='password' onChange={handleChange} name='password' className='input-pass' value={credentials.password} />
+                    </label>
+                    <div>
+                        <button className='button' type='submit' >
+                            Continue
+                        </button>
+                        <p className='small-txt'>
+                            By joining, you agree to the gighub <span className='link'>Terms of Service</span> and to occasionally receive emails from us. Please read our <span className='link'>Privacy Policy</span> to learn how we use your personal data.
+                        </p>
+                    </div>
+
+                </div>
+            </form>
+        </div>
     )
 }

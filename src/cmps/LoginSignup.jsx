@@ -118,7 +118,7 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
                             </button>
                         )}
                         <p className='small-txt'>
-                            By joining, you agree to the Gighub <span className='link'>Terms of Service</span> and to occasionally receive emails from us. Please read our <span className='link'>Privacy Policy</span> to learn how we use your personal data.
+                            By joining, you agree to the gighub <span className='link'>Terms of Service</span> and to occasionally receive emails from us. Please read our <span className='link'>Privacy Policy</span> to learn how we use your personal data.
                         </p>
                     </div>
 

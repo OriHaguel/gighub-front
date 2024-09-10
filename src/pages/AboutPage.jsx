@@ -89,7 +89,7 @@ export function AboutPage() {
                         <img className='team-mate-img' src={oriImg} alt="Ori-Image" />
                         <p>
                             <span className='team-mate-dot'>•</span>
-                            Ori Hagul
+                            Ori Haguel
 
                         </p>
                     </div>
