@@ -8,6 +8,7 @@ import { logout } from '../store/actions/user.actions'
 // ICON imports
 import ArrowIcon from '../assets/svg/ArrowIcon.svg?react'
 import LongArrowIcon from '../assets/svg/LongArrowIcon.svg?react'
+import { setFilterBy } from '../store/actions/gig.actions'
 
 export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
 	const modalRef = useRef(null)
@@ -36,7 +37,11 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
 		console.log('Toggling dropdown')
 		setSelectDropOpen(!selectDropOpen)
 	}
+	const categoriesList = [{ categoryTxt: 'Graphics & Design' }, { categoryTxt: 'Programming & Tech' }, { categoryTxt: 'Digital Marketing' }, { categoryTxt: 'Video & Animation' }, { categoryTxt: 'Writing & Translation' }, { categoryTxt: 'Music & Audio' }, { categoryTxt: 'Business' }, { categoryTxt: 'Consulting' }, { categoryTxt: 'AI Services' }]
 
+	function onCategory(categoryToSave) {
+		return `?category=${categoryToSave.categoryTxt.split(' ')[0].toLowerCase()}`
+	}
 	return (
 		<div className={`navicon-container ${isOpen ? 'open' : ''}`}>
 			<div className='modal-navicon' ref={modalRef}>
@@ -71,17 +76,30 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
 						{selectDropOpen && (
 							<div className='collapsible-content'>
 								<ul className='category-list'>
-									<li className='category-item'>
-										<div className='category-menu-item'>
-											<div className='category-label'>
-												<span>Graphics & Design</span>
+									{categoriesList.map(category => (
+										<li className='category-item' key={category.categoryTxt}>
+											<div className='category-menu-item'>
+												<Link className='category-label' to={`gigs${onCategory(category)}`} onClick={() => setFilterBy({ category: category.categoryTxt.split(' ')[0].toLowerCase() })}>
+													<span>{category.categoryTxt}</span>
+												</Link>
+												<span className='arrow-icon'>
+													<LongArrowIcon />
+												</span>
 											</div>
-											<span className='arrow-icon'>
-												<LongArrowIcon />
-											</span>
-										</div>
-									</li>
-									<li className='category-item'>
+										</li>
+										// <li className='category-item' key={category.categoryTxt}>
+										// 	<div className='category-menu-item'>
+										// 		<div className='category-label'>
+										// 			<span>{category.categoryTxt}</span>
+										// 		</div>
+										// 		<span className='arrow-icon'>
+										// 			<LongArrowIcon />
+										// 		</span>
+										// 	</div>
+										// </li>
+									))}
+
+									{/* <li className='category-item'>
 										<div className='category-menu-item'>
 											<div className='category-label'>
 												<span>Programming & Tech</span>
@@ -160,7 +178,7 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
 												<LongArrowIcon />
 											</span>
 										</div>
-									</li>
+									</li> */}
 								</ul>
 							</div>
 						)}

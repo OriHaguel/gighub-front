@@ -10,9 +10,6 @@ export function HeaderCategories() {
 	const categoriesList = [{ categoryTxt: 'Graphics & Design' }, { categoryTxt: 'Programming & Tech' }, { categoryTxt: 'Digital Marketing' }, { categoryTxt: 'Video & Animation' }, { categoryTxt: 'Writing & Translation' }, { categoryTxt: 'Music & Audio' }, { categoryTxt: 'Business' }, { categoryTxt: 'Consulting' }, { categoryTxt: 'AI Services' }]
 
 	function onCategory(categoryToSave) {
-
-		// setFilterBy({ category: categoryToSave.categoryTxt.split(' ')[0].toLowerCase() })
-		// setSearchParams({ category: categoryToSave.categoryTxt.split(' ')[0].toLowerCase() })
 		return `?category=${categoryToSave.categoryTxt.split(' ')[0].toLowerCase()}`
 	}
 
