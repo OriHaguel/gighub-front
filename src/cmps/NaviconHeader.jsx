@@ -1,18 +1,19 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 
 
 import { useSelector } from 'react-redux'
 import { LoginSignup } from './LoginSignup'
+import { logout } from '../store/actions/user.actions'
 
-// Image imports
-import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
-import TickIcon from '../assets/svg/TickIcon.svg?react'
+// ICON imports
 import ArrowIcon from '../assets/svg/ArrowIcon.svg?react'
 import LongArrowIcon from '../assets/svg/LongArrowIcon.svg?react'
 
 export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
     const modalRef = useRef(null)
     const [selectDropOpen, setSelectDropOpen] = useState(false)
+    const loggedInUser = useSelector(storeState => storeState.userModule.user)
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -41,12 +42,27 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
         <div className={`navicon-container ${isOpen ? 'open' : ''}`}>
             <div className='modal-navicon' ref={modalRef}>
                 <div className='navicon-modal-content'>
-                    <button className='navicon-button-first'>Join gighub</button>
-                    <button className='navicon-button-second'>Sign In</button>
+                    {!loggedInUser && (
+                        <Link to='/signup' onClick={onClose}>
+                            <button className='navicon-button-first'>
+                                Join gighub
+                            </button>
+                        </Link>
+                    )}
+                    {!loggedInUser && (
+                        <Link to='/signup' onClick={onClose}>
+                            <button className='navicon-button-second'>Sign In</button>
+                        </Link>
+                    )}
+                    {loggedInUser && (
+                        <button className='sign-button-navicon-mobile' onClick={logout}>
+                            Logout
+                        </button>
+                    )}
                     <article className='sidebar collapsible'>
                         <div className='collapsible-header' onClick={toggleDropdown}>
                             <div className='collapsible-title'>
-                            <span>Browse Categories</span>
+                                <span>Browse Categories</span>
                             </div>
                             <div className='collapsible-toggle'>
                                 <span className='toggle-icon'>
@@ -152,6 +168,12 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
                             </div>
                         )}
                     </article>
+                    <Link to='/' className='navicon-home-mobile' onClick={onClose}>
+                        <div className='navicon-txt'>
+                            Home
+
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
