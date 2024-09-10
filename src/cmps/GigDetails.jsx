@@ -5,6 +5,7 @@ import { SellerPro } from './SellerPro.jsx'
 import { gigService } from '../services/gig/index.js'
 import Star from '../assets/svg/star.svg?react'
 import GigImage from '../assets/img/gig-image.png'
+import { getRandomIntInclusive } from '../services/util.service.js'
 
 export function GigDetails() {
 	const [gig, setGig] = useState(null)
@@ -25,8 +26,21 @@ export function GigDetails() {
 			})
 	}
 
+	function AddOrders() {
+		switch (gig.owner.level) {
+			case 1:
+				return getRandomIntInclusive(1, 9);
+			case 2:
+				return getRandomIntInclusive(10, 20);
+			case 3:
+				return getRandomIntInclusive(21, 40);
+			default:
+				return 0;
+		}
+	}
+
+
 	if (!gig) return <div>Loading...</div>
-	// console.log("🚀 ~ GigDetails ~ gig:", gig.owner.rate)
 
 	if (gig.img.length === 0) {
 		gig.img = [GigImage, GigImage, GigImage]
@@ -40,7 +54,7 @@ export function GigDetails() {
 				<div className='owner-details-container'>
 					<div className='first-line'>
 						<p className='owner-name'>{gig.owner.fullname}</p>
-						{gig.ownerPro && <SellerPro />}
+						{gig.owner.pro && <SellerPro />}
 						<SellerLevel />
 					</div>
 					<div className='second-line'>
@@ -49,7 +63,7 @@ export function GigDetails() {
 								<Star />
 							</div>
 							<p>{gig.owner.rate}</p>
-							<p className='light-text'>{gig.ownerOrders} orders in queue</p>
+							<p className='light-text'>{AddOrders()} orders in queue</p>
 						</div>
 					</div>
 				</div>

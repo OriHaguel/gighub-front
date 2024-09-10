@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CustomSelect } from "../customHooks/CustomSelect"
-
+import ArrowDown from '../assets/svg/ArrowDown.svg?react'
+// import ArrowDown from '../assets/svg/ArrowDown.svg?react'
 
 
 export function FilterGigPage() {
@@ -15,7 +16,7 @@ export function FilterGigPage() {
         <div>
             <div>
                 <CustomSelect
-                    placeholder="Best selling"
+                    placeholder='Best selling'
                     options={options}
                     handleSelected={handleSelected}
                     selected={selected}

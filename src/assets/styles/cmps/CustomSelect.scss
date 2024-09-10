@@ -1,6 +1,4 @@
 .custom-select {
-    height: rem(180px);
-    height: rem(48px);
     display: flex;
     align-items: center;
     font-size: 16px;
@@ -11,17 +9,28 @@
 
     .text-container {
         display: flex;
+        height: rem(48px);
 
         span {
             font-weight: normal;
+
         }
 
         p {
+            // width: rem(125px);
+            display: flex;
             padding: 10px 8px;
             color: #222325;
+            height: 100%;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: all .14s cubic-bezier(.215, .61, .355, 1);
+
 
             &:hover {
                 background-color: #f5f5f5;
+                border-radius: 8px;
             }
         }
     }

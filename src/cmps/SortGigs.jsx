@@ -174,6 +174,7 @@ export function SortGigs({ toggleDropdown, activeDropdown, filterBy, setFilterBy
 
     function onClear() {
         setFilterByToEdit({ price: '', daysToMake: '' });
+        toggleDropdown(null)
     }
 
     // Handle outside click for both dropdowns

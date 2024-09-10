@@ -26,13 +26,13 @@ export function SellerLevel() {
 	if (!gig) return <div>Loading...</div>
 
 	const maxLevel = 3
-	const filledStars = gig.ownerLevel
+	const filledStars = gig.owner.level
 	const emptyStars = maxLevel - filledStars
 
 	return (
-		<section className={gig.ownerLevel === 3 ? 'top-rated owner-level-container' : 'owner-level-container'}>
+		<section className={gig.owner.level === 3 ? 'top-rated owner-level-container' : 'owner-level-container'}>
 			{/* Conditionally render text and apply CSS background color for Top Rated */}
-			<p>{gig.ownerLevel === 3 ? 'Top Rated' : `Level ${gig.ownerLevel}`}</p>
+			<p>{gig.owner.level === 3 ? 'Top Rated' : `Level ${gig.owner.level}`}</p>
 
 			{/* Render filled stars */}
 			{Array.from({ length: filledStars }).map((_, idx) => (
