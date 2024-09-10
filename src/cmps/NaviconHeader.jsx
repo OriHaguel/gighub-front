@@ -46,7 +46,7 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
                     <article className='sidebar collapsible'>
                         <div className='collapsible-header' onClick={toggleDropdown}>
                             <div className='collapsible-title'>
-                            <span>Graphics & Design</span>
+                            <span>Browse Categories</span>
                             </div>
                             <div className='collapsible-toggle'>
                                 <span className='toggle-icon'>
