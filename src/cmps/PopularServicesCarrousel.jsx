@@ -52,16 +52,34 @@ export function PopularServicesCarrousel() {
 		// { _id: 112, serviceDescription: "God", picSrc: "http://i0.kym-cdn.com/photos/images/newsfeed/000/600/293/a38.gif " }
 	]
 
-	const slidesToShow = 10
+	const slidesToShow = 5
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const totalSlides = popularServices.length
 
-	const handleNext = () => {
+	const handleNext = event => {
 		setCurrentIndex(prev => (prev + slidesToShow) % totalSlides)
+
+		// Add 'hidden' class to the clicked button
+		event.currentTarget.classList.add('hidden')
+
+		// Remove 'hidden' class from the other button
+		const prevButton = document.querySelector('.carousel-control-prev')
+		if (prevButton) {
+			prevButton.classList.remove('hidden')
+		}
 	}
 
-	const handlePrev = () => {
+	const handlePrev = event => {
 		setCurrentIndex(prev => (prev - slidesToShow + totalSlides) % totalSlides)
+
+		// Add 'hidden' class to the clicked button
+		event.currentTarget.classList.add('hidden')
+
+		// Remove 'hidden' class from the other button
+		const nextButton = document.querySelector('.carousel-control-next')
+		if (nextButton) {
+			nextButton.classList.remove('hidden')
+		}
 	}
 
 	return (
@@ -72,7 +90,7 @@ export function PopularServicesCarrousel() {
 				</button>
 			)}
 			<div className='popular-services-carrousel'>
-				<Carousel showThumbs={false} showStatus={false} showIndicators={false} showArrows={false} centerMode={true} centerSlidePercentage={centerSlidePercentage} selectedItem={currentIndex} onChange={index => setCurrentIndex(index)}>
+				<Carousel showThumbs={false} showStatus={false} showIndicators={false} showArrows={false} centerMode={false} centerSlidePercentage={centerSlidePercentage} selectedItem={currentIndex} onChange={index => setCurrentIndex(index)}>
 					{popularServices.map(service => (
 						<NavLink to={`/services/${service.serviceDescription}`} key={service._id} className='card-link'>
 							<div className='card' style={{ backgroundColor: service.color }}>

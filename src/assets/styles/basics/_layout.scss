@@ -1,7 +1,10 @@
 // Grid
 .main-container {
 	display: grid;
-	grid-template-columns: 1fr minmax(auto, 1400px) 1fr;
+	grid-template-columns:
+		minmax($layoutPadding, 1fr)
+		minmax(auto, $normal-breakpoint)
+		minmax($layoutPadding, 1fr);
 
 	> * {
 		grid-column: 2;
@@ -18,12 +21,12 @@
 			minmax($layoutPadding, 1fr);
 	}
 
-	@include for-tablet-layout {
-		grid-template-columns:
-			minmax($layoutPadding, 1fr)
-			minmax(auto, $tablet-breakpoint)
-			minmax($layoutPadding, 1fr);
-	}
+	// @include for-tablet-layout {
+	// 	grid-template-columns:
+	// 		minmax($layoutPadding, 1fr)
+	// 		minmax(auto, $tablet-breakpoint)
+	// 		minmax($layoutPadding, 1fr);
+	// }
 
 	@include for-normal-layout {
 		grid-template-columns:

@@ -59,7 +59,6 @@ export function CategoryList() {
 	const [itemsPerPage, setItemsPerPage] = useState(0)
 
 	useEffect(() => {
-		// Calculate how many items fit in one row and update state
 		const calculateItemsPerPage = () => {
 			const itemWidth = 129 // Width of each item
 			const itemsPerRow = Math.floor(window.innerWidth / itemWidth)
@@ -83,6 +82,8 @@ export function CategoryList() {
 		return `?category=${categoryToSave.categoryTxt.split(' ')[0].toLowerCase()}`
 	}
 
+	const hasMoreThanTwoRows = categoriesList.length > itemsPerPage * 2
+
 	return (
 		<section className='category-list-container'>
 			<div className='category-list'>
@@ -93,7 +94,7 @@ export function CategoryList() {
 					</Link>
 				))}
 			</div>
-			{itemsShown < categoriesList.length && (
+			{hasMoreThanTwoRows && itemsShown < categoriesList.length && (
 				<div className='view-more-button' onClick={handleViewMore}>
 					<p>View more</p>
 					<div className='chevron'>

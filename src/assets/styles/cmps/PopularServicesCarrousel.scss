@@ -118,4 +118,16 @@
 			margin-block-end: rem(24px);
 		}
 	}
+
+	.slider {
+		margin: 0;
+		padding: 0;
+		width: 218px;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			width: 154px;
+		}
+	}
 }
+
+// .carousel .slider-wrapper.axis-horizontal .slider

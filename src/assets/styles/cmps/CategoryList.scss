@@ -19,9 +19,18 @@
 		justify-items: center;
 		align-items: center;
 
+		@media screen and (max-width: $mobile-breakpoint) {
+		}
+
 		.category-list-link {
 			width: 129px;
 			height: 129px;
+
+			display: flex;
+			flex-direction: column;
+			align-items: start;
+			justify-content: center;
+			gap: 10px;
 
 			border: 1px solid #fff;
 			border-radius: 16px;
@@ -29,16 +38,15 @@
 
 			padding: 16px 12px;
 			text-decoration: none;
-			display: flex;
-			flex-direction: column;
-			align-items: start;
-			justify-content: center;
-			gap: 10px;
 			transition: background-color 0.2s;
 
 			@media screen and (max-width: $mobile-breakpoint) {
-				width: rem(100px);
+				// width: rem(152px);
 				height: rem(152px);
+
+				margin: auto;
+
+				align-items: start;
 				border: 0;
 				border-radius: 0;
 				box-shadow: 0 0 0 0;
@@ -53,6 +61,7 @@
 			.category-list-logo {
 				height: 64px;
 				width: 64px;
+				margin-block-end: rem(17px);
 				object-fit: contain;
 
 				@media screen and (max-width: $mobile-breakpoint) {
@@ -60,8 +69,11 @@
 					align-items: center;
 					justify-content: center;
 
-					height: 164px;
-					width: 94px;
+					height: 100px;
+					width: 98px;
+
+					margin-block-end: 0;
+					margin: 0;
 
 					border: 1px solid #fff;
 					border-radius: 16px;
@@ -73,6 +85,10 @@
 				@include font(14px, 22px, 550);
 				text-align: start;
 				color: #212224;
+
+				@media screen and (max-width: $mobile-breakpoint) {
+					text-align: center;
+				}
 			}
 		}
 	}
