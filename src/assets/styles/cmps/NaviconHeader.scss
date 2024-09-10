@@ -40,6 +40,7 @@
                 position: relative;
                 text-align: center;
                 text-decoration: none;
+                transition: background-color 0.3s;
 
                 &:hover {
                     background-color: #383a3b;
@@ -59,6 +60,7 @@
                 margin-top: 15px;
                 transition: background-color 0.3s;
                 text-align: left;
+                transition: background-color 0.3s;
 
                 &:hover {
                     background-color: #ededed;
@@ -76,8 +78,10 @@
                 font-weight: 600;
                 cursor: pointer;
                 margin-top: 15px;
-                transition: background-color 0.3s;
+                // transition: background-color 0.3s;
                 text-align: left;
+                transition: background-color 0.3s;
+               
 
                 &:hover {
                     background-color: #ededed;
@@ -85,6 +89,7 @@
             }
 
             .navicon-home-mobile {
+                text-decoration: none;
                 .navicon-txt {
 
                     width: 100%;
@@ -100,7 +105,7 @@
                     transition: background-color 0.3s;
                     // text-align: left;
                     // margin-top: 50px;
-
+                    
                     &:hover {
                         background-color: #ededed;
                     }
