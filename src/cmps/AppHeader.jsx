@@ -128,6 +128,11 @@ export function AppHeader() {
 										Become a Seller
 									</NavLink>
 								</li> */}
+								<li>
+									<Link to='/about' className='about-link'>
+										About
+									</Link>
+								</li>
 								{!loggedInUser && (
 									<li>
 										<button to='/sign-in' className='sign-button header-link-container' onClick={() => openModal(false)}>

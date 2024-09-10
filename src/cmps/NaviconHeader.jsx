@@ -45,7 +45,7 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
                     {!loggedInUser && (
                         <Link to='/signup' onClick={onClose}>
                             <button className='navicon-button-first'>
-                                Join Gighub
+                                Join gighub
                             </button>
                         </Link>
                     )}

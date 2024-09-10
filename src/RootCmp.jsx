@@ -8,6 +8,7 @@ import { GigDetailsPage } from './pages/GigDetailsPage.jsx'
 import { Dashboard } from './pages/Dashboard.jsx'
 import { Signup } from './pages/Signup.jsx'
 // import { signup } from './store/actions/user.actions.js'
+import { AboutPage } from './pages/AboutPage.jsx'
 
 export function RootCmp() {
 	// useEffect(() => {
@@ -26,6 +27,7 @@ export function RootCmp() {
 					<Route path='/username/:gigId' element={<GigDetailsPage />} />
 					<Route path='/dashboard' element={<Dashboard />} />
 					<Route path='/signup' element={<Signup />} />
+					<Route path='/about' element={<AboutPage />} />
 				</Routes>
 			</main>
 			<AppFooter />
