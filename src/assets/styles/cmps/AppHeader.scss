@@ -1,5 +1,6 @@
 #Header {
 	// position: sticky;
+
 	top: 0;
 	z-index: 1000;
 
@@ -9,6 +10,7 @@
 
 	@media screen and (max-width: $mobile-breakpoint) {
 		margin: 0;
+		margin-inline: $layoutPadding;
 	}
 
 	.header-package {
@@ -64,10 +66,18 @@
 
 			width: 100%;
 
+			@media screen and (min-width: $normal-breakpoint) {
+			}
+
 			.navicon-header-button {
-				background: none;
-				border: none;     
-				cursor: pointer;
+				display: none;
+
+				@media screen and (max-width: $mobile-breakpoint) {
+					display: block;
+					background: none;
+					border: none;
+					cursor: pointer;
+				}
 			}
 
 			.fiverr-header-search-animated {
@@ -186,6 +196,9 @@
 
 			.site-logo {
 				margin-block: rem(12px) rem(13px);
+				@media screen and (min-width: $normal-breakpoint) {
+					flex: 1;
+				}
 
 				svg {
 					// width: 110px;

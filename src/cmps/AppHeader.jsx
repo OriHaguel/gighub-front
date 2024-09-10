@@ -92,7 +92,6 @@ export function AppHeader() {
 	const toggleNavicon = () => {
 		// setIsSinged(isSignedUp)
 		setIsMobileNaviconOpen(!isMobileNaviconOpen)
-
 	}
 
 	const isHomePage = location.pathname === '/'
