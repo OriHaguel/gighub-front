@@ -109,10 +109,16 @@
 			height: rem(42px);
 			border-width: 0;
 			// margin-block-end: rem(100px);
+		}
 
-			.active {
-				background-color: black;
-				color: white;
+		.button-filled {
+			color: #fff;
+			background-color: #000;
+			font-weight: 550;
+
+			&:hover {
+				cursor: pointer;
+				background-color: #404145;
 			}
 		}
 
