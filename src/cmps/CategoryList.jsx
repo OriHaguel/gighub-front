@@ -78,6 +78,10 @@ export function CategoryList() {
 		setItemsShown(prevItemsShown => prevItemsShown + itemsPerPage * 2)
 	}
 
+	const handleViewLess = () => {
+		setItemsShown(prevItemsShown => prevItemsShown + itemsPerPage * 2)
+	}
+
 	function onCategory(categoryToSave) {
 		return `?category=${categoryToSave.categoryTxt.split(' ')[0].toLowerCase()}`
 	}
