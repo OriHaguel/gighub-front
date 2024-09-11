@@ -9,6 +9,7 @@ import { Dashboard } from './pages/Dashboard.jsx'
 import { Signup } from './pages/Signup.jsx'
 // import { signup } from './store/actions/user.actions.js'
 import { AboutPage } from './pages/AboutPage.jsx'
+import { OrderPageMobile } from './cmps/OrderPageMobile.jsx'
 
 export function RootCmp() {
 	// useEffect(() => {
@@ -28,6 +29,8 @@ export function RootCmp() {
 					<Route path='/dashboard' element={<Dashboard />} />
 					<Route path='/signup' element={<Signup />} />
 					<Route path='/about' element={<AboutPage />} />
+					{/* temporary */}
+					<Route path='/order' element={<OrderPageMobile />} />
 				</Routes>
 			</main>
 			<AppFooter />
