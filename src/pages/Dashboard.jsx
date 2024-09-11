@@ -99,9 +99,9 @@ export function Dashboard() {
 							</p>
 						</li>
 					</ul>
-					<a href='' className='dashboard-create-gig-btn'>
+					{/* <a href='' className='dashboard-create-gig-btn'>
 						CREATE A NEW GIG
-					</a>
+					</a> */}
 					{/* <button onClick={handleAddedGig}>Add Gig:</button> */}
 				</div>
 

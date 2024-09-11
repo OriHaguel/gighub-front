@@ -1,13 +1,14 @@
 .dashboard-container {
 	// layout need to be fixed here
+	// margin-bottom: rem(20px);
 	min-height: rem(800px);
 	position: relative;
-	padding-bottom: rem(100px);
+	// padding-bottom: rem(100px);
 	background: #f7f7f7;
 	font-size: 100%;
-	// width: 1240px;
-	width: calc(100% - 160px);
-	margin: rem(30px) auto rem(20px);
+	width: 1240px;
+	margin: 0 auto;
+	// margin-top: rem(30px);
 
 	// padding-left: 200px;
 	// @media screen and (max-width: $mobile-breakpoint) {
@@ -26,9 +27,10 @@
 			font-size: rem(40px);
 			line-height: 120%;
 			color: #404145;
-			font-family: 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-family: "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
 			margin: 0;
 		}
+
 	}
 
 	.dashboard-filter {
@@ -44,7 +46,7 @@
 
 			li {
 				display: inline-block;
-				transition: left 0.3s;
+				transition: left .3s;
 
 				a {
 					display: block;
@@ -75,6 +77,7 @@
 						cursor: pointer;
 					}
 				}
+
 			}
 		}
 
@@ -82,7 +85,7 @@
 			position: absolute;
 			right: 0;
 			top: 10px;
-			background-color: #1dbf73;
+			background-color: #1DBF73;
 			font-weight: 700;
 			color: #fff;
 			border: 1px solid transparent;
@@ -97,7 +100,7 @@
 			padding: 9px 20px 8px 20px;
 			margin: 0;
 			cursor: pointer;
-			transition: color 0.2s, background-color 0.2s, box-shadow 0.2s, border 0.2s;
+			transition: color .2s, background-color .2s, box-shadow .2s, border .2s;
 			border-radius: 3px;
 		}
 	}
@@ -110,8 +113,10 @@
 			font-size: inherit;
 			// width: 1240px;
 
+
 			thead {
 				border-collapse: collapse;
+
 
 				.header-filter {
 					background-color: #fff;
@@ -130,6 +135,7 @@
 						vertical-align: middle;
 						white-space: nowrap;
 						position: relative;
+
 					}
 				}
 
@@ -147,6 +153,7 @@
 						// padding: 3px 3px 3px 0;
 						padding: 5px 45px 5px 0;
 						white-space: nowrap;
+
 					}
 
 					.dashboard-table-header-gig {
@@ -161,6 +168,7 @@
 			}
 
 			tbody {
+
 				// .gig-dashboard-item
 				.gig-dashboard-item,
 				tr {
@@ -179,72 +187,79 @@
 					@media screen and (max-width: $mobile-breakpoint) {
 						max-width: 300px;
 						max-height: 300px;
-						background-color: #8ff8c7;
+						// background-color: #8ff8c7;
 						display: grid;
 						grid-template-columns: 1fr;
 						grid-template-rows: 1fr 1fr 1fr;
 						gap: 10px;
 						padding: 10px;
 
-						td {
-							display: block;
-							//
-							padding: 15px 15px 15px 0;
-							font-size: 14px;
-							line-height: 20px;
-							color: #555555;
-							// vertical-align: middle;
-							white-space: normal;
+
+					}
+
+
+					td {
+						// display: block;
+						//
+						padding: 15px 15px 15px 0;
+						font-size: 14px;
+						line-height: 20px;
+						color: #555555;
+						// vertical-align: middle;
+						white-space: normal;
+
+					}
+
+					.dashboard-gig-img {
+						width: 32px;
+						transition: background-color .1s;
+						padding-left: rem(100px);
+						padding-right: 0;
+					}
+
+					.dahsboard-title {
+						font-size: 14px;
+						line-height: 16px;
+						transition: background-color .1s;
+						white-space: normal;
+
+
+						// padding-right: rem(290px);
+
+						div {
+							max-height: 40px;
+							min-width: rem(315px);
+							overflow: hidden;
 						}
+					}
 
-						.dashboard-gig-img {
-							width: 32px;
-							transition: background-color 0.1s;
-							padding-left: rem(100px);
-							padding-right: 0;
-						}
+					.dashboard-dropdown {
+						padding-right: 20px;
+						transition: background-color .1s;
+						text-align: right;
 
-						.dahsboard-title {
-							font-size: 14px;
-							line-height: 16px;
-							transition: background-color 0.1s;
-							white-space: normal;
+						div {
+							margin-top: 5px;
 
-							// padding-right: rem(290px);
+							button {
+								border-color: #e5e5e5;
+								padding: 8px 17px 21px 10px;
+								// background-color: #fff;
+								display: inline-block;
+								position: relative;
+								font: 400 12px "Macan", "Helvetica Neue", Helvetica, Arial, sans-serif;
+								color: #777777;
+								text-decoration: none;
+								border: 1px #b2b2b2 solid;
+								text-transform: uppercase;
+								margin: 0;
+								white-space: nowrap;
+								cursor: pointer;
+								border-radius: 3px;
 
-							div {
-								max-height: 40px;
-								min-width: rem(315px);
-								overflow: hidden;
-							}
-						}
+								margin-right: 10px;
 
-						.dashboard-dropdown {
-							padding-right: 20px;
-							transition: background-color 0.1s;
-							text-align: right;
 
-							div {
-								margin-top: 5px;
-
-								button {
-									border-color: #e5e5e5;
-									padding: 8px 17px 21px 10px;
-									// background-color: #fff;
-									display: inline-block;
-									position: relative;
-									font: 400 12px 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-									color: #777777;
-									text-decoration: none;
-									border: 1px #b2b2b2 solid;
-									text-transform: uppercase;
-									margin: 0;
-									white-space: nowrap;
-									cursor: pointer;
-									border-radius: 3px;
-
-									margin-right: 10px;
-								}
 							}
 						}
 					}
