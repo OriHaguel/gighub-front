@@ -188,7 +188,50 @@ function getImg() {
 export function getCountry() {
 	const countries = ['USA', 'UK', 'Canada', 'Australia', 'France', 'Germany', 'Japan', 'India', 'China', 'Russia', 'Italy', 'Spain', 'Netherlands', 'Belgium', 'Switzerland', 'Austria', 'Poland', 'Greece', 'Romania', 'Portugal', 'Turkey', 'Ireland', 'Denmark', 'Sweden', 'Norway', 'Finland', 'Iceland', 'Luxembourg', 'Malta', 'Cyprus', 'Slovakia', 'Estonia', 'Latvia', 'Lithuania', 'Hungary', 'Slovenia', 'Croatia', 'Bosnia and Herzegovina', 'Serbia', 'Montenegro', 'Kosovo', 'Macedonia']
 	const flags = ['🇺🇸', '🇬🇧', '🇨🇦', '🇦🇺', '🇫🇷', '🇩🇪', '🇯🇵', '🇮🇳', '🇨🇳', '🇷🇺', '🇮🇹', '🇪🇸', '🇳🇱', '🇧🇪', '🇨🇭', '🇦🇹', '🇵🇱', '🇬🇷', '🇷🇴', '🇵🇹', '🇹🇷', '🇮🇪', '🇩🇰', '🇸🇪', '🇳🇴', '🇫🇮', '🇮🇸', '🇱🇺', '🇲🇹', '🇨🇾', '🇸🇰', '🇪🇪', '🇱🇻', '🇱🇹', '🇭🇺', '🇸🇮', '🇭🇷', '🇧🇦', '🇷🇸', '🇲🇪', '🇽🇰', '🇲🇰']
-
+	// const flags = [
+	// 	'https://flagsapi.com/US/flat/64.png',
+	// 	'https://flagsapi.com/GB/flat/64.png',
+	// 	'https://flagsapi.com/CA/flat/64.png',
+	// 	'https://flagsapi.com/AU/flat/64.png',
+	// 	'https://flagsapi.com/FR/flat/64.png',
+	// 	'https://flagsapi.com/DE/flat/64.png',
+	// 	'https://flagsapi.com/JP/flat/64.png',
+	// 	'https://flagsapi.com/IN/flat/64.png',
+	// 	'https://flagsapi.com/CN/flat/64.png',
+	// 	'https://flagsapi.com/RU/flat/64.png',
+	// 	'https://flagsapi.com/IT/flat/64.png',
+	// 	'https://flagsapi.com/ES/flat/64.png',
+	// 	'https://flagsapi.com/NL/flat/64.png',
+	// 	'https://flagsapi.com/BE/flat/64.png',
+	// 	'https://flagsapi.com/CH/flat/64.png',
+	// 	'https://flagsapi.com/AT/flat/64.png',
+	// 	'https://flagsapi.com/PL/flat/64.png',
+	// 	'https://flagsapi.com/GR/flat/64.png',
+	// 	'https://flagsapi.com/RO/flat/64.png',
+	// 	'https://flagsapi.com/PT/flat/64.png',
+	// 	'https://flagsapi.com/TR/flat/64.png',
+	// 	'https://flagsapi.com/IE/flat/64.png',
+	// 	'https://flagsapi.com/DK/flat/64.png',
+	// 	'https://flagsapi.com/SE/flat/64.png',
+	// 	'https://flagsapi.com/NO/flat/64.png',
+	// 	'https://flagsapi.com/FI/flat/64.png',
+	// 	'https://flagsapi.com/IS/flat/64.png',
+	// 	'https://flagsapi.com/LU/flat/64.png',
+	// 	'https://flagsapi.com/MT/flat/64.png',
+	// 	'https://flagsapi.com/CY/flat/64.png',
+	// 	'https://flagsapi.com/SK/flat/64.png',
+	// 	'https://flagsapi.com/EE/flat/64.png',
+	// 	'https://flagsapi.com/LV/flat/64.png',
+	// 	'https://flagsapi.com/LT/flat/64.png',
+	// 	'https://flagsapi.com/HU/flat/64.png',
+	// 	'https://flagsapi.com/SI/flat/64.png',
+	// 	'https://flagsapi.com/HR/flat/64.png',
+	// 	'https://flagsapi.com/BA/flat/64.png',
+	// 	'https://flagsapi.com/RS/flat/64.png',
+	// 	'https://flagsapi.com/ME/flat/64.png',
+	// 	'https://flagsapi.com/XK/flat/64.png',
+	// 	'https://flagsapi.com/MK/flat/64.png'
+	//   ]
 	const random = getRandomIntInclusive(0, countries.length - 1)
 	const country = countries[random]
 	const flag = flags[random]
