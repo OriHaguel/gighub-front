@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { Link, NavLink, useLocation, useParams } from 'react-router-dom'
 
 import { useSelector } from 'react-redux'
 import { LoginSignup } from './LoginSignup'
@@ -9,11 +9,55 @@ import { logout } from '../store/actions/user.actions'
 import ArrowIcon from '../assets/svg/ArrowIcon.svg?react'
 import LongArrowIcon from '../assets/svg/LongArrowIcon.svg?react'
 import { setFilterBy } from '../store/actions/gig.actions'
+import { OrderPageMobile } from './OrderPageMobile.jsx'
 
 export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
 	const modalRef = useRef(null)
 	const [selectDropOpen, setSelectDropOpen] = useState(false)
 	const loggedInUser = useSelector(storeState => storeState.userModule.user)
+
+	// const [gig, setGig] = useState()
+	// const [selectedPackage, setSelectedPackage] = useState('basic')
+	// const param = useParams()
+	// useEffect(() => {
+	// 	loadGig()
+	// }, [param.gigId])
+	// async function loadGig() {
+	// 	try {
+	// 		const gig = await gigService.getById(param.gigId)
+	// 		setGig(gig)
+	// 	} catch (error) {
+	// 		navigate('/gigs')
+	// 		console.log('🚀 ~ loadGig ~ error:', error)
+	// 	}
+	// }
+	// const packages = {
+	// 	Basic: {
+	// 		type: 'Basic',
+	// 		price: Math.round(gig.price),
+	// 		daysToMake: gig.daysToMake + 4,
+	// 		revisions: 2,
+	// 		pages: 3,
+	// 		assets: 1,
+	// 	},
+	// 	Standard: {
+	// 		type: 'Standart',
+	// 		price: Math.round(gig.price * 1.2),
+	// 		daysToMake: gig.daysToMake + 2,
+	// 		revisions: 4,
+	// 		pages: 5,
+	// 		assets: 2,
+	// 	},
+	// 	Premium: {
+	// 		type: 'Premium',
+	// 		price: Math.round(gig.price * 1.5),
+	// 		daysToMake: gig.daysToMake,
+	// 		revisions: 6,
+	// 		pages: 7,
+	// 		assets: 3,
+	// 	},
+	// }
+	// const currentPackage = packages[selectedPackage]
 
 	useEffect(() => {
 		const handleClickOutside = event => {
@@ -187,9 +231,15 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
 					<Link to='/' className='navicon-home-mobile' onClick={onClose}>
 						<div className='navicon-txt'>Home</div>
 					</Link>
-					<Link to='/about' className=' navicon-home-mobile about-link'>
+					<Link to='/about' className=' navicon-home-mobile about-link' onClick={onClose} >
 						<div className='navicon-txt'>About</div>
 					</Link>
+
+					{/* <OrderPageMobile gig={gig} selectedPackage={selectedPackage}>
+
+						<div className='navicon-txt'>Order Page Mobile</div>
+					</OrderPageMobile> */}
+
 				</div>
 			</div>
 		</div>

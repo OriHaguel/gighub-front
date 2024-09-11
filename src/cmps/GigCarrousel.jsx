@@ -74,7 +74,27 @@ export function GigCarrousel() {
 				showIndicators={true} // TODO: make this look like it belongs in the app and make it dynamic
 				showStatus={false}
 				renderArrowPrev={renderArrowPrev}
-				renderArrowNext={renderArrowNext}>
+				renderArrowNext={renderArrowNext}
+				renderThumbs={() =>
+					gig.img.map((mediaUrl, index) =>
+						mediaUrl.endsWith('.mp4') ? (
+							<video
+								key={index}
+								src={mediaUrl}
+								alt={`Thumbnail Video ${index + 1}`}
+								style={{ width: '100px', height: '60px', objectFit: 'cover' }}
+								muted
+							/>
+						) : (
+							<img
+								key={index}
+								src={mediaUrl}
+								alt={`Thumbnail Image ${index + 1}`}
+								style={{ width: '100px', height: '60px', objectFit: 'cover' }}
+							/>
+						)
+					)
+				}>
 				{gig.img &&
 					gig.img.map((mediaUrl, index) =>
 						mediaUrl.endsWith('.mp4') ? (

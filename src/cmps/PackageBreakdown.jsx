@@ -9,7 +9,13 @@ export function PackageBreakdown({ gig }) {
             daysToMake: gig.daysToMake + 4,
             revisions: 2,
             pages: 3,
-            assets: 1
+            assets: 1,
+            seo: 2,
+            graphics: 2,
+            multilingual: 2,
+            analytics: 2,
+            support: 2,
+            hosting: 2
         },
         Standard: {
             type: 'Standart',
@@ -17,7 +23,13 @@ export function PackageBreakdown({ gig }) {
             daysToMake: gig.daysToMake + 2,
             revisions: 4,
             pages: 5,
-            assets: 2
+            assets: 2,
+            seo: 5,
+            graphics: 5,
+            multilingual: 5,
+            analytics: 5,
+            support: 5,
+            hosting: 5
         },
         Premium: {
             type: 'Premium',
@@ -25,7 +37,13 @@ export function PackageBreakdown({ gig }) {
             daysToMake: gig.daysToMake,
             revisions: 6,
             pages: 7,
-            assets: 3
+            assets: 3,
+            seo: 7,
+            graphics: 7,
+            multilingual: 7,
+            analytics: 7,
+            support: 7,
+            hosting: 7
         }
     }
 
@@ -48,7 +66,7 @@ export function PackageBreakdown({ gig }) {
                                     <p className="price">${packages[pkg].price}</p>
                                 </div>
                                 <b className="type">{packages[pkg].type}</b>
-                                <b className="title">{pkg}</b>
+                                <b className="title"> Package</b>
                             </th>
                         ))}
                     </tr>
@@ -57,20 +75,22 @@ export function PackageBreakdown({ gig }) {
                     <tr className="description">
                         <td className="package-row-label"></td>
                         {Object.keys(packages).map(pkg => (
-                            <td key={pkg}>{packages[pkg].description}</td>
+                            <td key={pkg}></td>
                         ))}
                     </tr>
                     <tr>
                         <td className="package-row-label">
                             <div>
-                                <span >Functional Product</span>
+                                <span >Bonus Product Pages</span>
                             </div>
                         </td>
                         {Object.keys(packages).map(pkg => (
                             <td key={pkg}>
-                                {packages[pkg].pages > 0 ? (
+                                {packages[pkg].pages > 3 ? (
                                     <span >
+
                                         <CheckIcon />
+
                                     </span>
                                 ) : null}
                             </td>
@@ -92,7 +112,7 @@ export function PackageBreakdown({ gig }) {
                             </td>
                         ))}
                     </tr>
-                    <tr>
+                    {/* <tr>
                         <td className="package-row-label">
                             <div >
                                 <span>Content Upload</span>
@@ -101,6 +121,102 @@ export function PackageBreakdown({ gig }) {
                         {Object.keys(packages).map(pkg => (
                             <td key={pkg}>
                                 {packages[pkg].assets > 0 ? (
+                                    <span>
+                                        <CheckIcon />
+                                    </span>
+                                ) : null}
+                            </td>
+                        ))}
+                    </tr> */}
+                    <tr>
+                        <td className="package-row-label">
+                            <div>
+                                <span>SEO Optimization</span>
+                            </div>
+                        </td>
+                        {Object.keys(packages).map(pkg => (
+                            <td key={pkg}>
+                                {packages[pkg].seo > 2 ? (
+                                    <span>
+                                        <CheckIcon />
+                                    </span>
+                                ) : null}
+                            </td>
+                        ))}
+                    </tr>
+                    <tr>
+                        <td className="package-row-label">
+                            <div>
+                                <span>Custom Graphics</span>
+                            </div>
+                        </td>
+                        {Object.keys(packages).map(pkg => (
+                            <td key={pkg}>
+                                {packages[pkg].graphics > 0 ? (
+                                    <span>
+                                        <CheckIcon />
+                                    </span>
+                                ) : null}
+                            </td>
+                        ))}
+                    </tr>
+                    <tr>
+                        <td className="package-row-label">
+                            <div>
+                                <span>Multilingual Support</span>
+                            </div>
+                        </td>
+                        {Object.keys(packages).map(pkg => (
+                            <td key={pkg}>
+                                {packages[pkg].multilingual > 3 ? (
+                                    <span>
+                                        <CheckIcon />
+                                    </span>
+                                ) : null}
+                            </td>
+                        ))}
+                    </tr>
+                    <tr>
+                        <td className="package-row-label">
+                            <div>
+                                <span>Analytics Integration</span>
+                            </div>
+                        </td>
+                        {Object.keys(packages).map(pkg => (
+                            <td key={pkg}>
+                                {packages[pkg].analytics > 0 ? (
+                                    <span>
+                                        <CheckIcon />
+                                    </span>
+                                ) : null}
+                            </td>
+                        ))}
+                    </tr>
+                    <tr>
+                        <td className="package-row-label">
+                            <div>
+                                <span>24/7 Support</span>
+                            </div>
+                        </td>
+                        {Object.keys(packages).map(pkg => (
+                            <td key={pkg}>
+                                {packages[pkg].support > 5 ? (
+                                    <span>
+                                        <CheckIcon />
+                                    </span>
+                                ) : null}
+                            </td>
+                        ))}
+                    </tr>
+                    <tr>
+                        <td className="package-row-label">
+                            <div>
+                                <span>Hosting Included</span>
+                            </div>
+                        </td>
+                        {Object.keys(packages).map(pkg => (
+                            <td key={pkg}>
+                                {packages[pkg].hosting > 0 ? (
                                     <span>
                                         <CheckIcon />
                                     </span>

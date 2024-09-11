@@ -10,6 +10,7 @@ import { Signup } from './pages/Signup.jsx'
 // import { signup } from './store/actions/user.actions.js'
 import { AboutPage } from './pages/AboutPage.jsx'
 
+
 export function RootCmp() {
 	// useEffect(() => {
 	// 	const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth
@@ -28,6 +29,7 @@ export function RootCmp() {
 					<Route path='/dashboard' element={<Dashboard />} />
 					<Route path='/signup' element={<Signup />} />
 					<Route path='/about' element={<AboutPage />} />
+					
 				</Routes>
 			</main>
 			<AppFooter />
