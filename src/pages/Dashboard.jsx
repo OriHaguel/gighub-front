@@ -88,7 +88,7 @@ export function Dashboard() {
                         <li><p className={orderStatus === 'accepted' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('accepted')}>ACCEPTED</p></li>
                         <li><p className={orderStatus === 'denied' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('denied')}>DENIED</p></li>
                     </ul>
-                    <a href="" className="dashboard-create-gig-btn">CREATE A NEW GIG</a>
+                    {/* <a href="" className="dashboard-create-gig-btn">CREATE A NEW GIG</a> */}
                     {/* <button onClick={handleAddedGig}>Add Gig:</button> */}
                 </div>
 
