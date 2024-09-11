@@ -9,16 +9,26 @@
 	justify-content: flex-end;
 	align-items: center;
 	z-index: 1000;
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		background-color: #fff;
+		padding-inline-start: rem(16px);
+	}
 }
 
 .order-modal-content {
 	background-color: #fff;
-	width: 25%;
+	width: rem(480px);
 	height: 100%;
 	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 	padding: 20px;
 	position: relative;
 	overflow-y: auto;
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		width: 100%;
+		padding-inline: rem(24px);
+	}
 }
 
 .close-modal-button {
@@ -161,6 +171,10 @@
 		background-color: #f8f8f8;
 		// padding: 20px;
 		padding-block: rem(20px);
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			padding-inline: rem(24px);
+		}
 
 		.summary-title {
 			font-size: 16px;

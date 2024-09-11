@@ -132,33 +132,6 @@
 	grid-column: 12;
 }
 
-// Grid row mobile
-.grid-row-1-mobile {
-	@media screen and (max-width: $mobile-breakpoint) {
-		grid-row: 1;
-	}
-}
-.grid-row-2-mobile {
-	@media screen and (max-width: $mobile-breakpoint) {
-		grid-row: 2;
-	}
-}
-.grid-row-3-mobile {
-	@media screen and (max-width: $mobile-breakpoint) {
-		grid-row: 3;
-	}
-}
-.grid-row-4-mobile {
-	@media screen and (max-width: $mobile-breakpoint) {
-		grid-row: 4;
-	}
-}
-.grid-row-5-mobile {
-	@media screen and (max-width: $mobile-breakpoint) {
-		grid-row: 5;
-	}
-}
-
 // Grid Span
 
 .grid-span-2 {
