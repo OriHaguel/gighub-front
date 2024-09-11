@@ -41,6 +41,7 @@
 			transform: scale(1.05); // Only the image scales, not the container
 		}
 	}
+
 	.gig-list-img-container,
 	.gig-list-vid-container video {
 		width: 700px;
@@ -127,5 +128,43 @@
 
 	.gig-list-img-container {
 		transition: 0.5s ease;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			height: rem(218px);
+			background-color: #62646a;
+		}
+	}
+}
+
+// reset
+.carousel .control-dots .dot {
+	@media screen and (max-width: $mobile-breakpoint) {
+		width: 6px;
+		height: 6px;
+
+		margin: 0;
+		padding: 0;
+		margin-inline-end: rem(5px);
+
+		box-shadow: 0 0 0 0;
+		background-color: #62646a;
+	}
+}
+
+.control-dots {
+	display: none;
+
+	@media screen and (max-width: $mobile-breakpoint) {
+		display: block;
+		position: absolute;
+		top: 223px;
+
+		.dot {
+			&.selected {
+				background-color: #1dbf73;
+				height: 7px;
+				width: 7px;
+			}
+		}
 	}
 }
