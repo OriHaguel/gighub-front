@@ -21,7 +21,7 @@
 	@media screen and (max-width: $mobile-breakpoint) {
 		flex-direction: column;
 		justify-content: center;
-		width: auto;
+		width: calc(100% - $layoutPadding * 2);
 	}
 
 	.footer-left-container {
