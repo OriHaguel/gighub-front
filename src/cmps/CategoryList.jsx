@@ -60,7 +60,7 @@ export function CategoryList() {
 
 	useEffect(() => {
 		const calculateItemsPerPage = () => {
-			const itemWidth = 129 // Width of each item
+			const itemWidth = 150 // Width of each item
 			const itemsPerRow = Math.floor(window.innerWidth / itemWidth)
 			setItemsPerPage(itemsPerRow)
 			setItemsShown(itemsPerRow * 2) // Show items that fit in two rows
@@ -79,7 +79,7 @@ export function CategoryList() {
 	}
 
 	const handleViewLess = () => {
-		setItemsShown(prevItemsShown => prevItemsShown + itemsPerPage * 2)
+		setItemsShown(itemsPerPage * 2) // Reduce to the original two rows
 	}
 
 	function onCategory(categoryToSave) {
@@ -103,6 +103,14 @@ export function CategoryList() {
 					<p>View more</p>
 					<div className='chevron'>
 						<Chevron />
+					</div>
+				</div>
+			)}
+			{hasMoreThanTwoRows && itemsShown > itemsPerPage * 2 && (
+				<div className='view-more-button' onClick={handleViewLess}>
+					<p>View less</p>
+					<div className='chevron'>
+						<Chevron className='inverted-chevron' />
 					</div>
 				</div>
 			)}

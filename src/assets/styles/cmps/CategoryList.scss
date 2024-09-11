@@ -21,7 +21,7 @@
 
 		@media screen and (max-width: $mobile-breakpoint) {
 			grid-template-columns: repeat(3, 152px);
-			grid-template-rows: repeat(3, 163px);
+			grid-template-rows: repeat(2, 163px);
 		}
 
 		.category-list-link {
@@ -98,12 +98,14 @@
 	}
 
 	.view-more-button {
+		position: relative;
+		top: 12px;
 		display: flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: center;
 
-		margin-block-start: rem(21px);
+		margin-block: rem(21px) rem(100px);
 		width: 100%;
 		background-color: #fff;
 		color: #222325;
@@ -121,6 +123,10 @@
 		.chevron {
 			width: 12px;
 			height: 12px;
+		}
+
+		.inverted-chevron {
+			transform: rotate(180deg);
 		}
 
 		&::before {
