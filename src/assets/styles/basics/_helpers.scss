@@ -76,6 +76,13 @@
 	}
 }
 
+.mobile-only {
+	display: none;
+	@media screen and (max-width: $mobile-breakpoint) {
+		display: block;
+	}
+}
+
 // Grid
 .grid-1 {
 	grid-column: 1;

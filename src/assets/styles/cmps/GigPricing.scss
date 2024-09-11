@@ -5,7 +5,9 @@
 	position: relative;
 
 	@media screen and (max-width: $mobile-breakpoint) {
-		grid-column: 2;
+		// grid-column: 2;
+		grid-column: 1 / -1;
+		grid-row: 1 / -1;
 	}
 
 	.package-tabs {
@@ -33,6 +35,8 @@
 			top: 0;
 			z-index: 1;
 			margin: 0;
+
+			border-width: 0;
 		}
 
 		.nav-container {
@@ -42,6 +46,10 @@
 			// .nav-container.selected{
 			// 	border: 1px solid black;
 			// }
+
+			@media screen and (max-width: $mobile-breakpoint) {
+				grid-row: -1 / 1;
+			}
 
 			label {
 				border-top: none;
@@ -211,6 +219,10 @@
 		padding-left: 24px;
 		padding-right: 24px;
 
+		@media screen and (max-width: $mobile-breakpoint) {
+			padding-inline: 0;
+		}
+
 		.footer-btn-continue {
 			border: 1px solid transparent;
 			border-radius: 4px;
@@ -227,6 +239,11 @@
 			text-decoration: none;
 			background-color: #000;
 			color: #fff;
+
+			@media screen and (max-width: $mobile-breakpoint) {
+				width: 100%;
+				margin-block-end: rem(44px);
+			}
 
 			span {
 				svg {
@@ -245,6 +262,10 @@
 			padding-top: 12px;
 			font: inherit;
 			cursor: pointer;
+
+			@media screen and (max-width: $mobile-breakpoint) {
+				display: none;
+			}
 		}
 	}
 }
