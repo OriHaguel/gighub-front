@@ -63,7 +63,7 @@ export function GigCarrousel() {
 	}
 
 	return (
-		<section className='gig-detail-carousel grid-row-1-mobile'>
+		<section className='gig-detail-carousel'>
 			<Carousel
 				showArrows={true}
 				autoPlay={false}
@@ -71,7 +71,7 @@ export function GigCarrousel() {
 				showThumbs={true}
 				dynamicHeight={false}
 				emulateTouch={false}
-				showIndicators={false} // TODO: make this look like it belongs in the app and make it dynamic
+				showIndicators={true} // TODO: make this look like it belongs in the app and make it dynamic
 				showStatus={false}
 				renderArrowPrev={renderArrowPrev}
 				renderArrowNext={renderArrowNext}>

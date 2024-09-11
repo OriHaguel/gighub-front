@@ -29,16 +29,15 @@ export function GigDetails() {
 	function AddOrders() {
 		switch (gig.owner.level) {
 			case 1:
-				return getRandomIntInclusive(1, 9);
+				return getRandomIntInclusive(1, 9)
 			case 2:
-				return getRandomIntInclusive(10, 20);
+				return getRandomIntInclusive(10, 20)
 			case 3:
-				return getRandomIntInclusive(21, 40);
+				return getRandomIntInclusive(21, 40)
 			default:
-				return 0;
+				return 0
 		}
 	}
-
 
 	if (!gig) return <div>Loading...</div>
 
@@ -47,7 +46,7 @@ export function GigDetails() {
 	}
 
 	return (
-		<section className='gig-overview grid-row-1-mobile'>
+		<section className='gig-overview'>
 			<h1 className='gig-title'>{gig.title}</h1>
 			<div className='owner-details'>
 				<img className='owner-image' src={gig.owner.imgUrl || 'fallback-image.png'} />

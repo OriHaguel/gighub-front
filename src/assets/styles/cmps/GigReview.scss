@@ -11,6 +11,8 @@
 	// text-align: start;
 	align-items: flex-start;
 
+	margin-block-end: rem(33px);
+
 	.user-details-container {
 		display: flex;
 		flex-direction: column;
@@ -151,16 +153,26 @@
 		}
 
 		.review-stats {
-			color: black;
 			font-family: Macan, Helvetica Neue, Helvetica, Arial, sans-serif;
+			text-align: start;
+			color: black;
 			display: flex;
 			flex-direction: column;
 			border-right: 1px solid #d0d0d0;
-			padding: 0 0 0 25px;
+			// padding: 0 0 0 25px;
+			// padding-inline-end: 20px;
 
 			&:last-child {
 				border-right: none;
 			}
+		}
+
+		.review-price {
+			padding-inline-end: rem(20px);
+		}
+
+		.review-duration {
+			padding-inline-start: rem(35px);
 		}
 	}
 }

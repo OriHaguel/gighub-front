@@ -2,14 +2,17 @@ import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Star from '../assets/svg/star.svg?react'
-import RepeatClientIcon from '../assets/svg/RepeatClientIcon.svg?react'
 import { gigService } from '../services/gig'
 import { GigPricing } from './GigPricing.jsx'
 
+// Images
+import RepeatClientIcon from '../assets/svg/RepeatClientIcon.svg?react'
+import Star from '../assets/svg/star.svg?react'
+import StarEmpty from '../assets/svg/star_empty.svg?react'
+import StarHalf from '../assets/svg/star_half.svg?react'
+
 // TODO: make review content and review score fit (high score good praise and vice versa)
 // TODO: fix flags
-
 
 export function GigReview() {
 	const [gig, setGig] = useState(null)
@@ -31,9 +34,25 @@ export function GigReview() {
 	}
 
 	function starDecider(rating) {
-		return Array(rating)
-			.fill(null)
-			.map((_, i) => <Star key={i} className='rating-star' />)
+		const fullStars = Math.floor(rating)
+		const hasHalfStar = rating % 1 !== 0
+		const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0)
+
+		return (
+			<>
+				{Array(fullStars)
+					.fill(null)
+					.map((_, i) => (
+						<Star key={`full-${i}`} className='rating-star' />
+					))}
+				{hasHalfStar && <StarHalf key='half-star' className='rating-star' />}
+				{Array(emptyStars)
+					.fill(null)
+					.map((_, i) => (
+						<StarEmpty key={`empty-${i}`} className='rating-star' />
+					))}
+			</>
+		)
 	}
 
 	console.log('gig debug', gig)
@@ -68,7 +87,7 @@ export function GigReview() {
 			price: roundToNearest(gig.price),
 			priceRange: roundToNearest(gig.price * 1.5),
 			daysToMake: gig.daysToMake,
-		}
+		},
 	}
 
 	function getRandomPackage(packages) {
@@ -78,63 +97,61 @@ export function GigReview() {
 	}
 	const currentPackage = getRandomPackage(packages)
 
-	return (
-		gig.reviews.map(review => (
-			<section className='review-container' key={review._id}>
-				<div className='user-details-container'>
-					<div className='user-name-container'>
-						<img
-							className='review-image'
-							src={gig.reviewImage || 'fallback-image.png'} // Add fallback for image
-							alt={review.by.fullname || 'Reviewer'} // Add fallback for alt text
-						/>
-						<div className='user-details-1'>
-							<div className='user-data-container'>
-								<p className='review-name'>{review.by.fullname}</p>
-								{review.IsRepeatClient && (
-									<div className='review-repeat-client'>
-										<span className='review-separator-dot'>•</span>
-										<RepeatClientIcon className='repeat-icon' />
-										<p>Repeat Client</p>
-									</div>
-								)}
-							</div>
-							<div className='review-country'>
-								<p className='review-country-flag'>{gig.reviewCountry.flag}</p>
-								<p className='review-country'>{gig.reviewCountry.country}</p>
-							</div>
+	return gig.reviews.map(review => (
+		<section className='review-container' key={review._id}>
+			<div className='user-details-container'>
+				<div className='user-name-container'>
+					<img
+						className='review-image'
+						src={gig.reviewImage || 'fallback-image.png'} // Add fallback for image
+						alt={review.by.fullname || 'Reviewer'} // Add fallback for alt text
+					/>
+					<div className='user-details-1'>
+						<div className='user-data-container'>
+							<p className='review-name'>{review.by.fullname}</p>
+							{review.IsRepeatClient && (
+								<div className='review-repeat-client'>
+									<span className='review-separator-dot'>•</span>
+									<RepeatClientIcon className='repeat-icon' />
+									<p>Repeat Client</p>
+								</div>
+							)}
+						</div>
+						<div className='review-country'>
+							<p className='review-country-flag'>{gig.reviewCountry.flag}</p>
+							<p className='review-country'>{gig.reviewCountry.country}</p>
 						</div>
 					</div>
 				</div>
-				<div className='review-details-container'>
-					<p className='review-rating'>
-						{starDecider(review.rate)}
+			</div>
+			<div className='review-details-container'>
+				<p className='review-rating'>
+					{starDecider(review.rate)}
 
-						{review.rate}
-					</p>
-					<span className='review-separator-dot'>•</span>
-					<p className='review-time'>{review.createdAt}</p>
+					{review.rate}
+				</p>
+				<span className='review-separator-dot'>•</span>
+				<p className='review-time'>{review.createdAt}</p>
+			</div>
+			<p className='review-content'>{review.txt}</p>
+			<div className='review-gig-details'>
+				<div className='review-price review-stats'>
+					${currentPackage.price}-${currentPackage.priceRange}
+					<p>Price</p>
 				</div>
-				<p className='review-content'>{review.txt}</p>
-				<div className='review-gig-details'>
-					<div className='review-price review-stats'>
-						${currentPackage.price}-${currentPackage.priceRange}
-						<p>Price</p>
-					</div>
-					{/* <div>|</div> */}
-					<div className='review-duration review-stats'>
-						{currentPackage.daysToMake} Days
-						<p>Duration</p>
-					</div>
+				{/* <div>|</div> */}
+				<div className='review-duration review-stats'>
+					{currentPackage.daysToMake} Days
+					<p>Duration</p>
 				</div>
-				<div className='seller-response'>
-					<div className='seller-details'>
-						<img className='owner-image' src={gig.owner.imgUrl || 'fallback-image.png'} alt={gig.owner || 'Owner'} />
-						<h2>Seller's Response</h2>
-					</div>
-					<p>{review.SellerResponse}</p>
+			</div>
+			<div className='seller-response'>
+				<div className='seller-details'>
+					<img className='owner-image' src={gig.owner.imgUrl || 'fallback-image.png'} alt={gig.owner || 'Owner'} />
+					<h2>Seller's Response</h2>
 				</div>
-			</section>
-		))
-	)
+				<p>{review.SellerResponse}</p>
+			</div>
+		</section>
+	))
 }

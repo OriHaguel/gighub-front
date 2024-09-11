@@ -33,7 +33,7 @@ export function GigAbout() {
 		)
 
 	return (
-		<section className='about-details grid-row-3-mobile'>
+		<section className='about-details'>
 			<h1>About this gig</h1>
 			<p>{gig.aboutGig}</p>
 			{/* <div className='gig-breakdown'>

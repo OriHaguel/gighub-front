@@ -45,7 +45,7 @@ export function GigDetailsPage() {
 				<div className='gig-details-page-container grid-2'>
 					<GigDetails />
 					<GigCarrousel />
-					<div className='pricing-container grid-4 mobile-only'>
+					<div className='pricing-container mobile-only'>
 						<GigPricing gig={gig} onContinue={toggleOrderPage} />
 					</div>
 					<GigAbout />
