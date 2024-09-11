@@ -20,8 +20,8 @@
 		align-items: center;
 
 		@media screen and (max-width: $mobile-breakpoint) {
-			grid-template-columns: repeat(3, 152px);
-			grid-template-rows: repeat(2, 163px);
+			grid-template-columns: repeat(3, minmax(auto, rem(152px)));
+			grid-template-rows: repeat(2, minmax(auto, rem(163px)));
 		}
 
 		.category-list-link {
@@ -47,7 +47,7 @@
 				// height: rem(152px);
 				height: rem(200px);
 
-				margin: auto;
+				margin: 0 -12px;
 
 				align-items: center;
 				justify-content: start;

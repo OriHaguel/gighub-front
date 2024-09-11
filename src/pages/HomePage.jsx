@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react'
 
 // Component Imports
 import { CategoryList } from '../cmps/CategoryList.jsx'
+import { CategoryListMobile } from '../cmps/CategoryListMobile.jsx'
 import { PopularServicesCarrousel } from '../cmps/PopularServicesCarrousel'
 import { AdvertArea } from '../cmps/AdvertArea'
 import { MainSearchArea } from '../cmps/MainSearchArea.jsx'
@@ -25,6 +26,7 @@ export function HomePage() {
 
 			<section className='category-list categories-container main-container'>
 				<CategoryList />
+				<CategoryListMobile />
 			</section>
 
 			<section className='home-page-carrousel main-container'>

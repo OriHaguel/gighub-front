@@ -13,7 +13,7 @@ import BusinessLogo from '../assets/svg/businessLogo.svg?react'
 import ConsultingLogo from '../assets/svg/consultingLogo.svg?react'
 import Chevron from '../assets/svg/chevronIcon.svg?react'
 
-export function CategoryList() {
+export function CategoryListMobile() {
 	const [searchParams, setSearchParams] = useSearchParams()
 
 	const categoriesList = [
@@ -55,7 +55,7 @@ export function CategoryList() {
 		},
 	]
 
-	const [itemsShown, setItemsShown] = useState(0)
+	const [itemsShown, setItemsShown] = useState(6) // Show 6 items by default
 	const [itemsPerPage, setItemsPerPage] = useState(0)
 
 	useEffect(() => {
@@ -63,7 +63,6 @@ export function CategoryList() {
 			const itemWidth = 150 // Width of each item
 			const itemsPerRow = Math.floor(window.innerWidth / itemWidth)
 			setItemsPerPage(itemsPerRow)
-			setItemsShown(itemsPerRow * 2) // Show items that fit in two rows
 		}
 
 		calculateItemsPerPage()
@@ -79,7 +78,7 @@ export function CategoryList() {
 	}
 
 	const handleViewLess = () => {
-		setItemsShown(itemsPerPage * 2) // Reduce to the original two rows
+		setItemsShown(6) // Reduce to the original 6 items
 	}
 
 	function onCategory(categoryToSave) {
@@ -89,8 +88,8 @@ export function CategoryList() {
 	const hasMoreThanTwoRows = categoriesList.length > itemsPerPage * 2
 
 	return (
-		<div className='hide-mobile'>
-			<section className='category-list-container'>
+		<div className='mobile-only'>
+			<section className='category-list-container main-container'>
 				<div className='category-list'>
 					{categoriesList.slice(0, itemsShown).map(category => (
 						<Link className='category-list-link' to={`gigs${onCategory(category)}`} key={category.categoryTxt}>
@@ -107,7 +106,7 @@ export function CategoryList() {
 						</div>
 					</div>
 				)}
-				{hasMoreThanTwoRows && itemsShown > itemsPerPage * 2 && (
+				{hasMoreThanTwoRows && itemsShown > 6 && (
 					<div className='view-more-button' onClick={handleViewLess}>
 						<p>View less</p>
 						<div className='chevron'>
