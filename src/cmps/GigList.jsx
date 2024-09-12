@@ -92,9 +92,8 @@ export function GigList({ gigs }) {
 							<p>{gig.title}</p>
 						</Link>
 						<div className='gig-list-owner-rating'>
-							<strong>
-								<Star />{gig.owner.rate}
-							</strong>
+							<Star className='star' />
+							{gig.owner.rate}
 						</div>
 						<Link to={`/username/${gig._id}`} className='gig-list-price'>
 							<span>From ${gig.price}</span>
