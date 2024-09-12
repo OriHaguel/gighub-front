@@ -118,8 +118,10 @@ export function GigReview() {
 							)}
 						</div>
 						<div className='review-country'>
-							<p className='review-country-flag'>{gig.reviewCountry.flag}</p>
-							<p className='review-country'>{gig.reviewCountry.country}</p>
+							{/* <p className='review-country-flag'>{gig.reviewCountry.flag}</p> */}
+							<img src={review.country.flag} className='review-country-flag' />
+							{/* <p className='review-country-flag'>{gig.reviewCountry.flag}</p> */}
+							<p className='review-country'>{review.country.country}</p>
 						</div>
 					</div>
 				</div>
