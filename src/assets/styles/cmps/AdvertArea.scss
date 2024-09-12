@@ -1,98 +1,115 @@
 .advert-container {
-    // background-color: rgb(216, 240, 216);
-    padding: 50px;
-    font-size: 25px;
-    line-height: 1.5;
-    letter-spacing: -0.3px;
-    color: #404145;
-    font-weight: 500;
+	// background-color: rgb(216, 240, 216);
+	font-size: 25px;
+	line-height: 1.5;
+	letter-spacing: -0.3px;
+	color: #404145;
+	font-weight: 500;
+	padding-block: rem(50px);
 
-    .fingertips-container {
-        // text-align: center;
-        padding: 20px;
-    }
+	.fingertips-container {
+		// text-align: center;
+		padding-block: 20px;
+		margin-block-end: rem(32px);
+	}
 
-    .fingertips-title {
-        text-align: left;
-        // font-size: 24px;
-        // font-weight: bold;
-        margin-bottom: 20px;
-        font-size: 40px;
-    }
+	.fingertips-title {
+		text-align: left;
+		font-size: rem(40px);
+		line-height: rem(60px);
+		margin-block-end: rem(64px);
+	}
 
-    .fingertips-list {
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        list-style: none;
-        padding: 0;
-        margin: 0 0 20px 0;
-    }
+	.fingertips-list {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		list-style: none;
+		padding: 0;
+		margin: 0 0 20px 0;
+	}
 
-    .fingertips-item {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        // text-align: center;
-        max-width: 200px;
-        margin: 10px;
-    }
+	.fingertips-item {
+		display: flex;
+		flex-direction: column;
+		text-align: start;
+		max-width: 200px;
+	}
 
-    .fingertips-icon {
-        width: 64px;
-        height: 64px;
-        margin-bottom: 10px;
-    }
+	.fingertips-icon {
+		width: rem(64px);
+		height: rem(64px);
+		margin-block-end: rem(12px);
+	}
 
-    .fingertips-cta {
-        margin-top: 20px;
-    }
+	.fingertips-cta {
+		margin-top: 20px;
+	}
 
-    .btn-signup {
-        background-color: black;
-        color: white;
-        border: 1px solid transparent;
-        border-radius: 4px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        cursor: pointer;
-        display: inline-block;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 100%;
-        padding: 12px 24px;
-        position: relative;
-        // text-align: center;
-        text-decoration: none;
-        transition: background-color 0.3s;
+	.btn-signup {
+		background-color: black;
+		color: white;
+		border: 1px solid transparent;
+		border-radius: 4px;
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+		cursor: pointer;
+		display: inline-block;
+		font-size: 16px;
+		font-weight: 600;
+		line-height: 100%;
+		padding: 12px 24px;
+		position: relative;
+		// text-align: center;
+		text-decoration: none;
+		transition: background-color 0.3s;
 
-        &:hover {
-            background-color: #383a3b;
-        }
-    }
+		&:hover {
+			background-color: #383a3b;
+		}
+	}
 
-    .benefits-list {
-        list-style: circle;
-        // padding: 0;      
-        // margin: 0;  
+	.benefits-list {
+		list-style: circle;
+		// padding: 0;
+		// margin: 0;
 
-        li {
+		li {
+			// padding-left: 30px;
+			// text-align: left;
+			position: relative;
+			line-height: 1.6;
+			transition: background-color 0.3s;
+			margin-block-end: rem(16px);
 
-            // padding-left: 30px; 
-            // text-align: left;
-            position: relative;
-            line-height: 1.6;
-            transition: background-color 0.3s;
+			&:hover {
+				background-color: #f7f7f7;
+			}
+		}
+	}
 
-            &:hover {
-                background-color: #f7f7f7;
-            }
-        }
-    }
+	.advert-area {
+		padding-top: 20px;
+		color: black;
+	}
 
+	h1 {
+		@include font(40px, 48px, 400);
+	}
 
-    .advert-area {
-        padding-top: 20px;
-        color: black;
-    }
+	p {
+		@include font(16px, 24px, 300);
+	}
+
+	.benefits-list {
+		text-align: center;
+		text-decoration: none;
+		list-style: none;
+		margin-block-end: rem(12px);
+
+		p {
+			font-size: rem(18px);
+			font-weight: 550;
+		}
+	}
 }
