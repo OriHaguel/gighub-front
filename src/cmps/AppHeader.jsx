@@ -1,5 +1,5 @@
 // React
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { useNavigate } from 'react-router'
 import { useSelector } from 'react-redux'
@@ -22,6 +22,7 @@ import MagnifyIcon from '../assets/svg/MagnifyIcon.svg?react'
 import HeaderNavicon from '../assets/svg/HeaderNavicon.svg?react'
 // import Globe from '../assets/svg/Globe.svg?react'
 // import ModalLoginSignupPic from '../assets/img/modal-login-signup.png'
+import ProfilePic from '../assets/img/profile_clean.png'
 
 export function AppHeader() {
 	const navigate = useNavigate()
@@ -33,6 +34,9 @@ export function AppHeader() {
 	const [isVisible, setIsVisible] = useState(false)
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const [isMobileNaviconOpen, setIsMobileNaviconOpen] = useState(false)
+	const [selectDropOpen, setSelectDropOpen] = useState(false)
+	const dropDownRef = useRef(null)
+	const user = useSelector(state => state.userModule.user)
 
 	const location = useLocation()
 	const isHomepage = location.pathname === '/'
@@ -94,6 +98,23 @@ export function AppHeader() {
 		setIsMobileNaviconOpen(!isMobileNaviconOpen)
 	}
 
+	const toggleDropdown = () => {
+		console.log('Toggling dropdown')
+		setSelectDropOpen(!selectDropOpen)
+	}
+
+	useEffect(() => {
+		const handleClickOutside = (event) => {
+			if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
+				setSelectDropOpen(false)
+			}
+		}
+		document.addEventListener('mousedown', handleClickOutside)
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [dropDownRef])
+
 	const isHomePage = location.pathname === '/'
 
 	return (
@@ -153,7 +174,30 @@ export function AppHeader() {
 										</button>
 									)}
 								</li>
-								<li>{loggedInUser && <Link to={'/dashboard'}>Dashboard</Link>}</li>
+								<li>
+									{loggedInUser && (
+										<article className='header-collapsible' ref={dropDownRef}>
+											<div className='collapsible-header-options' onClick={toggleDropdown}>
+												<div className='collapsible-img'>
+													<img src={user.imgUrl || ProfilePic} alt="profile-pic" />
+												</div>
+											</div>
+											{selectDropOpen && (
+												<div className='collapsible-content'>
+													<ul className='content-list'>
+														<li className='options-collapsible'>
+															<div className='option-menu-item'>
+																<div className='option-label' onClick={toggleDropdown}>
+																	{loggedInUser && <Link to={'/dashboard'}>Dashboard</Link>}
+																</div>
+															</div>
+														</li>
+													</ul>
+												</div>
+											)}
+										</article>
+									)}
+								</li>
 							</ul>
 						</nav>
 					</div>
