@@ -1,10 +1,11 @@
 .gig-list-container {
 	display: grid;
-	margin-block-start: rem(16px);
 	grid-row-gap: rem(40px);
 	grid-template-columns: repeat(4, 1fr);
-
 	grid-column-gap: rem(24px);
+
+	margin-block-start: rem(16px);
+
 	width: 100%;
 
 	@media screen and (max-width: $mobile-breakpoint) {
@@ -113,7 +114,7 @@
 		.gig-list-owner-name {
 			margin-top: 12px;
 			display: flex;
-			align-content: center;
+			align-items: center;
 			font-weight: 700;
 
 			.gig-list-owner-img {
@@ -167,10 +168,14 @@
 		}
 
 		.gig-list-owner-rating {
-			margin-top: 8px;
+			margin-block-start: 8px;
 			min-height: 24px;
 			color: #222325;
 			font-weight: 700;
+
+			.star {
+				margin-inline-end: 3px;
+			}
 		}
 	}
 }
