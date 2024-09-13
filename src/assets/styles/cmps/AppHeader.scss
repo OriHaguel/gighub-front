@@ -54,13 +54,14 @@
 				.collapsible-content {
 					position: absolute;
 					top: 60px;
-					right: 0;
+					// right: 0;
 					background-color: #fff;
 					border-radius: 4px;
 					box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 					width: 200px;
 					z-index: 100;
 					border: 1px solid rgb(183, 183, 183);
+					margin-top: 10px;
 
 					.content-list {
 						padding: 0;
@@ -68,6 +69,7 @@
 
 						.options-collapsible {
 							border-bottom: 1px solid #f0f0f0;
+							width: 100%;
 
 							// &:last-child {
 							// 	border-bottom: none;
@@ -77,7 +79,14 @@
 								padding: 10px;
 								transition: background-color 0.2s ease;
 
+								&:hover {
+									color: $main_clr1;
+
+								}
+
 								.option-label a {
+									width: 100%;
+									padding-inline-end: 110px;
 									text-decoration: none;
 									font-weight: 500;
 

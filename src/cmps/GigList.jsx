@@ -64,7 +64,15 @@ export function GigList({ gigs }) {
 
 				return (
 					<section key={gig._id} className='gig-list'>
-						<Carousel showArrows={true} autoPlay={false} infiniteLoop={false} showThumbs={false} dynamicHeight={false} emulateTouch={false} showStatus={false} renderArrowPrev={renderArrowPrev} renderArrowNext={renderArrowNext}>
+						<Carousel
+							showArrows={true}
+							autoPlay={false}
+							infiniteLoop={false}
+							showThumbs={false}
+							dynamicHeight={false}
+							emulateTouch={false}
+							showStatus={false}
+							renderArrowPrev={renderArrowPrev} renderArrowNext={renderArrowNext}>
 							{gig.img.map((mediaUrl, mediaIndex) => {
 								return mediaUrl.endsWith('.mp4') ? (
 									<Link to={`/username/${gig._id}`} className='gig-list-img' key={mediaIndex}>
