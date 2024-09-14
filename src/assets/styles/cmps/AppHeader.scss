@@ -81,7 +81,6 @@
 
 								&:hover {
 									color: $main_clr1;
-
 								}
 
 								.option-label a {
@@ -92,7 +91,6 @@
 
 									&:hover {
 										color: $main_clr1;
-
 									}
 								}
 							}
@@ -106,7 +104,7 @@
 				flex-direction: row;
 				align-items: center;
 				border-radius: 8px;
-				margin-inline: rem(24px);
+				margin-inline-end: rem(24px);
 				white-space: nowrap;
 
 				padding-block-end: rem(20px);
@@ -126,6 +124,10 @@
 					mask-position: center;
 				}
 			}
+
+			.about-link {
+				margin-inline-end: rem(24px);
+			}
 		}
 
 		.header-row {
@@ -135,7 +137,8 @@
 
 			width: 100%;
 
-			@media screen and (min-width: $normal-breakpoint) {}
+			@media screen and (min-width: $normal-breakpoint) {
+			}
 
 			.navicon-header {
 				display: none;
@@ -303,7 +306,6 @@
 					display: flex;
 
 					li {
-
 						a,
 						button {
 							background: none;
