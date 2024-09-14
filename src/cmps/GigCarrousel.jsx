@@ -99,7 +99,7 @@ export function GigCarrousel() {
 					gig.img.map((mediaUrl, index) =>
 						mediaUrl.endsWith('.mp4') ? (
 							<div className='gig-list-vid-container' key={index}>
-								<video src={mediaUrl} alt={`Gig Video ${index + 1}`} controls />
+								<video src={mediaUrl} alt={`Gig Video ${index + 1}`} controls autoPlay muted loop />
 							</div>
 						) : (
 							<div className='gig-list-img-container' key={index}>
