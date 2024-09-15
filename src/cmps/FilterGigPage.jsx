@@ -7,13 +7,13 @@ import { useSelector } from "react-redux";
 
 
 export function FilterGigPage() {
-    const options = ['price high to low', 'price low to high'];
-    const [selected, setSelected] = useState('');
+    const options = ['Price High to Low', 'Price Low to High']
+    const [selected, setSelected] = useState('')
     const filterBy = useSelector(state => state.gigModule.filterBy)
     const handleSelected = (option) => {
         setSelected(option);
         setFilterBy({ sortPrice: option })
-    };
+    }
 
     console.log("🚀 ~ setFilterBy:", filterBy)
     return (
@@ -27,5 +27,5 @@ export function FilterGigPage() {
                 />
             </div>
         </div>
-    );
-};
+    )
+}
