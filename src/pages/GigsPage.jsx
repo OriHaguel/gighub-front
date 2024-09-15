@@ -1,6 +1,6 @@
 // React
 import { useEffect, useState, useRef } from 'react'
-import { useParams } from 'react-router'
+import { useParams, useLocation } from 'react-router'
 import { useSelector } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
 
@@ -8,6 +8,7 @@ import { useSearchParams } from 'react-router-dom'
 import { GigList } from '../cmps/GigList'
 import { SortGigs } from '../cmps/SortGigs'
 import { GigBreadcrumbs } from '../cmps/GigBreadcrumbs'
+// import { getFluffTxt } from '../cmps/GigBreadcrumbs'
 
 import { loadGigs, setFilterBy } from '../store/actions/gig.actions'
 import { gigService } from '../services/gig'
@@ -15,6 +16,7 @@ import { gigService } from '../services/gig'
 import GigImage from '../assets/img/gig-image.png'
 import ChevronIcon from '../assets/svg/ChevronIcon.svg?react'
 import { FilterGigPage } from '../cmps/FilterGigPage'
+import { breadCrumbsTxt } from '../services/util.service'
 
 export function GigPage() {
 	const param = useParams()
@@ -23,6 +25,10 @@ export function GigPage() {
 	const [activeDropdown, setActiveDropdown] = useState(null)
 	const [searchParams, setSearchParams] = useSearchParams()
 	const defaultFilter = gigService.getFilterFromSearchParams(searchParams)
+	const location = useLocation()
+	const queryParams = new URLSearchParams(location.search)
+	const category = queryParams.get('category')
+
 
 	useEffect(() => {
 		setFilterBy(defaultFilter)
@@ -53,13 +59,14 @@ export function GigPage() {
 			setActiveDropdown(dropdownName)
 		}
 	}
+	const categoryMapping = breadCrumbsTxt()
+	const displayCategory = categoryMapping[category]
 	if (!gigs) return
 
 	return (
 		<div className='gig-page main-container'>
 			<GigBreadcrumbs />
-			<h1 className='main-msg'>Gig Page</h1>
-			{/* or will fix it */}
+			<h1 className='main-msg'>{displayCategory.fluffTxt}</h1>
 			<SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
 			<FilterGigPage />
 			{param.gigs !== 'ai' && param.gigs !== 'consulting' && (

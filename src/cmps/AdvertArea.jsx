@@ -68,7 +68,7 @@ export function AdvertArea() {
                     maxWidth: '1048px',
                     height: '590px',
                     borderRadius: '15px'
-                }} className='advert-video' controls autoPlay muted src={video} title='Advert Video'></video>
+                }} className='advert-video' controls autoPlay loop muted src={video} title='Advert Video'></video>
             </div>
             <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isSinged={isSinged} setIsSinged={setIsSinged} />
         </div>
