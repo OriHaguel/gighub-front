@@ -103,7 +103,7 @@ export function GigReview() {
 				<div className='user-name-container'>
 					<img
 						className='review-image'
-						src={gig.reviewImage || 'fallback-image.png'} // Add fallback for image
+						src={review.by.imgUrl || 'fallback-image.png'} // Add fallback for image
 						alt={review.by.fullname || 'Reviewer'} // Add fallback for alt text
 					/>
 					<div className='user-details-1'>

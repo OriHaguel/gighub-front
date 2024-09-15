@@ -92,7 +92,7 @@ export function PopularServicesCarrousel() {
 			<div className='popular-services-carrousel'>
 				<Carousel showThumbs={false} showStatus={false} showIndicators={false} showArrows={false} centerMode={false} centerSlidePercentage={centerSlidePercentage} selectedItem={currentIndex} onChange={index => setCurrentIndex(index)}>
 					{popularServices.map(service => (
-						<NavLink to={`/services/${service.serviceDescription}`} key={service._id} className='card-link'>
+						<NavLink to={`gigs?txt=${service.serviceDescription}`} key={service._id} className='card-link'>
 							<div className='card' style={{ backgroundColor: service.color }}>
 								<div className='card-content'>
 									<p>{service.serviceDescription}</p>

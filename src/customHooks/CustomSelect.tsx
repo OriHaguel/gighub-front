@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 
 import Chevron from '../assets/svg/chevronIcon.svg?react'
+import CheckIcon from '../assets/svg/CheckIcon.svg?react'
 
 // Hello, this file is Typescript for some reason. The error above appears errorrish, but apparently everything works fine.
 // For the record the console is error free as well.
@@ -33,7 +34,7 @@ export const CustomSelect = ({ placeholder, options, handleSelected, selected }:
 	return (
 		<section ref={selectRef} className={`custom-select ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
 			<div className='text-container flex align-center space-between'>
-				<span> sort by: </span>
+				<span> Sort by: </span>
 				<p>
 					{selected ? selected : placeholder}
 					<span>
@@ -45,13 +46,17 @@ export const CustomSelect = ({ placeholder, options, handleSelected, selected }:
 				<ul className='options-container flex column space-between'>
 					{options.map((option, idx) => (
 						<li
-							key={option} // Assuming options are unique
+							key={option}
 							className={`option option-${idx}`}
 							onClick={() => {
 								handleSelected(option)
-								setIsOpen(false) // Close the dropdown after selection
+								setIsOpen(false)
 							}}>
+							{selected === option && (
+								<CheckIcon className={`check-icon option-${idx}`} />
+							)}
 							{option}
+
 						</li>
 					))}
 				</ul>
@@ -59,3 +64,7 @@ export const CustomSelect = ({ placeholder, options, handleSelected, selected }:
 		</section>
 	)
 }
+
+// <span className="check-icon">
+// 	<CheckIcon />
+// </span>

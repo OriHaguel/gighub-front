@@ -52,6 +52,47 @@ export function loadFromStorage(key) {
 	return data ? JSON.parse(data) : undefined
 }
 
+export function breadCrumbsTxt() {
+	const categoryMapping = {
+		programming: {
+			name: 'Programming & Tech',
+			fluffTxt: 'Get the best technical solutions for your project'
+		},
+		graphics: {
+			name: 'Graphics & Design',
+			fluffTxt: 'Beautiful designs created by professional designers'
+		},
+		digital: {
+			name: 'Digital Marketing',
+			fluffTxt: 'Boost your online presence with expert marketers'
+		},
+		video: {
+			name: 'Video & Animation',
+			fluffTxt: 'Words that capture the essence of your ideas'
+		},
+		writing: {
+			name: 'Writing & Translation',
+			fluffTxt: 'Words that capture the essence of your ideas'
+		},
+		music: {
+			name: 'Music & Audio',
+			fluffTxt: 'Custom audio and music solutions from skilled professionals'
+		},
+		business: {
+			name: 'Business',
+			fluffTxt: 'Enhance your business operations with expert help'
+		},
+		consulting: {
+			name: 'Consulting',
+			fluffTxt: 'Get insights and strategies from experienced consultants'
+		},
+		ai: {
+			name: 'AI Services',
+			fluffTxt: 'Leverage AI to transform your business processes'
+		}
+	}
+	return categoryMapping
+}
 
 
 export function makeUserNameLorem() {
