@@ -60,13 +60,13 @@ export function GigPage() {
 		}
 	}
 	const categoryMapping = breadCrumbsTxt()
-	const displayCategory = categoryMapping[category]
+	const displayCategory = categoryMapping[category] ?? 'gig page'
 	if (!gigs) return
 
 	return (
 		<div className='gig-page main-container'>
 			<GigBreadcrumbs />
-			<h1 className='main-msg'>{displayCategory.fluffTxt}</h1>
+			<h1 className='main-msg'>{displayCategory.fluffTxt || displayCategory}</h1>
 			<SortGigs activeDropdown={activeDropdown} toggleDropdown={toggleDropdown} setFilterBy={setFilterBy} filterBy={defaultFilter} />
 			<FilterGigPage />
 			{param.gigs !== 'ai' && param.gigs !== 'consulting' && (
