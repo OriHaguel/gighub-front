@@ -60,7 +60,7 @@ export function GigPage() {
 		}
 	}
 	const categoryMapping = breadCrumbsTxt()
-	const displayCategory = categoryMapping[category] ?? 'gig page'
+	const displayCategory = categoryMapping[category] ?? 'Gig Page'
 	if (!gigs) return
 
 	return (

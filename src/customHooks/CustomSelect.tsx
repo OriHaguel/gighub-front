@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 
-// import Chevron from '../assets/svg/chevronIcon.svg?react'
-// import CheckIcon from '../assets/svg/CheckIcon.svg?react'
+import Chevron from '../assets/svg/chevronIcon.svg?react'
+import CheckIcon from '../assets/svg/CheckIcon.svg?react'
 
 // Hello, this file is Typescript for some reason. The error above appears errorrish, but apparently everything works fine.
 // For the record the console is error free as well.
@@ -38,7 +38,7 @@ export const CustomSelect = ({ placeholder, options, handleSelected, selected }:
 				<p>
 					{selected ? selected : placeholder}
 					<span>
-						{/* <Chevron /> */}
+						<Chevron />
 					</span>
 				</p>
 			</div>
@@ -52,9 +52,9 @@ export const CustomSelect = ({ placeholder, options, handleSelected, selected }:
 								handleSelected(option)
 								setIsOpen(false)
 							}}>
-							{/* {selected === option && (
+							{selected === option && (
 								<CheckIcon className={`check-icon option-${idx}`} />
-							)} */}
+							)}
 							{option}
 
 						</li>
