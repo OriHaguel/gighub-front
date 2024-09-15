@@ -1,0 +1,23 @@
+.swal2-container {
+  .swal2-confirm,
+  .swal2-styled {
+    font-weight: 550;
+    background-color: $main_clr1;
+    outline: $main_clr1 solid 1px;
+  }
+
+  .st-current {
+    outline: none;
+  }
+
+  .swal2-icon {
+    .swal2-success-line-tip,
+    .swal2-success-line-long {
+      background-color: $main_clr1;
+      color: $main_clr1;
+    }
+    .swal2-success-ring {
+      color: $main_clr1;
+    }
+  }
+}
