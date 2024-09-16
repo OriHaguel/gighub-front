@@ -7,8 +7,17 @@
 
   background: $main_bg2;
   position: relative;
-  top: rem(-42px);
-  padding-block-start: rem(42px);
+  //   top: rem(-42px);
+  padding-block: rem(42px);
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    grid-template-columns:
+      minmax($layoutPadding, 1fr)
+      minmax(auto, 550px)
+      minmax($layoutPadding, 1fr);
+
+    top: 0;
+  }
 }
 
 .dashboard-container {
@@ -163,8 +172,7 @@
           }
 
           .dashboard-table-header-gig {
-            padding-left: 100px;
-            // padding: 15px 15px 15px 0;
+            padding-inline-start: rem(50px);
           }
 
           .dashboard-table-header-cancellation {
@@ -174,7 +182,6 @@
       }
 
       tbody {
-        // .gig-dashboard-item
         .gig-dashboard-item,
         tr {
           background-color: #fff;
@@ -190,14 +197,14 @@
 
           //THIS IS ALL THE GRID !!!!!
           @media screen and (max-width: $mobile-breakpoint) {
-            max-width: 300px;
-            max-height: 300px;
-            // background-color: #8ff8c7;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            gap: 10px;
-            padding: 10px;
+            // max-width: 300px;
+            // max-height: 300px;
+            // // background-color: #8ff8c7;
+            // display: grid;
+            // grid-template-columns: 1fr;
+            // grid-template-rows: 1fr 1fr 1fr;
+            // gap: 10px;
+            // padding: 10px;
           }
 
           td {
@@ -212,9 +219,14 @@
           }
 
           .dashboard-gig-img {
-            width: 32px;
+            display: flex;
+            align-items: center;
+            // justify-content: center;
+
+            // width: 32px;
             transition: background-color 0.1s;
-            // padding-inline-start: rem(100px);
+            padding-inline-start: rem(50px);
+            // margin-block: rem(50px);
           }
 
           .dashboard-title {
@@ -224,6 +236,7 @@
             white-space: normal;
 
             // padding-right: rem(290px);
+            padding-inline-start: rem(25px);
 
             div {
               max-height: 40px;
@@ -290,12 +303,19 @@
     @include triangle-tab-marker(283px);
   }
   .tab-4 {
-    @include triangle-tab-marker(387px);
+    @include triangle-tab-marker(377px);
+  }
+
+  @media screen and (max-width: $mobile-breakpoint) {
+    .gig-dashboard-item {
+      display: flex;
+      //   flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+
+      margin: 0;
+      padding: 0;
+    }
   }
 }
-
-// .hide-mobile-dash {
-//     @media screen and (max-width: $mobile-breakpoint) {
-//         display: none;
-//     }
-// }

@@ -83,7 +83,7 @@ export function Dashboard() {
                 className={orderStatus === 'active' ? 'dashboard-black tab-1' : ''}
                 onClick={() => setOrderStatus('active')}
               >
-                ACTIVE
+                Active
               </p>
             </li>
             <li>
@@ -91,7 +91,7 @@ export function Dashboard() {
                 className={orderStatus === 'pending' ? 'dashboard-black tab-2' : ''}
                 onClick={() => setOrderStatus('pending')}
               >
-                PENDING APPROVAL
+                Pending Approval
               </p>
             </li>
             <li>
@@ -99,7 +99,7 @@ export function Dashboard() {
                 className={orderStatus === 'accepted' ? 'dashboard-black tab-3' : ''}
                 onClick={() => setOrderStatus('accepted')}
               >
-                ACCEPTED
+                Accepted
               </p>
             </li>
             <li>
@@ -107,7 +107,7 @@ export function Dashboard() {
                 className={orderStatus === 'denied' ? 'dashboard-black tab-4' : ''}
                 onClick={() => setOrderStatus('denied')}
               >
-                DENIED
+                Denied
               </p>
             </li>
           </ul>
@@ -120,7 +120,7 @@ export function Dashboard() {
         <div className="dashboard-data-container">
           <table>
             <thead>
-              <tr className="header-filter">
+              <tr className="header-filter hide-mobile">
                 <td>Gig List</td>
                 <td></td>
                 <td></td>
@@ -128,7 +128,7 @@ export function Dashboard() {
                 <td></td>
                 <td></td>
               </tr>
-              <tr className="header-data">
+              <tr className="header-data hide-mobile">
                 <td className="dashboard-table-header-gig">GIG</td>
                 <td></td>
                 {/* <td>FULL NAME</td> */}
@@ -155,9 +155,9 @@ export function Dashboard() {
                           <div>{order.miniGig.title}</div>
                         </td>
                         {/* <td>{order.buyer.fullname}</td> */}
-                        <td className="hide-mobile-dash">0</td>
-                        <td className="hide-mobile-dash">0</td>
-                        <td className="hide-mobile-dash">0</td>
+                        <td className="hide-mobile">0</td>
+                        <td className="hide-mobile">0</td>
+                        <td className="hide-mobile">0</td>
                         {/* <td>{order.miniGig.price}</td> */}
                         <td className="dashboard-dropdown">
                           <div className="button-container">
