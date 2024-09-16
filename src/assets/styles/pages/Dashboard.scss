@@ -342,8 +342,8 @@
 			.mobile-img {
 				max-width: 120px;
 				max-height: 80px;
-				margin-inline-end: rem(24px);
-				margin-block-end: rem(14px);
+				margin-inline: rem(8px) rem(24px);
+				margin-block: rem(8px) rem(14px);
 				overflow: hidden;
 				border-radius: 5px;
 
