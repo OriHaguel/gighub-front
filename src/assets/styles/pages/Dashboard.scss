@@ -5,7 +5,7 @@
     minmax(auto, 1300px)
     minmax($layoutPadding, 1fr);
 
-  background: #f7f7f7;
+  background: $main_bg2;
   position: relative;
   top: rem(-42px);
   padding-block-start: rem(42px);
@@ -248,37 +248,49 @@
                 align-items: center;
                 justify-content: center;
 
-                border-color: #e5e5e5;
-                // padding: 8px 17px 21px 10px;
                 padding: rem(8px) rem(17px);
-                // background-color: #fff;
                 display: inline-block;
                 position: relative;
                 font: 400 12px 'Macan', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-                color: #777777;
-                text-decoration: none;
                 // text-transform: uppercase;
-                white-space: nowrap;
                 cursor: pointer;
-                border-radius: 3px;
+                border-radius: 4px;
 
                 margin-right: 10px;
                 background-color: #fff;
               }
 
               .accept-button {
-                // background-color: green;
                 @include button-border($main_clr1);
+
+                background-color: $main_clr1;
+                color: #fff;
               }
 
               .decline-button {
                 @include button-border($comp_clr1);
+                background-color: $comp_clr1;
+                color: #fff;
               }
             }
           }
         }
       }
     }
+  }
+
+  // Tab selectors
+  .tab-1 {
+    @include triangle-tab-marker(30px);
+  }
+  .tab-2 {
+    @include triangle-tab-marker(150px);
+  }
+  .tab-3 {
+    @include triangle-tab-marker(283px);
+  }
+  .tab-4 {
+    @include triangle-tab-marker(387px);
   }
 }
 

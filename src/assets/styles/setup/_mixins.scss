@@ -71,3 +71,21 @@
 
   color: $color;
 }
+
+@mixin triangle-tab-marker($position) {
+  &::after {
+    content: '';
+    display: block;
+    width: 15px;
+    height: 15px;
+    background-color: $main_bg2;
+    border: #dddddd 1px solid;
+    border-bottom: none;
+    border-right: none;
+    position: absolute;
+    transform: rotate(45deg);
+    bottom: -8px; /* Adjust position relative to the text */
+    left: $position;
+    transform: translateX(-50%) rotate(45deg);
+  }
+}

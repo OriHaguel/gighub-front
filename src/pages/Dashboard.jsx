@@ -79,13 +79,16 @@ export function Dashboard() {
         <div className="dashboard-filter">
           <ul>
             <li>
-              <p className={orderStatus === 'active' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('active')}>
+              <p
+                className={orderStatus === 'active' ? 'dashboard-black tab-1' : ''}
+                onClick={() => setOrderStatus('active')}
+              >
                 ACTIVE
               </p>
             </li>
             <li>
               <p
-                className={orderStatus === 'pending' ? 'dashboard-black' : ''}
+                className={orderStatus === 'pending' ? 'dashboard-black tab-2' : ''}
                 onClick={() => setOrderStatus('pending')}
               >
                 PENDING APPROVAL
@@ -93,14 +96,17 @@ export function Dashboard() {
             </li>
             <li>
               <p
-                className={orderStatus === 'accepted' ? 'dashboard-black' : ''}
+                className={orderStatus === 'accepted' ? 'dashboard-black tab-3' : ''}
                 onClick={() => setOrderStatus('accepted')}
               >
                 ACCEPTED
               </p>
             </li>
             <li>
-              <p className={orderStatus === 'denied' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('denied')}>
+              <p
+                className={orderStatus === 'denied' ? 'dashboard-black tab-4' : ''}
+                onClick={() => setOrderStatus('denied')}
+              >
                 DENIED
               </p>
             </li>
