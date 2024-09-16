@@ -27,25 +27,38 @@
 	font-size: rem(30px);
 }
 
-// flex helpers
+// Flex helpers
 .flex {
 	display: flex;
 
 	> *.full {
 		flex: 1;
 	}
+}
 
-	&.column {
-		flex-direction: column;
-	}
+.column {
+	flex-direction: column;
+}
 
-	&.justify-center {
-		justify-content: center;
-	}
+.row {
+	flex-direction: row;
+}
 
-	&.align-center {
-		align-items: center;
-	}
+.justify-center {
+	justify-content: center;
+}
+
+.align-center {
+	align-items: center;
+}
+
+.space-between {
+	justify-content: space-between;
+}
+
+.center {
+	align-items: center;
+	justify-content: center;
 }
 
 // Visibility helpers
