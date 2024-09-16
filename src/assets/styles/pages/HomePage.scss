@@ -1,19 +1,23 @@
 .home-page-carrousel {
-	// margin-left: auto;
-	// margin-right: auto;
-	// max-width: 1400px;
+  // margin-left: auto;
+  // margin-right: auto;
+  // max-width: 1400px;
 
-	h1 {
-		font-size: 45px;
-		color: rgb(64, 61, 61);
-		font-weight: 500;
+  h1 {
+    font-size: 45px;
+    color: rgb(64, 61, 61);
+    font-weight: 500;
 
-		@media screen and (max-width: $mobile-breakpoint) {
-			@include font(32px, 38px, 400);
-		}
-	}
+    @media screen and (max-width: $mobile-breakpoint) {
+      @include font(32px, 38px, 400);
+    }
+  }
 }
 
 .advert-area {
-	text-align: center;
+  text-align: center;
+}
+
+.main-page {
+  margin-block: $headerPadding $footerPadding;
 }
