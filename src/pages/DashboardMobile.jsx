@@ -48,22 +48,22 @@ export function DashboardMobile() {
 						<ul className='flex align-center space-between'>
 							<li>
 								<p className={orderStatus === 'active' ? 'dashboard-black mobile-tab-1' : ''} onClick={() => setOrderStatus('active')}>
-									Active
+									Active <span>{orders.filter(order => order.status === 'active').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>
 								</p>
 							</li>
 							<li>
 								<p className={orderStatus === 'pending' ? 'dashboard-black mobile-tab-2' : ''} onClick={() => setOrderStatus('pending')}>
-									Pending
+									Pending <span>{orders.filter(order => order.status === 'pending').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>
 								</p>
 							</li>
 							<li>
 								<p className={orderStatus === 'accepted' ? 'dashboard-black mobile-tab-3' : ''} onClick={() => setOrderStatus('accepted')}>
-									Accepted
+									Accepted <span>{orders.filter(order => order.status === 'accepted').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>
 								</p>
 							</li>
 							<li>
 								<p className={orderStatus === 'denied' ? 'dashboard-black mobile-tab-4' : ''} onClick={() => setOrderStatus('denied')}>
-									Denied
+									Denied <span>{orders.filter(order => order.status === 'denied').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>
 								</p>
 							</li>
 						</ul>
@@ -76,7 +76,10 @@ export function DashboardMobile() {
 									<div className='mobile-img'>
 										<img src={order.miniGig.img[0]} alt='Gig' width='50' />
 									</div>
+
+									<div className='mobile-price'>{order.totalPrice}</div>
 									<div className='mobile-title'>{order.miniGig.title}</div>
+									<div className='mobile-buyer'>{order.buyer.fullname}</div>
 								</div>
 								<div className='button-container flex row'>
 									<button className='accept-button button' onClick={() => changeOrderStatus(order, 'accepted')}>
