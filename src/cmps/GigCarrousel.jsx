@@ -56,7 +56,7 @@ export function GigCarrousel() {
 			</button>
 		)
 
-	if (!gig) return <div>Loading...</div>
+	if (!gig) return
 
 	if (gig.img.length === 0) {
 		gig.img = [GigImage, GigImage, GigImage]

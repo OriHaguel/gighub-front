@@ -25,12 +25,12 @@ export function GigAbout() {
 		}
 	}
 
-	if (!gig)
-		return (
-			<section className='about-details'>
-				<h1 className='about-gig'>Loading...</h1>
-			</section>
-		)
+	if (!gig) return
+	// return (
+	// 	<section className='about-details'>
+	// 		<h1 className='about-gig'>Loading...</h1>
+	// 	</section>
+	// )
 
 	return (
 		<section className='about-details'>

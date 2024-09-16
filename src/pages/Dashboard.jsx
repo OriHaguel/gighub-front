@@ -68,6 +68,8 @@ export function Dashboard() {
 	}
 	// console.log("🚀 ~ changeOrderSatus ~ changeOrderSatus:", changeOrderSatus(orders[0], 'accepted'))
 
+	// orders.filter(order => order.status === orderStatus)
+	console.log(orders.filter(order => order.status === orderStatus).filter(order => order.seller._id === userService.getLoggedinUser()._id).length)
 	return (
 		// <div className='main-container'>
 		<section className='main-container'>
@@ -80,22 +82,22 @@ export function Dashboard() {
 					<ul>
 						<li>
 							<p className={orderStatus === 'active' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('active')}>
-								ACTIVE
+								ACTIVE	<span>{orders.filter(order => order.status === 'active').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>
 							</p>
 						</li>
 						<li>
 							<p className={orderStatus === 'pending' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('pending')}>
-								PENDING APPROVAL
+								PENDING APPROVAL <span>{orders.filter(order => order.status === 'pending').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>
 							</p>
 						</li>
 						<li>
 							<p className={orderStatus === 'accepted' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('accepted')}>
-								ACCEPTED
+								ACCEPTED <span>{orders.filter(order => order.status === 'accepted').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>
 							</p>
 						</li>
 						<li>
 							<p className={orderStatus === 'denied' ? 'dashboard-black' : ''} onClick={() => setOrderStatus('denied')}>
-								DENIED
+								DENIED <span>{orders.filter(order => order.status === 'denied').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>
 							</p>
 						</li>
 					</ul>
