@@ -5,9 +5,10 @@
     minmax(auto, 1300px)
     minmax($layoutPadding, 1fr);
 
+	grid-template-rows: minmax(calc(100vh - 291px), auto); // Force footer to bottom
+
   background: $main_bg2;
   position: relative;
-  //   top: rem(-42px);
   padding-block: rem(42px);
 
   @media screen and (max-width: $mobile-breakpoint) {
@@ -16,7 +17,7 @@
       minmax(auto, 550px)
       minmax($layoutPadding, 1fr);
 
-    top: 0;
+		grid-template-rows: minmax(calc(100vh - 130px), auto); // Force footer to bottom
   }
 }
 
@@ -180,8 +181,8 @@
           }
         }
       }
-
-      tbody {
+			tbody,
+			.main-table {
         .gig-dashboard-item,
         tr {
           background-color: #fff;
@@ -194,22 +195,10 @@
           border-spacing: 0;
           height: 71px;
           text-wrap: wrap;
-
-          //THIS IS ALL THE GRID !!!!!
-          @media screen and (max-width: $mobile-breakpoint) {
-            // max-width: 300px;
-            // max-height: 300px;
-            // // background-color: #8ff8c7;
-            // display: grid;
-            // grid-template-columns: 1fr;
-            // grid-template-rows: 1fr 1fr 1fr;
-            // gap: 10px;
-            // padding: 10px;
           }
 
           td {
             // display: block;
-            //
             padding: 15px 15px 15px 0;
             font-size: 14px;
             line-height: 20px;
@@ -227,6 +216,13 @@
             transition: background-color 0.1s;
             padding-inline-start: rem(50px);
             // margin-block: rem(50px);
+
+					@media screen and (max-width: $mobile-breakpoint) {
+						margin: 0;
+						padding: 0;
+						width: 320px;
+						height: auto;
+					}
           }
 
           .dashboard-title {
@@ -249,6 +245,11 @@
             padding-right: 20px;
             transition: background-color 0.1s;
             text-align: right;
+				}
+			}
+		}
+	}
+}
 
             .button-container {
               display: flex;
@@ -286,8 +287,42 @@
                 color: #fff;
               }
             }
+// Mobile Breakpoint
+
+.dashboard-page-container {
+	.page-title {
+		@include font(24px, 24px, 550);
+	}
+
+	.main-table {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+
+		margin: 0;
+		padding: 0;
+
+		.mobile-img {
+			width: 300px;
+			img {
+				width: 300px;
+			}
+		}
+		.mobile-container-1 {
+			display: flex;
+			flex-direction: row;
+		}
+
+		.info-container {
+			display: flex;
+			flex-direction: row;
           }
         }
+
+	.dashboard-filter-mobile {
+		ul {
+			margin-block-end: rem(0px);
       }
     }
   }
@@ -318,4 +353,4 @@
       padding: 0;
     }
   }
-}
+
