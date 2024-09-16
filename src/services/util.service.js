@@ -233,7 +233,7 @@ function getRandomWord(wordList) {
 
 
 export function getGigImg(gigs) {
-	//~62 gigs
+	//~70+ gigs
 	const imgCategories = {
 		//tech
 		programming: [
@@ -325,7 +325,30 @@ export function getGigImg(gigs) {
 				'https://res.cloudinary.com/dofblayxi/image/upload/tech_4_3_qfio6h.webp',
 				'https://res.cloudinary.com/dofblayxi/image/upload/tech_4_4_ndppln.webp'
 			],
-
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/q6chgrdybqmxeps2ygwg_e8q2vp.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/do-data-structure-and-algorithm-assignments_gtay7z.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/do-data-structure-and-algorithm-assignments_1_tt9me0.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/do-data-structure-and-algorithm-assignments_2_uanqnr.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/axzmtngkcldutxythyxn_rnvyrd.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/software-and-games-development-in-java-javafx_1_g3w6uz.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/software-and-games-development-in-java-javafx_qhz2ww.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/software-and-games-development-in-java-javafx_2_vl1vie.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/develop-any-custom-software-or-app-for-any-platform_df9x2b.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/image/upload/be-your-python-superhero-script-code-web-scraping-automation_ehxlku.webp'
+			],
+			[
+				'https://res.cloudinary.com/dofblayxi/video/upload/pgzruaedhn3lokcbz9fv_xmosef.mp4',
+				'https://res.cloudinary.com/dofblayxi/image/upload/create-a-windows-desktop-application-for-your-business_g6vfxx.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/create-a-windows-desktop-application-for-your-business_2_ocwkx7.webp',
+				'https://res.cloudinary.com/dofblayxi/image/upload/create-a-windows-desktop-application-for-your-business_1_zrmy5j.webp'
+			],
 		],
 		//design
 		graphics: [

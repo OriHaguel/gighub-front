@@ -23,7 +23,7 @@ export function GigBreadcrumbs() {
 			</div>
 			<span>/</span>
 			<div className='breadcrumbs-content'>
-				<p className='category-name'>{displayCategory.name}</p>
+				<p className='category-name'>{displayCategory && displayCategory.name}</p>
 			</div>
 		</div>
 	)
