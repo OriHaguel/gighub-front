@@ -18,6 +18,10 @@
 		font-size: rem(40px);
 		line-height: rem(60px);
 		margin-block-end: rem(64px);
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			text-align: center;
+		}
 	}
 
 	.fingertips-list {
@@ -27,6 +31,11 @@
 		list-style: none;
 		padding: 0;
 		margin: 0 0 20px 0;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			align-items: center;
+			justify-content: center;
+		}
 	}
 
 	.fingertips-item {
@@ -34,6 +43,12 @@
 		flex-direction: column;
 		text-align: start;
 		max-width: 200px;
+
+		@media screen and (max-width: $mobile-breakpoint) {
+			align-items: center;
+			text-align: center;
+			margin-block-end: rem(30px);
+		}
 	}
 
 	.fingertips-icon {

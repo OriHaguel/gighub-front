@@ -104,7 +104,7 @@ export function AppHeader() {
 	}
 
 	useEffect(() => {
-		const handleClickOutside = (event) => {
+		const handleClickOutside = event => {
 			if (dropDownRef.current && !dropDownRef.current.contains(event.target)) {
 				setSelectDropOpen(false)
 			}
@@ -167,19 +167,13 @@ export function AppHeader() {
 										</button>
 									)}
 								</li>
-								<li>
-									{loggedInUser && (
-										<button className='sign-button header-link-container' onClick={logout}>
-											Logout
-										</button>
-									)}
-								</li>
+								<li className='about-link hide-mobile'>{loggedInUser && <Link to='/dashboard'>Dashboard</Link>}</li>
 								<li>
 									{loggedInUser && (
 										<article className='header-collapsible' ref={dropDownRef}>
 											<div className='collapsible-header-options' onClick={toggleDropdown}>
 												<div className='collapsible-img'>
-													<img src={user.imgUrl || ProfilePic} alt="profile-pic" />
+													<img src={user.imgUrl || ProfilePic} alt='profile-pic' />
 												</div>
 											</div>
 											{selectDropOpen && (
@@ -188,7 +182,9 @@ export function AppHeader() {
 														<li className='options-collapsible'>
 															<div className='option-menu-item'>
 																<div className='option-label' onClick={toggleDropdown}>
-																	{loggedInUser && <Link to={'/dashboard'}>Dashboard</Link>}
+																	<button className='sign-button header-link-container' onClick={logout}>
+																		Logout
+																	</button>
 																</div>
 															</div>
 														</li>
