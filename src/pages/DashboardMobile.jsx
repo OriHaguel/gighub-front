@@ -47,23 +47,27 @@ export function DashboardMobile() {
 					<div className='dashboard-filter-mobile dashboard-filter mobile-only'>
 						<ul className='flex align-center space-between'>
 							<li>
-								<p className={orderStatus === 'active' ? 'dashboard-black mobile-tab-1' : ''} onClick={() => setOrderStatus('active')}>
-									Active (<span>{orders.filter(order => order.status === 'active').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>)
+								<p className={`${orderStatus === 'active' ? 'dashboard-black tab-1' : ''}`} onClick={() => setOrderStatus('active')}>
+									Active
+									<span className={orders.filter(order => order.status === 'active').filter(order => order.seller._id === userService.getLoggedinUser()._id).length === 0 ? 'clear-span' : ''}>({orders.filter(order => order.status === 'active').filter(order => order.seller._id === userService.getLoggedinUser()._id).length})</span>
 								</p>
 							</li>
 							<li>
-								<p className={orderStatus === 'pending' ? 'dashboard-black mobile-tab-2' : ''} onClick={() => setOrderStatus('pending')}>
-									Pending (<span>{orders.filter(order => order.status === 'pending').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>)
+								<p className={`${orderStatus === 'pending' ? 'dashboard-black tab-2' : ''}`} onClick={() => setOrderStatus('pending')}>
+									Pending
+									<span className={orders.filter(order => order.status === 'pending').filter(order => order.seller._id === userService.getLoggedinUser()._id).length === 0 ? 'clear-span' : ''}>({orders.filter(order => order.status === 'pending').filter(order => order.seller._id === userService.getLoggedinUser()._id).length})</span>
 								</p>
 							</li>
 							<li>
-								<p className={orderStatus === 'accepted' ? 'dashboard-black mobile-tab-3' : ''} onClick={() => setOrderStatus('accepted')}>
-									Accepted (<span>{orders.filter(order => order.status === 'accepted').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>)
+								<p className={`${orderStatus === 'accepted' ? 'dashboard-black tab-3' : ''}`} onClick={() => setOrderStatus('accepted')}>
+									Accepted
+									<span className={orders.filter(order => order.status === 'accepted').filter(order => order.seller._id === userService.getLoggedinUser()._id).length === 0 ? 'clear-span' : ''}>({orders.filter(order => order.status === 'accepted').filter(order => order.seller._id === userService.getLoggedinUser()._id).length})</span>
 								</p>
 							</li>
 							<li>
-								<p className={orderStatus === 'denied' ? 'dashboard-black mobile-tab-4' : ''} onClick={() => setOrderStatus('denied')}>
-									Denied (<span>{orders.filter(order => order.status === 'denied').filter(order => order.seller._id === userService.getLoggedinUser()._id).length}</span>)
+								<p className={`${orderStatus === 'denied' ? 'dashboard-black tab-4' : ''}`} onClick={() => setOrderStatus('denied')}>
+									Denied
+									<span className={orders.filter(order => order.status === 'denied').filter(order => order.seller._id === userService.getLoggedinUser()._id).length === 0 ? 'clear-span' : ''}>({orders.filter(order => order.status === 'denied').filter(order => order.seller._id === userService.getLoggedinUser()._id).length})</span>
 								</p>
 							</li>
 						</ul>
