@@ -432,13 +432,14 @@
 					}
 
 					.accept-button {
-						color: rgb(7, 134, 7);
-						background-color: rgb(145, 223, 145);
+						color: #fff;
+						background-color: $main_clr1;
 					}
 
 					.decline-button {
-						color: rgb(214, 7, 7);
-						background-color: rgb(235, 149, 149);
+						color: #555555;
+						background-color: #fff;
+						border: solid 1px #555555;
 					}
 				}
 			}
