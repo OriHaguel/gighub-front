@@ -167,7 +167,7 @@ export function AppHeader() {
 										</button>
 									)}
 								</li>
-								<li className='about-link hide-mobile'>{loggedInUser && <Link to='/dashboard'>Dashboard</Link>}</li>
+								<li className='hide-mobile'>{loggedInUser && <Link to='/dashboard'>Dashboard</Link>}</li>
 								<li>
 									{loggedInUser && (
 										<article className='header-collapsible' ref={dropDownRef}>

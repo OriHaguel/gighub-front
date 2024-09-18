@@ -27,7 +27,6 @@
 			display: flex;
 			flex-direction: row;
 			align-items: center;
-			// gap: rem(12px);
 
 			.header-pro {
 				color: #222325;
@@ -40,6 +39,7 @@
 					.collapsible-img {
 						width: 40px;
 						height: 40px;
+						margin-inline-start: rem(24px);
 
 						img {
 							border-radius: 50%;
@@ -135,7 +135,6 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
-
 			width: 100%;
 
 			@media screen and (min-width: $normal-breakpoint) {
