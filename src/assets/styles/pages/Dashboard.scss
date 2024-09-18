@@ -142,7 +142,12 @@
 						}
 
 						span {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+
 							background-color: $main_clr1;
+
 							@media screen and (max-width: $mobile-breakpoint) {
 								background-color: $main_bg2;
 								color: $main_clr1;
