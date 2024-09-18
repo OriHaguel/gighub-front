@@ -57,7 +57,12 @@
 					width: 200px;
 					z-index: 100;
 					border: 1px solid rgb(183, 183, 183);
-					margin-top: 10px;
+					margin-block-start: rem(10px);
+					margin-inline-end: rem(24px);
+
+					@media screen and (max-width: $mobile-breakpoint) {
+						left: 360px;
+					}
 
 					.content-list {
 						padding: 0;

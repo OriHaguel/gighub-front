@@ -231,7 +231,12 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
 					<Link to='/' className='navicon-home-mobile' onClick={onClose}>
 						<div className='navicon-txt'>Home</div>
 					</Link>
-					<Link to='/about' className=' navicon-home-mobile about-link' onClick={onClose} >
+
+					<Link to='/dashboard' className='navicon-home-mobile' onClick={onClose}>
+						<div className='navicon-txt'>Dashboard</div>
+					</Link>
+
+					<Link to='/about' className='navicon-home-mobile about-link' onClick={onClose}>
 						<div className='navicon-txt'>About</div>
 					</Link>
 
@@ -239,7 +244,6 @@ export function NaviconHeader({ onClose, isOpen, isSinged, setIsSinged }) {
 
 						<div className='navicon-txt'>Order Page Mobile</div>
 					</OrderPageMobile> */}
-
 				</div>
 			</div>
 		</div>
