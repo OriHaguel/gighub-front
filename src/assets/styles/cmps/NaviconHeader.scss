@@ -14,12 +14,23 @@
 	.modal-navicon {
 		background-color: #fff;
 		width: rem(311px);
+		max-width: 0px;
 		height: 100%;
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 		padding: 20px;
 		position: relative;
 		overflow-y: auto;
 		transition: transform 0.3s ease;
+		animation: navOpen 0.3s ease forwards;
+
+		@keyframes navOpen {
+			from {
+				max-width: 0px;
+			}
+			to {
+				max-width: rem(311px);
+			}
+		}
 
 		.navicon-modal-content {
 			height: 200px;
@@ -123,6 +134,8 @@
 				margin-top: 15px;
 				transition: background-color 0.3s;
 				text-align: left;
+
+				text-wrap: nowrap;
 
 				&:hover {
 					background-color: #ededed;
