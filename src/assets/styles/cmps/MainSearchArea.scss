@@ -7,13 +7,17 @@
 	align-items: center;
 	justify-content: end;
 
-	@media screen and (max-width: $mobile-breakpoint) {
+	margin-inline: rem(32px);
+
+	@media screen and (max-width: $hero-breakpoint) {
 		background: linear-gradient(to bottom, #003912, #0f7d43);
+		margin-inline: 0;
+
 		justify-content: center;
 	}
 
 	img {
-		@media screen and (max-width: $mobile-breakpoint) {
+		@media screen and (max-width: $hero-breakpoint) {
 			display: none;
 		}
 	}
@@ -34,7 +38,7 @@
 		// font-size: 30px;
 		// overflow: hidden;
 
-		@media screen and (max-width: $mobile-breakpoint) {
+		@media screen and (max-width: $hero-breakpoint) {
 			align-items: center;
 			justify-content: center;
 			// gap: 40px;
@@ -55,7 +59,7 @@
 
 		border-radius: 16px;
 
-		@media screen and (max-width: $mobile-breakpoint) {
+		@media screen and (max-width: $hero-breakpoint) {
 			width: auto;
 			height: rem(300px);
 			border-radius: 0;
@@ -81,7 +85,7 @@
 
 			max-width: 800px;
 
-			@media screen and (max-width: $mobile-breakpoint) {
+			@media screen and (max-width: $hero-breakpoint) {
 				@include font(32px, 35.2px, 400);
 				// width: rem(328px);
 				// margin-inline: rem(87px);
@@ -96,7 +100,7 @@
 				font-family: domaine-italic, serif;
 				font-style: italic;
 
-				@media screen and (max-width: $mobile-breakpoint) {
+				@media screen and (max-width: $hero-breakpoint) {
 					@include font(32px, 35.2px, 300);
 				}
 			}
@@ -124,7 +128,7 @@
 			color: #909299;
 			font-weight: 500;
 
-			@media screen and (max-width: $mobile-breakpoint) {
+			@media screen and (max-width: $hero-breakpoint) {
 				display: none;
 			}
 
@@ -166,7 +170,7 @@
 			height: 55px;
 			border-radius: 10px;
 
-			@media screen and (max-width: $mobile-breakpoint) {
+			@media screen and (max-width: $hero-breakpoint) {
 				// padding-inline: rem(16px);
 				// width: auto;
 				max-width: 330px;
@@ -180,7 +184,7 @@
 				box-sizing: border-box;
 				outline: none;
 
-				@media screen and (max-width: $mobile-breakpoint) {
+				@media screen and (max-width: $hero-breakpoint) {
 					width: rem(328px);
 				}
 			}
@@ -216,7 +220,7 @@
 
 	.line-break {
 		display: none;
-		@media screen and (max-width: $mobile-breakpoint) {
+		@media screen and (max-width: $hero-breakpoint) {
 			display: block;
 		}
 	}

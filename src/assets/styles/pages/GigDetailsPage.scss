@@ -14,12 +14,17 @@
 // }
 
 .main-detail-page {
-  display: grid;
-  grid-template-columns: rem(80px) 1fr 114px 412px rem(80px); /* This defines your grid layout */
+	display: grid;
+	grid-template-columns:
+		minmax(auto, rem(80px)) // margin
+		1fr
+		minmax(24px, 114px) // gap
+		412px
+		minmax(auto, rem(80px)); // margin
 
-  margin-block: $headerPadding $footerPadding;
+	margin-block: $headerPadding $footerPadding;
 
-  @media screen and (max-width: $mobile-breakpoint) {
-    grid-template-columns: 1fr;
-  }
+	@media screen and (max-width: $mobile-breakpoint) {
+		grid-template-columns: 1fr;
+	}
 }

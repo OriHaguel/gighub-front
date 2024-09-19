@@ -17,6 +17,8 @@ $mobile-breakpoint: 599px;
 // $tablet-breakpoint: 899px;
 $normal-breakpoint: 1400px;
 
+$hero-breakpoint: 780px;
+
 $padded-break-mobile: $mobile-breakpoint + $layoutPadding * 2;
 // $padded-break-tablet: $tablet-breakpoint + $layoutPadding * 2;
 $padded-break-normal: $normal-breakpoint + $layoutPadding * 2;
