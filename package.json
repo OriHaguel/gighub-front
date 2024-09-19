@@ -23,6 +23,7 @@
     "react-router-dom": "^6.16.0",
     "react-svg": "^16.1.34",
     "redux": "^4.2.1",
+    "set-value": "^4.1.0",
     "socket.io-client": "^4.7.2",
     "sweetalert2": "^11.6.13",
     "update": "^0.7.4",
