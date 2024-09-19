@@ -1,105 +1,105 @@
 .login-container-mobile {
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    height: 100vh;
-    padding: 20px;
-    z-index: 10000;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+	height: 100vh;
+	padding: 20px;
+	z-index: 10000;
 
-    .form {
-        width: 100%;
-        max-width: 400px;
+	.form {
+		width: 100%;
+		max-width: 400px;
 
-        h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            text-align: center;
-        }
+		h2 {
+			margin-bottom: 20px;
+			font-size: 24px;
+			text-align: center;
+		}
 
-        .sign-in {
-            display: block;
-            margin-bottom: 20px;
-            text-align: center;
-            color: #000000;
-            cursor: pointer;
+		.sign-in {
+			display: block;
+			margin-bottom: 20px;
+			text-align: center;
+			color: #000000;
+			cursor: pointer;
 
-            &:hover {
-                text-decoration: underline;
-            }
-        }
+			&:hover {
+				text-decoration: underline;
+			}
+		}
 
-        .input-container {
-            margin-bottom: 15px;
+		.input-container {
+			margin-bottom: 15px;
 
-            .input-title {
-                margin-bottom: 5px;
-                font-size: 14px;
-                color: #333;
-            }
+			.input-title {
+				margin-bottom: 5px;
+				font-size: 14px;
+				color: #333;
+			}
 
-            input {
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                font-size: 16px;
-            }
-        }
+			input {
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				font-size: 16px;
+			}
+		}
 
-        .model-end {
-            margin-top: 10px;
+		.model-end {
+			margin-top: 10px;
 
-            &.nogap {
-                margin-top: 0;
-            }
+			&.nogap {
+				margin-top: 0;
+			}
 
-            .modal-fullname {
-                margin-bottom: 5px;
-                font-size: 14px;
-                color: #333;
-            }
+			.modal-fullname {
+				margin-bottom: 5px;
+				font-size: 14px;
+				color: #333;
+			}
 
-            input[type="text"],
-            input[type="password"] {
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                font-size: 16px;
-            }
+			input[type='text'],
+			input[type='password'] {
+				width: 100%;
+				padding: 10px;
+				border: 1px solid #ccc;
+				border-radius: 4px;
+				font-size: 16px;
+			}
 
-            .button {
-                margin-top: 20px;
-                width: 100%;
-                padding: 10px;
-                background-color: #000000;
-                color: white;
-                border: none;
-                font-size: 16px;
-                cursor: pointer;
-                transition: background-color 0.3s;
+			.button {
+				margin-top: 20px;
+				width: 100%;
+				padding: 10px;
+				background-color: #000000;
+				color: white;
+				border: none;
+				font-size: 16px;
+				cursor: pointer;
+				transition: background-color 0.3s;
 
-                &:hover {
-                    background-color: #383a3b;
-                }
-            }
+				&:hover {
+					background-color: #383a3b;
+				}
+			}
 
-            .small-txt {
-                margin-top: 15px;
-                font-size: 12px;
-                color: #777;
-                text-align: center;
+			.small-txt {
+				margin-top: 15px;
+				font-size: 12px;
+				color: #777;
+				text-align: center;
 
-                .link {
-                    color: #0073e6;
-                    cursor: pointer;
+				.link {
+					color: #0073e6;
+					cursor: pointer;
 
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
-    }
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+	}
 }

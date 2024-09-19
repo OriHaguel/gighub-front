@@ -52,6 +52,7 @@
 				text-align: center;
 				text-decoration: none;
 				transition: background-color 0.3s;
+				text-wrap: nowrap;
 
 				&:hover {
 					background-color: #383a3b;
@@ -72,6 +73,7 @@
 				transition: background-color 0.3s;
 				text-align: left;
 				transition: background-color 0.3s;
+				text-wrap: nowrap;
 
 				&:hover {
 					background-color: #ededed;
