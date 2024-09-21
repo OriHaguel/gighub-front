@@ -24,6 +24,10 @@ export const CustomSelect = ({ placeholder, options, handleSelected, selected }:
 		}
 	}
 
+	const handleSelectToggle = () => {
+		setIsOpen((prev) => !prev)
+	}
+
 	useEffect(() => {
 		window.addEventListener('click', handleClickOutside)
 		return () => {
@@ -32,8 +36,8 @@ export const CustomSelect = ({ placeholder, options, handleSelected, selected }:
 	}, [])
 
 	return (
-		<section ref={selectRef} className={`custom-select ${isOpen ? 'open' : ''}`} onClick={() => setIsOpen(!isOpen)}>
-			<div className='text-container flex align-center space-between'>
+		<section ref={selectRef} className={`custom-select ${isOpen ? 'open' : ''}`}>
+			<div className='text-container flex align-center space-between' onClick={handleSelectToggle}>
 				<span> Sort by: </span>
 				<p>
 					{selected ? selected : placeholder}
