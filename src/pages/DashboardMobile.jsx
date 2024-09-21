@@ -5,6 +5,7 @@ import { useSearchParams } from 'react-router-dom'
 
 import { loadOrders, updateOrder } from '../store/actions/order.actions'
 import { userService } from '../services/user'
+import FlashMessage from '../cmps/FlashMessage'
 
 export function DashboardMobile() {
 	const param = useParams()
@@ -12,6 +13,7 @@ export function DashboardMobile() {
 	const gigs = useSelector(state => state.gigModule.gigs)
 	const [orderStatus, setOrderStatus] = useState('pending')
 	const [searchParams, setSearchParams] = useSearchParams()
+	const [flashMsg, setFlashMsg] = useState('') // State for flash message
 
 	useEffect(() => {
 		const fetchOrders = async () => {
@@ -28,8 +30,10 @@ export function DashboardMobile() {
 	const changeOrderStatus = async (order, status) => {
 		try {
 			await updateOrder({ ...order, status })
+			setFlashMsg(`Order ${status} successfully!`) // Set flash message
 		} catch (error) {
 			console.error('Error updating order status:', error)
+			setFlashMsg('Error updating order status!') // Flash error message
 		}
 	}
 
@@ -37,6 +41,7 @@ export function DashboardMobile() {
 
 	return (
 		<section className='main-container dashboard-page-container'>
+			<FlashMessage msg={flashMsg} /> {/* Flash Message Component */}
 			<div>
 				<article className='dashboard-container'>
 					<header>
