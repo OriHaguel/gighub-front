@@ -85,17 +85,19 @@ export function DashboardMobile() {
 										<p className='mobile-title'>{order.miniGig.title}</p>
 									</div>
 								</div>
-								<div className='buyer-container flex row align-center'>
-									<img className='mobile-buyer-img' src={order.buyer.imgUrl} alt='' />
-									<p className='mobile-buyer-name'>{order.buyer.fullname}</p>
-								</div>
-								<div className='button-container flex row'>
-									<button className='accept-button button' onClick={() => changeOrderStatus(order, 'accepted')}>
-										Accept
-									</button>
-									<button className='decline-button button' onClick={() => changeOrderStatus(order, 'denied')}>
-										Decline
-									</button>
+								<div className='item-footer-container flex align-center space-between'>
+									<div className='buyer-container flex row align-center'>
+										<img className='mobile-buyer-img' src={order.buyer.imgUrl} alt='' />
+										<p className='mobile-buyer-name'>{order.buyer.fullname}</p>
+									</div>
+									<div className='button-container flex row'>
+										<button className='accept-button button' onClick={() => changeOrderStatus(order, 'accepted')}>
+											Accept
+										</button>
+										<button className='decline-button button' onClick={() => changeOrderStatus(order, 'denied')}>
+											Decline
+										</button>
+									</div>
 								</div>
 							</div>
 						))}

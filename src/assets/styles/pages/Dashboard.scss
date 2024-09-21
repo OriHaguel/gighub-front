@@ -352,14 +352,15 @@
 	.accept-button {
 		@include button-border($main_clr1);
 
-		background-color: $main_clr1;
 		color: #fff;
+		background-color: $main_clr1;
 	}
 
 	.decline-button {
 		@include button-border($comp_clr1);
-		background-color: $comp_clr1;
-		color: #fff;
+		color: #555555;
+		background-color: #fff;
+		border: solid 1px #555555;
 	}
 }
 
@@ -420,6 +421,10 @@
 					display: flex;
 					flex-direction: row;
 					align-items: center;
+
+					@media screen and (max-width: $mobile-breakpoint) {
+						margin-block-end: rem(24px);
+					}
 				}
 
 				.button-container {
