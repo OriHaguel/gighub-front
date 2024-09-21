@@ -1,3 +1,5 @@
+## Welcome to **gighub**!
+
 We are the **gighub** team, a digital commerce platform that connects freelancers with employers, inspired by Fiverr.
 
 This is the frontend side of our project, designed to provide a seamless user experience for both freelancers and employers. Our platform features:
