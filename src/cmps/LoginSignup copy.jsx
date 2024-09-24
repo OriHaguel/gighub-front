@@ -22,8 +22,6 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
         const method = !isSignup ? signup : login
 
         method(credentials)
-        // .then(user => showSuccessMsg('Hello!'))
-        // .catch(err => showErrorMsg('Error logging in'))
     }
 
     function onCloseModal() {
@@ -31,52 +29,9 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
         onClose()
     }
     return (
-        // <div className="login-page">
-        //     <form className="login-form" onSubmit={handleSubmit}>
-        //         <input
-        //             type="text"
-        //             name="username"
-        //             value={credentials.username}
-        //             placeholder="Username"
-        //             onChange={handleChange}
-        //             required
-        //             autoFocus
-        //         />
-        //         <input
-        //             type="password"
-        //             name="password"
-        //             value={credentials.password}
-        //             placeholder="Password"
-        //             onChange={handleChange}
-        //             required
-        //             autoComplete="off"
-        //         />
-        //         {isSignup && <input
-        //             type="text"
-        //             name="fullname"
-        //             value={credentials.fullname}
-        //             placeholder="Full name"
-        //             onChange={handleChange}
-        //             required
-        //         />}
-        //         <button>{isSignup ? 'Signup' : 'Login'}</button>
-        //     </form>
-
-        //     <div className="btns">
-        //         <a href="#" onClick={() => setIsSignUp(!isSignup)}>
-        //             {isSignup ?
-        //                 'Already a member? Login' :
-        //                 'New user? Signup here'
-        //             }
-        //         </a >
-        //     </div>
-        // </div >
         <div className='login-container'>
             <form className='form' method='dialog' onSubmit={handleSubmit}>
                 <h2>Create a new account</h2>
-                {/* <p className='sign-in'>
-					Already have an account? <span className='link'>Sign in</span>
-				</p> */}
                 <a href="#" onClick={() => setIsSignUp(!isSignup)}>
                     {isSignup ?
                         'Don\'t have an account? join here' :
@@ -97,7 +52,6 @@ export function LoginSignup({ elModal, onClose, isSignup, setIsSignUp }) {
                                 type='text'
                                 name='fullname'
                                 value={credentials.fullname}
-                                // placeholder="Full name"
                                 onChange={handleChange}
                                 required
                             />

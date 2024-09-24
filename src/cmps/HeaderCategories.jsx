@@ -32,18 +32,3 @@ export function HeaderCategories() {
 	)
 }
 
-
-// const handleClick = (e, category) => {
-// 	e.preventDefault()
-
-// 	const currentCategory = searchParams.get('category')
-// 	const newCategory = category.categoryTxt.split(' ')[0].toLowerCase()
-
-// 	if (currentCategory === newCategory) {
-// 		// If the current category is the same as the new one, refresh the page
-// 		window.location.reload()
-// 	} else {
-// 		// Otherwise, navigate to the new category
-// 		setSearchParams({ category: newCategory })
-// 	}
-// }
